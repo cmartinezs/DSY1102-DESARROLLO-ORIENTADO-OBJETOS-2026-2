@@ -4,6 +4,8 @@ Ejemplos simples para acompañar **Paradigma OO: fundamentos del lenguaje**.
 
 El objetivo no es introducir todavía el desarrollo formal de clases de dominio, sino familiarizarse con la estructura básica de Java, tipos, operadores y estructuras de control.
 
+> **Regla de esta etapa:** durante la Semana 01 no se utiliza entrada por teclado (`Scanner`, `System.in`, etc.). Todos los datos de cada ejemplo quedan preconfigurados directamente en el código. La entrada interactiva se incorporará más adelante, una vez trabajado el concepto de clases.
+
 ## Orden sugerido
 
 1. [`Ejemplo01TiposOperadores.java`](Ejemplo01TiposOperadores.java)
@@ -13,4 +15,4 @@ El objetivo no es introducir todavía el desarrollo formal de clases de dominio,
 5. [`Ejemplo05WhileDoWhile.java`](Ejemplo05WhileDoWhile.java)
 6. [`Ejemplo06Integrador.java`](Ejemplo06Integrador.java)
 
-Cada archivo puede ejecutarse de forma independiente.
+Cada archivo puede ejecutarse de forma independiente y utiliza valores declarados directamente en el método `main`.
