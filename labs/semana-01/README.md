@@ -2,9 +2,11 @@
 
 Los siguientes ejercicios complementan los contenidos oficiales de la actividad **1.1 Paradigma OO: fundamentos del lenguaje**. Están ordenados desde práctica básica hasta integración de contenidos.
 
+> **Regla de esta etapa:** durante la Semana 01 todos los datos deben quedar **preconfigurados directamente en el código**. No se utiliza `Scanner`, `System.in` ni ninguna otra forma de entrada por teclado. La interacción con el usuario se incorporará más adelante, una vez trabajado el concepto de clases.
+
 ## Ejercicio 1 · Conversión de temperatura
 
-Solicite una temperatura en grados Celsius y conviértala a Fahrenheit.
+Defina directamente en el código una temperatura en grados Celsius y conviértala a Fahrenheit.
 
 **Requisitos:**
 
@@ -20,39 +22,39 @@ F = C * 9 / 5 + 32
 
 ## Ejercicio 2 · Mayor de dos números
 
-Solicite dos números enteros e indique cuál es mayor o si ambos son iguales.
+Defina dos números enteros directamente en el código e indique cuál es mayor o si ambos son iguales.
 
 **Requisitos:**
 
-- `Scanner`;
+- variables `int` preconfiguradas;
 - operadores relacionales;
 - `if / else if / else`.
 
 ## Ejercicio 3 · Clasificación de nota
 
-Solicite una nota entre 1.0 y 7.0 y muestre:
+Defina una nota entre 1.0 y 7.0 directamente en el código y muestre:
 
 - `Insuficiente` si es menor a 4.0;
 - `Suficiente` entre 4.0 y 4.9;
 - `Bueno` entre 5.0 y 5.9;
 - `Muy bueno` desde 6.0.
 
-## Ejercicio 4 · Menú simple
+## Ejercicio 4 · Opción con `switch`
 
-Construya un menú con las opciones:
+Defina en el código una variable `opcion` con un valor entre 1 y 4:
 
 1. Saludar.
-2. Mostrar fecha simulada.
+2. Mostrar una fecha simulada.
 3. Mostrar un mensaje de despedida.
-4. Salir.
+4. Finalizar.
 
-Utilice `switch` para procesar la opción elegida.
+Utilice `switch` para procesar el valor preconfigurado. Pruebe el programa modificando manualmente el valor de `opcion` entre ejecuciones.
 
 ## Ejercicio 5 · Tabla de multiplicar
 
-Solicite un número entero e imprima su tabla de multiplicar desde 1 hasta 10 utilizando `for`.
+Defina un número entero directamente en el código e imprima su tabla de multiplicar desde 1 hasta 10 utilizando `for`.
 
-Ejemplo:
+Ejemplo para `numero = 5`:
 
 ```text
 5 x 1 = 5
@@ -61,49 +63,51 @@ Ejemplo:
 5 x 10 = 50
 ```
 
-## Ejercicio 6 · Suma hasta cero
+## Ejercicio 6 · Cuenta regresiva con `while`
 
-Solicite números al usuario y acumule su suma. El proceso termina cuando se ingresa `0`.
+Defina un valor inicial, por ejemplo `contador = 10`, y utilice un ciclo `while` para imprimir una cuenta regresiva hasta llegar a `0`.
 
 **Requisitos:**
 
-- ciclo `while` o `do-while`;
-- acumulador;
-- mostrar la suma al finalizar.
+- valor inicial preconfigurado;
+- ciclo `while`;
+- actualización correcta del contador.
 
-## Ejercicio 7 · Promedio de notas
+## Ejercicio 7 · Acumulador con `do-while`
 
-Solicite primero la cantidad de notas. Luego ingrese cada nota, calcule el promedio e indique si el estudiante aprueba con promedio mayor o igual a 4.0.
+Defina un límite `n`, por ejemplo `n = 5`, y utilice `do-while` para sumar todos los números desde `1` hasta `n`.
 
-**Desafío adicional:** validar que cada nota esté entre 1.0 y 7.0.
+Al finalizar, muestre la suma obtenida.
 
-## Ejercicio 8 · Cajero simplificado
+## Ejercicio 8 · Cajero simplificado sin interacción
 
-Defina un saldo inicial de `$100000`. Muestre repetidamente este menú:
+Defina directamente en el código:
 
-1. Consultar saldo.
-2. Depositar.
-3. Retirar.
-4. Salir.
+- un saldo inicial, por ejemplo `$100000`;
+- una operación, por ejemplo `2` para depositar o `3` para retirar;
+- un monto fijo para la operación.
+
+Utilice `switch` y condicionales para simular una única operación.
 
 ### Reglas
 
 - un depósito debe ser mayor que cero;
 - no se puede retirar más dinero que el saldo disponible;
-- el menú debe repetirse hasta seleccionar `Salir`.
+- debe mostrarse el saldo final;
+- para probar otros casos, cambie manualmente los valores preconfigurados antes de ejecutar nuevamente.
 
-Este ejercicio integra tipos, operadores, condicionales, `switch` y ciclos.
+Este ejercicio integra tipos, operadores, condicionales y `switch` sin utilizar entrada por teclado.
 
 ## Ejercicio 9 · Comparación Python → Java
 
-Implemente en Java un ejercicio que ya haya resuelto anteriormente en Python y documente al menos **cinco diferencias** encontradas entre ambas soluciones.
+Implemente en Java un ejercicio que ya haya resuelto anteriormente en Python utilizando únicamente valores preconfigurados en ambas versiones y documente al menos **cinco diferencias** encontradas.
 
 Considere:
 
 - declaración de variables;
 - tipos;
 - estructura del programa;
-- entrada/salida;
+- sintaxis de salida;
 - sintaxis de condicionales y ciclos;
 - compilación y ejecución.
 
