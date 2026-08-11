@@ -2,7 +2,8 @@
 
 **Periodo:** 10 al 15 de agosto de 2026  
 **Experiencia de aprendizaje:** EA1 · Fundamentos de Programación Orientada a Objetos  
-**Actividad institucional:** 1.1 · Paradigma OO: fundamentos del lenguaje
+**Actividad institucional:** 1.1 · Paradigma OO: fundamentos del lenguaje  
+**Sección:** DSY1102-012V
 
 ## Propósito de la semana
 
@@ -27,6 +28,44 @@ Durante esta semana se refuerzan también elementos esenciales del lenguaje Java
 
 El PDA contempla además la guía docente **1.1.6 EA1 Guía Docente** como recurso de apoyo para esta actividad.
 
+## Distribución por clases · DSY1102-012V
+
+El horario de la sección distribuye las **5 horas pedagógicas oficiales** de la actividad 1.1 en dos sesiones: **martes 3 módulos** y **sábado 2 módulos**.
+
+### Clase 1 · Martes 11 de agosto · 20:31–22:30 · 3 horas pedagógicas
+
+**Foco:** comprender el cambio de paradigma y comenzar a trabajar Java desde los conocimientos previos de Python.
+
+Contenidos principales:
+
+- presentación de la asignatura y propósito de DSY1102;
+- **1.1.1 Paradigma OO**;
+- programación estructurada vs. programación orientada a objetos;
+- diferencias Python/Java: tipado dinámico vs. estático y ciclo de compilación/ejecución;
+- estructura básica de una aplicación Java y método `main`;
+- **1.1.2 Tipos y operadores**;
+- variables, tipos primitivos, `String`;
+- operadores aritméticos, relacionales y lógicos;
+- condiciones simples como aplicación inicial.
+
+**Actividad sugerida:** ejercicios breves de traducción conceptual Python → Java y un mini desafío que solicite datos, procese un cálculo y tome una decisión.
+
+### Clase 2 · Sábado 15 de agosto · 12:11–13:40 · 2 horas pedagógicas
+
+**Foco:** aplicar estructuras de control en Java y consolidar los fundamentos de la semana mediante práctica.
+
+Contenidos principales:
+
+- repaso breve de tipos y operadores;
+- **1.1.3 Estructuras de control**;
+- `if` / `else` y decisiones encadenadas;
+- `switch` cuando corresponda;
+- ciclos `for`, `while` y `do-while`;
+- **1.1.4 Actividad Paradigma OO**;
+- **1.1.5 Ejercicios generales**.
+
+**Actividad sugerida:** resolver ejercicios que combinen entrada de datos, decisiones y ciclos, cerrando con una actividad integradora y una reflexión sobre cómo ese mismo problema podría modelarse posteriormente mediante objetos.
+
 ## Enfoque de trabajo
 
 La semana se abordará principalmente mediante práctica guiada y comparación entre **Python y Java** para aprovechar conocimientos previos sin reducir Java a una mera traducción sintáctica.
@@ -37,10 +76,8 @@ Se debe enfatizar especialmente:
 - declaración explícita de tipos en Java;
 - compilación y ejecución;
 - operadores aritméticos, relacionales y lógicos;
-- `if`, `else`, `switch` cuando corresponda;
-- ciclos `for`, `while` y `do-while`;
+- estructuras condicionales y cíclicas;
 - lectura y comprensión inicial de programas Java;
-- estructura básica de una aplicación Java y método `main`;
 - diferencia conceptual entre resolver un problema mediante una secuencia de instrucciones y modelarlo posteriormente mediante objetos que colaboran.
 
 ## Material original
@@ -55,6 +92,6 @@ Los ejemplos y ejercicios construidos durante las clases se incorporarán progre
 
 ## Observaciones docentes
 
-El cronograma oficial asigna **5 horas pedagógicas** a la actividad 1.1. La distribución concreta entre sesiones debe ajustarse al horario de la sección.
+El cronograma oficial asigna **5 horas pedagógicas** a la actividad 1.1 y el horario de DSY1102-012V coincide exactamente con esa carga semanal: 3 módulos el martes y 2 módulos el sábado.
 
 La evaluación formativa de EA1 se realiza en la **Semana 5** y la EP1 en la **Semana 6**, por lo que esta semana debe establecer una base sólida de sintaxis y comprensión del paradigma que permita avanzar sin arrastrar brechas elementales.
