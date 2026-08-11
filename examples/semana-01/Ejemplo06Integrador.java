@@ -1,23 +1,15 @@
-import java.util.Scanner;
-
 public class Ejemplo06Integrador {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        double nota1 = 5.5;
+        double nota2 = 4.8;
+        double nota3 = 6.1;
 
-        System.out.print("¿Cuántas notas desea ingresar? ");
-        int cantidad = scanner.nextInt();
+        double promedio = (nota1 + nota2 + nota3) / 3;
 
-        double suma = 0;
-
-        for (int i = 1; i <= cantidad; i++) {
-            System.out.print("Ingrese nota " + i + ": ");
-            double nota = scanner.nextDouble();
-            suma += nota;
-        }
-
-        double promedio = suma / cantidad;
-
+        System.out.println("Nota 1: " + nota1);
+        System.out.println("Nota 2: " + nota2);
+        System.out.println("Nota 3: " + nota3);
         System.out.println("Promedio: " + promedio);
 
         if (promedio >= 4.0) {
@@ -26,6 +18,11 @@ public class Ejemplo06Integrador {
             System.out.println("Resultado: reprobado");
         }
 
-        scanner.close();
+        int numero = 5;
+        System.out.println("\nTabla del " + numero + ":");
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
     }
 }
