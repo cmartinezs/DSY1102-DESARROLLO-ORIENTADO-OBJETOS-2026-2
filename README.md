@@ -12,8 +12,8 @@ La asignatura desarrolla progresivamente soluciones de software con **Java y Pro
 - [`docs/`](docs/) — conocimientos y guías transversales.
 - [`labs/`](labs/) — ejercicios y laboratorios prácticos.
 - [`examples/`](examples/) — ejemplos de código desarrollados en clases.
-- [`page/`](page/) — espacio reservado para el portal web del curso.
-- [**Material público del curso**](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk) — biblioteca de archivos originales organizada semana a semana.
+- [`page/`](page/) — portal web del curso desplegado mediante GitHub Actions / GitHub Pages.
+- [**Material público del curso**](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk?usp=sharing) — biblioteca de archivos originales organizada semana a semana.
 
 ## Resultados de aprendizaje
 
@@ -44,7 +44,7 @@ El directorio [`semanas/`](semanas/) mantiene un **README general** que funciona
 
 ### Material original
 
-Los archivos originales utilizados durante cada semana se mantienen en la [biblioteca pública de Google Drive](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk), organizados en carpetas semanales de solo lectura.
+Los archivos originales utilizados durante cada semana se mantienen en la [biblioteca pública de Google Drive](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk?usp=sharing), organizados en carpetas semanales de solo lectura.
 
 ## Evaluaciones
 
