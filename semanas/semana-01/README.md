@@ -5,6 +5,13 @@
 **Actividad institucional:** 1.1 · Paradigma OO: fundamentos del lenguaje  
 **Sección:** DSY1102-012V
 
+## Acceso rápido
+
+- [Planificación detallada de la semana](PLANIFICACION.md)
+- [Ejemplos Java](../../examples/semana-01/)
+- [Ejercicios y desafíos](../../labs/semana-01/)
+- [Material original en Google Drive](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
+
 ## Propósito de la semana
 
 Iniciar la transición desde los fundamentos de programación ya adquiridos hacia el desarrollo con **Java y paradigma orientado a objetos**, comprendiendo las diferencias conceptuales entre programación estructurada y programación orientada a objetos.
@@ -66,6 +73,25 @@ Contenidos principales:
 
 **Actividad sugerida:** resolver ejercicios que combinen entrada de datos, decisiones y ciclos, cerrando con una actividad integradora y una reflexión sobre cómo ese mismo problema podría modelarse posteriormente mediante objetos.
 
+## Material complementario desarrollado para el curso
+
+### Ejemplos
+
+En [`examples/semana-01/`](../../examples/semana-01/) se incluyen ejemplos independientes y progresivos de:
+
+- tipos y operadores;
+- condicionales;
+- `switch`;
+- ciclo `for`;
+- `while` y `do-while`;
+- ejercicio integrador con `Scanner`, ciclo y cálculo de promedio.
+
+### Ejercicios
+
+En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de **10 ejercicios**, desde conversión de temperatura y condicionales simples hasta un cajero simplificado y un análisis conceptual previo a POO.
+
+Los ejercicios 1–3 están pensados especialmente para la clase del martes; los ejercicios 4–10 permiten profundizar durante la clase del sábado.
+
 ## Enfoque de trabajo
 
 La semana se abordará principalmente mediante práctica guiada y comparación entre **Python y Java** para aprovechar conocimientos previos sin reducir Java a una mera traducción sintáctica.
@@ -84,11 +110,7 @@ Se debe enfatizar especialmente:
 
 📁 [Material público · Semana 01](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
 
-Los archivos institucionales que se publiquen para la semana se mantendrán en esa carpeta como fuente original. El contenido de este repositorio funcionará como versión consolidada para estudio y trabajo en clases.
-
-## Desarrollo en GitHub
-
-Los ejemplos y ejercicios construidos durante las clases se incorporarán progresivamente en este repositorio. Cuando exista código reutilizable, se organizará en [`../../examples/`](../../examples/) o [`../../labs/`](../../labs/) y será enlazado desde esta página.
+Los archivos institucionales que se publiquen para la semana se mantendrán en esa carpeta como fuente original. El contenido de este repositorio funciona como versión consolidada para estudio y trabajo en clases.
 
 ## Observaciones docentes
 
