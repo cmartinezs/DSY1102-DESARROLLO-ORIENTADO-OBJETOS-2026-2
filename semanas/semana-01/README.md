@@ -18,6 +18,8 @@ Iniciar la transición desde los fundamentos de programación ya adquiridos haci
 
 Durante esta semana se refuerzan también elementos esenciales del lenguaje Java —tipos, operadores y estructuras de control— antes de avanzar hacia métodos, clases y encapsulamiento.
 
+> **Criterio metodológico:** durante esta primera semana no se utiliza entrada por teclado. Todos los datos de ejemplos y ejercicios quedan definidos directamente en el código. La interacción con el usuario se incorporará más adelante, una vez trabajado el concepto de clases.
+
 ## Indicadores de logro relacionados
 
 - **IL 1.1:** identifica características del paradigma orientado a objetos respecto a otros paradigmas, incluyendo diferencias de tipado, estructura y ciclo de compilación.
@@ -55,7 +57,7 @@ Contenidos principales:
 - operadores aritméticos, relacionales y lógicos;
 - condiciones simples como aplicación inicial.
 
-**Actividad sugerida:** ejercicios breves de traducción conceptual Python → Java y un mini desafío que solicite datos, procese un cálculo y tome una decisión.
+**Actividad sugerida:** ejercicios breves de traducción conceptual Python → Java y un mini desafío con valores preconfigurados directamente en el código, un cálculo y una decisión.
 
 ### Clase 2 · Sábado 15 de agosto · 12:11–13:40 · 2 horas pedagógicas
 
@@ -71,7 +73,7 @@ Contenidos principales:
 - **1.1.4 Actividad Paradigma OO**;
 - **1.1.5 Ejercicios generales**.
 
-**Actividad sugerida:** resolver ejercicios que combinen entrada de datos, decisiones y ciclos, cerrando con una actividad integradora y una reflexión sobre cómo ese mismo problema podría modelarse posteriormente mediante objetos.
+**Actividad sugerida:** resolver ejercicios que combinen datos preconfigurados, decisiones y ciclos, modificando manualmente los valores del código para probar distintos escenarios. El cierre conecta estos problemas con la futura modelación mediante objetos.
 
 ## Material complementario desarrollado para el curso
 
@@ -84,11 +86,13 @@ En [`examples/semana-01/`](../../examples/semana-01/) se incluyen ejemplos indep
 - `switch`;
 - ciclo `for`;
 - `while` y `do-while`;
-- ejercicio integrador con `Scanner`, ciclo y cálculo de promedio.
+- ejercicio integrador con datos definidos en el código, cálculo de promedio, decisión y ciclo.
+
+Ningún ejemplo de esta semana utiliza `Scanner` ni `System.in`.
 
 ### Ejercicios
 
-En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de **10 ejercicios**, desde conversión de temperatura y condicionales simples hasta un cajero simplificado y un análisis conceptual previo a POO.
+En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de **10 ejercicios**. Todos utilizan datos declarados directamente en el código y se prueban modificando esos valores entre ejecuciones.
 
 Los ejercicios 1–3 están pensados especialmente para la clase del martes; los ejercicios 4–10 permiten profundizar durante la clase del sábado.
 
