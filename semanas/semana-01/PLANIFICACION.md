@@ -4,6 +4,8 @@
 **Actividad institucional:** 1.1 · Paradigma OO: fundamentos del lenguaje  
 **Carga oficial:** 5 horas pedagógicas
 
+> **Criterio metodológico de la Semana 01:** no se utiliza entrada por teclado. Todos los datos de los ejercicios y ejemplos se definen directamente en el código. La interacción con el usuario se incorporará más adelante, una vez trabajado el concepto de clases.
+
 ## Distribución de la semana
 
 | Clase | Fecha | Horario | Horas pedagógicas | Foco |
@@ -28,13 +30,13 @@ Comprender el cambio de paradigma y comenzar a trabajar Java aprovechando los co
 7. `String`.
 8. Operadores aritméticos, relacionales y lógicos.
 9. Condición simple como primera aplicación.
-10. Mini desafío práctico.
+10. Mini desafío práctico con datos preconfigurados.
 
 ### Evidencia de cierre
 
 Programa Java pequeño que:
 
-- solicite o defina datos;
+- defina todos sus datos directamente en el código;
 - realice al menos un cálculo;
 - utilice operadores relacionales/lógicos;
 - tome una decisión mediante `if`.
@@ -53,13 +55,13 @@ Aplicar estructuras de control en Java y consolidar los fundamentos de la semana
 4. Ciclo `for`.
 5. Ciclo `while`.
 6. Ciclo `do-while`.
-7. Resolución guiada de ejercicios.
+7. Resolución guiada de ejercicios con valores definidos en el código.
 8. Actividad integradora.
 9. Cierre y conexión con Semana 2: métodos, clases y encapsulamiento.
 
 ### Evidencia de cierre
 
-Ejercicio integrador que combine entrada de datos, decisiones y ciclos.
+Ejercicio integrador que combine datos preconfigurados, decisiones y ciclos. Para probar distintos escenarios, los estudiantes modifican los valores iniciales directamente en el código y vuelven a ejecutar.
 
 ## Indicadores de logro relacionados
 
