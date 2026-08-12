@@ -7,7 +7,8 @@
 
 ## Acceso rápido
 
-- [Planificación detallada de la semana](PLANIFICACION.md)
+- [Clase 01 · Introducción al curso y al paradigma OO](CLASE-01.md)
+- [Actividad complementaria · Otros paradigmas](ACTIVIDAD-PARADIGMAS.md)
 - [Ejemplos Java](../../examples/semana-01/)
 - [Ejercicios y desafíos](../../labs/semana-01/)
 - [Material original en Google Drive](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
@@ -16,18 +17,38 @@
 
 Iniciar la transición desde los fundamentos de programación ya adquiridos hacia el desarrollo con **Java y paradigma orientado a objetos**, comprendiendo las diferencias conceptuales entre programación estructurada y programación orientada a objetos.
 
-Durante esta semana se refuerzan también elementos esenciales del lenguaje Java —tipos, operadores y estructuras de control— antes de avanzar hacia métodos, clases y encapsulamiento.
+> **Criterio metodológico:** durante esta primera semana no se utiliza entrada por teclado. Todos los datos de ejemplos y ejercicios quedan definidos directamente en el código.
 
-> **Criterio metodológico:** durante esta primera semana no se utiliza entrada por teclado. Todos los datos de ejemplos y ejercicios quedan definidos directamente en el código. La interacción con el usuario se incorporará más adelante, una vez trabajado el concepto de clases.
+## Clase realizada · martes 11 de agosto
 
-## Indicadores de logro relacionados
+Durante la primera sesión se trabajaron los siguientes temas:
 
-- **IL 1.1:** identifica características del paradigma orientado a objetos respecto a otros paradigmas, incluyendo diferencias de tipado, estructura y ciclo de compilación.
-- **IL 1.2:** implementa estructuras de control condicionales y cíclicas para representar la lógica de solución de un caso de negocio.
+- recorrido general de la asignatura;
+- fechas y ponderaciones de las evaluaciones;
+- condiciones generales de aplicación de las evaluaciones individuales;
+- Git y GitHub como herramientas del curso;
+- IntelliJ IDEA Community como IDE recomendado para esta etapa;
+- beneficios académicos de GitHub Student Developer Pack y JetBrains;
+- concepto de paradigma de programación;
+- programación estructurada a partir de la experiencia previa con Python;
+- introducción a Programación Orientada a Objetos;
+- concepto general de objeto;
+- objetos tangibles e intangibles;
+- solución de problemas mediante objetos que colaboran;
+- ejemplo conceptual de un automóvil y la colaboración entre sus componentes;
+- diferencias generales entre Java y Python.
 
-> El desarrollo formal de métodos con parámetros, retorno y sobrecarga continúa durante el avance de EA1.
+El detalle de lo trabajado está disponible en [**Clase 01**](CLASE-01.md).
 
-## Contenidos institucionales
+## Actividad complementaria
+
+Además de las actividades disponibles en AVA, se incorpora una investigación breve sobre otros paradigmas de programación.
+
+➡️ [**Abrir actividad · Otros paradigmas de programación**](ACTIVIDAD-PARADIGMAS.md)
+
+La actividad pide investigar al menos cuatro paradigmas, sintetizar cada uno en un máximo de 10 líneas, utilizar palabras propias, indicar fuentes y desarrollar un ejemplo cotidiano propio para uno de ellos.
+
+## Contenidos institucionales de la Semana 01
 
 1. **1.1.1 Paradigma OO**
 2. **1.1.2 Tipos y operadores**
@@ -35,89 +56,20 @@ Durante esta semana se refuerzan también elementos esenciales del lenguaje Java
 4. **1.1.4 Actividad Paradigma OO**
 5. **1.1.5 Ejercicios generales**
 
-El PDA contempla además la guía docente **1.1.6 EA1 Guía Docente** como recurso de apoyo para esta actividad.
-
-## Distribución por clases · DSY1102-012V
-
-El horario de la sección distribuye las **5 horas pedagógicas oficiales** de la actividad 1.1 en dos sesiones: **martes 3 módulos** y **sábado 2 módulos**.
-
-### Clase 1 · Martes 11 de agosto · 20:31–22:30 · 3 horas pedagógicas
-
-**Foco:** comprender el cambio de paradigma y comenzar a trabajar Java desde los conocimientos previos de Python.
-
-Contenidos principales:
-
-- presentación de la asignatura y propósito de DSY1102;
-- **1.1.1 Paradigma OO**;
-- programación estructurada vs. programación orientada a objetos;
-- diferencias Python/Java: tipado dinámico vs. estático y ciclo de compilación/ejecución;
-- estructura básica de una aplicación Java y método `main`;
-- **1.1.2 Tipos y operadores**;
-- variables, tipos primitivos, `String`;
-- operadores aritméticos, relacionales y lógicos;
-- condiciones simples como aplicación inicial.
-
-**Actividad sugerida:** ejercicios breves de traducción conceptual Python → Java y un mini desafío con valores preconfigurados directamente en el código, un cálculo y una decisión.
-
-### Clase 2 · Sábado 15 de agosto · 12:11–13:40 · 2 horas pedagógicas
-
-**Foco:** aplicar estructuras de control en Java y consolidar los fundamentos de la semana mediante práctica.
-
-Contenidos principales:
-
-- repaso breve de tipos y operadores;
-- **1.1.3 Estructuras de control**;
-- `if` / `else` y decisiones encadenadas;
-- `switch` cuando corresponda;
-- ciclos `for`, `while` y `do-while`;
-- **1.1.4 Actividad Paradigma OO**;
-- **1.1.5 Ejercicios generales**.
-
-**Actividad sugerida:** resolver ejercicios que combinen datos preconfigurados, decisiones y ciclos, modificando manualmente los valores del código para probar distintos escenarios. El cierre conecta estos problemas con la futura modelación mediante objetos.
-
 ## Material complementario desarrollado para el curso
 
 ### Ejemplos
 
-En [`examples/semana-01/`](../../examples/semana-01/) se incluyen ejemplos independientes y progresivos de:
-
-- tipos y operadores;
-- condicionales;
-- `switch`;
-- ciclo `for`;
-- `while` y `do-while`;
-- ejercicio integrador con datos definidos en el código, cálculo de promedio, decisión y ciclo.
+En [`examples/semana-01/`](../../examples/semana-01/) se incluyen ejemplos independientes y progresivos de tipos, operadores y estructuras de control.
 
 Ningún ejemplo de esta semana utiliza `Scanner` ni `System.in`.
 
 ### Ejercicios
 
-En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de **10 ejercicios**. Todos utilizan datos declarados directamente en el código y se prueban modificando esos valores entre ejecuciones.
-
-Los ejercicios 1–3 están pensados especialmente para la clase del martes; los ejercicios 4–10 permiten profundizar durante la clase del sábado.
-
-## Enfoque de trabajo
-
-La semana se abordará principalmente mediante práctica guiada y comparación entre **Python y Java** para aprovechar conocimientos previos sin reducir Java a una mera traducción sintáctica.
-
-Se debe enfatizar especialmente:
-
-- diferencia entre lenguaje dinámicamente tipado y lenguaje estáticamente tipado;
-- declaración explícita de tipos en Java;
-- compilación y ejecución;
-- operadores aritméticos, relacionales y lógicos;
-- estructuras condicionales y cíclicas;
-- lectura y comprensión inicial de programas Java;
-- diferencia conceptual entre resolver un problema mediante una secuencia de instrucciones y modelarlo posteriormente mediante objetos que colaboran.
+En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de ejercicios. Todos utilizan datos declarados directamente en el código y se prueban modificando esos valores entre ejecuciones.
 
 ## Material original
 
 📁 [Material público · Semana 01](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
 
-Los archivos institucionales que se publiquen para la semana se mantendrán en esa carpeta como fuente original. El contenido de este repositorio funciona como versión consolidada para estudio y trabajo en clases.
-
-## Observaciones docentes
-
-El cronograma oficial asigna **5 horas pedagógicas** a la actividad 1.1 y el horario de DSY1102-012V coincide exactamente con esa carga semanal: 3 módulos el martes y 2 módulos el sábado.
-
-La evaluación formativa de EA1 se realiza en la **Semana 5** y la EP1 en la **Semana 6**, por lo que esta semana debe establecer una base sólida de sintaxis y comprensión del paradigma que permita avanzar sin arrastrar brechas elementales.
+Los archivos institucionales disponibles para la semana se mantienen en esa carpeta como fuente original. El contenido de este repositorio funciona como material consolidado de apoyo para el curso.
