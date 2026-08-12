@@ -8,7 +8,7 @@
 ## Acceso rápido
 
 - [Clase 01 · Introducción al curso y al paradigma OO](CLASE-01.md)
-- [Actividad complementaria · Otros paradigmas](ACTIVIDAD-PARADIGMAS.md)
+- [Actividad voluntaria BONO-001 · Otros paradigmas](ACTIVIDAD-PARADIGMAS.md)
 - [Ejemplos Java](../../examples/semana-01/)
 - [Ejercicios y desafíos](../../labs/semana-01/)
 - [Material original en Google Drive](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
@@ -40,13 +40,17 @@ Durante la primera sesión se trabajaron los siguientes temas:
 
 El detalle de lo trabajado está disponible en [**Clase 01**](CLASE-01.md).
 
-## Actividad complementaria
+## Actividad voluntaria con bonificación
 
-Además de las actividades disponibles en AVA, se incorpora una investigación breve sobre otros paradigmas de programación.
+Además de las actividades disponibles en AVA, se incorpora la actividad **BONO-001 · Otros paradigmas de programación**.
 
-➡️ [**Abrir actividad · Otros paradigmas de programación**](ACTIVIDAD-PARADIGMAS.md)
+➡️ [**Abrir actividad BONO-001**](ACTIVIDAD-PARADIGMAS.md)
 
-La actividad pide investigar al menos cuatro paradigmas, sintetizar cada uno en un máximo de 10 líneas, utilizar palabras propias, indicar fuentes y desarrollar un ejemplo cotidiano propio para uno de ellos.
+Es una actividad **extra y voluntaria**. Quienes la completen y validen correctamente obtendrán **+0,2 décimas para la EP1**.
+
+La actividad pide investigar al menos cuatro paradigmas, sintetizar cada uno en un máximo de 10 líneas, utilizar palabras propias, indicar fuentes, desarrollar un ejemplo cotidiano propio y cerrar con una comparación personal y una pregunta surgida durante la investigación.
+
+La revisión se realizará brevemente al inicio de la próxima clase y no debiera utilizar más de **10 minutos** del bloque.
 
 ## Contenidos institucionales de la Semana 01
 
