@@ -7,11 +7,11 @@
 
 ## Acceso rápido
 
-- [Clase 01 · Introducción al curso y al paradigma OO](CLASE-01.md)
-- [Actividad voluntaria BONO-001 · Otros paradigmas](ACTIVIDAD-PARADIGMAS.md)
-- [Ejemplos Java](../../examples/semana-01/)
-- [Ejercicios y desafíos](../../labs/semana-01/)
-- [Material original en Google Drive](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
+- [Clase 01 · Introducción al curso y al paradigma OO](CLASE-01.md) · [Drive](https://docs.google.com/document/d/1fnduUAyS1jo-iq31yM9xaQ1E7Z3AZvdSGSIQC8HrDNU/edit)
+- [Actividad voluntaria BONO-001 · Otros paradigmas](ACTIVIDAD-PARADIGMAS.md) · [Drive](https://docs.google.com/document/d/1k0pvL72-SIpGiu6rSozAtQ-3RvRrg_gbcB7nAky0LMY/edit)
+- [Ejemplos Java](../../examples/semana-01/) · [Drive](https://docs.google.com/document/d/1q9_GshaX_CNLrPJs1AluqyedZxWGhb3jWF1RpGbYw9I/edit)
+- [Ejercicios y desafíos](../../labs/semana-01/) · [Drive](https://docs.google.com/document/d/1diLVOWfobgqy0g8DZJNYGqj0zR6tUljnUmHQWrQMYRQ/edit)
+- [Material público completo · Semana 01](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
 
 ## Propósito de la semana
 
@@ -38,13 +38,13 @@ Durante la primera sesión se trabajaron los siguientes temas:
 - ejemplo conceptual de un automóvil y la colaboración entre sus componentes;
 - diferencias generales entre Java y Python.
 
-El detalle de lo trabajado está disponible en [**Clase 01**](CLASE-01.md).
+El detalle de lo trabajado está disponible en [**Clase 01**](CLASE-01.md) y en su [copia pública de Drive](https://docs.google.com/document/d/1fnduUAyS1jo-iq31yM9xaQ1E7Z3AZvdSGSIQC8HrDNU/edit).
 
 ## Actividad voluntaria con bonificación
 
 Además de las actividades disponibles en AVA, se incorpora la actividad **BONO-001 · Otros paradigmas de programación**.
 
-➡️ [**Abrir actividad BONO-001**](ACTIVIDAD-PARADIGMAS.md)
+➡️ [**Abrir actividad BONO-001**](ACTIVIDAD-PARADIGMAS.md) · [Versión Drive](https://docs.google.com/document/d/1k0pvL72-SIpGiu6rSozAtQ-3RvRrg_gbcB7nAky0LMY/edit)
 
 Es una actividad **extra y voluntaria**. Quienes la completen y validen correctamente obtendrán **+0,2 décimas para la EP1**.
 
@@ -64,16 +64,16 @@ La revisión se realizará brevemente al inicio de la próxima clase y no debier
 
 ### Ejemplos
 
-En [`examples/semana-01/`](../../examples/semana-01/) se incluyen ejemplos independientes y progresivos de tipos, operadores y estructuras de control.
+En [`examples/semana-01/`](../../examples/semana-01/) se incluyen ejemplos independientes y progresivos de tipos, operadores y estructuras de control. La misma recopilación está disponible en [Material Público](https://docs.google.com/document/d/1q9_GshaX_CNLrPJs1AluqyedZxWGhb3jWF1RpGbYw9I/edit).
 
 Ningún ejemplo de esta semana utiliza `Scanner` ni `System.in`.
 
 ### Ejercicios
 
-En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de ejercicios. Todos utilizan datos declarados directamente en el código y se prueban modificando esos valores entre ejecuciones.
+En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de ejercicios. Todos utilizan datos declarados directamente en el código y se prueban modificando esos valores entre ejecuciones. La versión documental está disponible en [Material Público](https://docs.google.com/document/d/1diLVOWfobgqy0g8DZJNYGqj0zR6tUljnUmHQWrQMYRQ/edit).
 
-## Material original
+## Material público
 
 📁 [Material público · Semana 01](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
 
-Los archivos institucionales disponibles para la semana se mantienen en esa carpeta como fuente original. El contenido de este repositorio funciona como material consolidado de apoyo para el curso.
+Todo contenido liberado para estudiantes durante esta semana se mantiene disponible tanto en **Material Público de Google Drive** como en este repositorio y se enlaza desde la **web del curso**.
