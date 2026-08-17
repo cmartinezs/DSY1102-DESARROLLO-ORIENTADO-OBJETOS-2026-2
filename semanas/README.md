@@ -14,7 +14,7 @@ Cada semana dispone de dos recursos complementarios:
 | Semana | Periodo | Actividad / contenido | Contenido consolidado | Material original |
 |---|---|---|---|---|
 | **01** | 10–15 agosto 2026 | **1.1 Paradigma OO: fundamentos del lenguaje** | [Abrir Semana 01](semana-01/) | [Abrir Drive](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO) |
-| 02 | 17–22 agosto 2026 | Métodos, clases y encapsulamiento | Próximamente | Próximamente |
+| **02** | 17–22 agosto 2026 | **Métodos, clases y encapsulamiento** | [Abrir Semana 02](semana-02/) | [Abrir Drive](https://drive.google.com/drive/folders/1bDNTBmba5F--fULggNtShZucD9zTnE4F) |
 | 03 | 24–29 agosto 2026 | Herencia, interfaces y polimorfismo | Próximamente | Próximamente |
 | 04 | 31 agosto–5 septiembre 2026 | Excepciones y colecciones | Próximamente | Próximamente |
 | 05 | 7–12 septiembre 2026 | POO aplicada · EF1 | Próximamente | Próximamente |
