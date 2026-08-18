@@ -1,142 +1,145 @@
-# Actividad formativa transversal · PetCare
+# Proyecto formativo transversal · PetCare
 
 ## Propósito
 
-**PetCare** será el hilo conductor formativo de DSY1102 durante el semestre 2026-2.
+**PetCare** es el proyecto formativo transversal de semestre de DSY1102.
 
-La idea central es que los estudiantes no resuelvan ejercicios aislados semana tras semana. En cambio, reutilizarán una misma aplicación que evolucionará con cada nuevo concepto de la asignatura.
+Ya no se entiende solo como un dominio para ejemplos: cada estudiante mantiene una evolución propia del mismo software durante el curso, aplicando lo visto clase a clase y conservando checkpoints verificables.
 
-Cada experiencia de aprendizaje debe responder dos preguntas:
+Material principal del proyecto:
 
-1. ¿qué parte de PetCare ya existe gracias a lo trabajado anteriormente?;
-2. ¿qué capacidad nueva permite incorporar el contenido de esta clase o semana?
+- [Proyecto PetCare](../proyecto-formativo/README.md)
+- [Roadmap semanal](../proyecto-formativo/ROADMAP-SEMANAL.md)
+- [Arquitectura y continuidad](../proyecto-formativo/ARQUITECTURA-Y-CONTINUIDAD.md)
+- [Semana 02](../proyecto-formativo/semana-02/README.md)
+
+## Regla pedagógica
+
+Cada experiencia debe responder:
+
+1. ¿qué checkpoint recibimos?;
+2. ¿qué contenido corresponde hoy?;
+3. ¿qué problema visible de PetCare permite aplicarlo?;
+4. ¿qué cambio hacemos paso a paso?;
+5. ¿qué parte resuelve el estudiante?;
+6. ¿qué queda funcionando al terminar?;
+7. ¿desde dónde continuará la próxima clase?
+
+La experiencia buscada es:
+
+```text
+contenido teórico / ejemplo
+        ↓
+problema concreto en PetCare
+        ↓
+implementación guiada
+        ↓
+parte autónoma breve
+        ↓
+prueba
+        ↓
+checkpoint
+```
+
+## Evidencia individual
+
+PetCare es individual y acumulativo.
+
+El trabajo sostenido puede ser considerado por el docente como evidencia adicional para **compensar una calificación baja del semestre** cuando corresponda, pero no constituye un reemplazo automático de evaluaciones institucionales.
+
+La evidencia debe mostrar proceso real:
+
+- repositorio propio;
+- commits progresivos;
+- checkpoints semanales;
+- código ejecutable;
+- decisiones defendibles;
+- explicación técnica cuando sea solicitada.
 
 ## Separación respecto de evaluaciones
 
-PetCare es un caso **formativo**.
+- PetCare no anticipa el dominio de las evaluaciones sumativas.
+- Se pausa cuando convenga durante EP1, EP2 y EP3.
+- Después se retoma desde el último checkpoint estable.
 
-- No reemplaza ni anticipa el dominio de las evaluaciones sumativas.
-- No se utilizará como solución modelo del caso evaluado.
-- En semanas de evaluación puede pausarse.
-- Después de la evaluación se retoma desde el último checkpoint formativo.
+## Dirección técnica del semestre
 
-## Dominio mínimo inicial
+La Unidad 1 debe terminar con una separación sencilla y reutilizable:
 
-PetCare representa progresivamente la administración básica de mascotas y sus controles.
-
-El sistema comienza intencionalmente pequeño. Conceptos posibles a medida que sean necesarios:
-
-- `Mascota`
-- nombre
-- edad
-- peso
-- especie
-- controles o atenciones
-- propietarios
-
-No deben agregarse clases antes de que exista una necesidad pedagógica para ellas.
-
-## Evolución esperada durante el semestre
-
-### Semana 1 · Fundamentos del lenguaje
-
-Antes de existir objetos, PetCare se representa mediante variables simples dentro de `main`:
-
-```java
-String nombre = "Michi";
-int edad = 4;
-double peso = 5.2;
-boolean vacunado = true;
+```mermaid
+flowchart LR
+    CLI[CLI / Consola] --> CORE[Core Java puro]
 ```
 
-Se utiliza el mismo contexto para practicar tipos, operadores, condiciones, ciclos y lógica básica. La intención es que los estudiantes experimenten las limitaciones de mantener información relacionada como variables sueltas.
+Luego:
 
-### Semana 2 · Métodos, clases y encapsulamiento
-
-El código anterior se reutiliza.
-
-1. extraer comportamiento repetido a métodos;
-2. reconocer que nombre, edad y peso describen un mismo concepto;
-3. crear `Mascota`;
-4. instanciar objetos;
-5. encapsular estado;
-6. modificar estado mediante comportamientos válidos.
-
-Ejemplos de comportamiento:
-
-```text
-cumplirAnio()
-actualizarPeso(nuevoPeso)
-mostrarFicha()
+```mermaid
+flowchart LR
+    CLI[CLI] --> CORE[Core]
+    FX[JavaFX] --> CORE
+    CORE --> REPO[Contrato persistencia]
+    REPO --> JSON[JSON]
+    REPO --> JDBC[JDBC]
 ```
 
-No se enseña encapsulamiento como generación automática de getters/setters: el objeto debe proteger reglas válidas de su estado.
+Esto no se enseña completo desde la primera semana. Se construye cuando el contenido lo permite.
 
-### Semana 3 · Herencia, interfaces y polimorfismo
+La intención es que:
 
-PetCare crece solo cuando los conceptos lo justifican. Puede evolucionar con especializaciones como `Perro` y `Gato`, comportamiento polimórfico e interfaces cuando exista un comportamiento que realmente lo amerite. La jerarquía no se entrega resuelta desde el inicio: se construye a partir del problema.
+- la CLI sea la interfaz de Unidad 1;
+- JavaFX sea otra interfaz en Unidad 2;
+- JSON sea un mecanismo de persistencia de Unidad 2;
+- JDBC sea otro mecanismo de persistencia en Unidad 3;
+- el modelo y las reglas del negocio no tengan que reescribirse cada vez.
 
-### Semana 4 · Excepciones y colecciones
+## Evolución resumida
 
-La aplicación comienza a manejar varias mascotas mediante `List<Mascota>`, búsquedas, recorridos, altas/bajas sencillas, validaciones y excepciones. Se reutilizan las clases anteriores en vez de crear entidades nuevas solo para practicar colecciones.
+### Semana 02
 
-### Semana 5 · POO aplicada
+Variables/ciclos → métodos → `Mascota` → encapsulamiento → separación mínima `cli` / `core.model`.
 
-Checkpoint de consolidación: modelo de objetos, encapsulamiento, herencia/polimorfismo cuando corresponda, colecciones y manejo de errores.
+### Semana 03
 
-### Semana 6 · Evaluación
+Herencia, interfaces y polimorfismo cuando el problema del dominio lo justifique.
 
-PetCare se pausa. La evaluación mantiene su propio dominio y reglas.
+### Semana 04
 
-### Semana 7 · Maven, JavaFX y ciclo de vida
+Colecciones y excepciones; varias mascotas; búsquedas y operaciones sobre el conjunto.
 
-Se retoma el mismo proyecto y se transforma progresivamente en una aplicación de escritorio. El modelo PetCare existente pasa a ser la base del nuevo cliente gráfico.
+### Semana 05
 
-### Semana 8 · FXML, componentes UI y eventos
+Consolidación Unidad 1: core Java puro + CLI.
 
-La interfaz comienza a interactuar con el modelo: formulario de mascota, botones, eventos, FXML y Controller.
+### Semana 06
 
-### Semana 9 · MVC, TableView y validación
+EP1: pausa.
 
-PetCare evoluciona hacia MVC: tabla de mascotas, navegación, formularios, validaciones y separación de responsabilidades.
+### Semanas 07–11
 
-### Semana 10 · JSON, Repository/DAO y MVC completo
+Maven → JavaFX → FXML/eventos → MVC/TableView → persistencia JSON → integración.
 
-Las mascotas dejan de existir solo durante la ejecución: persistencia JSON, repositorio/DAO, recuperación al iniciar e integración con MVC.
+### Semana 12
 
-### Semanas 11–12 · Evaluación
+EP2: pausa.
 
-Se pausa PetCare y se conserva el último checkpoint formativo.
+### Semanas 13–15
 
-### Semana 13 · Base de datos y CRUD
+JDBC → CRUD → DAO/Repository → integración BD.
 
-La persistencia migra desde archivo hacia una base de datos relacional: conexión, consultas, `INSERT`, `UPDATE`, `DELETE`, sentencias parametrizadas y CRUD.
+### Semana 16
 
-### Semana 14 · DAO + interfaz gráfica
+EP3: pausa.
 
-Se reutiliza la aplicación JavaFX/MVC existente, reemplazando o refactorizando la persistencia para trabajar con BD. Esto permite mostrar que la interfaz y el dominio no deberían reescribirse por completo porque cambió el mecanismo de persistencia.
+### Semanas 17–18
 
-### Semanas 15–16 · Evaluación
+EFT/defensa: PetCare puede servir como evidencia histórica y repaso, nunca como pauta de respuesta.
 
-PetCare vuelve a pausarse durante la evaluación formal.
+## Regla de continuidad
 
-## Regla de continuidad clase a clase
+La interfaz, la persistencia y el core deben evolucionar como responsabilidades diferentes.
 
-Cada clase práctica debe dejar un checkpoint reutilizable. El material semanal debe identificar:
+La pregunta recurrente será:
 
-- **Entrada:** qué código/conceptos se reutilizan de la sesión anterior.
-- **Incremento:** qué nueva capacidad se agrega.
-- **Salida:** qué debe quedar funcionando al terminar.
-- **Continuidad:** qué parte se reutilizará en la próxima clase.
+> Si mañana cambia la forma de mostrar o guardar los datos, ¿qué código debería seguir funcionando exactamente igual?
 
-## Patrón pedagógico estándar
-
-**explicación breve → ejemplo del docente sobre PetCare → modificación guiada → laboratorio incremental sobre PetCare → evidencia → explicación del estudiante → checkpoint**
-
-El laboratorio no debe pedir reconstruir la aplicación desde cero. Debe comenzar desde el checkpoint anterior y agregar una capacidad nueva.
-
-## Repositorio del estudiante
-
-Cuando corresponda, el alumno puede mantener su propia copia/proyecto PetCare durante el semestre. El historial Git permitirá observar la evolución conceptual del software y recuperar checkpoints anteriores.
-
-La prioridad no es terminar una aplicación comercial: PetCare existe para hacer visible cómo cada concepto nuevo mejora o transforma software que ya conocían.
+Esa pregunta guía las separaciones del proyecto sin convertir el curso en una clase anticipada de arquitectura.
