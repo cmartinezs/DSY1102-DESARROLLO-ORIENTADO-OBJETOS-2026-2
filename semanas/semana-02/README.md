@@ -6,15 +6,32 @@
 
 ← [Volver al índice](../README.md)
 
-## Actividad formativa transversal
+## Proyecto formativo transversal · PetCare
 
-Desde esta semana se formaliza **PetCare** como hilo conductor de la asignatura.
+Desde esta semana se formaliza **PetCare como proyecto formativo individual de semestre**.
 
-Los ejemplos, ejercicios y laboratorios formativos reutilizarán el mismo dominio siempre que corresponda. Cada clase debe partir desde un checkpoint anterior y agregar una capacidad nueva.
+Cada estudiante mantendrá el mismo software y lo hará evolucionar clase a clase durante:
 
-→ [Ver estrategia transversal PetCare](../../docs/ACTIVIDAD-FORMATIVA-TRANSVERSAL.md)
+```text
+Unidad 1 · Java/POO + CLI
+        ↓
+Unidad 2 · JavaFX/MVC + JSON
+        ↓
+Unidad 3 · JDBC/CRUD
+```
 
-PetCare es formativo y se mantiene separado de los dominios utilizados en evaluaciones sumativas.
+La Unidad 1 debe dejar el core/dominio reutilizable y una CLI que lo invoque. La intención es que JavaFX y JDBC se incorporen después sin rehacer las reglas del negocio.
+
+Material del proyecto:
+
+- [PetCare · proyecto de semestre](../../proyecto-formativo/README.md)
+- [Roadmap hasta fin de curso](../../proyecto-formativo/ROADMAP-SEMANAL.md)
+- [Arquitectura y continuidad](../../proyecto-formativo/ARQUITECTURA-Y-CONTINUIDAD.md)
+- [PetCare · Semana 02](../../proyecto-formativo/semana-02/README.md)
+- [Clase martes 18](../../proyecto-formativo/semana-02/01-clase-martes.md)
+- [Clase sábado 22](../../proyecto-formativo/semana-02/02-clase-sabado.md)
+
+El proyecto podrá utilizarse como **evidencia formativa adicional para compensar una calificación baja**, bajo criterio docente y según proceso demostrado. No existe reemplazo automático de evaluaciones.
 
 ## Qué corresponde oficialmente esta semana
 
@@ -36,36 +53,17 @@ El feriado del sábado 15 eliminó 2 horas pedagógicas. Antes de exigir método
 - estructura mínima de un programa Java;
 - ejercicios con datos definidos directamente en código.
 
-**No se elimina ni se da por sabido este contenido.** Se recupera y, en vez de practicarlo con ejercicios desconectados, se utiliza como primera versión de PetCare.
+**No se elimina ni se da por sabido este contenido.** Se recupera utilizando la primera versión de PetCare.
 
-## Material creado
+# Hoy · martes 18 · 20:31–22:30
 
-### Material principal longitudinal
+Guía principal:
 
-- [Ejemplo ejecutable · PetCare básico](./ejemplos/PetCareBasico.java)
-- [Laboratorio incremental · PetCare: de variables a objeto](./laboratorio-petcare/README.md)
+➡️ [PetCare · Clase martes](../../proyecto-formativo/semana-02/01-clase-martes.md)
 
-### Apoyo complementario
+## Bloque 1 · fundamentos Java sobre PetCare
 
-- [Guía · recuperación + puente a POO](./01-guia-recuperacion-y-puente-poo.md)
-- [Ejemplo complementario · Producto](./ejemplos/ProductoDemo.java)
-- [Laboratorio complementario · Cuenta simple](./laboratorio-cuenta/README.md)
-
-Producto/Cuenta pueden utilizarse como ejemplos adicionales, pero **PetCare es el caso que se conserva y evoluciona entre clases y experiencias de aprendizaje**.
-
-## Hoy lunes 17
-
-**No hay clase DSY1102 hoy.** La siguiente sesión es **martes 18, 20:31–22:30**.
-
-Por tanto, hoy corresponde preparación docente/material. La sesión que debe quedar lista es la de mañana.
-
-## Martes 18 · qué ver específicamente
-
-La clase de mañana debe reforzar de forma explícita **lo atrasado + lo oficial**, utilizando PetCare como contexto común.
-
-### Bloque 1 · 20:31–21:10 · PetCare v0: Java básico pendiente
-
-Partir con una mascota representada mediante variables sueltas:
+Partir con:
 
 ```java
 String nombre = "Michi";
@@ -76,106 +74,110 @@ boolean vacunado = true;
 
 Reforzar:
 
-- estructura `class` + `main`;
-- tipos primitivos y `String`;
-- variables;
-- operadores aritméticos, relacionales y lógicos;
-- comparación rápida con Python.
+- `class` + `main`;
+- tipos y variables;
+- operadores aritméticos;
+- comparaciones;
+- operadores lógicos.
 
-**Práctica:** cambiar valores, calcular edad futura/peso y provocar/corregir errores simples. Sin `Scanner`.
+## Bloque 2 · decisiones
 
-### Bloque 2 · 21:11–21:50 · PetCare v0.1: decisiones
-
-Sobre la misma mascota:
-
-- validar peso;
-- clasificar algún estado mediante `if`/`else`;
+- `if` / `else`;
 - condiciones compuestas;
-- `switch` solo cuando ayude a expresar una alternativa discreta;
-- errores frecuentes.
+- clasificación sencilla;
+- modificar valores y probar ambos caminos.
 
-**Práctica:** modificar el mismo código, no comenzar otro ejercicio.
-
-### Bloque 3 · 21:51–22:30 · PetCare v0.2: ciclos + primer método
+## Bloque 3 · ciclos + primer método si el ritmo permite
 
 - `for`;
-- `while`;
-- `do-while`;
-- repetir operaciones sobre datos de la mascota;
-- detectar código repetido;
-- extraer `mostrarFicha(...)` u otro comportamiento a un método.
+- `while` / `do-while` donde aporten;
+- detectar repetición;
+- primer método `mostrarFicha(...)` solo si ya existe comprensión suficiente.
 
-**Salida mínima del martes:** un checkpoint PetCare que combine tipos + condición + ciclo y, si el ritmo lo permite, un primer método.
+### Últimos 15–30 minutos
 
-> No se sacrifica comprensión de lo atrasado solo para marcar 1.2.1 como “visto”. El contenido oficial se introduce sobre código que los alumnos ya conocen.
+Avance individual del proyecto utilizando la guía.
 
-## Sábado 22 · PetCare v1: contenido oficial Semana 02
+Si no alcanza el tiempo, el checkpoint se completa en casa antes del sábado.
 
-### Bloque 4 · Métodos
+### Checkpoint martes
+
+Programa CLI con:
+
+- datos de mascota;
+- operadores;
+- condición;
+- ciclo;
+- salida legible;
+- método solo si fue alcanzado en clase.
+
+No se sacrifica comprensión para llegar artificialmente a clases/encapsulamiento hoy.
+
+# Sábado 22 · métodos, clases y encapsulamiento
+
+Guía:
+
+➡️ [PetCare · Clase sábado](../../proyecto-formativo/semana-02/02-clase-sabado.md)
 
 Retomar exactamente el checkpoint del martes:
 
-- firma;
-- parámetros;
-- argumentos;
-- retorno;
-- reutilización;
-- sobrecarga simple cuando aporte valor;
-- pasar de lógica dentro de `main` a comportamiento nombrado.
-
-### Bloque 5 · Clases, abstracción y encapsulamiento
-
-Convertir progresivamente las variables relacionadas en:
-
-```java
-class Mascota
+```text
+métodos
+→ parámetros y retorno
+→ datos relacionados
+→ clase Mascota
+→ objetos
+→ private
+→ comportamiento protegido
+→ cli / core.model
 ```
 
-Trabajar:
+## Checkpoint semanal esperado
 
-- entidad → atributos → comportamientos → clase → objeto;
-- instanciación;
-- responsabilidad de una clase;
-- `private` con propósito;
-- invariantes y validación;
-- actualización controlada del peso/estado;
-- getters/setters solo cuando correspondan.
+```text
+src/
+└── cl/duoc/petcare/
+    ├── cli/
+    │   └── App.java
+    └── core/model/
+        └── Mascota.java
+```
 
-Después se realiza el [laboratorio PetCare](./laboratorio-petcare/README.md).
+Con:
 
-La evolución que debe resultar visible es:
-
-**variables sueltas → decisiones/ciclos → métodos → estado + comportamiento → `Mascota` encapsulada.**
-
-## Checkpoint semanal
-
-Al cerrar la semana debe quedar una versión recuperable de PetCare con:
-
-- clase `Mascota`;
 - al menos dos instancias;
 - atributos encapsulados;
-- comportamiento para mostrar ficha;
-- modificación de peso protegida por una regla válida.
+- actualización de peso protegida por una regla;
+- una operación desarrollada por el alumno;
+- CLI utilizando `Mascota`.
 
-**No agregar todavía** herencia, `Perro`, `Gato`, listas ni excepciones. La próxima experiencia de aprendizaje debe descubrir esos conceptos partiendo de la necesidad de evolucionar este mismo código.
+**No agregar todavía** herencia, `Perro`, `Gato`, listas, excepciones, JavaFX ni persistencia.
 
 ## Regla pedagógica
 
-Todavía **no usamos `Scanner`**. El objetivo es reducir variables simultáneas mientras consolidan Java y POO.
+Todavía **no usamos `Scanner`** como prioridad. El objetivo es reducir variables simultáneas mientras consolidan Java y POO.
 
-Encapsulamiento tampoco significa “private + generar getters/setters”. El alumno debe explicar **qué estado protege**, **qué operaciones permite** y **qué estados inválidos evita**.
+Encapsulamiento tampoco significa “private + generar getters/setters”. El alumno debe explicar qué estado protege y qué estados inválidos evita.
 
-## Evidencia mínima semanal
+## Evidencia
 
-El estudiante debe poder:
+El alumno debe mantener:
 
-1. escribir Java básico con decisiones y ciclos;
-2. explicar por qué extraería una lógica a método;
-3. implementar parámetros y retorno;
-4. reconocer `Mascota` como entidad con atributos y comportamientos;
-5. instanciar objetos;
-6. proteger estado mediante comportamiento;
-7. explicar la evolución de PetCare desde variables sueltas hasta objeto.
+- repositorio propio;
+- commit/checkpoint del martes;
+- commit/checkpoint del sábado;
+- código ejecutable;
+- capacidad de explicar decisiones y evolución.
+
+## Material complementario existente
+
+- [Ejemplo ejecutable · PetCare básico](./ejemplos/PetCareBasico.java)
+- [Laboratorio incremental anterior · PetCare](./laboratorio-petcare/README.md)
+- [Guía · recuperación + puente a POO](./01-guia-recuperacion-y-puente-poo.md)
+- [Ejemplo complementario · Producto](./ejemplos/ProductoDemo.java)
+- [Laboratorio complementario · Cuenta simple](./laboratorio-cuenta/README.md)
+
+Estos recursos complementan el proyecto semestral; no reemplazan su continuidad.
 
 ## Material institucional
 
