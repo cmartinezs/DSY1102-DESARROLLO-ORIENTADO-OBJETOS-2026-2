@@ -41,6 +41,12 @@ El proyecto podrá utilizarse como **evidencia formativa adicional para compensa
 - **1.2.4** Guía Actividad Clases y Abstracción.
 - **1.2.5** Ejercicios generales.
 
+## Ejercicios de práctica
+
+➡️ [4 ejercicios · fundamentos Java](./02-ejercicios-fundamentos-java.md)
+
+Situaciones sencillas para practicar variables primitivas, operadores, `if`, `for`, `while`, `do while` e impresión por consola antes de avanzar con mayor profundidad en POO.
+
 ## Qué debemos recuperar de Semana 01
 
 El feriado del sábado 15 eliminó 2 horas pedagógicas. Antes de exigir métodos/clases, todavía debemos reforzar explícitamente:
@@ -171,6 +177,7 @@ El alumno debe mantener:
 
 ## Material complementario existente
 
+- [4 ejercicios · fundamentos Java](./02-ejercicios-fundamentos-java.md)
 - [Ejemplo ejecutable · PetCare básico](./ejemplos/PetCareBasico.java)
 - [Laboratorio incremental anterior · PetCare](./laboratorio-petcare/README.md)
 - [Guía · recuperación + puente a POO](./01-guia-recuperacion-y-puente-poo.md)
