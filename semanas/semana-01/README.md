@@ -10,7 +10,8 @@
 - [Clase 01 · Introducción al curso y al paradigma OO](CLASE-01.md) · [Drive](https://docs.google.com/document/d/1fnduUAyS1jo-iq31yM9xaQ1E7Z3AZvdSGSIQC8HrDNU/edit)
 - [Actividad voluntaria BONO-001 · Otros paradigmas](ACTIVIDAD-PARADIGMAS.md) · [Drive](https://docs.google.com/document/d/1k0pvL72-SIpGiu6rSozAtQ-3RvRrg_gbcB7nAky0LMY/edit)
 - [Ejemplos Java](../../examples/semana-01/) · [Drive](https://docs.google.com/document/d/1q9_GshaX_CNLrPJs1AluqyedZxWGhb3jWF1RpGbYw9I/edit)
-- [Ejercicios y desafíos](../../labs/semana-01/) · [Drive](https://docs.google.com/document/d/1diLVOWfobgqy0g8DZJNYGqj0zR6tUljnUmHQWrQMYRQ/edit)
+- [Práctica de clase](../../practica/semana-01/) · [Web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html)
+- [Desafío semanal](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
 - [Material público completo · Semana 01](https://drive.google.com/drive/folders/179tuhI2o1qnkmQ77EHUMQMs7iwnjFACO)
 
 ## Propósito de la semana
@@ -68,9 +69,13 @@ En [`examples/semana-01/`](../../examples/semana-01/) se incluyen ejemplos indep
 
 Ningún ejemplo de esta semana utiliza `Scanner` ni `System.in`.
 
-### Ejercicios
+### Práctica de clase
 
-En [`labs/semana-01/`](../../labs/semana-01/) se propone una secuencia de ejercicios. Todos utilizan datos declarados directamente en el código y se prueban modificando esos valores entre ejecuciones. La versión documental está disponible en [Material Público](https://docs.google.com/document/d/1diLVOWfobgqy0g8DZJNYGqj0zR6tUljnUmHQWrQMYRQ/edit).
+La práctica corta de la semana se indexa en [`practica/semana-01/`](../../practica/semana-01/) y su enunciado canónico se mantiene en la [web del curso](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html).
+
+Todos los ejercicios utilizan datos declarados directamente en el código y se prueban modificando esos valores entre ejecuciones. La versión documental histórica está disponible en [Material Público](https://docs.google.com/document/d/1diLVOWfobgqy0g8DZJNYGqj0zR6tUljnUmHQWrQMYRQ/edit).
+
+> La antigua ruta `labs/semana-01/` se conserva solamente como referencia histórica porque esos ejercicios fueron reclasificados correctamente como **Práctica de clase**.
 
 ## Material público
 
