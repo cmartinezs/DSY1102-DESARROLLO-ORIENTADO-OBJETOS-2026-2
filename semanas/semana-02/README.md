@@ -87,7 +87,13 @@ Material del proyecto:
 
 El proyecto puede utilizarse como evidencia formativa adicional bajo criterio docente. No reemplaza automáticamente una evaluación.
 
-## 5. Gran desafío 150 · Java pre-POO
+## 5. Desafío semanal
+
+La Semana 2 ya tiene un reto menos guiado, pensado para resolverse con mayor autonomía una vez que el estudiante tenga suficiente contexto de métodos, clase y encapsulamiento.
+
+➡️ [Abrir Desafío semanal](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
+
+## 6. Gran desafío 150 · Java pre-POO
 
 Hasta Semana 2 se encuentran liberados los ejercicios **1–45**:
 
