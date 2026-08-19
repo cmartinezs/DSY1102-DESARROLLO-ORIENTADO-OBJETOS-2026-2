@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
   <style>
-    body{background:#f6f8fc;color:#172033}.wrap{max-width:1100px}.hero{background:linear-gradient(135deg,#111827,#0f766e);color:#fff;border-radius:1.3rem}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:1rem}.muted{color:#6b7280}.accordion-item{border:1px solid #e5e7eb!important;border-radius:1rem!important;overflow:hidden;margin-bottom:.8rem}.accordion-button{font-weight:800}.accordion-button:not(.collapsed){background:#ecfdf5;color:#065f46}.rule{border-left:4px solid #14b8a6;padding-left:1rem}.bad{border-left:4px solid #ef4444;padding-left:1rem}.tree{background:#111827;color:#e5e7eb;border-radius:.85rem;padding:1rem;overflow:auto}.copy-btn{font-size:.8rem}.sticky-nav{position:sticky;top:.75rem;z-index:10}.mini{font-size:.9rem}
+    body{background:#f6f8fc;color:#172033}.wrap{max-width:1100px}.hero{background:linear-gradient(135deg,#111827,#0f766e);color:#fff;border-radius:1.3rem}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:1rem}.muted{color:#6b7280}.accordion-item{border:1px solid #e5e7eb!important;border-radius:1rem!important;overflow:hidden;margin-bottom:.8rem}.accordion-button{font-weight:800}.accordion-button:not(.collapsed){background:#ecfdf5;color:#065f46}.rule{border-left:4px solid #14b8a6;padding-left:1rem}.bad{border-left:4px solid #ef4444;padding-left:1rem}.tree{background:#111827;color:#e5e7eb;border-radius:.85rem;padding:1rem;overflow:auto}.copy-btn{font-size:.8rem}.mini{font-size:.9rem}.identity{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:1rem}
   </style>
 </head>
 <body>
@@ -17,43 +17,40 @@
   <section class="hero p-4 p-md-5 mb-4">
     <div class="small text-white-50 fw-bold">ESTÁNDAR OBLIGATORIO · DSY1102-012V</div>
     <h1 class="display-6 fw-bold mt-2">Un repositorio para toda la asignatura, ordenado desde el primer día.</h1>
-    <p class="lead text-white-50 mb-0">Esta guía explica cómo nombrar el repo, dónde guardar cada tipo de trabajo, qué archivos subir, qué ignorar y cómo entregar sin perderse entre carpetas.</p>
+    <p class="lead text-white-50 mb-0">El nombre del repositorio identifica curso, sección y estudiante. Tus packages Java se identifican con tu usuario institucional Duoc.</p>
   </section>
 
   <section class="panel p-4 mb-4">
-    <h2 class="h4 fw-bold">Nombre del repositorio</h2>
-    <p class="mb-2">Formato:</p>
+    <h2 class="h4 fw-bold">1 · Nombre del repositorio</h2>
     <pre class="tree"><code>&lt;SIGLA&gt;-&lt;SECCION&gt;-nombre-apellido</code></pre>
-    <p class="mb-2 mt-3">Para esta asignatura:</p>
+    <p class="mb-2 mt-3">Ejemplo para esta asignatura:</p>
     <pre class="tree"><code>DSY1102-012V-carlos-martinez</code></pre>
-    <div class="rule mt-3"><strong>Regla:</strong> sigla y sección exactas; nombre y apellido en minúsculas; palabras separadas por guion; sin espacios, tildes ni caracteres especiales.</div>
+    <div class="rule"><strong>Repositorio:</strong> aquí sí usamos la sigla y sección. Nombre y apellido en minúsculas, separados por guion y sin tildes ni caracteres especiales.</div>
+  </section>
+
+  <section class="identity p-4 mb-4">
+    <div class="small fw-bold text-success-emphasis">IMPORTANTE · IDENTIDAD DEL PACKAGE</div>
+    <h2 class="h4 fw-bold mt-1">Tu package NO usa DSY1102 ni 012V</h2>
+    <p>Para el código Java usamos tu <strong>usuario institucional Duoc</strong>. Toma el usuario, elimina los puntos y mantenlo en minúsculas.</p>
+    <div class="row g-3">
+      <div class="col-md-4"><div class="bg-white border rounded p-3"><small class="muted">Usuario Duoc</small><div class="fs-5 fw-bold"><code>c.martinez</code></div></div></div>
+      <div class="col-md-4"><div class="bg-white border rounded p-3"><small class="muted">Identificador</small><div class="fs-5 fw-bold"><code>cmartinez</code></div></div></div>
+      <div class="col-md-4"><div class="bg-white border rounded p-3"><small class="muted">Package raíz</small><div class="fs-5 fw-bold"><code>cl.duoc.cmartinez</code></div></div></div>
+    </div>
+    <p class="small muted mt-3 mb-0">Ejemplo: si tu usuario fuese <code>a.perez</code>, usarías <code>cl.duoc.aperez</code>. No uses el correo completo ni inventes otro nombre.</p>
   </section>
 
   <section class="panel p-4 mb-4">
-    <h2 class="h4 fw-bold">Estructura base</h2>
+    <h2 class="h4 fw-bold">2 · Estructura base</h2>
     <p class="muted">No crees un repositorio nuevo por ejercicio. Todo el semestre vive dentro del mismo repo.</p>
     <pre class="tree"><code>DSY1102-012V-nombre-apellido/
 ├── README.md
 ├── .gitignore
 ├── practica/
-│   ├── semana-01/
-│   ├── semana-02/
-│   └── ...
 ├── examples/
-│   ├── semana-01/
-│   ├── semana-02/
-│   └── ...
 ├── labs/
-│   ├── semana-02/
-│   └── ...
 ├── proyecto-formativo/
-│   └── petcare/
 ├── desafios/
-│   ├── semanales/
-│   ├── desafio-150-java/
-│   ├── desafio-100-poo/
-│   ├── desafio-25-javafx/
-│   └── desafio-25-bd/
 └── evaluaciones/
     ├── ep1/
     ├── ep2/
@@ -62,13 +59,12 @@
   </section>
 
   <div class="accordion" id="guide">
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#a1">1 · Ejercicios de un solo archivo</button></h2><div id="a1" class="accordion-collapse collapse show" data-bs-parent="#guide"><div class="accordion-body"><p>Cuando varios ejercicios solo requieren un <code>Main.java</code>, usa <strong>un solo proyecto Java</strong> y un package distinto por ejercicio. No crees un proyecto IntelliJ completo por cada uno.</p><pre class="tree"><code>practica/semana-02/fundamentos-java/
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#a1">3 · Ejercicios de un solo archivo</button></h2><div id="a1" class="accordion-collapse collapse show" data-bs-parent="#guide"><div class="accordion-body"><p>Usa un solo proyecto Java y un package distinto por ejercicio. Para el usuario <code>c.martinez</code>:</p><pre class="tree"><code>practica/semana-02/fundamentos-java/
 └── src/
-    └── cl/duoc/dsy1102/s012v/practica/semana02/
+    └── cl/duoc/cmartinez/practica/semana02/
         ├── ejercicio01/Main.java
         ├── ejercicio02/Main.java
-        ├── ejercicio03/Main.java
-        └── ejercicio04/Main.java</code></pre><pre class="line-numbers"><code class="language-java">package cl.duoc.dsy1102.s012v.practica.semana02.ejercicio01;
+        └── ejercicio03/Main.java</code></pre><pre class="line-numbers"><code class="language-java">package cl.duoc.cmartinez.practica.semana02.ejercicio01;
 
 public class Main {
     public static void main(String[] args) {
@@ -76,36 +72,35 @@ public class Main {
     }
 }</code></pre></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a2">2 · Laboratorios y actividades de varios archivos</button></h2><div id="a2" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>Un laboratorio tiene su propia subcarpeta. Dentro van todos los archivos necesarios para ejecutar esa actividad.</p><pre class="tree"><code>labs/semana-02/cuenta-simple/
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a2">4 · Laboratorios</button></h2><div id="a2" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>labs/semana-02/cuenta-simple/
 ├── README.md
 └── src/
-    └── cl/duoc/dsy1102/s012v/labs/cuentasimple/
+    └── cl/duoc/cmartinez/labs/cuentasimple/
         ├── Main.java
-        └── Cuenta.java</code></pre><p class="mb-0">Si más adelante usamos Maven o Gradle, también se incluye el archivo de construcción correspondiente.</p></div></div></div>
+        └── Cuenta.java</code></pre><pre class="line-numbers"><code class="language-java">package cl.duoc.cmartinez.labs.cuentasimple;</code></pre></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a3">3 · Proyectos completos</button></h2><div id="a3" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>PetCare, JavaFX, aplicaciones con BD y evaluaciones de tipo proyecto se suben como proyecto completo dentro de una subcarpeta.</p><div class="row g-3"><div class="col-md-6"><div class="rule"><strong>Sí subir</strong><ul class="mb-0 mt-2"><li><code>src/</code></li><li>recursos necesarios</li><li><code>README.md</code></li><li><code>pom.xml</code> / <code>build.gradle</code> cuando corresponda</li><li>configuración de aplicación necesaria y sin secretos</li></ul></div></div><div class="col-md-6"><div class="bad"><strong>No subir</strong><ul class="mb-0 mt-2"><li><code>.idea/</code>, <code>.vscode/</code>, <code>*.iml</code></li><li><code>out/</code>, <code>target/</code>, <code>build/</code>, <code>.gradle/</code></li><li><code>*.class</code>, logs y temporales</li><li>tokens, passwords, claves o credenciales</li></ul></div></div></div></div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a3">5 · Proyecto formativo</button></h2><div id="a3" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>PetCare se mantiene en una sola carpeta durante el semestre:</p><pre class="tree"><code>proyecto-formativo/
+└── petcare/</code></pre><p>Package base sugerido para el ejemplo:</p><pre class="tree"><code>cl.duoc.cmartinez.petcare</code></pre><div class="bad">No crear <code>petcare-final</code>, <code>petcare-v2</code>, <code>petcare-ahora-si</code>. Git ya mantiene el historial.</div></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a4">4 · Desafío 150 y futuros desafíos</button></h2><div id="a4" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>Para los 150 ejercicios pre-POO se usa un solo proyecto y un package por ejercicio:</p><pre class="tree"><code>desafios/desafio-150-java/
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a4">6 · Desafío 150</button></h2><div id="a4" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>desafios/desafio-150-java/
 └── src/
-    └── cl/duoc/dsy1102/s012v/desafios/d150/
+    └── cl/duoc/cmartinez/desafios/d150/
         ├── ejercicio001/Main.java
         ├── ejercicio002/Main.java
-        ├── ejercicio003/Main.java
-        └── ...</code></pre><p class="mb-0">En desafíos posteriores de POO, JavaFX o BD, cada desafío que ya sea una aplicación completa podrá tener su propia subcarpeta de proyecto.</p></div></div></div>
+        └── ...</code></pre><p>Ejemplo:</p><pre class="line-numbers"><code class="language-java">package cl.duoc.cmartinez.desafios.d150.ejercicio025;</code></pre></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a5">5 · Evaluaciones</button></h2><div id="a5" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>evaluaciones/
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a5">7 · Evaluaciones</button></h2><div id="a5" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>evaluaciones/
 ├── ep1/
 ├── ep2/
 ├── ep3/
-└── eft/</code></pre><p>Estas carpetas son exclusivas para entregas evaluadas. La entrega debe contener exactamente lo necesario para ejecutar y revisar esa evaluación.</p><ol class="mb-0"><li>Ejecuta y prueba la entrega.</li><li>Revisa <code>git status</code>.</li><li>Haz un commit final identificable.</li><li>Haz <code>git push</code>.</li><li>Entra a github.com y verifica que los archivos realmente estén allí.</li><li>Entrega la URL indicada por el docente.</li></ol></div></div></div>
+└── eft/</code></pre><p>Ejemplo de package:</p><pre class="tree"><code>cl.duoc.cmartinez.evaluaciones.ep1</code></pre><p class="mb-0">Estas carpetas son exclusivas para entregas evaluadas y deben contener exactamente lo necesario para ejecutar y revisar la entrega.</p></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a6">6 · Packages Java</button></h2><div id="a6" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>Base sugerida:</p><pre class="tree"><code>cl.duoc.dsy1102.s012v</code></pre><p>Ejemplos válidos:</p><pre class="tree"><code>cl.duoc.dsy1102.s012v.practica.semana02.ejercicio01
-cl.duoc.dsy1102.s012v.labs.cuentasimple
-cl.duoc.dsy1102.s012v.proyecto.petcare
-cl.duoc.dsy1102.s012v.desafios.d150.ejercicio025
-cl.duoc.dsy1102.s012v.evaluaciones.ep1</code></pre><div class="rule">El package y la carpeta física deben coincidir. En packages no se usan guiones, espacios, mayúsculas, tildes ni caracteres especiales.</div></div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a6">8 · Cómo transformar tu usuario Duoc</button></h2><div id="a6" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>Reglas:</p><ul><li>usa el usuario institucional, no el correo completo;</li><li>elimina los puntos;</li><li>usa minúsculas;</li><li>no agregues sigla ni sección;</li><li>no inventes abreviaciones diferentes.</li></ul><div class="row g-3"><div class="col-md-6"><div class="rule"><strong>Correcto</strong><pre class="tree mt-2 mb-0"><code>c.martinez → cmartinez → cl.duoc.cmartinez
+a.perez → aperez → cl.duoc.aperez</code></pre></div></div><div class="col-md-6"><div class="bad"><strong>Incorrecto</strong><pre class="tree mt-2 mb-0"><code>cl.duoc.c.martinez
+cl.duoc.carlosmartinez
+cl.duoc.dsy1102.s012v</code></pre></div></div></div></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a7">7 · .gitignore obligatorio</button></h2><div id="a7" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><div class="d-flex justify-content-between align-items-center mb-2"><strong>Base recomendada</strong><button class="btn btn-sm btn-outline-secondary copy-btn" data-copy="gitignoreCode">Copiar</button></div><pre class="tree"><code id="gitignoreCode"># IntelliJ IDEA
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a7">9 · .gitignore obligatorio</button></h2><div id="a7" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><div class="d-flex justify-content-between align-items-center mb-2"><strong>Base recomendada</strong><button class="btn btn-sm btn-outline-secondary copy-btn" data-copy="gitignoreCode">Copiar</button></div><pre class="tree"><code id="gitignoreCode"># IntelliJ IDEA
 .idea/
 *.iml
 *.iws
@@ -138,23 +133,19 @@ Thumbs.db
 *.key
 *.pem</code></pre></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a8">8 · Commits y trabajo entre computadores</button></h2><div id="a8" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>Usa commits pequeños y comprensibles:</p><pre class="tree"><code>practica: resolver ejercicio 03 semana 02
-lab: implementar validación de retiro
-petcare: agregar clase Mascota
-challenge: resolver ejercicio 018
-evaluacion: entregar EP1</code></pre><p>Si trabajas en el instituto y luego en casa:</p><pre class="tree"><code>git pull
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a8">10 · Commits y trabajo entre computadores</button></h2><div id="a8" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>git pull
 # trabajar y probar
 git status
 git add .
-git commit -m "mensaje claro"
-git push</code></pre><div class="rule">En el otro computador: primero <code>git pull</code>, después modifica archivos.</div></div></div></div>
+git commit -m "practica: resolver ejercicio 03 semana 02"
+git push</code></pre><div class="rule">En cada computador: primero <code>git pull</code>; al terminar: commit y <code>git push</code>.</div></div></div></div>
 
-    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a9">9 · Errores que debes evitar</button></h2><div id="a9" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><ul><li>No crear un repo por ejercicio.</li><li>No guardar ZIP del mismo proyecto dentro del repo.</li><li>No crear <code>petcare-final</code>, <code>petcare-final2</code>, <code>petcare-ahora-si</code>: Git ya guarda versiones.</li><li>No ejecutar <code>git init</code> dentro de cada proyecto; debe existir un solo <code>.git</code>, el del repositorio de la asignatura.</li><li>No subir configuraciones locales del IDE, binarios ni secretos.</li></ul><div class="bad"><strong>Importante:</strong> si el docente no puede encontrar, clonar y ejecutar una entrega de manera razonable, la estructura del repositorio todavía no está terminada.</div></div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a9">11 · Errores que debes evitar</button></h2><div id="a9" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><ul><li>No crear un repo por ejercicio.</li><li>No ejecutar <code>git init</code> dentro de cada proyecto.</li><li>No guardar ZIP del mismo proyecto dentro del repo.</li><li>No subir `.idea`, compilados, logs o secretos.</li><li>No escribir packages con el usuario Duoc sin normalizar.</li></ul><div class="bad"><strong>Importante:</strong> si el docente no puede encontrar, clonar y ejecutar una entrega de manera razonable, la estructura todavía no está terminada.</div></div></div></div>
   </div>
 
   <section class="panel p-4 mt-4">
     <h2 class="h4 fw-bold">Checklist antes de decir “listo”</h2>
-    <div class="row g-2 mini"><div class="col-md-6">☐ Nombre correcto del repositorio</div><div class="col-md-6">☐ Archivo en la carpeta correcta</div><div class="col-md-6">☐ Package coincide con la carpeta</div><div class="col-md-6">☐ Código compila y ejecuta</div><div class="col-md-6">☐ Sin `.idea`, `out`, `target`, logs o `.class`</div><div class="col-md-6">☐ Sin credenciales</div><div class="col-md-6">☐ Commit realizado</div><div class="col-md-6">☐ Push realizado y verificado en GitHub</div></div>
+    <div class="row g-2 mini"><div class="col-md-6">☐ Repo: <code>DSY1102-012V-nombre-apellido</code></div><div class="col-md-6">☐ Conozco mi usuario Duoc</div><div class="col-md-6">☐ Eliminé los puntos para formar mi identificador</div><div class="col-md-6">☐ Package raíz: <code>cl.duoc.usuario</code></div><div class="col-md-6">☐ Package coincide con la carpeta</div><div class="col-md-6">☐ Código compila y ejecuta</div><div class="col-md-6">☐ Commit realizado</div><div class="col-md-6">☐ Push verificado en GitHub</div></div>
   </section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
