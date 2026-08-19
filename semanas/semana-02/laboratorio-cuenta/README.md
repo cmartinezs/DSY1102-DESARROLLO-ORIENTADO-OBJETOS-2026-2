@@ -1,9 +1,10 @@
 # Laboratorio · Cuenta simple
 
-El enunciado completo fue migrado a la web del curso para mantener una sola fuente canónica.
+El enunciado completo se mantiene en la web del curso como fuente canónica.
 
-➡️ https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html
+➡️ **Laboratorios DSY1102**  
+https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html
 
-Abre **Semana 2 · Fundamentos Java + puente a POO** y busca **Cuenta simple · de lógica a objeto**.
+Busca **Semana 2 · Cuenta simple**.
 
-> Este Markdown queda solo como referencia histórica y enlace desde la planificación.
+> Este Markdown queda solo como referencia desde la planificación y el historial del repositorio.
