@@ -48,8 +48,9 @@ Ejercicios cortos y focalizados para consolidar fundamentos.
 
 ➡️ [Abrir Práctica de clase · Semana 2](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html)
 
-Referencia histórica en el repositorio:
+Índice del repositorio:
 
+- [practica/semana-02](../../practica/semana-02/)
 - [02-ejercicios-fundamentos-java.md](./02-ejercicios-fundamentos-java.md)
 
 ## 2. Guía de recuperación y puente a POO
@@ -58,19 +59,31 @@ Referencia histórica en el repositorio:
 
 La guía conecta la sintaxis básica de Java con métodos, clases y encapsulamiento sin saltar directamente a una arquitectura compleja.
 
-## 3. Laboratorio · Cuenta simple
+## 3. Ejemplos de código
+
+Los ejemplos reutilizables de la semana se centralizan en la carpeta global de ejemplos:
+
+➡️ [examples/semana-02](../../examples/semana-02/)
+
+- [PetCareBasico.java](../../examples/semana-02/PetCareBasico.java) — fundamentos + primer método `static` con parámetros.
+- [ProductoDemo.java](../../examples/semana-02/ProductoDemo.java) — clase, objeto, constructor y encapsulamiento.
+
+La ruta local [`ejemplos/`](./ejemplos/) queda solo como referencia contextual para evitar mantener dos copias activas del mismo código.
+
+## 4. Laboratorio · Cuenta simple
 
 Un laboratorio es una actividad guiada e integradora; no es un ejercicio corto.
 
 ➡️ [Abrir Laboratorios en la web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html)
 
-Referencia:
+Índice del repositorio:
 
+- [labs/semana-02](../../labs/semana-02/)
 - [laboratorio-cuenta/README.md](./laboratorio-cuenta/README.md)
 
 El laboratorio evoluciona desde lógica estructurada hacia métodos, clase y encapsulamiento.
 
-## 4. Proyecto formativo transversal · PetCare
+## 5. Proyecto formativo transversal · PetCare
 
 PetCare **no es un laboratorio aislado**. Es el proyecto longitudinal del semestre y debe continuar desde checkpoints anteriores.
 
@@ -87,13 +100,13 @@ Material del proyecto:
 
 El proyecto puede utilizarse como evidencia formativa adicional bajo criterio docente. No reemplaza automáticamente una evaluación.
 
-## 5. Desafío semanal
+## 6. Desafío semanal
 
 La Semana 2 ya tiene un reto menos guiado, pensado para resolverse con mayor autonomía una vez que el estudiante tenga suficiente contexto de métodos, clase y encapsulamiento.
 
 ➡️ [Abrir Desafío semanal](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
 
-## 6. Gran desafío 150 · Java pre-POO
+## 7. Gran desafío 150 · Java pre-POO
 
 Hasta Semana 2 se encuentran liberados los ejercicios **1–45**:
 
@@ -105,11 +118,6 @@ Hasta Semana 2 se encuentran liberados los ejercicios **1–45**:
 Las etapas que incorporan `Scanner`, métodos `static`, arrays y matrices se irán desbloqueando al llegar a las semanas curriculares correspondientes.
 
 ➡️ [Abrir Desafío 150](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-150.html)
-
-## Ejemplos disponibles
-
-- [PetCareBasico.java](./ejemplos/PetCareBasico.java)
-- [ProductoDemo.java](./ejemplos/ProductoDemo.java)
 
 ## Checkpoint esperado al cerrar Semana 2
 
