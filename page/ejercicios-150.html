@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0d6efd">
+  <title>Ejercicios · Desafío 150 Java · DSY1102</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{--ink:#172033;--muted:#687386;--line:#e7eaf0;--bg:#f6f8fc}
+    body{background:var(--bg);color:var(--ink)}
+    .navbar-brand span{color:#a78bfa}.wrap{max-width:1180px}.topbar{background:#fff;border-bottom:1px solid var(--line)}
+    .summary{background:linear-gradient(135deg,#111827,#312e81);color:#fff;border-radius:1.25rem;padding:1.3rem;box-shadow:0 14px 40px rgba(17,24,39,.13)}
+    .panel{background:#fff;border:1px solid var(--line);border-radius:1rem;box-shadow:0 8px 28px rgba(20,30,55,.05)}
+    .stat{min-width:110px}.stat strong{font-size:1.25rem}.muted{color:var(--muted)}
+    .accordion-item{border:1px solid var(--line)!important;border-radius:1rem!important;overflow:hidden;margin-bottom:.75rem;background:#fff}
+    .accordion-button{font-weight:800;gap:.8rem}.accordion-button:not(.collapsed){background:#f3f0ff;color:#4c1d95;box-shadow:none}
+    .stage-meta{font-size:.8rem;font-weight:600;color:var(--muted)}
+    .exercise-row{display:grid;grid-template-columns:58px 1fr auto auto;gap:.8rem;align-items:center;padding:.72rem .9rem;border-top:1px solid #eef0f4;cursor:pointer;transition:.14s ease;background:#fff}
+    .exercise-row:hover{background:#f8f9ff}.exercise-row.done{background:#f5fff8}.exercise-row.done .exercise-title{text-decoration:line-through;text-decoration-color:#91b89b}
+    .exercise-id{font-size:.8rem;font-weight:800;color:#6b7280;font-variant-numeric:tabular-nums}.exercise-title{font-weight:750}.exercise-short{font-size:.83rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:650px}
+    .badge-diff{font-size:.72rem}.check-wrap{display:flex;align-items:center;justify-content:center}.form-check-input{width:1.15rem;height:1.15rem;cursor:pointer}
+    .filters{position:sticky;top:.75rem;z-index:15}.progress{height:.65rem}.searchbox{min-width:220px}
+    .modal-content{border:0;border-radius:1.1rem}.codebox{background:#111827;color:#e5e7eb;border-radius:.8rem;padding:1rem;overflow:auto}
+    .tag-chip{display:inline-block;background:#eef2ff;color:#3949ab;border-radius:999px;padding:.25rem .55rem;font-size:.75rem;font-weight:700;margin:.12rem}
+    @media(max-width:768px){.exercise-row{grid-template-columns:48px 1fr auto}.exercise-short,.exercise-row>.badge-diff{display:none}.summary{border-radius:0}.filters{position:static}.searchbox{min-width:0}.wrap{padding-left:.75rem;padding-right:.75rem}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark"><div class="container wrap"><a class="navbar-brand fw-bold" href="index.html">DSY1102 <span>· Java Challenge</span></a><div class="d-flex gap-2"><a class="btn btn-outline-light btn-sm" href="desafio-150.html">Guía</a><a class="btn btn-light btn-sm" href="index.html">Curso</a></div></div></nav>
+
+<main class="container wrap py-4">
+  <section class="summary mb-4">
+    <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 align-items-lg-center">
+      <div><div class="small text-white-50 fw-semibold">DESAFÍO 150 JAVA</div><h1 class="h3 fw-bold mb-1">Ejercicios</h1><p class="mb-0 text-white-50">Abre una etapa, elige un ejercicio y trabaja sin perderte en una página interminable.</p></div>
+      <div class="d-flex gap-4 flex-wrap"><div class="stat"><small class="text-white-50 d-block">Completados</small><strong><span id="doneCount">0</span>/150</strong></div><div class="stat"><small class="text-white-50 d-block">Progreso</small><strong><span id="donePercent">0</span>%</strong></div><div class="stat"><small class="text-white-50 d-block">Pendientes</small><strong id="pendingCount">150</strong></div></div>
+    </div>
+    <div class="progress mt-3 bg-white bg-opacity-25"><div id="progressBar" class="progress-bar bg-success" style="width:0%"></div></div>
+  </section>
+
+  <section class="panel p-3 mb-4 filters">
+    <div class="row g-2 align-items-center">
+      <div class="col-md"><input id="searchInput" class="form-control searchbox" placeholder="Buscar: promedio, Scanner, array, matriz..."></div>
+      <div class="col-6 col-md-2"><select id="difficultyFilter" class="form-select"><option value="all">Dificultad</option><option>Inicial</option><option>Básico</option><option>Intermedio</option><option>Avanzado</option><option>Desafío</option></select></div>
+      <div class="col-6 col-md-2"><select id="statusFilter" class="form-select"><option value="all">Estado</option><option value="pending">Pendientes</option><option value="done">Completados</option></select></div>
+      <div class="col-md-auto d-flex gap-2"><button id="nextPendingBtn" class="btn btn-primary">Siguiente pendiente</button><button id="clearFilters" class="btn btn-outline-secondary">Limpiar</button></div>
+    </div>
+  </section>
+
+  <div class="accordion" id="stagesAccordion"></div>
+  <div id="emptyState" class="panel p-5 text-center d-none"><h2 class="h5">No encontré ejercicios con esos filtros.</h2><p class="muted mb-0">Prueba otra búsqueda o limpia los filtros.</p></div>
+</main>
+
+<div class="modal fade" id="exerciseModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><div><div id="modalNumber" class="small text-secondary fw-bold"></div><h2 id="modalTitle" class="modal-title h4 fw-bold"></h2></div><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div id="modalMeta" class="mb-3"></div><p id="modalDesc" class="fs-5"></p><div class="alert alert-light border"><strong>Objetivo</strong><p class="mb-0 mt-1">Resuelve el problema con los conceptos disponibles en esta etapa. Evita adelantarte usando herramientas que todavía no correspondan.</p></div><div><strong>Punto de partida sugerido</strong><pre class="codebox mt-2 mb-0"><code id="starterCode"></code></pre></div></div><div class="modal-footer justify-content-between"><button id="copyStarterBtn" class="btn btn-outline-secondary">Copiar estructura</button><button id="modalDoneBtn" class="btn btn-success">Marcar como realizado</button></div></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="desafio-150-data.js"></script>
+<script>
+const exercises=window.EXERCISES||[];
+const STORAGE_KEY='dsy1102-desafio150-completados';
+let done=new Set(JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'));
+let activeExercise=null;
+const $=id=>document.getElementById(id);
+const modal=new bootstrap.Modal($('exerciseModal'));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+const stageOrder=[...new Set(exercises.map(e=>e.stage))];
+
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify([...done]));updateStats();render();}
+function updateStats(){const n=done.size,p=Math.round(n/150*100);$('doneCount').textContent=n;$('donePercent').textContent=p;$('pendingCount').textContent=150-n;$('progressBar').style.width=p+'%';}
+function difficultyClass(d){return d==='Inicial'?'text-bg-info':d==='Básico'?'text-bg-success':d==='Intermedio'?'text-bg-warning':d==='Avanzado'?'text-bg-danger':'text-bg-dark';}
+function matches(e){const q=$('searchInput').value.trim().toLowerCase(),df=$('difficultyFilter').value,sf=$('statusFilter').value;const hay=[e.title,e.description,...e.tags,e.stageName].join(' ').toLowerCase();if(q&&!hay.includes(q))return false;if(df!=='all'&&e.difficulty!==df)return false;if(sf==='done'&&!done.has(e.id))return false;if(sf==='pending'&&done.has(e.id))return false;return true;}
+function render(){const filtered=exercises.filter(matches),acc=$('stagesAccordion');acc.innerHTML='';$('emptyState').classList.toggle('d-none',filtered.length>0);stageOrder.forEach((stage,idx)=>{const items=filtered.filter(e=>e.stage===stage);if(!items.length)return;const allStage=exercises.filter(e=>e.stage===stage),doneStage=allStage.filter(e=>done.has(e.id)).length;const stageName=allStage[0].stageName;const item=document.createElement('div');item.className='accordion-item';const collapseId='stage-'+stage;item.innerHTML=`<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}"><span class="badge text-bg-primary rounded-pill">${stage}</span><span><span class="d-block">${esc(stageName.replace(/^Etapa \d+ · /,''))}</span><span class="stage-meta">${doneStage}/${allStage.length} completados · ${items.length} visibles</span></span></button></h2><div id="${collapseId}" class="accordion-collapse collapse" data-bs-parent="#stagesAccordion"><div class="accordion-body p-0">${items.map(e=>`<div class="exercise-row ${done.has(e.id)?'done':''}" data-id="${e.id}" role="button" tabindex="0"><div class="exercise-id">#${String(e.id).padStart(3,'0')}</div><div class="min-w-0"><div class="exercise-title">${esc(e.title)}</div><div class="exercise-short">${esc(e.description)}</div></div><span class="badge badge-diff ${difficultyClass(e.difficulty)}">${esc(e.difficulty)}</span><div class="check-wrap"><input class="form-check-input exercise-check" type="checkbox" ${done.has(e.id)?'checked':''} data-id="${e.id}" aria-label="Marcar ejercicio ${e.id} como realizado"></div></div>`).join('')}</div></div>`;acc.appendChild(item);});bindRows();}
+function bindRows(){document.querySelectorAll('.exercise-row').forEach(row=>{const open=()=>openExercise(Number(row.dataset.id));row.addEventListener('click',ev=>{if(ev.target.classList.contains('exercise-check'))return;open();});row.addEventListener('keydown',ev=>{if(ev.key==='Enter')open();});});document.querySelectorAll('.exercise-check').forEach(ch=>ch.addEventListener('change',ev=>{ev.stopPropagation();const id=Number(ch.dataset.id);ch.checked?done.add(id):done.delete(id);save();}));}
+function starter(e){const needsScanner=e.tags.some(t=>t.toLowerCase().includes('scanner'))||e.id>=46;const methods=e.id>=81;let lines=['public class Main {'];if(methods){lines.push('    // Define aquí los métodos static que necesites.','');}lines.push('    public static void main(String[] args) {');if(needsScanner)lines.push('        // Scanner scanner = new Scanner(System.in);');else lines.push('        // Define aquí los datos iniciales y cambia sus valores para probar otros casos.');lines.push('','        // Implementa tu solución.','    }','}');if(needsScanner)lines.unshift('import java.util.Scanner;','');return lines.join('\n');}
+function openExercise(id){const e=exercises.find(x=>x.id===id);if(!e)return;activeExercise=e;$('modalNumber').textContent=`Ejercicio #${String(e.id).padStart(3,'0')} · ${e.stageName}`;$('modalTitle').textContent=e.title;$('modalDesc').textContent=e.description;$('modalMeta').innerHTML=`<span class="badge ${difficultyClass(e.difficulty)} me-2">${esc(e.difficulty)}</span>`+e.tags.map(t=>`<span class="tag-chip">${esc(t)}</span>`).join('');$('starterCode').textContent=starter(e);$('modalDoneBtn').textContent=done.has(e.id)?'Marcar como pendiente':'Marcar como realizado';$('modalDoneBtn').className=done.has(e.id)?'btn btn-outline-success':'btn btn-success';modal.show();}
+$('modalDoneBtn').addEventListener('click',()=>{if(!activeExercise)return;done.has(activeExercise.id)?done.delete(activeExercise.id):done.add(activeExercise.id);save();modal.hide();});
+$('copyStarterBtn').addEventListener('click',async()=>{await navigator.clipboard.writeText($('starterCode').textContent);$('copyStarterBtn').textContent='Copiado ✓';setTimeout(()=>$('copyStarterBtn').textContent='Copiar estructura',1200);});
+['searchInput','difficultyFilter','statusFilter'].forEach(id=>$(id).addEventListener(id==='searchInput'?'input':'change',render));
+$('clearFilters').addEventListener('click',()=>{$('searchInput').value='';$('difficultyFilter').value='all';$('statusFilter').value='all';render();});
+$('nextPendingBtn').addEventListener('click',()=>{const e=exercises.find(x=>!done.has(x.id));if(e)openExercise(e.id);});
+updateStats();render();
+</script>
+</body></html>
