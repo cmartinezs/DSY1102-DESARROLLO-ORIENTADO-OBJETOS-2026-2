@@ -26,28 +26,18 @@ Ejemplo:
 DSY1102-012V-carlos-martinez
 ```
 
-### Reglas del nombre
+Reglas:
 
-- La sigla y sección se escriben exactamente como se indican: `DSY1102-012V`.
-- Nombre y apellido van en minúsculas.
-- Se separan las palabras con guion `-`.
-- No usar espacios.
-- No usar tildes, `ñ` ni caracteres especiales.
-- Si tienes dos nombres o dos apellidos, utiliza al menos el primer nombre y primer apellido, salvo que el docente indique otra cosa.
-
-Ejemplos válidos:
-
-```text
-DSY1102-012V-ana-perez
-DSY1102-012V-jose-gonzalez
-DSY1102-012V-maria-jose-rojas
-```
+- sigla y sección exactas;
+- nombre y apellido en minúsculas;
+- palabras separadas por guion `-`;
+- sin espacios, tildes, `ñ` ni caracteres especiales.
 
 ---
 
 ## 2. Un repositorio para toda la asignatura
 
-No se debe crear un repositorio nuevo por cada ejercicio, laboratorio o evaluación. El repositorio personal representa **todo el trabajo del semestre**.
+No se crea un repositorio por ejercicio, laboratorio o evaluación.
 
 ```text
 DSY1102-012V-nombre-apellido/
@@ -79,45 +69,33 @@ DSY1102-012V-nombre-apellido/
     └── eft/
 ```
 
-> No todas las carpetas tendrán contenido desde el primer día. Se completarán a medida que avance el semestre.
-
 ---
 
 ## 3. Identificador personal para packages Java
 
-El nombre del repositorio identifica **asignatura + sección + estudiante**. En cambio, el package Java utilizará el **usuario institucional Duoc del estudiante**, porque es un identificador más estable y evita repetir la sigla y sección en cada package.
+El repositorio identifica **asignatura + sección + estudiante**. El package Java identifica al estudiante mediante su **usuario institucional Duoc normalizado**.
 
-### Cómo obtener el identificador
-
-Toma tu usuario Duoc **sin el dominio del correo** y elimina los puntos.
-
-Ejemplo del docente:
+Ejemplo:
 
 ```text
 Usuario Duoc: c.martinez
-Identificador para packages: cmartinez
+Identificador: cmartinez
+Package raíz: cl.duoc.cmartinez
 ```
 
-Por lo tanto, la raíz del package será:
-
-```text
-cl.duoc.cmartinez
-```
-
-Para otro estudiante cuyo usuario fuera `a.perez`, sería:
+Para `a.perez`:
 
 ```text
 cl.duoc.aperez
 ```
 
-### Reglas de normalización
+Reglas:
 
-- utilizar el usuario institucional asignado por Duoc;
-- no utilizar el correo completo;
-- eliminar los puntos del usuario;
-- escribir todo en minúsculas;
-- no utilizar espacios, guiones, tildes ni caracteres especiales;
-- no inventar abreviaciones distintas a su usuario institucional.
+- usar el usuario institucional asignado por Duoc;
+- no usar el correo completo;
+- eliminar los puntos;
+- usar minúsculas;
+- no inventar otro identificador.
 
 Incorrecto:
 
@@ -125,22 +103,35 @@ Incorrecto:
 cl.duoc.c.martinez
 cl.duoc.carlosmartinez
 cl.duoc.dsy1102.s012v
-cl.duoc.CMartinez
-```
-
-Correcto para `c.martinez`:
-
-```text
-cl.duoc.cmartinez
 ```
 
 ---
 
-## 4. Práctica de clase
+## 4. Regla de diseño: no repetir en el package lo que ya dice la carpeta
 
-Los ejercicios cortos de una misma actividad pueden compartir un único proyecto Java. Cada ejercicio de un solo archivo se separa mediante un package propio.
+Esta es la regla central del estándar.
 
-Ejemplo para el usuario `c.martinez`:
+Si la ruta externa ya indica:
+
+```text
+practica/semana-02/fundamentos-java/
+```
+
+**no repetimos** `practica`, `semana02` ni `fundamentosjava` dentro del package solo por copiar la ruta.
+
+Las carpetas externas responden a:
+
+```text
+¿Qué tipo de entrega es? ¿De qué semana? ¿Qué proyecto es?
+```
+
+El package responde a:
+
+```text
+¿De quién es el código? ¿Cómo se organiza internamente este proyecto?
+```
+
+Por eso, para ejercicios de un archivo:
 
 ```text
 practica/semana-02/fundamentos-java/
@@ -148,49 +139,87 @@ practica/semana-02/fundamentos-java/
     └── cl/
         └── duoc/
             └── cmartinez/
-                └── practica/
-                    └── semana02/
-                        ├── ejercicio01/
-                        │   └── Main.java
-                        ├── ejercicio02/
-                        │   └── Main.java
-                        ├── ejercicio03/
-                        │   └── Main.java
-                        └── ejercicio04/
-                            └── Main.java
+                ├── ejercicio01/
+                │   └── Main.java
+                ├── ejercicio02/
+                │   └── Main.java
+                └── ejercicio03/
+                    └── Main.java
 ```
 
-El primer archivo declararía:
+El primer archivo declara:
 
 ```java
-package cl.duoc.cmartinez.practica.semana02.ejercicio01;
+package cl.duoc.cmartinez.ejercicio01;
 
 public class Main {
     public static void main(String[] args) {
-        // solución del ejercicio
+        // solución
     }
 }
 ```
 
-No se crea un proyecto IntelliJ completo por cada `Main.java`.
-
----
-
-## 5. Ejemplos de clase
-
-`examples/` puede contener código escrito siguiendo ejemplos desarrollados o reconstruidos durante la clase. No es una carpeta para copiar sin entender: sirve para conservar pruebas, modificaciones o extensiones hechas por el estudiante.
-
-Ejemplo de package:
+Esto evita estructuras artificialmente largas como:
 
 ```text
-cl.duoc.cmartinez.examples.semana02
+practica/semana-02/fundamentos-java/src/cl/duoc/cmartinez/practica/semana02/...
 ```
 
 ---
 
-## 6. Laboratorios
+## 5. Práctica de clase
 
-Los laboratorios son actividades de mayor alcance y cada uno debe tener su propia subcarpeta.
+Los ejercicios cortos de una misma actividad comparten un único proyecto Java cuando sea razonable.
+
+Ejemplo:
+
+```text
+practica/semana-02/fundamentos-java/
+└── src/cl/duoc/cmartinez/
+    ├── ejercicio01/Main.java
+    ├── ejercicio02/Main.java
+    ├── ejercicio03/Main.java
+    └── ejercicio04/Main.java
+```
+
+Packages:
+
+```text
+cl.duoc.cmartinez.ejercicio01
+cl.duoc.cmartinez.ejercicio02
+cl.duoc.cmartinez.ejercicio03
+cl.duoc.cmartinez.ejercicio04
+```
+
+No crear un proyecto IntelliJ completo por cada `Main.java`.
+
+---
+
+## 6. Ejemplos de clase
+
+`examples/` conserva código escrito, probado, modificado o extendido por el estudiante a partir de ejemplos de clase.
+
+Si una carpeta externa ya identifica semana y ejemplo, el package puede mantenerse simple:
+
+```text
+examples/semana-02/metodos/
+└── src/cl/duoc/cmartinez/
+    └── Main.java
+```
+
+Package:
+
+```java
+package cl.duoc.cmartinez;
+```
+
+Si dentro del mismo proyecto hay varias áreas de código, se agregan packages por responsabilidad, no para duplicar la ruta externa.
+
+---
+
+## 7. Laboratorios
+
+Cada laboratorio tiene su propia subcarpeta.
 
 ```text
 labs/
@@ -198,7 +227,7 @@ labs/
     └── cuenta-simple/
         ├── README.md
         └── src/
-            └── cl/duoc/cmartinez/labs/cuentasimple/
+            └── cl/duoc/cmartinez/cuentasimple/
                 ├── Main.java
                 └── Cuenta.java
 ```
@@ -206,59 +235,65 @@ labs/
 Package:
 
 ```java
-package cl.duoc.cmartinez.labs.cuentasimple;
+package cl.duoc.cmartinez.cuentasimple;
 ```
 
-Si el laboratorio utiliza Maven o Gradle más adelante, se incluyen también los archivos de construcción necesarios (`pom.xml`, `build.gradle`, etc.).
+Aquí `cuentasimple` sí aporta valor porque identifica el pequeño sistema o dominio del laboratorio. No repetimos `labs` ni `semana02`.
 
 ---
 
-## 7. Proyecto formativo
+## 8. Proyecto formativo
 
-Para este curso, el proyecto longitudinal es PetCare:
+PetCare vive durante todo el semestre en:
 
 ```text
 proyecto-formativo/
 └── petcare/
 ```
 
-Package base sugerido para el usuario `c.martinez`:
+Package base:
 
 ```text
 cl.duoc.cmartinez.petcare
 ```
 
-PetCare debe evolucionar dentro de la misma carpeta. No crear `petcare-v2`, `petcare-final`, `petcare-ahora-si`, etc. Git conserva el historial mediante commits.
+Desde ahí el proyecto puede crecer por responsabilidad:
+
+```text
+cl.duoc.cmartinez.petcare.model
+cl.duoc.cmartinez.petcare.service
+cl.duoc.cmartinez.petcare.ui
+```
+
+No crear `petcare-v2`, `petcare-final`, `petcare-ahora-si`, etc. Git conserva el historial.
 
 ---
 
-## 8. Desafíos
+## 9. Desafío 150
 
-Para el desafío de 150 ejercicios pre-POO se utiliza un solo proyecto y un package por ejercicio:
+Se utiliza un solo proyecto y un package por ejercicio:
 
 ```text
 desafios/
 └── desafio-150-java/
     └── src/
-        └── cl/duoc/cmartinez/desafios/d150/
-            ├── ejercicio001/
-            │   └── Main.java
-            ├── ejercicio002/
-            │   └── Main.java
+        └── cl/duoc/cmartinez/
+            ├── ejercicio001/Main.java
+            ├── ejercicio002/Main.java
             └── ...
 ```
 
 Ejemplo:
 
 ```java
-package cl.duoc.cmartinez.desafios.d150.ejercicio025;
+package cl.duoc.cmartinez.ejercicio025;
 ```
 
-Cuando los desafíos posteriores sean proyectos POO, JavaFX o BD de mayor tamaño, cada desafío podrá tener su propia subcarpeta de proyecto.
+No repetimos `desafios` ni `d150` porque la carpeta externa `desafios/desafio-150-java/` ya entrega ese contexto.
 
 ---
 
-## 9. Evaluaciones
+## 10. Evaluaciones
 
 La carpeta `evaluaciones/` queda reservada exclusivamente para entregas evaluadas:
 
@@ -270,41 +305,42 @@ evaluaciones/
 └── eft/
 ```
 
-Ejemplo de package para EP1:
+Si EP1 es un proyecto completo:
 
 ```text
-cl.duoc.cmartinez.evaluaciones.ep1
+evaluaciones/ep1/
+└── src/cl/duoc/cmartinez/<nombre-del-proyecto>/...
 ```
 
-Cada evaluación debe contener exactamente lo necesario para ejecutar y revisar la entrega correspondiente.
+El package se diseña según el proyecto evaluado, no como `cl.duoc.cmartinez.evaluaciones.ep1` por obligación.
 
 ---
 
-## 10. Tres formatos de entrega
+## 11. Tres formatos de entrega
 
 ### A. Ejercicio de un solo archivo
 
-Un proyecto compartido y un package específico por ejercicio:
-
 ```text
-src/cl/duoc/cmartinez/practica/semana02/ejercicio01/Main.java
+practica/semana-02/fundamentos-java/
+└── src/cl/duoc/cmartinez/ejercicio01/Main.java
+```
+
+```java
+package cl.duoc.cmartinez.ejercicio01;
 ```
 
 ### B. Actividad de varios archivos
 
-Todos los archivos relacionados permanecen dentro de la subcarpeta de la actividad y de un package coherente:
-
 ```text
 labs/semana-02/cuenta-simple/
-└── src/
-    └── cl/duoc/cmartinez/labs/cuentasimple/
-        ├── Main.java
-        └── Cuenta.java
+└── src/cl/duoc/cmartinez/cuentasimple/
+    ├── Main.java
+    └── Cuenta.java
 ```
 
 ### C. Proyecto completo
 
-Para PetCare, JavaFX, BD o una evaluación tipo proyecto se sube el proyecto completo dentro de su subcarpeta.
+PetCare, JavaFX, BD o una evaluación tipo proyecto se sube como proyecto completo dentro de su subcarpeta.
 
 Se incluyen:
 
@@ -325,27 +361,27 @@ No se incluyen:
 
 ---
 
-## 11. Regla package ↔ carpeta
+## 12. Regla package ↔ carpeta
 
-El package declarado y la carpeta física deben coincidir.
+Dentro de `src/`, el package declarado debe coincidir con la carpeta física.
 
 Si el código declara:
 
 ```java
-package cl.duoc.cmartinez.practica.semana02.ejercicio01;
+package cl.duoc.cmartinez.ejercicio01;
 ```
 
-el archivo debe encontrarse bajo:
+el archivo debe estar bajo:
 
 ```text
-src/cl/duoc/cmartinez/practica/semana02/ejercicio01/Main.java
+src/cl/duoc/cmartinez/ejercicio01/Main.java
 ```
 
-Esta regla se mantiene para todos los ejercicios, laboratorios, proyectos y evaluaciones.
+La estructura anterior a `src/` pertenece a la organización del repositorio y **no forma parte del package Java**.
 
 ---
 
-## 12. `.gitignore` obligatorio
+## 13. `.gitignore` obligatorio
 
 ```gitignore
 # IntelliJ IDEA
@@ -382,45 +418,27 @@ Thumbs.db
 *.pem
 ```
 
-Si un archivo es necesario para ejecutar el proyecto, no se ignora solo porque sea una configuración. Se excluyen configuraciones locales del IDE, artefactos generados, temporales y secretos.
-
 ---
 
-## 13. README de la raíz
+## 14. README de la raíz
 
 ```markdown
 # DSY1102-012V · Desarrollo Orientado a Objetos
 
 **Estudiante:** Carlos Martínez  
 **Usuario Duoc:** c.martinez  
-**Package base:** cl.duoc.cmartinez  
+**Package raíz:** cl.duoc.cmartinez  
 **Sección:** 012V  
 **Semestre:** 2026-2
-
-Repositorio personal de trabajo para la asignatura DSY1102.
 ```
 
 No publicar RUT, teléfono, dirección, contraseña ni otros datos personales innecesarios.
 
 ---
 
-## 14. README por entrega importante
+## 15. Commits y flujo de trabajo
 
-Un laboratorio grande, proyecto formativo o evaluación debe incluir un README breve con:
-
-```text
-Nombre de la actividad
-Objetivo
-Cómo ejecutar
-Punto de entrada
-Requisitos especiales, si existen
-```
-
----
-
-## 15. Commits
-
-Se esperan commits pequeños y comprensibles:
+Buenos ejemplos:
 
 ```text
 practica: resolver ejercicio 03 semana 02
@@ -430,20 +448,7 @@ challenge: resolver ejercicio 018
 evaluacion: entregar EP1
 ```
 
-Evitar mensajes como `cambios`, `asdf`, `final`, `ahora si` o `ultimo final definitivo`.
-
----
-
-## 16. Flujo mínimo de trabajo
-
-Primera vez:
-
-```bash
-git clone URL-DE-TU-REPOSITORIO
-cd DSY1102-012V-nombre-apellido
-```
-
-Al comenzar en cualquier computador:
+Al comenzar:
 
 ```bash
 git pull
@@ -454,62 +459,24 @@ Después de trabajar:
 ```bash
 git status
 git add .
-git commit -m "practica: resolver ejercicio 01 semana 02"
+git commit -m "mensaje claro"
 git push
 ```
 
-Siempre verifica en github.com que los archivos realmente estén publicados.
+No ejecutar `git init` dentro de cada ejercicio o proyecto. Debe existir un solo repositorio Git: el de la asignatura.
 
 ---
 
-## 17. Un solo repositorio Git
-
-No ejecutar `git init` dentro de cada ejercicio o proyecto si ya estás dentro del repositorio de la asignatura.
-
-Correcto:
-
-```text
-DSY1102-012V-ana-perez/.git/
-└── labs/semana-02/cuenta-simple/
-```
-
-Incorrecto:
-
-```text
-DSY1102-012V-ana-perez/.git/
-└── labs/semana-02/cuenta-simple/.git/
-```
-
----
-
-## 18. Entregas evaluadas
-
-Antes de entregar:
-
-1. Verifica que el proyecto esté en `evaluaciones/<evaluacion>/`.
-2. Ejecuta y prueba la entrega.
-3. Revisa `git status`.
-4. Registra todos los archivos necesarios.
-5. Haz un commit final identificable.
-6. Ejecuta `git push`.
-7. Revisa el repositorio desde github.com.
-8. Entrega la URL indicada por el docente.
-
-Una vez vencido el plazo, no modificar la entrega salvo autorización del docente.
-
----
-
-## 19. Checklist final
+## 16. Checklist final
 
 - [ ] El repositorio tiene el nombre correcto.
-- [ ] Conozco mi usuario Duoc y lo normalicé correctamente para el package.
-- [ ] Mi package raíz tiene la forma `cl.duoc.<usuario-sin-puntos>`.
-- [ ] El archivo está en la carpeta correcta.
-- [ ] El package coincide con la ruta física.
+- [ ] Mi package raíz es `cl.duoc.<usuario-duoc-sin-puntos>`.
+- [ ] No repetí innecesariamente `practica`, semana, desafío o evaluación dentro del package.
+- [ ] El package coincide con la ruta física **desde `src/` hacia abajo**.
+- [ ] El archivo está en la carpeta de entrega correcta.
 - [ ] El código compila y ejecuta.
 - [ ] No subí archivos del IDE, logs, compilados ni secretos.
-- [ ] Hice commit.
-- [ ] Hice push.
+- [ ] Hice commit y push.
 - [ ] Verifiqué los archivos directamente en GitHub.
 
-> **Regla práctica:** si el docente no puede encontrar, clonar y ejecutar una entrega de manera razonable, la estructura del repositorio todavía no está terminada.
+> **Regla práctica:** la organización del repositorio describe el contexto académico; el package describe la identidad y estructura interna del código. No dupliques información sin necesidad.
