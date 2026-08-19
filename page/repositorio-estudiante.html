@@ -6,12 +6,12 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
-<style>body{background:#f6f8fc;color:#172033}.wrap{max-width:1100px}.hero{background:linear-gradient(135deg,#111827,#0f766e);color:#fff;border-radius:1.3rem}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:1rem}.muted{color:#6b7280}.accordion-item{border:1px solid #e5e7eb!important;border-radius:1rem!important;overflow:hidden;margin-bottom:.8rem}.accordion-button{font-weight:800}.accordion-button:not(.collapsed){background:#ecfdf5;color:#065f46}.rule{border-left:4px solid #14b8a6;padding-left:1rem}.bad{border-left:4px solid #ef4444;padding-left:1rem}.tree{background:#111827;color:#e5e7eb;border-radius:.85rem;padding:1rem;overflow:auto}.identity{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:1rem}.mini{font-size:.9rem}</style>
+<style>body{background:#f6f8fc;color:#172033}.wrap{max-width:1100px}.hero{background:linear-gradient(135deg,#111827,#0f766e);color:#fff;border-radius:1.3rem}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:1rem}.muted{color:#6b7280}.accordion-item{border:1px solid #e5e7eb!important;border-radius:1rem!important;overflow:hidden;margin-bottom:.8rem}.accordion-button{font-weight:800}.accordion-button:not(.collapsed){background:#ecfdf5;color:#065f46}.rule{border-left:4px solid #14b8a6;padding-left:1rem}.bad{border-left:4px solid #ef4444;padding-left:1rem}.tree{background:#111827;color:#e5e7eb;border-radius:.85rem;padding:1rem;overflow:auto}.identity{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:1rem}.bonus{background:#fff7ed;border:1px solid #fdba74;border-radius:1rem}.mini{font-size:.9rem}</style>
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark"><div class="container wrap"><a class="navbar-brand fw-bold" href="index.html">DSY1102 · Repositorio del estudiante</a><a class="btn btn-outline-light btn-sm" href="index.html">Curso</a></div></nav>
 <main class="container wrap py-4">
-<section class="hero p-4 p-md-5 mb-4"><div class="small text-white-50 fw-bold">ESTÁNDAR DE ENTREGA · DSY1102-012V</div><h1 class="display-6 fw-bold mt-2">Cómo organizas tú tus entregas.</h1><p class="lead text-white-50 mb-0">Esta estructura no copia el repositorio del docente. Está diseñada para que puedas trabajar todo el semestre en un solo repo y para que cada entrega sea fácil de encontrar y revisar.</p></section>
+<section class="hero p-4 p-md-5 mb-4"><div class="small text-white-50 fw-bold">ESTÁNDAR DE ENTREGA · DSY1102-012V</div><h1 class="display-6 fw-bold mt-2">Cómo organizas y documentas tus entregas.</h1><p class="lead text-white-50 mb-0">Esta estructura no copia el repositorio del docente. Está diseñada para que puedas trabajar todo el semestre en un solo repo y para que cada entrega sea fácil de encontrar, entender y revisar.</p></section>
 
 <section class="panel p-4 mb-4"><h2 class="h4 fw-bold">Nombre del repositorio</h2><pre class="tree"><code>DSY1102-012V-carlos-martinez</code></pre><div class="rule">Formato: <code>&lt;SIGLA&gt;-&lt;SECCION&gt;-nombre-apellido</code>.</div></section>
 
@@ -21,10 +21,15 @@
 ├── README.md
 ├── .gitignore
 ├── practica/
+│   └── README.md
 ├── labs/
+│   └── README.md
 ├── proyecto-formativo/
+│   └── README.md
 ├── desafios/
+│   └── README.md
 └── evaluaciones/
+    ├── README.md
     ├── ep1/
     ├── ep2/
     ├── ep3/
@@ -32,20 +37,15 @@
 
 <div class="accordion" id="guide">
 <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#a1">1 · Práctica de clase</button></h2><div id="a1" class="accordion-collapse collapse show" data-bs-parent="#guide"><div class="accordion-body"><p><strong>Práctica es un solo proyecto Java</strong> durante el semestre. Se organiza por bloques conceptuales, no por semana.</p><pre class="tree"><code>practica/
+├── README.md
 └── src/cl/duoc/cmartinez/
     ├── fundamentos/
     │   ├── ejercicio01/Main.java
     │   ├── ejercicio02/Main.java
     │   └── ejercicio03/Main.java
     ├── condicionales/
-    │   ├── ejercicio01/Main.java
-    │   └── ejercicio02/Main.java
     ├── ciclos/
-    │   ├── ejercicio01/Main.java
-    │   └── ejercicio02/Main.java
-    └── metodos/
-        ├── ejercicio01/Main.java
-        └── ejercicio02/Main.java</code></pre><pre class="line-numbers"><code class="language-java">package cl.duoc.cmartinez.fundamentos.ejercicio01;
+    └── metodos/</code></pre><pre class="line-numbers"><code class="language-java">package cl.duoc.cmartinez.fundamentos.ejercicio01;
 
 public class Main {
     public static void main(String[] args) {
@@ -54,6 +54,7 @@ public class Main {
 }</code></pre><div class="rule">Patrón: <code>cl.duoc.&lt;usuario&gt;.&lt;bloque&gt;.&lt;ejercicio&gt;</code>.</div></div></div></div>
 
 <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a2">2 · Laboratorios</button></h2><div id="a2" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>Cada laboratorio es una subcarpeta/proyecto independiente por su alcance.</p><pre class="tree"><code>labs/
+├── README.md
 └── cuenta-simple/
     ├── README.md
     └── src/cl/duoc/cmartinez/cuentasimple/
@@ -61,12 +62,16 @@ public class Main {
         └── Cuenta.java</code></pre><pre class="line-numbers"><code class="language-java">package cl.duoc.cmartinez.cuentasimple;</code></pre></div></div></div>
 
 <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a3">3 · Proyecto formativo</button></h2><div id="a3" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>proyecto-formativo/
-└── petcare/</code></pre><p>Base sugerida:</p><pre class="tree"><code>cl.duoc.cmartinez.petcare</code></pre><p>Cuando crezca, organiza por responsabilidad real:</p><pre class="tree"><code>cl.duoc.cmartinez.petcare.model
+├── README.md
+└── petcare/
+    └── README.md</code></pre><p>Base sugerida:</p><pre class="tree"><code>cl.duoc.cmartinez.petcare</code></pre><p>Cuando crezca, organiza por responsabilidad real:</p><pre class="tree"><code>cl.duoc.cmartinez.petcare.model
 cl.duoc.cmartinez.petcare.service
 cl.duoc.cmartinez.petcare.ui</code></pre></div></div></div>
 
 <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a4">4 · Grandes desafíos</button></h2><div id="a4" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>desafios/
+├── README.md
 ├── desafio-150-java/
+│   └── README.md
 ├── desafio-100-poo/
 ├── desafio-25-javafx/
 └── desafio-25-bd/</code></pre><p>En el de 150, conserva los bloques conceptuales:</p><pre class="tree"><code>desafios/desafio-150-java/
@@ -77,18 +82,55 @@ cl.duoc.cmartinez.petcare.ui</code></pre></div></div></div>
     └── ...</code></pre></div></div></div>
 
 <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a5">5 · Evaluaciones</button></h2><div id="a5" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><pre class="tree"><code>evaluaciones/
+├── README.md
 ├── ep1/
+│   └── README.md
 ├── ep2/
 ├── ep3/
-└── eft/</code></pre><p class="mb-0">Cada evaluación contiene exactamente lo necesario para ejecutarla y revisarla. Si es un proyecto, el package se diseña según el proyecto, no según la palabra <code>evaluaciones</code>.</p></div></div></div>
+└── eft/</code></pre><p class="mb-0">Cada evaluación contiene exactamente lo necesario para ejecutarla y revisarla. Cada entrega evaluada debe documentarse con su propio README.</p></div></div></div>
 
-<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a6">6 · Qué debes subir y qué no</button></h2><div id="a6" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><div class="row g-3"><div class="col-md-6"><div class="rule"><strong>Sí</strong><ul class="mb-0 mt-2"><li><code>src/</code></li><li>recursos necesarios</li><li><code>README.md</code> cuando corresponda</li><li><code>pom.xml</code> / <code>build.gradle</code> cuando corresponda</li></ul></div></div><div class="col-md-6"><div class="bad"><strong>No</strong><ul class="mb-0 mt-2"><li><code>.idea/</code>, <code>.vscode/</code>, <code>*.iml</code></li><li><code>out/</code>, <code>target/</code>, <code>build/</code></li><li>logs, temporales, <code>.class</code></li><li>tokens, claves o credenciales</li></ul></div></div></div></div></div></div>
+<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a6">6 · Documentación Markdown obligatoria</button></h2><div id="a6" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>Durante el curso aprenderemos Markdown y debes usarlo para que tu repositorio se explique por sí solo.</p><h3 class="h6 fw-bold">README mínimo de la raíz</h3><pre class="tree"><code class="language-markdown"># DSY1102-012V · Desarrollo Orientado a Objetos
+
+**Estudiante:** Carlos Martínez  
+**Usuario Duoc:** c.martinez  
+**Sección:** 012V  
+**Semestre:** 2026-2
+
+## Descripción
+Repositorio personal de trabajo para la asignatura.
+
+## Estructura
+- `practica/`: ejercicios breves por bloque conceptual.
+- `labs/`: laboratorios.
+- `proyecto-formativo/`: PetCare.
+- `desafios/`: desafíos autónomos.
+- `evaluaciones/`: entregas evaluadas.</code></pre><h3 class="h6 fw-bold mt-4">README mínimo de una carpeta o proyecto</h3><pre class="tree"><code class="language-markdown"># Cuenta simple
+
+## Objetivo
+Explica brevemente qué se practica o construye.
+
+## Contenido
+- `Main.java`: punto de entrada.
+- `Cuenta.java`: lógica de la cuenta.
+
+## Ejecución
+Indica cómo ejecutar o revisar el trabajo.
+
+## Observaciones
+Decisiones, restricciones o notas relevantes.</code></pre><div class="bad mt-3"><strong>No basta</strong> con escribir <code># Laboratorio</code> y “aquí está mi trabajo”. La documentación debe permitir que otra persona entienda qué hiciste y cómo revisarlo.</div></div></div></div>
+
+<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a7">7 · Qué puedes agregar a un buen README</button></h2><div id="a7" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><p>El mínimo es solo el piso. Cuando aporte valor, puedes incluir:</p><ul><li>tabla de contenidos;</li><li>requisitos;</li><li>instrucciones paso a paso;</li><li>ejemplos de uso;</li><li>capturas de pantalla;</li><li>diagramas simples;</li><li>decisiones de diseño;</li><li>problemas encontrados y cómo los resolviste;</li><li>estado del proyecto;</li><li>enlaces internos;</li><li>tablas y bloques de código correctamente formateados.</li></ul><div class="rule"><strong>No se premia escribir más.</strong> Se valora que la documentación sea clara, útil, mantenida y coherente con el código real.</div></div></div></div>
+
+<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a8">8 · Qué debes subir y qué no</button></h2><div id="a8" class="accordion-collapse collapse" data-bs-parent="#guide"><div class="accordion-body"><div class="row g-3"><div class="col-md-6"><div class="rule"><strong>Sí</strong><ul class="mb-0 mt-2"><li><code>src/</code></li><li>recursos necesarios</li><li><code>README.md</code></li><li><code>pom.xml</code> / <code>build.gradle</code> cuando corresponda</li></ul></div></div><div class="col-md-6"><div class="bad"><strong>No</strong><ul class="mb-0 mt-2"><li><code>.idea/</code>, <code>.vscode/</code>, <code>*.iml</code></li><li><code>out/</code>, <code>target/</code>, <code>build/</code></li><li>logs, temporales, <code>.class</code></li><li>tokens, claves o credenciales</li></ul></div></div></div></div></div></div>
 </div>
 
-<section class="panel p-4 mt-4"><h2 class="h4 fw-bold">Checklist</h2><div class="row g-2 mini"><div class="col-md-6">☐ Nombre correcto del repo</div><div class="col-md-6">☐ Package raíz con usuario Duoc</div><div class="col-md-6">☐ Práctica organizada por bloques</div><div class="col-md-6">☐ Sin semanas en packages de práctica</div><div class="col-md-6">☐ Package coincide desde <code>src/</code></div><div class="col-md-6">☐ Código compila y ejecuta</div><div class="col-md-6">☐ Commit y push realizados</div><div class="col-md-6">☐ Revisado directamente en GitHub</div></div></section>
+<section class="bonus p-4 mt-4"><div class="small fw-bold text-warning-emphasis">DOCUMENTACIÓN DESTACADA</div><h2 class="h4 fw-bold mt-1">Los mejores README podrán ser reconocidos</h2><p class="mb-2">Los repositorios con documentación especialmente clara, útil, bien estructurada y mantenida durante el semestre podrán recibir una <strong>compensación o bonificación definida por el docente</strong>.</p><p class="mb-0 small">No es una bonificación automática por cumplir el mínimo. Se considerará claridad, utilidad, Markdown correcto, coherencia con el código y capacidad de explicar decisiones propias.</p></section>
+
+<section class="panel p-4 mt-4"><h2 class="h4 fw-bold">Checklist</h2><div class="row g-2 mini"><div class="col-md-6">☐ Nombre correcto del repo</div><div class="col-md-6">☐ Package raíz con usuario Duoc</div><div class="col-md-6">☐ Práctica organizada por bloques</div><div class="col-md-6">☐ Sin semanas en packages de práctica</div><div class="col-md-6">☐ README en la raíz</div><div class="col-md-6">☐ README en cada carpeta principal</div><div class="col-md-6">☐ README propio en labs/proyectos/evaluaciones</div><div class="col-md-6">☐ README explica objetivo, contenido y ejecución</div><div class="col-md-6">☐ Package coincide desde <code>src/</code></div><div class="col-md-6">☐ Código compila y ejecuta</div><div class="col-md-6">☐ Commit y push realizados</div><div class="col-md-6">☐ Revisado directamente en GitHub</div></div></section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markdown.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 </body></html>
