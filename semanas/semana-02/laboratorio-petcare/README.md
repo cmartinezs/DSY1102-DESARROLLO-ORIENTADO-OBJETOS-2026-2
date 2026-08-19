@@ -1,9 +1,12 @@
-# Laboratorio · PetCare · De variables a objeto
+# PetCare · checkpoint Semana 2
 
-El enunciado completo fue migrado a la web del curso para mantener una sola fuente canónica.
+PetCare es el **proyecto formativo transversal del semestre**, no un laboratorio aislado.
 
-➡️ https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html
+La guía canónica está en la web del curso:
 
-Abre **Semana 2 · Fundamentos Java + puente a POO** y busca **PetCare · de variables a objeto**.
+➡️ **Proyecto formativo · PetCare**  
+https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html
 
-> Este Markdown queda solo como referencia histórica y enlace desde la planificación.
+Busca **Semana 2 · de variables a objeto**.
+
+> Este Markdown queda como referencia histórica para no romper enlaces antiguos.
