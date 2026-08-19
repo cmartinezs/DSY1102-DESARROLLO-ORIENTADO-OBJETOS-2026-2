@@ -11,16 +11,18 @@ La bitácora docente del avance real se mantiene fuera de la web pública.
 ## Navegación principal
 
 1. `semanas.html` — contenido liberado por semana.
-2. `ejercicios-clase.html` — práctica corta y focalizada.
-3. `laboratorios.html` — actividades guiadas e integradoras.
-4. `proyecto-formativo.html` — PetCare, longitudinal durante el semestre.
-5. `desafio-semanal.html` — problemas menos guiados con materia ya liberada.
-6. `desafio-150.html` / `ejercicios-150.html` — Gran Desafío Java pre-POO.
+2. `repositorio-estudiante.html` — estándar obligatorio para organizar el repositorio personal del estudiante.
+3. `ejercicios-clase.html` — práctica corta y focalizada.
+4. `laboratorios.html` — actividades guiadas e integradoras.
+5. `proyecto-formativo.html` — PetCare, longitudinal durante el semestre.
+6. `desafio-semanal.html` — problemas menos guiados con materia ya liberada.
+7. `desafio-150.html` / `ejercicios-150.html` — Gran Desafío Java pre-POO.
 
 ## Estado actual · Semana 2
 
 - Semana 1: disponible.
 - Semana 2: disponible completa.
+- Estándar del repositorio del estudiante: publicado.
 - Desafío 150: ejercicios 1–45 disponibles.
 - Contenido curricular posterior: se libera al llegar a la semana correspondiente.
 
