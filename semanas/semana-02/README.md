@@ -2,143 +2,125 @@
 
 **Periodo:** 17 al 22 de agosto de 2026  
 **Sección:** DSY1102-012V  
-**Actividad institucional:** 1.2 Métodos, clases y encapsulamiento
+**Actividad institucional:** **1.2 Métodos, clases y encapsulamiento**
 
 ← [Volver al índice](../README.md)
 
-## Proyecto formativo transversal · PetCare
+## Disponibilidad de esta semana
 
-Desde esta semana se formaliza **PetCare como proyecto formativo individual de semestre**.
+**Todo el contenido curricular de Semana 2 está disponible desde ahora**, aunque una parte todavía no se haya alcanzado en la clase presencial.
 
-Cada estudiante mantendrá el mismo software y lo hará evolucionar clase a clase durante:
+La regla del curso es:
 
 ```text
-Unidad 1 · Java/POO + CLI
+semana curricular vigente
         ↓
-Unidad 2 · JavaFX/MVC + JSON
+se libera el contenido completo de esa semana
         ↓
-Unidad 3 · JDBC/CRUD
+el avance real de cada sesión se registra por separado
 ```
 
-La Unidad 1 debe dejar el core/dominio reutilizable y una CLI que lo invoque. La intención es que JavaFX y JDBC se incorporen después sin rehacer las reglas del negocio.
+Por eso el alumno puede revisar y anticipar contenidos de Semana 2, pero no debe asumir que un tema ya fue explicado en clases solo porque está publicado.
 
-Material del proyecto:
-
-- [PetCare · proyecto de semestre](../../proyecto-formativo/README.md)
-- [Roadmap hasta fin de curso](../../proyecto-formativo/ROADMAP-SEMANAL.md)
-- [Arquitectura y continuidad](../../proyecto-formativo/ARQUITECTURA-Y-CONTINUIDAD.md)
-- [PetCare · Semana 02](../../proyecto-formativo/semana-02/README.md)
-- [Clase martes 18](../../proyecto-formativo/semana-02/01-clase-martes.md)
-- [Clase sábado 22](../../proyecto-formativo/semana-02/02-clase-sabado.md)
-
-El proyecto podrá utilizarse como **evidencia formativa adicional para compensar una calificación baja**, bajo criterio docente y según proceso demostrado. No existe reemplazo automático de evaluaciones.
+🌐 [Ver Semana 2 en el portal del curso](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/semanas.html)
 
 ## Qué corresponde oficialmente esta semana
 
-- **1.2.1** PPT Métodos.
-- **1.2.2** PPT Clases y Abstracción.
-- **1.2.3** PPT Encapsulamiento.
-- **1.2.4** Guía Actividad Clases y Abstracción.
+- **1.2.1** Métodos.
+- **1.2.2** Clases y abstracción.
+- **1.2.3** Encapsulamiento.
+- **1.2.4** Actividad Clases y Abstracción.
 - **1.2.5** Ejercicios generales.
 
-## Ejercicios de práctica
-
-➡️ [4 ejercicios · fundamentos Java](./02-ejercicios-fundamentos-java.md)
-
-Situaciones sencillas para practicar variables primitivas, operadores, `if`, `for`, `while`, `do while` e impresión por consola antes de avanzar con mayor profundidad en POO.
-
-## Qué debemos recuperar de Semana 01
-
-El feriado del sábado 15 eliminó 2 horas pedagógicas. Antes de exigir métodos/clases, todavía debemos reforzar explícitamente:
+Además debemos recuperar y consolidar contenidos de Semana 1 que quedaron comprimidos por el feriado:
 
 - tipos primitivos y `String`;
 - variables y operadores;
-- `if`/`else` y operadores lógicos;
-- `switch` cuando sea pertinente;
+- `if` / `else` y operadores lógicos;
+- `switch` cuando corresponda;
 - `for`, `while`, `do-while`;
 - estructura mínima de un programa Java;
-- ejercicios con datos definidos directamente en código.
+- trabajo inicial con datos definidos directamente en código.
 
-**No se elimina ni se da por sabido este contenido.** Se recupera utilizando la primera versión de PetCare.
+## 1. Práctica de clase
 
-# Hoy · martes 18 · 20:31–22:30
+Ejercicios cortos y focalizados para consolidar fundamentos.
 
-Guía principal:
+➡️ [Abrir Práctica de clase · Semana 2](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html)
 
-➡️ [PetCare · Clase martes](../../proyecto-formativo/semana-02/01-clase-martes.md)
+Referencia histórica en el repositorio:
 
-## Bloque 1 · fundamentos Java sobre PetCare
+- [02-ejercicios-fundamentos-java.md](./02-ejercicios-fundamentos-java.md)
 
-Partir con:
+## 2. Guía de recuperación y puente a POO
 
-```java
-String nombre = "Michi";
-int edad = 4;
-double peso = 5.2;
-boolean vacunado = true;
-```
+➡️ [01-guia-recuperacion-y-puente-poo.md](./01-guia-recuperacion-y-puente-poo.md)
 
-Reforzar:
+La guía conecta la sintaxis básica de Java con métodos, clases y encapsulamiento sin saltar directamente a una arquitectura compleja.
 
-- `class` + `main`;
-- tipos y variables;
-- operadores aritméticos;
-- comparaciones;
-- operadores lógicos.
+## 3. Laboratorio · Cuenta simple
 
-## Bloque 2 · decisiones
+Un laboratorio es una actividad guiada e integradora; no es un ejercicio corto.
 
-- `if` / `else`;
-- condiciones compuestas;
-- clasificación sencilla;
-- modificar valores y probar ambos caminos.
+➡️ [Abrir Laboratorios en la web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html)
 
-## Bloque 3 · ciclos + primer método si el ritmo permite
+Referencia:
 
-- `for`;
-- `while` / `do-while` donde aporten;
-- detectar repetición;
-- primer método `mostrarFicha(...)` solo si ya existe comprensión suficiente.
+- [laboratorio-cuenta/README.md](./laboratorio-cuenta/README.md)
 
-### Últimos 15–30 minutos
+El laboratorio evoluciona desde lógica estructurada hacia métodos, clase y encapsulamiento.
 
-Avance individual del proyecto utilizando la guía.
+## 4. Proyecto formativo transversal · PetCare
 
-Si no alcanza el tiempo, el checkpoint se completa en casa antes del sábado.
+PetCare **no es un laboratorio aislado**. Es el proyecto longitudinal del semestre y debe continuar desde checkpoints anteriores.
 
-### Checkpoint martes
+➡️ [Abrir PetCare en la web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html)
 
-Programa CLI con:
+Material del proyecto:
 
-- datos de mascota;
-- operadores;
-- condición;
-- ciclo;
-- salida legible;
-- método solo si fue alcanzado en clase.
+- [Proyecto de semestre](../../proyecto-formativo/README.md)
+- [Roadmap semanal](../../proyecto-formativo/ROADMAP-SEMANAL.md)
+- [Arquitectura y continuidad](../../proyecto-formativo/ARQUITECTURA-Y-CONTINUIDAD.md)
+- [Semana 02](../../proyecto-formativo/semana-02/README.md)
+- [Clase martes 18](../../proyecto-formativo/semana-02/01-clase-martes.md)
+- [Clase sábado 22](../../proyecto-formativo/semana-02/02-clase-sabado.md)
 
-No se sacrifica comprensión para llegar artificialmente a clases/encapsulamiento hoy.
+El proyecto puede utilizarse como evidencia formativa adicional bajo criterio docente. No reemplaza automáticamente una evaluación.
 
-# Sábado 22 · métodos, clases y encapsulamiento
+## 5. Gran desafío 150 · Java pre-POO
 
-Guía:
-
-➡️ [PetCare · Clase sábado](../../proyecto-formativo/semana-02/02-clase-sabado.md)
-
-Retomar exactamente el checkpoint del martes:
+Hasta Semana 2 se encuentran liberados los ejercicios **1–45**:
 
 ```text
-métodos
-→ parámetros y retorno
-→ datos relacionados
-→ clase Mascota
-→ objetos
-→ private
-→ comportamiento protegido
-→ cli / core.model
+1–20  · fundamentos
+21–45 · decisiones y ciclos
 ```
 
-## Checkpoint semanal esperado
+Las etapas que incorporan `Scanner`, métodos `static`, arrays y matrices se irán desbloqueando al llegar a las semanas curriculares correspondientes.
+
+➡️ [Abrir Desafío 150](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-150.html)
+
+## Ejemplos disponibles
+
+- [PetCareBasico.java](./ejemplos/PetCareBasico.java)
+- [ProductoDemo.java](./ejemplos/ProductoDemo.java)
+
+## Checkpoint esperado al cerrar Semana 2
+
+Sin exigir que todos lleguen al mismo minuto de clase, al finalizar la semana el estudiante debería poder reconocer y trabajar con:
+
+```text
+fundamentos Java
+→ métodos
+→ parámetros y retorno
+→ datos relacionados
+→ clase
+→ objetos
+→ private
+→ comportamiento que protege estado
+```
+
+En PetCare, el objetivo de continuidad es aproximarse a:
 
 ```text
 src/
@@ -149,44 +131,13 @@ src/
         └── Mascota.java
 ```
 
-Con:
+Sin adelantar todavía herencia, `Perro`, `Gato`, colecciones, excepciones, JavaFX ni persistencia.
 
-- al menos dos instancias;
-- atributos encapsulados;
-- actualización de peso protegida por una regla;
-- una operación desarrollada por el alumno;
-- CLI utilizando `Mascota`.
+## Material público
 
-**No agregar todavía** herencia, `Perro`, `Gato`, listas, excepciones, JavaFX ni persistencia.
+- [Biblioteca pública del curso](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk?usp=sharing)
+- [Semana 02 en Google Drive](https://drive.google.com/drive/folders/1bDNTBmba5F--fULggNtShZucD9zTnE4F)
 
-## Regla pedagógica
+---
 
-Todavía **no usamos `Scanner`** como prioridad. El objetivo es reducir variables simultáneas mientras consolidan Java y POO.
-
-Encapsulamiento tampoco significa “private + generar getters/setters”. El alumno debe explicar qué estado protege y qué estados inválidos evita.
-
-## Evidencia
-
-El alumno debe mantener:
-
-- repositorio propio;
-- commit/checkpoint del martes;
-- commit/checkpoint del sábado;
-- código ejecutable;
-- capacidad de explicar decisiones y evolución.
-
-## Material complementario existente
-
-- [4 ejercicios · fundamentos Java](./02-ejercicios-fundamentos-java.md)
-- [Ejemplo ejecutable · PetCare básico](./ejemplos/PetCareBasico.java)
-- [Laboratorio incremental anterior · PetCare](./laboratorio-petcare/README.md)
-- [Guía · recuperación + puente a POO](./01-guia-recuperacion-y-puente-poo.md)
-- [Ejemplo complementario · Producto](./ejemplos/ProductoDemo.java)
-- [Laboratorio complementario · Cuenta simple](./laboratorio-cuenta/README.md)
-
-Estos recursos complementan el proyecto semestral; no reemplazan su continuidad.
-
-## Material institucional
-
-- [Biblioteca pública](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk?usp=sharing)
-- [Semana 02 en Drive](https://drive.google.com/drive/folders/1bDNTBmba5F--fULggNtShZucD9zTnE4F)
+> **Importante:** disponibilidad curricular y avance real no son lo mismo. Que un recurso esté visible significa que corresponde a Semana 2; el docente indicará en clase qué parte ya fue trabajada y cuál queda por desarrollar.
