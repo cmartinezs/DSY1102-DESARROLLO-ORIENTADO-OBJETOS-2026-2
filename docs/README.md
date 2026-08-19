@@ -2,6 +2,11 @@
 
 Este directorio reúne contenidos reutilizables a lo largo del semestre que no pertenecen exclusivamente a una semana.
 
+## Estándares obligatorios
+
+- [**Estándar de repositorio del estudiante**](./ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — nombre del repositorio, estructura de carpetas, tipos de entrega, packages, `.gitignore`, commits y flujo entre computadores.
+- [Versión web del estándar](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/repositorio-estudiante.html)
+
 ## Material complementario
 
 El índice principal está en [`docs/extras/README.md`](./extras/README.md). Allí encontrarás un **roadmap sugerido** para revisar los recursos según el momento del curso.
