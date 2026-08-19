@@ -12,7 +12,26 @@ El criterio de publicación es **por semana curricular**, no por el avance exact
 
 - [Portal web del curso](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/)
 - [Contenido liberado por semana](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/semanas.html)
+- [**Estándar de repositorio del estudiante**](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/repositorio-estudiante.html)
 - [Material público en Google Drive](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk?usp=sharing)
+
+## Repositorio personal del estudiante
+
+Cada estudiante mantiene **un único repositorio para toda la asignatura**.
+
+Formato obligatorio:
+
+```text
+DSY1102-012V-nombre-apellido
+```
+
+Ejemplo:
+
+```text
+DSY1102-012V-carlos-martinez
+```
+
+La estructura, packages, tipos de entrega, `.gitignore`, commits y reglas para ejercicios, laboratorios, proyectos y evaluaciones están documentados en [`docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md`](docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md).
 
 ## Estructura del repositorio
 
