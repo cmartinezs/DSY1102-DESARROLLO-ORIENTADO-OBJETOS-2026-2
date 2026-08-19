@@ -1,5 +1,8 @@
 # PetCare · Proyecto formativo transversal de semestre
 
+> **Página para estudiantes / fuente canónica del checkpoint vigente:**  
+> https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html
+
 PetCare es el proyecto formativo longitudinal de **DSY1102 Desarrollo Orientado a Objetos**.
 
 No es un laboratorio que se realiza una vez. Es **el mismo software que cada estudiante hará evolucionar durante el semestre**, aplicando lo aprendido clase a clase.
