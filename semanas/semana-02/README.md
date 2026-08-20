@@ -119,6 +119,14 @@ Las etapas que incorporan `Scanner`, métodos `static`, arrays y matrices se ir�
 
 ➡️ [Abrir Desafío 150](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-150.html)
 
+## Dinámica viva de la semana
+
+Esta semana queda preparada **Predice antes de ejecutar**, una actividad de 5–10 minutos para entrenar lectura de código antes de depender del IDE.
+
+➡️ [Abrir dinámica · Predice antes de ejecutar](./dinamica-viva-predice.md)
+
+No agrega contenido nuevo: reutiliza operadores, condiciones, ciclos y métodos según lo que ya haya sido trabajado.
+
 ## Checkpoint esperado al cerrar Semana 2
 
 Sin exigir que todos lleguen al mismo minuto de clase, al finalizar la semana el estudiante debería poder reconocer y trabajar con:
