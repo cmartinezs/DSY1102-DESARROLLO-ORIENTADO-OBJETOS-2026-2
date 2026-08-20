@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tu progreso · DSY1102</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body{background:#f6f8fc;color:#172033}.wrap{max-width:900px}.hero{background:linear-gradient(135deg,#111827,#312e81);color:#fff;border-radius:1.2rem}.item{border:1px solid #e5e7eb;border-radius:.9rem;background:#fff}.done{opacity:.7}.done label{text-decoration:line-through}.progress{height:1.1rem}
+  </style>
+</head>
+<body>
+<main class="container wrap py-4">
+  <a href="index.html" class="btn btn-sm btn-outline-secondary mb-3">← Volver al inicio</a>
+  <section class="hero p-4 mb-4">
+    <div class="small text-white-50 fw-bold">DSY1102-012V · Semana 2</div>
+    <h1 class="h2 fw-bold">Tu progreso</h1>
+    <p class="mb-0 text-white-50">Marca lo que ya realizaste o puedes explicar. Se guarda solo en este navegador y no corresponde a una calificación.</p>
+  </section>
+  <section class="bg-white border rounded-4 p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center gap-3 mb-2"><strong id="counter">0 de 8</strong><button id="reset" class="btn btn-sm btn-outline-danger">Reiniciar</button></div>
+    <div class="progress"><div id="bar" class="progress-bar" style="width:0%"></div></div>
+  </section>
+  <section id="items" class="d-grid gap-2">
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p1"><label for="p1">Revisé el contenido disponible de Semana 2.</label></div>
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p2"><label for="p2">Resolví práctica corta usando solo contenidos que corresponden a esta etapa.</label></div>
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p3"><label for="p3">Trabajé o revisé el laboratorio Cuenta simple cuando correspondió a mi avance.</label></div>
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p4"><label for="p4">Apliqué lo aprendido en PetCare sin comenzar un proyecto nuevo.</label></div>
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p5"><label for="p5">Mi repositorio personal tiene estructura clara y README mínimos en Markdown.</label></div>
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p6"><label for="p6">Puedo explicar cuándo conviene extraer una operación a un método.</label></div>
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p7"><label for="p7">Puedo explicar qué representa una clase, qué es un objeto y cómo se relacionan.</label></div>
+    <div class="item p-3"><input class="form-check-input me-2" type="checkbox" id="p8"><label for="p8">Puedo explicar por qué el encapsulamiento protege el estado y no es solo usar <code>private</code>.</label></div>
+  </section>
+  <section class="alert alert-primary mt-4"><strong>Si algo no puedes marcar todavía:</strong> úsalo como guía para saber qué revisar o preguntar. No es necesario completar todo antes de que la clase haya llegado al contenido.</section>
+</main>
+<script>
+const KEY='dsy1102-progreso-semana-02';
+const boxes=[...document.querySelectorAll('input[type=checkbox]')];
+function load(){const saved=JSON.parse(localStorage.getItem(KEY)||'{}');boxes.forEach(b=>b.checked=Boolean(saved[b.id]));render();}
+function save(){const state={};boxes.forEach(b=>state[b.id]=b.checked);localStorage.setItem(KEY,JSON.stringify(state));render();}
+function render(){const done=boxes.filter(b=>b.checked).length;document.getElementById('counter').textContent=`${done} de ${boxes.length}`;document.getElementById('bar').style.width=`${done/boxes.length*100}%`;boxes.forEach(b=>b.closest('.item').classList.toggle('done',b.checked));}
+boxes.forEach(b=>b.addEventListener('change',save));
+document.getElementById('reset').addEventListener('click',()=>{if(confirm('¿Reiniciar tu progreso local de esta semana?')){localStorage.removeItem(KEY);load();}});
+load();
+</script>
+</body>
+</html>
