@@ -6,6 +6,7 @@ Este directorio reúne contenidos reutilizables a lo largo del semestre que no p
 
 - [**Canon transversal de repositorios docentes**](./CANON-REPOSITORIO-DOCENTE.md) — estructura común, responsabilidades de carpetas, fuente canónica, liberación curricular y reconciliación semanal.
 - [**Checklist operativo semanal**](./CHECKLIST-OPERACION-SEMANAL.md) — ciclo mínimo para preparar, ejecutar y cerrar cada semana sin desalinear repo, web, Drive y avance real.
+- [**Banco de dinámicas vivas**](./BANCO-DINAMICAS-VIVAS.md) — actividades breves reutilizables: bugs, predicción, mini defensas, refactor, README destacado, boss fights y otras variantes.
 - [**Estándar de repositorio del estudiante**](./ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — nombre del repositorio, estructura de carpetas, tipos de entrega, packages, `.gitignore`, commits y flujo entre computadores.
 - [Versión web del estándar del estudiante](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/repositorio-estudiante.html)
 
