@@ -200,3 +200,5 @@ No agregamos todavía herencia, listas, interfaces ni excepciones. Esos concepto
 ## Continuidad
 
 El código resultante no es desechable. Debe conservarse porque en la siguiente experiencia de aprendizaje PetCare evolucionará sobre esta misma clase `Mascota`.
+
+> **Si quieres profundizar:** revisa [Profundización · Recuperación y puente hacia POO](./01-guia-recuperacion-y-puente-poo/README.md), donde se desarrolla paso a paso la transición desde variables y métodos hacia clase, objeto y encapsulamiento.
