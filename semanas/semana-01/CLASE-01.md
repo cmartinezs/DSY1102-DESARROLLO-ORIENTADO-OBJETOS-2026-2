@@ -82,3 +82,5 @@ Como complemento a las actividades disponibles en AVA, realiza la siguiente inve
 ➡️ [**Actividad · Otros paradigmas de programación**](ACTIVIDAD-PARADIGMAS.md)
 
 El objetivo no es memorizar definiciones, sino descubrir que existen distintas maneras de pensar y organizar una solución de software.
+
+> **Si quieres profundizar:** revisa [Profundización · Paradigma orientado a objetos](./CLASE-01/README.md), donde se amplían paradigma, programación estructurada vs POO, responsabilidades, colaboración y el puente Java/Python.
