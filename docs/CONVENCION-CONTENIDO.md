@@ -104,6 +104,13 @@ Siempre que sea razonable, el archivo y la carpeta comparten el mismo nombre bas
 01-clases-y-objetos/
 ```
 
+En material histórico que ya existe con nombres como `CLASE-01.md`, se conserva el nombre original y la carpeta homónima se utiliza como expansión opcional:
+
+```text
+CLASE-01.md
+CLASE-01/
+```
+
 ## Relación entre material
 
 ```text
@@ -125,6 +132,26 @@ Agregarla cuando:
 
 El tamaño del documento por sí solo no obliga a crear una carpeta.
 
+## Aplicación retroactiva
+
+Esta convención se aplica también al material ya publicado. Al revisar semanas anteriores:
+
+- se conserva el `.md` base existente;
+- no se elimina ni se traslada fuera de él contenido necesario para la asignatura;
+- se agrega una carpeta homónima cuando exista profundidad real que justifique una segunda capa;
+- se incorporan enlaces de profundización desde los índices y, cuando corresponda, desde el propio documento base.
+
+La retroactividad aplica a **material didáctico/conceptual**. No se crean carpetas homónimas de forma mecánica para:
+
+- planificaciones;
+- resúmenes de clase;
+- actividades o bancos de ejercicios;
+- dinámicas;
+- laboratorios;
+- documentos operativos.
+
+Estos artefactos mantienen su estructura propia salvo que contengan un tema didáctico que, por sí mismo, necesite expansión.
+
 ## Principio editorial
 
 El repositorio debe funcionar como **documentación técnica educativa de profundidad progresiva**:
@@ -134,5 +161,3 @@ base obligatoria → profundización voluntaria → observación → aplicación
 ```
 
 La profundidad puede crecer tanto como resulte útil, pero nunca a costa de vaciar el archivo principal.
-
-Esta convención aplica al material nuevo y se adoptará progresivamente en el contenido existente.
