@@ -47,8 +47,26 @@ La página principal debe responder, sin necesidad de explorar el repo:
 - [ ] Comprobar que no existan dos fuentes activas del mismo artefacto.
 - [ ] Revisar que todos los enlaces públicos funcionen.
 - [ ] Registrar deuda pedagógica o técnica que deba retomarse la semana siguiente.
+- [ ] Actualizar `data/weekly/semana-XX.yml` con plan vs avance real, evidencias, DevLog agregado, PetCare, bloqueos y foco siguiente.
+- [ ] Mantener en `null` cualquier métrica sin evidencia confiable; no estimar ni completar datos personales.
 
-## 5. Criterio de calidad
+## 5. Estadísticas semanales
+
+El dataset se rige por [`ESTANDAR-ESTADISTICAS-SEMANALES.md`](./ESTANDAR-ESTADISTICAS-SEMANALES.md).
+
+Al cerrar la semana, verificar que el YAML permita derivar al menos:
+
+- cobertura curricular;
+- sesiones/bloques planificados vs realizados;
+- participación agregada en DevLog cuando ya exista medición;
+- evidencia formativa disponible;
+- estado de PetCare;
+- avance de prácticas/labs/desafíos;
+- bloqueos y deuda para la semana siguiente.
+
+El archivo estadístico es agregado y operacional: no contiene nombres ni notas individuales.
+
+## 6. Criterio de calidad
 
 Una semana se considera operacionalmente lista cuando un estudiante puede entrar al portal y responder:
 
@@ -58,4 +76,6 @@ Una semana se considera operacionalmente lista cuando un estudiante puede entrar
 - qué puedo hacer si quiero practicar más;
 - qué debería saber explicar al terminar.
 
-La meta no es publicar mucho material, sino mantener una ruta clara y coherente.
+Y el docente puede responder, desde `data/weekly/`, qué se planificó, qué ocurrió realmente y qué arrastre queda para la semana siguiente.
+
+La meta no es publicar mucho material, sino mantener una ruta clara, coherente y medible.
