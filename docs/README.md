@@ -6,9 +6,11 @@ Este directorio reúne contenidos reutilizables a lo largo del semestre que no p
 
 - [**Canon transversal de repositorios docentes**](./CANON-REPOSITORIO-DOCENTE.md) — estructura común, fuente canónica y reconciliación semanal.
 - [**Checklist operativo semanal**](./CHECKLIST-OPERACION-SEMANAL.md) — ciclo para preparar, ejecutar y cerrar cada semana.
+- [**Estándar de estadísticas semanales**](./ESTANDAR-ESTADISTICAS-SEMANALES.md) — contrato común de datos agregados para análisis y dashboards entre cursos.
 - [**Banco de dinámicas vivas**](./BANCO-DINAMICAS-VIVAS.md) — actividades breves reutilizables para mantener activa la asignatura.
 - [**Estándar de repositorio del estudiante**](./ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — estructura, packages, Git, Markdown y entregas.
 - [**DevLog del estudiante**](./DEVLOG-ESTUDIANTE.md) — manual, propósito, formato, ejemplos y reglas de la bitácora técnica semanal.
+- [**Datos semanales**](../data/weekly/) — archivos YAML agregados y procesables por semana.
 - [Versión web del estándar del estudiante](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/repositorio-estudiante.html)
 
 > El repo docente contiene el **manual** de DevLog. El DevLog real vive en `docs/devlog/` dentro del repositorio público de cada estudiante.
