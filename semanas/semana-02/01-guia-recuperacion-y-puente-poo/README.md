@@ -2,7 +2,7 @@
 
 > **Material opcional de profundización.** La base exigida para la asignatura está en [`../01-guia-recuperacion-y-puente-poo.md`](../01-guia-recuperacion-y-puente-poo.md).
 
-Esta carpeta explica con más detalle el puente desde fundamentos de Java hacia clases, objetos y encapsulamiento usando PetCare.
+Esta carpeta profundiza los contenidos de Semana 02 mediante ejemplos genéricos e independientes del proyecto transversal.
 
 ## Ruta sugerida
 
@@ -31,4 +31,6 @@ proteger estado
 responsabilidades
 ```
 
-La intención no es acelerar artificialmente hacia sintaxis POO, sino entender **qué problema aparece primero y por qué el siguiente concepto ayuda a resolverlo**.
+La intención es comprender qué problema aparece primero y por qué el siguiente concepto ayuda a resolverlo.
+
+> PetCare no se desarrolla en esta carpeta. Su avance semanal vive exclusivamente en `proyecto-formativo/`.
