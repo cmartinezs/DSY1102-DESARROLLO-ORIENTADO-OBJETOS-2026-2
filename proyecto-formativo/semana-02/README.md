@@ -1,161 +1,107 @@
-# PetCare · Semana 02
+# PetCare · Incremento Semana 02
 
 **Periodo:** 17 al 22 de agosto de 2026  
 **Sección:** DSY1102-012V
 
-PetCare comienza esta semana como **proyecto individual acumulativo**, pero no forma parte del flujo guiado de la clase.
+Esta carpeta pertenece exclusivamente al **proyecto formativo transversal PetCare**.
 
-La Semana 02 tiene dos pistas paralelas:
+No contiene la teoría, los ejemplos ni los ejercicios de Semana 02. Ese material vive en `semanas/semana-02/` y en las áreas generales de práctica del curso.
 
-```text
-CLASE
-métodos + clases + objetos + encapsulamiento
-mediante ejemplos y mini ejercicios independientes
-
-PETCARE
-aplicar individualmente esos contenidos
-al proyecto transversal
-```
+Aquí sólo se define qué debe avanzar individualmente cada estudiante en PetCare a partir de lo aprendido durante la semana.
 
 ---
 
-# Prerrequisito real
+# Objetivo del incremento
 
-El martes 18 se recuperaron fundamentos de Java afectados por el feriado del sábado 15:
+Iniciar PetCare y aplicar de forma autónoma los conceptos de Semana 02 que hayan sido efectivamente trabajados.
 
-- variables y tipos primitivos;
-- `String`;
-- `System.out.println(...)`;
-- `if`, `else if`, `else`;
-- `for`, `while`, `do-while`;
-- ejecución básica de un programa en IntelliJ IDEA.
-
-Ese trabajo habilita PetCare, pero **no fue todavía PetCare**.
+➡️ [Inicio de PetCare](./00-inicio-petcare.md)
 
 ---
 
-# Qué se aprende esta semana fuera de PetCare
+# Consigna individual
 
-Durante la clase del sábado 22 se trabajarán mediante ejemplos pequeños y contextos independientes:
+## 1. Crear el proyecto
 
-- métodos;
-- parámetros y argumentos;
-- retorno;
-- clases;
-- objetos;
-- abstracción;
-- encapsulamiento;
-- protección básica del estado.
+Crear un proyecto Java ejecutable llamado `petcare` dentro del repositorio individual de la asignatura.
 
-➡️ La clase guiada vive fuera del proyecto formativo.
+Debe existir una primera versión mínima, funcional y explicable por el estudiante.
 
-Los ejemplos de apoyo están en:
+## 2. Incorporar comportamiento mediante métodos
 
-- [`../../examples/semana-02/`](../../examples/semana-02/)
-- [`../../practica/semana-02/`](../../practica/semana-02/)
+Agregar al menos un método útil al programa.
 
----
+El estudiante debe poder explicar:
 
-# Incremento individual PetCare · Semana 02
+- qué operación representa;
+- qué datos necesita recibir;
+- qué argumentos utiliza al llamarlo;
+- si retorna o no un valor;
+- por qué tomó esa decisión.
 
-Una vez que los conceptos hayan sido trabajados en clase, cada estudiante debe iniciar y evolucionar su propio PetCare.
+## 3. Modelar `Mascota`
 
-➡️ [00-inicio-petcare.md](./00-inicio-petcare.md)
-
-La consigna no exige copiar un código oficial. Debe construir una solución propia que cumpla como mínimo con lo siguiente.
-
-## Parte A · Crear PetCare
-
-Crear un proyecto Java ejecutable llamado `petcare` dentro de su repositorio de la asignatura.
-
-Primera versión mínima:
-
-- una mascota representada inicialmente con datos simples;
-- salida legible por consola;
-- código que el estudiante pueda explicar.
-
-## Parte B · Aplicar métodos
-
-Incorporar al menos un método útil al programa.
-
-Debe poder explicar:
-
-- qué problema evita o qué operación representa;
-- qué parámetros recibe;
-- qué argumentos se utilizan al llamarlo;
-- si retorna o no un valor y por qué.
-
-## Parte C · Aplicar clase y objeto
-
-Cuando ya haya trabajado clases y objetos en el material de la semana:
+Cuando clases y objetos ya hayan sido abordados en el contenido semanal:
 
 - crear una clase `Mascota`;
-- crear al menos dos objetos con estados distintos;
-- decidir qué datos corresponden a la mascota.
+- elegir los atributos que sean relevantes en esta primera versión;
+- crear al menos dos objetos con estados distintos.
 
-## Parte D · Aplicar encapsulamiento si fue alcanzado
+No se entrega una solución oficial para copiar.
 
-Si encapsulamiento fue efectivamente trabajado esta semana:
+## 4. Proteger una regla de estado
 
-- proteger al menos un dato cuyo valor pueda dejar al objeto en un estado inválido;
-- crear una operación que controle una modificación válida;
-- demostrar al menos un caso aceptado y uno rechazado.
+Si encapsulamiento ya fue trabajado:
 
-Ejemplo de problema válido para pensar, no solución obligatoria:
+- identificar un dato que no debería aceptar cualquier valor;
+- impedir su modificación irrestricta;
+- crear una operación que controle el cambio;
+- demostrar al menos un caso válido y uno inválido.
 
-> una mascota no debería terminar con un peso negativo.
+Ejemplo de problema para razonar:
 
----
+> un peso no debería aceptar valores negativos.
 
-# Libertad de implementación
-
-Se evalúa transferencia, no copia.
-
-El estudiante puede:
-
-- elegir nombres razonables;
-- organizar progresivamente su código;
-- implementar una regla diferente si puede justificarla;
-- hacer más de lo mínimo siempre que no adelante contenidos innecesariamente.
-
-No debe:
-
-- copiar una solución completa del repositorio docente;
-- agregar tecnologías aún no enseñadas sólo para "hacerlo más profesional";
-- generar una arquitectura que no pueda explicar.
+El estudiante puede elegir otra regla si puede justificarla.
 
 ---
 
-# Evidencia de Semana 02
+# Evidencia esperada
 
-El checkpoint debe permitir verificar:
+El repositorio individual debe mostrar:
 
-- proyecto PetCare propio y ejecutable;
-- al menos un método aplicado con sentido;
-- primera clase y objetos si ese contenido fue alcanzado;
-- encapsulamiento sólo si fue efectivamente abordado;
+- PetCare ejecutable;
+- código propio y explicable;
+- al menos un método con propósito;
+- clase y objetos si ese contenido ya fue alcanzado;
+- encapsulamiento si ya fue alcanzado;
 - historial Git progresivo;
-- capacidad de explicar las decisiones tomadas.
+- ausencia de una solución completa agregada de una sola vez al final.
 
-## Commits
+---
+
+# Commits
 
 No existe una cuota de commits por clase.
 
-Se esperan commits pequeños y representativos del trabajo real, por ejemplo:
+Los commits deben representar incrementos reales, por ejemplo:
 
 ```text
 feat: iniciar petcare
-feat: extraer comportamiento de mascota
-feat: modelar mascota como objeto
+feat: agregar comportamiento inicial
+feat: modelar mascota
+feat: proteger regla de peso
 ```
+
+Los mensajes son ejemplos, no una secuencia obligatoria.
 
 ---
 
-# Lo que NO corresponde todavía
+# No corresponde todavía
 
 No agregar por iniciativa propia:
 
-- `ArrayList<Mascota>`;
+- colecciones;
 - herencia `Perro` / `Gato`;
 - interfaces;
 - excepciones propias;
@@ -164,14 +110,22 @@ No agregar por iniciativa propia:
 - persistencia;
 - frameworks.
 
-Esos recursos aparecerán cuando el contenido de la asignatura genere la necesidad.
-
 ---
 
-# Relación con la clase
+# Checkpoint Semana 02
 
-La clase enseña el concepto usando ejemplos distintos. PetCare pregunta después:
+El checkpoint se determina por el contenido realmente alcanzado durante la semana.
 
-> **¿Puedes tomar lo que aprendiste esta semana y aplicarlo por tu cuenta a un software que ya debe seguir evolucionando?**
+Como mínimo debe existir un PetCare iniciado y ejecutable.
 
-Ese es el propósito del proyecto formativo.
+A medida que el estudiante haya aprendido los contenidos correspondientes, el proyecto debe evolucionar hacia:
+
+```text
+PetCare
+→ métodos
+→ Mascota
+→ objetos
+→ primera regla protegida
+```
+
+La siguiente semana continúa desde este checkpoint; PetCare no se reinicia.
