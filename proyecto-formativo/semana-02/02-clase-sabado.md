@@ -1,19 +1,20 @@
-# Semana 02 · Clase sábado 22 · Métodos, clases y primer checkpoint PetCare
+# Semana 02 · Clase sábado 22 · Métodos, clases y objetos
 
 **Sección:** DSY1102-012V  
 **Horario:** 12:11–13:40  
-**Objetivo de la sesión:** aprender métodos, parámetros, retorno, clase y objeto mediante ejemplos pequeños; luego iniciar formalmente PetCare y aplicar esos conceptos al primer checkpoint del proyecto transversal.
+**Objetivo de la sesión:** aprender métodos, parámetros, retorno, clases, objetos y una primera motivación de encapsulamiento mediante ejemplos pequeños y mini ejercicios independientes.
 
-> **Decisión didáctica:** PetCare no será el ejemplo de todo. Primero se aprende el concepto en ejemplos aislados y después se integra al proyecto.
+> **Regla de esta clase:** PetCare no se desarrolla paso a paso aquí. La sesión enseña herramientas generales; PetCare corre por una pista individual paralela y utiliza después lo aprendido.
 
 ➡️ [Ejemplos aislados de Semana 02](../../examples/semana-02/README.md)  
-➡️ [Inicio formal de PetCare](./00-inicio-petcare.md)
+➡️ [Práctica Semana 02](../../practica/semana-02/)  
+➡️ [Consigna individual PetCare · Semana 02](./README.md)
 
 ---
 
 # Punto de partida real
 
-El martes 18 se recuperó el contenido perdido por el feriado del sábado 15. Los estudiantes trabajaron:
+El martes 18 se recuperó el contenido perdido por el feriado del sábado 15. Los estudiantes ya trabajaron:
 
 - variables y tipos primitivos;
 - `String`;
@@ -27,47 +28,37 @@ El martes 18 se recuperó el contenido perdido por el feriado del sábado 15. Lo
 
 No se alcanzaron métodos ni POO.
 
-**PetCare tampoco se considera iniciado el martes.** Esa sesión entrega los prerrequisitos técnicos para poder comenzarlo hoy.
-
 Seguimos sin `Scanner`.
 
 ---
 
-# Estrategia de la clase
+# Modelo didáctico
 
-Hoy repetiremos esta estructura:
-
-```text
-EJEMPLO SUELTO
-      ↓
-CONCEPTO
-      ↓
-SEGUNDO CONTEXTO
-      ↓
-APLICACIÓN EN PETCARE
-```
-
-La meta es que el alumno no asocie:
+Para los conceptos nuevos se utiliza esta secuencia:
 
 ```text
-método = PetCare
-clase = Mascota
-objeto = mascota
+explicación breve
+      ↓
+ejemplo mínimo aislado
+      ↓
+mini ejercicio
+      ↓
+segundo contexto
+      ↓
+comprobación
 ```
 
-sino que comprenda que son herramientas generales.
+Después de la clase, PetCare plantea otra pregunta:
+
+> ¿Puedes aplicar por tu cuenta estos conceptos a un proyecto que debe continuar evolucionando?
 
 ---
 
-# Bloque 1 · 12:11–12:50 · Métodos y primera clase con ejemplos sueltos
+# Bloque 1 · 12:11–12:50 · Métodos
 
 ## 12:11–12:15 · Reactivación
 
-### Docente
-
-Crear o abrir un proyecto Java sencillo en IntelliJ.
-
-Código mínimo:
+Abrir un programa mínimo:
 
 ```java
 public class App {
@@ -78,9 +69,9 @@ public class App {
 }
 ```
 
-Preguntar:
+Preguntar rápidamente:
 
-- ¿dónde empieza la ejecución?
+- ¿dónde comienza la ejecución?
 - ¿qué hace `System.out.println`?
 - ¿qué elementos del código ya conocen?
 
@@ -88,13 +79,11 @@ No volver a enseñar fundamentos.
 
 ---
 
-## 12:15–12:20 · Ejemplo suelto 1: primer método
+## 12:15–12:21 · Ejemplo 1 · Primer método
 
 Usar:
 
 ➡️ [`01-MetodoSimple.java`](../../examples/semana-02/01-MetodoSimple.java)
-
-Escribir primero sólo:
 
 ```java
 public static void mostrarSaludo() {
@@ -102,11 +91,11 @@ public static void mostrarSaludo() {
 }
 ```
 
-Preguntar:
+Primero ejecutarlo sin llamar al método y preguntar:
 
-> ¿Se ejecuta porque existe?
+> ¿Por qué no ocurre nada?
 
-Luego llamarlo:
+Luego agregar:
 
 ```java
 mostrarSaludo();
@@ -115,28 +104,26 @@ mostrarSaludo();
 Idea central:
 
 ```text
-método = bloque de comportamiento con un nombre
+método = comportamiento con un nombre que alguien debe invocar
 ```
 
-Explicar únicamente:
+Explicar sólo lo necesario:
 
 ```text
 mostrarSaludo → nombre
 ()            → no recibe datos
-void          → no retorna un resultado
+void          → no entrega resultado
 ```
 
-`public static` se usa, pero no se transforma todavía en una clase teórica de modificadores.
+`public static` se utiliza, pero no se profundiza todavía en modificadores.
 
 ---
 
-## 12:20–12:30 · Ejemplo suelto 2: parámetros, argumentos y retorno
+## 12:21–12:29 · Ejemplo 2 · Parámetros y argumentos
 
 Usar:
 
 ➡️ [`02-MetodosParametrosRetorno.java`](../../examples/semana-02/02-MetodosParametrosRetorno.java)
-
-### A. Parámetro
 
 ```java
 public static void mostrarNombre(String nombre) {
@@ -148,16 +135,23 @@ Llamar:
 
 ```java
 mostrarNombre("Ana");
+mostrarNombre("Pedro");
 ```
 
-Dejar escrito:
+Dejar visible:
 
 ```text
 String nombre → parámetro
 "Ana"         → argumento
 ```
 
-### B. Retorno
+Pregunta de comprobación:
+
+> ¿Por qué el mismo método puede mostrar dos nombres diferentes?
+
+---
+
+## 12:29–12:36 · Ejemplo 3 · Retorno
 
 ```java
 public static int sumar(int a, int b) {
@@ -165,7 +159,7 @@ public static int sumar(int a, int b) {
 }
 ```
 
-Uso:
+Usar:
 
 ```java
 int resultado = sumar(7, 5);
@@ -175,11 +169,11 @@ System.out.println(resultado);
 Comparar:
 
 ```text
-void → no entrega resultado
-int  → debe retornar un int
+void → no entrega un resultado
+int  → debe entregar un int
 ```
 
-Luego mostrar brevemente otro tipo:
+Mostrar un segundo tipo brevemente:
 
 ```java
 public static boolean esMayorDeEdad(int edad) {
@@ -187,13 +181,11 @@ public static boolean esMayorDeEdad(int edad) {
 }
 ```
 
-La intención es demostrar que el patrón es general.
+Reforzar que `return` y `System.out.println` no significan lo mismo.
 
 ---
 
-## 12:30–12:38 · Hazlo tú: métodos sin PetCare
-
-Plantear dos ejercicios pequeños.
+## 12:36–12:46 · Mini ejercicios
 
 ### Ejercicio A
 
@@ -213,282 +205,183 @@ Crear:
 public static String clasificarTemperatura(int temperatura)
 ```
 
-Regla deliberadamente sencilla:
+Regla:
 
 ```text
 >= 25 → "ALTA"
 < 25  → "BAJA"
 ```
 
-### Qué revisar
+### Si terminan antes
 
-- distingue parámetro de argumento;
-- no confunde `return` con `System.out.println`;
-- llama efectivamente al método;
-- el tipo retornado coincide con la firma.
+Crear un método propio que:
 
----
+- reciba al menos un parámetro;
+- retorne un valor;
+- tenga un propósito explicable.
 
-## 12:38–12:47 · Ejemplo suelto 3: clase y objetos
+### Docente revisa
 
-Usar:
-
-➡️ [`03-ProductoBasico.java`](../../examples/semana-02/03-ProductoBasico.java)
-
-Primero crear:
-
-```java
-class Producto {
-    String nombre;
-    double precio;
-}
-```
-
-Preguntar:
-
-> ¿Qué estamos representando?
-
-Respuesta esperada: un producto como concepto del problema.
-
-Crear:
-
-```java
-Producto producto1 = new Producto();
-producto1.nombre = "Teclado";
-producto1.precio = 19990;
-```
-
-Luego:
-
-```java
-Producto producto2 = new Producto();
-producto2.nombre = "Mouse";
-producto2.precio = 12990;
-```
-
-Explicar:
-
-```text
-Producto       → clase / tipo
-producto1      → referencia a un objeto
-new Producto() → creación de una instancia
-```
-
-Preguntar:
-
-- ¿producto1 y producto2 tienen la misma estructura?
-- ¿tienen los mismos datos?
-
-Conclusión:
-
-> Dos objetos de la misma clase pueden mantener estados distintos.
-
-Todavía no introducir `private` ni constructor si eso distrae.
+- parámetro vs argumento;
+- firma;
+- llamada del método;
+- tipo retornado;
+- uso de `return`.
 
 ---
 
-## 12:47–12:50 · Puente hacia PetCare
+## 12:46–12:50 · Cierre del bloque
 
-Preguntar:
-
-> Si pudimos representar un `Producto` como una unidad, ¿qué otro concepto podríamos representar de esa forma?
-
-Mostrar solamente:
+En la pizarra:
 
 ```text
-Mascota
-- nombre
-- edad
-- peso
-- vacunado
+método
+├── nombre
+├── parámetros
+├── argumentos al llamar
+├── tipo de retorno
+└── return cuando corresponde
 ```
 
-Explicar:
+Preguntas rápidas:
 
-> Después del descanso vamos a iniciar el proyecto de semestre y aplicaremos lo que acabamos de aprender.
+1. ¿Un método se ejecuta por existir?
+2. ¿Qué diferencia hay entre parámetro y argumento?
+3. ¿Qué diferencia hay entre imprimir y retornar?
 
 ---
 
 # 12:50–13:01 · Pausa
 
-No agregar contenido.
+No introducir contenido nuevo.
 
 ---
 
-# Bloque 2 · 13:01–13:40 · Inicio formal de PetCare
+# Bloque 2 · 13:01–13:40 · Clases, objetos y encapsulamiento
 
-## 13:01–13:06 · Crear PetCare desde cero
+## 13:01–13:06 · Problema inicial · datos relacionados
 
-Este es el **inicio formal del proyecto transversal**.
+No usar PetCare.
 
-Cada estudiante crea un proyecto Java llamado:
-
-```text
-petcare
-```
-
-Usar el package definido por el estándar del curso, incorporando el usuario institucional cuando corresponda. Ejemplo conceptual:
-
-```text
-cl.duoc.<usuario>.petcare
-```
-
-Crear `App.java`.
-
-Primera versión:
+Plantear un producto mediante variables:
 
 ```java
-public class App {
-    public static void main(String[] args) {
-        String nombre = "Michi";
-        int edad = 4;
-        double peso = 5.2;
-        boolean vacunado = true;
-
-        System.out.println("Mascota: " + nombre);
-        System.out.println("Edad: " + edad);
-        System.out.println("Peso: " + peso);
-        System.out.println("Vacunado: " + vacunado);
-    }
-}
+String nombre = "Teclado";
+double precio = 19990;
+int stock = 5;
 ```
 
-Importante:
-
-> Aquí no se enseña nada nuevo. Estamos creando la versión 0 del proyecto sólo con herramientas que ya conocen.
-
-### Primer commit sugerido
-
-```text
-feat: iniciar proyecto formativo petcare
-```
-
----
-
-## 13:06–13:12 · Aplicar métodos a PetCare
-
-Ahora sí reutilizar lo aprendido.
-
-Plantear:
-
-> Quiero obtener un texto que represente el estado de vacunación.
-
-Los estudiantes intentan construir:
+Luego un segundo producto:
 
 ```java
-public static String obtenerEstadoVacunacion(boolean vacunado) {
-    if (vacunado) {
-        return "AL DÍA";
-    }
-
-    return "PENDIENTE";
-}
-```
-
-Usarlo desde `main`:
-
-```java
-String estado = obtenerEstadoVacunacion(vacunado);
-System.out.println("Vacunación: " + estado);
-```
-
-Hacer que identifiquen:
-
-```text
-boolean vacunado → parámetro
-vacunado         → argumento
-String           → tipo retornado
-return           → valor entregado
-```
-
----
-
-## 13:12–13:18 · Detectar que los datos pertenecen al mismo concepto
-
-Mostrar:
-
-```java
-String nombre = "Michi";
-int edad = 4;
-double peso = 5.2;
-boolean vacunado = true;
+String nombre2 = "Mouse";
+double precio2 = 12990;
+int stock2 = 10;
 ```
 
 Preguntar:
 
-> ¿Estos cuatro datos están relacionados o son cuatro cosas independientes?
-
-Respuesta esperada:
-
-> Describen la misma mascota.
-
-Recordar el ejemplo anterior:
-
-```text
-Producto
-→ nombre + precio
-
-Mascota
-→ nombre + edad + peso + vacunado
-```
-
-Ahora la clase no aparece por magia: aparece porque ya reconocieron un concepto.
-
----
-
-## 13:18–13:25 · Crear la primera clase `Mascota`
-
-Crear inicialmente:
-
-```java
-public class Mascota {
-    String nombre;
-    int edad;
-    double peso;
-    boolean vacunado;
-}
-```
-
-Crear un objeto:
-
-```java
-Mascota mascota1 = new Mascota();
-mascota1.nombre = "Michi";
-mascota1.edad = 4;
-mascota1.peso = 5.2;
-mascota1.vacunado = true;
-```
-
-Crear un segundo si el ritmo lo permite.
-
-Preguntar:
-
-> ¿Qué cambió respecto de tener cuatro variables sueltas?
+> ¿Qué problema empieza a aparecer si seguimos agregando productos de esta forma?
 
 Idea buscada:
 
-> Ahora los datos relacionados pertenecen a una unidad conceptual.
+> Hay datos que pertenecen al mismo concepto y empiezan a dispersarse.
 
-### Abstracción
+---
+
+## 13:06–13:14 · Crear una clase
+
+Usar:
+
+➡️ [`03-ProductoBasico.java`](../../examples/semana-02/03-ProductoBasico.java)
+
+Crear:
+
+```java
+class Producto {
+    String nombre;
+    double precio;
+    int stock;
+}
+```
+
+Explicar:
+
+```text
+Producto
+→ concepto que el programa necesita representar
+
+nombre, precio, stock
+→ estado que hoy nos interesa de ese concepto
+```
+
+Evitar que la única definición sea “una clase es una plantilla”. La clase representa un concepto del problema.
+
+---
+
+## 13:14–13:22 · Crear objetos
+
+```java
+Producto producto1 = new Producto();
+producto1.nombre = "Teclado";
+producto1.precio = 19990;
+producto1.stock = 5;
+```
+
+Segundo objeto:
+
+```java
+Producto producto2 = new Producto();
+producto2.nombre = "Mouse";
+producto2.precio = 12990;
+producto2.stock = 10;
+```
+
+Dejar explícito:
+
+```text
+Producto       → clase / tipo
+producto1      → referencia
+new Producto() → nueva instancia
+```
 
 Preguntar:
 
-> ¿Una mascota real sólo tiene cuatro características?
+- ¿ambos objetos tienen la misma estructura?
+- ¿mantienen el mismo estado?
+
+Conclusión:
+
+> Objetos del mismo tipo pueden tener estados diferentes.
+
+---
+
+## 13:22–13:27 · Abstracción
+
+Preguntar:
+
+> ¿Un producto real tiene sólo nombre, precio y stock?
 
 No.
 
 Explicar:
 
-> Para nuestro programa elegimos sólo las características que hoy son relevantes. Eso es parte de abstraer.
+> Para este problema seleccionamos las características que hoy son relevantes. Modelar implica decidir qué nos importa representar.
+
+Mini ejercicio oral:
+
+> Si estuviéramos modelando una canción, ¿qué tres o cuatro datos podrían ser relevantes?
+
+No implementar la clase; sólo comprobar transferencia conceptual.
 
 ---
 
-## 13:25–13:32 · Provocar la necesidad de encapsulamiento
+## 13:27–13:33 · Provocar un estado inválido
 
-Escribir intencionalmente:
+Con `Producto`:
 
 ```java
-mascota1.peso = -50;
+producto1.stock = -100;
 ```
 
 Preguntar:
@@ -497,142 +390,124 @@ Preguntar:
 
 Sí.
 
-> ¿Es un estado válido para nuestro programa?
+> ¿Tiene sentido para nuestro problema?
 
 No.
 
-Entonces introducir:
+Introducir progresivamente:
 
 ```java
-private double peso;
+private int stock;
 ```
 
 Y una operación:
 
 ```java
-public boolean actualizarPeso(double nuevoPeso) {
-    if (nuevoPeso <= 0) {
+public boolean vender(int cantidad) {
+    if (cantidad <= 0 || cantidad > stock) {
         return false;
     }
 
-    peso = nuevoPeso;
+    stock -= cantidad;
     return true;
 }
 ```
 
-Concepto clave:
+Idea central:
 
-> Encapsular no es simplemente escribir `private`; es controlar cómo puede cambiar el estado del objeto.
+> Encapsular no consiste solamente en escribir `private`; el objeto controla cómo puede cambiar su estado.
 
-No generar getters/setters de todo como receta.
-
----
-
-## 13:32–13:37 · Hazlo tú en PetCare
-
-Cada estudiante agrega **una** operación.
-
-### Opción A
-
-```java
-public void cumplirAnio() {
-    edad++;
-}
-```
-
-### Opción B
-
-```java
-public void marcarComoVacunada() {
-    vacunado = true;
-}
-```
-
-Antes de escribir deben responder:
-
-> ¿Qué estado cambia y por qué tiene sentido que la operación pertenezca a `Mascota`?
+No convertir getters/setters automáticos en receta.
 
 ---
 
-## 13:37–13:39 · Checkpoint PetCare 0.1
+## 13:33–13:38 · Mini ejercicio de transferencia
 
-Checkpoint mínimo, según avance real:
+Proponer otro contexto sin programarlo completo en conjunto.
 
-```text
-petcare/
-└── src/
-    ├── App.java
-    └── Mascota.java      // si se alcanzó clase/objeto
-```
+### Cuenta bancaria conceptual
 
-Si ya se trabajaron packages:
+Estado:
 
 ```text
-src/
-└── cl/
-    └── duoc/
-        └── <usuario>/
-            └── petcare/
-                ├── App.java
-                └── Mascota.java
+saldo
 ```
 
-No introducir hoy una estructura arquitectónica más profunda si todavía no aporta al aprendizaje.
+Pregunta:
 
-### Commit sugerido
+> ¿Qué operación sería mejor que permitir `cuenta.saldo = -500000` directamente?
+
+Los estudiantes proponen una operación, por ejemplo:
 
 ```text
-feat: modelar primera mascota
+retirar(monto)
 ```
+
+Deben describir al menos una regla que esa operación debería validar.
+
+Si el grupo avanza rápido, pueden codificar una versión mínima.
 
 ---
 
-## 13:39–13:40 · Exit ticket
+## 13:38–13:40 · Cierre / exit ticket
 
-Preguntar rápidamente:
+Preguntar:
 
-1. ¿Qué diferencia hay entre parámetro y argumento?
-2. ¿Qué diferencia hay entre `void` y un método que retorna un valor?
-3. ¿Qué diferencia hay entre clase y objeto?
-4. ¿Por qué PetCare comenzó después de los ejemplos y no antes?
-5. ¿Por qué `peso = -50` nos llevó a hablar de encapsulamiento?
+1. ¿Qué diferencia hay entre clase y objeto?
+2. ¿Por qué dos objetos de `Producto` pueden tener datos diferentes?
+3. ¿Qué significa abstraer en este ejemplo?
+4. ¿Por qué `private` por sí solo no explica todo el encapsulamiento?
+5. ¿Qué operación protege el stock del producto?
+
+No abrir un tema nuevo.
+
+---
+
+# Después de la clase · PetCare
+
+PetCare corre por separado como proyecto individual.
+
+La consigna de esta semana está aquí:
+
+➡️ [`proyecto-formativo/semana-02/README.md`](./README.md)
+
+El estudiante debe tomar **sólo los contenidos realmente trabajados** y aplicarlos a su propia versión.
+
+El docente puede responder dudas y revisar avances, pero **no existe una solución PetCare que se construya completa en vivo durante esta clase**.
+
+La conexión curricular es:
+
+```text
+HOY APRENDÍ
+métodos
+clases
+objetos
+encapsulamiento
+
+        ↓ transferencia individual
+
+PETCARE SEMANA 02
+¿cómo utilizo estas herramientas
+para mejorar mi propio proyecto?
+```
 
 ---
 
 # Checkpoint mínimo aceptable de la clase
 
-La clase sigue siendo exitosa si se llega bien hasta:
+La clase es exitosa si los estudiantes alcanzan a comprender y practicar:
 
 ```text
-métodos
-→ parámetros
+método
+→ parámetros/argumentos
 → retorno
-→ clase Producto
-→ objetos Producto
-→ crear PetCare versión 0
+→ clase
+→ objeto
 ```
 
-Si `Mascota` o encapsulamiento no alcanzan, se continúan en la próxima sesión.
+Encapsulamiento puede quedar parcialmente abierto si el ritmo requiere más tiempo.
 
-No sacrificar comprensión para completar la lista de contenidos.
-
----
-
-# Checkpoint ideal
-
-```text
-ejemplos sueltos comprendidos
-        ↓
-PetCare creado
-        ↓
-método aplicado al proyecto
-        ↓
-clase Mascota
-        ↓
-al menos un objeto
-        ↓
-primera regla encapsulada
-```
+La meta no es “terminar PetCare”. PetCare no forma parte del checkpoint de ejecución de esta sesión.
 
 ---
 
@@ -642,10 +517,8 @@ No adelantar:
 
 - `Scanner`;
 - arrays;
-- `ArrayList`;
 - colecciones;
 - herencia;
-- `Perro` / `Gato`;
 - interfaces;
 - excepciones;
 - JavaFX;
@@ -661,10 +534,9 @@ No adelantar:
 Después de la sesión registrar en la bitácora docente:
 
 - último concepto realmente alcanzado;
-- si PetCare quedó creado por la mayoría;
-- checkpoint efectivo;
+- mini ejercicios realizados;
 - dudas frecuentes;
-- desviaciones respecto de esta guía;
-- qué debe retomarse en la próxima sesión.
+- si encapsulamiento alcanzó a trabajarse;
+- qué debe retomarse la siguiente sesión.
 
-> La guía define la intención docente. La bitácora define lo que realmente ocurrió.
+El avance de PetCare se registra por separado a través de los repositorios y checkpoints individuales de los estudiantes.
