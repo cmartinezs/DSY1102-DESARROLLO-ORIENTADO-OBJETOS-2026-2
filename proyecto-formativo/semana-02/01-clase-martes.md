@@ -1,5 +1,30 @@
 # PetCare · Semana 02 · Clase martes 18
 
+## Registro real de la sesión
+
+La sesión se utilizó principalmente para **recuperar el contenido que debía trabajarse el sábado 15 de agosto**, suspendido por feriado.
+
+### Contenidos efectivamente trabajados
+
+- variables y tipos primitivos;
+- `String`;
+- salida por consola con `System.out.println(...)`;
+- estructuras condicionales `if`, `else if` y `else`;
+- ciclos `for`, `while` y `do-while`;
+- estructura básica de un programa Java;
+- ejecución de ejemplos desde IntelliJ IDEA;
+- ejemplos básicos para comprender cómo ejecutar un programa y observar su salida.
+
+### Decisiones de avance
+
+- todavía no se utilizó `Scanner`;
+- no se alcanzó a introducir métodos como contenido formal;
+- no se introdujeron todavía clases ni encapsulamiento;
+- la recuperación de fundamentos pendiente por el feriado se considera realizada;
+- el sábado 22 se puede comenzar directamente con métodos y avanzar hacia clases, objetos y encapsulamiento.
+
+---
+
 ## Partimos con
 
 Todavía no existe una clase `Mascota` propia.
