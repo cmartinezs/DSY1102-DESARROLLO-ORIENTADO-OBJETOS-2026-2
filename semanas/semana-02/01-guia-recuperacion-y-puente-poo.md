@@ -1,204 +1,390 @@
-# Guía · Recuperación Semana 01 y puente a POO con PetCare
+# Guía · Recuperación Semana 01 y puente a POO
 
-Esta guía existe porque el feriado del sábado 15 de agosto dejó contenido pendiente. La prioridad es **no saltarse fundamentos de Java** para llegar artificialmente a clases y encapsulamiento.
+Esta guía pertenece exclusivamente al **contenido curricular de Semana 02**. No utiliza PetCare ni depende del proyecto transversal.
 
-Desde esta semana utilizaremos **PetCare** como actividad formativa transversal. La idea es que el mismo código evolucione clase a clase en vez de resolver ejercicios desconectados.
+La semana parte recuperando lo que quedó pendiente por el feriado del sábado 15 de agosto y avanza hacia métodos, clases, objetos, abstracción y encapsulamiento.
 
-## A. Lo atrasado de Semana 01
+La ruta de aprendizaje es:
+
+```text
+fundamentos Java
+    ↓
+métodos
+    ↓
+parámetros y retorno
+    ↓
+clases y objetos
+    ↓
+abstracción
+    ↓
+encapsulamiento
+```
+
+> PetCare se trabaja por separado en `proyecto-formativo/` como actividad individual transversal conectada con los contenidos de la semana.
+
+---
+
+## A. Recuperación de fundamentos Java
 
 ### Tipos y variables
 
-Comenzamos representando una mascota con variables simples:
-
 ```java
-String nombre = "Michi";
-int edad = 4;
-double peso = 5.2;
-boolean vacunado = true;
+String nombreProducto = "Teclado";
+double precio = 19990.0;
+int stock = 5;
+boolean disponible = true;
 ```
+
+### Mini ejercicio
+
+Define en código los datos básicos de un libro:
+
+- título;
+- año de publicación;
+- precio;
+- disponible.
+
+Todavía no utilizamos `Scanner`.
+
+---
 
 ### Operadores
 
 ```java
-int edadProximoAnio = edad + 1;
-boolean pesoRegistrado = peso > 0;
-boolean requiereRevision = !vacunado || peso <= 0;
+double precioConDescuento = precio * 0.9;
+boolean hayStock = stock > 0;
+boolean puedeVenderse = disponible && hayStock;
 ```
+
+### Mini ejercicio
+
+Con una variable `edad`, calcula:
+
+- edad del próximo año;
+- si es mayor o igual a 18;
+- si está entre 18 y 65 años.
+
+---
 
 ### Condicionales
 
 ```java
-if (peso <= 0) {
-    System.out.println("Peso inválido");
+int temperatura = 28;
+
+if (temperatura >= 30) {
+    System.out.println("Temperatura alta");
+} else if (temperatura >= 20) {
+    System.out.println("Temperatura media");
 } else {
-    System.out.println("Peso registrado correctamente");
+    System.out.println("Temperatura baja");
 }
 ```
 
-También podemos trabajar decisiones encadenadas:
+### Mini ejercicio
+
+Dada:
 
 ```java
-if (edad < 1) {
-    System.out.println("Etapa inicial");
-} else if (edad < 8) {
-    System.out.println("Etapa adulta");
-} else {
-    System.out.println("Etapa senior");
-}
+double nota = 5.4;
 ```
+
+muestra `Aprobado` si la nota es mayor o igual a `4.0`, y `Reprobado` en caso contrario.
+
+---
 
 ### Ciclos
 
+#### `for`
+
 ```java
-for (int i = 1; i <= 3; i++) {
-    System.out.println("En " + i + " año(s): " + (edad + i));
+for (int i = 1; i <= 5; i++) {
+    System.out.println("Iteración: " + i);
 }
 ```
 
+#### `while`
+
 ```java
 int contador = 1;
+
 while (contador <= 3) {
-    System.out.println("Control " + contador);
+    System.out.println("Contador: " + contador);
     contador++;
 }
 ```
 
-> Por ahora se mantienen valores definidos directamente en código. **Todavía no usamos `Scanner`.**
-
-## B. ¿Por qué aparecen los métodos?
-
-A medida que PetCare crece, comienzan a aparecer bloques de código que queremos nombrar y reutilizar.
-
-Por ejemplo, mostrar una ficha:
+#### `do-while`
 
 ```java
-System.out.println("Nombre: " + nombre);
-System.out.println("Edad: " + edad);
-System.out.println("Peso: " + peso);
-System.out.println("Vacunado: " + vacunado);
+int numero = 1;
+
+do {
+    System.out.println(numero);
+    numero++;
+} while (numero <= 3);
 ```
 
-Podemos extraer ese comportamiento:
+### Mini ejercicio
+
+Imprime con un `for` los números del 2 al 10 de dos en dos.
+
+---
+
+# B. Métodos
+
+Supongamos que repetimos varias veces:
 
 ```java
-public static void mostrarFicha(String nombre, int edad, double peso, boolean vacunado) {
-    System.out.println("Nombre: " + nombre);
-    System.out.println("Edad: " + edad);
-    System.out.println("Peso: " + peso);
-    System.out.println("Vacunado: " + vacunado);
+System.out.println("====================");
+System.out.println("REPORTE");
+System.out.println("====================");
+```
+
+Podemos darle nombre a esa operación:
+
+```java
+public static void mostrarEncabezado() {
+    System.out.println("====================");
+    System.out.println("REPORTE");
+    System.out.println("====================");
 }
 ```
 
-Un método permite dar nombre a una operación, reutilizarla y separar responsabilidades.
-
-También podemos extraer una regla:
+Y ejecutarla mediante:
 
 ```java
-public static boolean pesoValido(double peso) {
-    return peso > 0;
+mostrarEncabezado();
+```
+
+Un método permite nombrar una operación y reutilizarla.
+
+---
+
+## Parámetros y argumentos
+
+```java
+public static void saludar(String nombre) {
+    System.out.println("Hola " + nombre);
 }
 ```
 
-## C. Función conocida vs método en Java
-
-Los estudiantes vienen de Fundamentos de Programación. El puente conceptual es:
+```java
+saludar("Ana");
+```
 
 ```text
-función conocida → método Java
-entrada          → parámetros
-resultado        → return
-tipo del resultado → tipo de retorno
+String nombre → parámetro
+"Ana"         → argumento
 ```
 
-## D. De datos sueltos a un objeto
+### Mini ejercicio
 
-Hasta ahora PetCare podría tener:
+Crea:
 
 ```java
-String nombre = "Michi";
-int edad = 4;
-double peso = 5.2;
-boolean vacunado = true;
+public static void mostrarPrecio(double precio)
 ```
 
-Pregunta clave:
+que muestre el valor recibido.
 
-> **¿estos datos representan juntos un mismo concepto?**
+---
 
-Sí: todos describen una mascota.
-
-Entonces comienza a aparecer una clase:
+## Retorno
 
 ```java
-public class Mascota {
-    private String nombre;
-    private int edad;
-    private double peso;
-    private boolean vacunado;
+public static int sumar(int a, int b) {
+    return a + b;
 }
 ```
 
-Una clase no es solo “un archivo con atributos”: representa un concepto y define qué estado y comportamientos le pertenecen.
-
-## E. Encapsulamiento con propósito
-
-Mal aprendizaje:
-
-> “Los atributos son `private` porque el profesor dijo que deben ser `private`.”
-
-Aprendizaje esperado:
-
-> “El estado interno se protege para que el objeto controle qué cambios son válidos.”
-
-Por ejemplo, permitir esto sería problemático:
-
 ```java
-mascota.peso = -5;
+int resultado = sumar(4, 7);
+System.out.println(resultado);
 ```
 
-En cambio, el objeto podría controlar la modificación:
+```text
+void → no retorna un resultado
+int  → debe retornar un int
+```
+
+### Mini ejercicio
+
+Crea:
 
 ```java
-public void actualizarPeso(double nuevoPeso) {
-    if (nuevoPeso > 0) {
-        peso = nuevoPeso;
+public static double calcularIva(double neto)
+```
+
+que retorne el 19% del valor recibido.
+
+---
+
+# C. Puente desde funciones conocidas
+
+```text
+función conocida     → método Java
+entrada              → parámetros
+valor utilizado      → argumentos
+resultado            → return
+tipo del resultado   → tipo de retorno
+```
+
+La pregunta importante no es sólo cómo escribir la sintaxis:
+
+> ¿Qué operación quiero representar, qué necesita recibir y qué debe entregar?
+
+---
+
+# D. Clases y objetos
+
+Usamos un contexto nuevo:
+
+```java
+String nombre = "Teclado";
+double precioProducto = 19990;
+int stockProducto = 5;
+```
+
+Los datos describen un mismo concepto: un producto.
+
+```java
+public class Producto {
+    String nombre;
+    double precio;
+    int stock;
+}
+```
+
+Crear un objeto:
+
+```java
+Producto producto1 = new Producto();
+producto1.nombre = "Teclado";
+producto1.precio = 19990;
+producto1.stock = 5;
+```
+
+Crear otro:
+
+```java
+Producto producto2 = new Producto();
+producto2.nombre = "Mouse";
+producto2.precio = 12990;
+producto2.stock = 8;
+```
+
+```text
+Producto       → clase / tipo
+producto1      → variable que referencia un objeto
+new Producto() → creación de una instancia
+```
+
+Dos objetos de la misma clase comparten estructura, pero pueden tener estados distintos.
+
+### Mini ejercicio
+
+Modela una clase `Libro` con:
+
+- `titulo`;
+- `autor`;
+- `precio`.
+
+Crea dos objetos con valores diferentes.
+
+---
+
+# E. Abstracción
+
+Un producto real posee muchas más características que `nombre`, `precio` y `stock`.
+
+En un programa seleccionamos las características relevantes para el problema que estamos resolviendo.
+
+> Abstraer implica representar sólo aquello que resulta significativo para nuestro modelo.
+
+---
+
+# F. Encapsulamiento con propósito
+
+Ahora usamos otro contexto: una cuenta simple.
+
+Primera versión:
+
+```java
+public class Cuenta {
+    double saldo;
+}
+```
+
+Esto permitiría:
+
+```java
+cuenta.saldo = -500000;
+```
+
+Puede compilar, pero puede romper las reglas del programa.
+
+Evolucionamos a:
+
+```java
+public class Cuenta {
+    private double saldo;
+
+    public boolean depositar(double monto) {
+        if (monto <= 0) {
+            return false;
+        }
+
+        saldo += monto;
+        return true;
     }
 }
 ```
 
-Es mejor pedirle a la mascota que actualice su peso mediante una operación válida que permitir que cualquier parte del programa deje el objeto en un estado imposible.
+La idea importante no es memorizar que todo debe ser `private`.
 
-## F. Evolución que queremos observar
+> Encapsular significa controlar cómo se consulta o modifica el estado cuando existen reglas que proteger.
 
-Durante esta semana PetCare debería recorrer esta secuencia:
+### Mini ejercicio
 
-```text
-variables sueltas
-    ↓
-condiciones y ciclos
-    ↓
-métodos
-    ↓
-clase Mascota
-    ↓
-objetos Mascota
-    ↓
-estado encapsulado
+Agrega:
+
+```java
+public boolean retirar(double monto)
 ```
 
-No agregamos todavía herencia, listas, interfaces ni excepciones. Esos conceptos aparecerán cuando exista una necesidad concreta en la evolución del mismo proyecto.
+Debe validar que:
 
-## Preguntas de comprobación
+- el monto sea mayor que cero;
+- no se retire más que el saldo disponible.
 
-1. ¿Qué diferencia existe entre parámetro y argumento?
-2. ¿Cuándo un método debería retornar un valor?
-3. ¿Qué problema aparece si todo queda dentro de `main`?
-4. ¿Por qué `nombre`, `edad`, `peso` y `vacunado` pueden pertenecer a `Mascota`?
-5. ¿Qué estado inválido evita `actualizarPeso()`?
-6. ¿Por qué un setter irrestricto puede romper el encapsulamiento?
+---
 
-## Continuidad
+# G. Checkpoint conceptual de Semana 02
 
-El código resultante no es desechable. Debe conservarse porque en la siguiente experiencia de aprendizaje PetCare evolucionará sobre esta misma clase `Mascota`.
+Al terminar esta guía deberías poder explicar:
 
-> **Si quieres profundizar:** revisa [Profundización · Recuperación y puente hacia POO](./01-guia-recuperacion-y-puente-poo/README.md), donde se desarrolla paso a paso la transición desde variables y métodos hacia clase, objeto y encapsulamiento.
+1. qué problema resuelve un método;
+2. diferencia entre parámetro y argumento;
+3. diferencia entre `void` y retorno;
+4. diferencia entre clase y objeto;
+5. qué significa abstraer;
+6. por qué `private` puede ayudar a proteger el estado;
+7. por qué encapsulamiento no equivale a generar getters y setters automáticamente.
+
+## No corresponde todavía
+
+- `Scanner` como eje de los ejercicios;
+- arrays o colecciones;
+- herencia;
+- interfaces;
+- excepciones;
+- JavaFX;
+- persistencia.
+
+---
+
+## Profundización
+
+➡️ [Profundización · Recuperación y puente hacia POO](./01-guia-recuperacion-y-puente-poo/README.md)
+
+La profundización sigue exactamente la misma regla: **contenido de Semana 02 sin contexto PetCare**.
