@@ -3,27 +3,44 @@
 > **Página para estudiantes / fuente canónica del checkpoint vigente:**  
 > https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html
 
-PetCare es el proyecto formativo longitudinal de **DSY1102 Desarrollo Orientado a Objetos**.
+PetCare es el proyecto formativo longitudinal e individual de **DSY1102 Desarrollo Orientado a Objetos**.
 
-No es un laboratorio que se realiza una vez. Es **el mismo software que cada estudiante hará evolucionar durante el semestre**, aplicando lo aprendido clase a clase.
+No es el ejemplo principal de las clases ni un laboratorio que el profesor construye paso a paso con el curso. Es **un software propio que cada estudiante hace evolucionar durante el semestre**, aplicando de manera autónoma los conceptos que ya fueron trabajados mediante material, ejemplos y ejercicios independientes.
 
-La idea es sencilla:
+## Dos pistas que corren en paralelo
 
 ```text
-aprendo un concepto
-        ↓
-veo un ejemplo
-        ↓
-lo aplico inmediatamente a PetCare
-        ↓
-guardo un checkpoint
-        ↓
-la próxima clase continúo desde ahí
+PISTA A · APRENDIZAJE DE LA ASIGNATURA
+material
+→ explicación docente
+→ ejemplo mínimo aislado
+→ mini ejercicio
+→ otro contexto
+→ comprobación
+
+                │
+                │ lo aprendido habilita
+                ▼
+
+PISTA B · PETCARE
+consigna semanal
+→ decisión individual
+→ implementación
+→ prueba
+→ commit
+→ checkpoint acumulativo
 ```
 
-## Propósito
+La pista A enseña.  
+La pista B integra y evidencia aprendizaje.
 
-Al finalizar el curso, el alumno debería poder mirar el historial del proyecto y reconocer la evolución:
+PetCare **no debe ser necesario para comprender un contenido nuevo**. Un estudiante debería poder aprender métodos, clases, encapsulamiento, herencia o colecciones aunque todavía no haya avanzado esa semana en PetCare.
+
+---
+
+# Propósito
+
+Al finalizar el curso, el alumno debería poder mirar el historial del proyecto y reconocer una evolución real:
 
 ```text
 Java básico
@@ -38,60 +55,78 @@ Java básico
 → aplicación integrada
 ```
 
-El objetivo no es construir un producto veterinario comercial. PetCare existe para hacer visible **por qué el software cambia cuando aprendemos nuevas herramientas**.
+El objetivo no es construir un producto veterinario comercial. PetCare existe para que el estudiante demuestre que puede **transferir** lo aprendido a un sistema que evoluciona durante todo el semestre.
 
 ---
 
-# Cómo se trabajará
+# Cómo se trabajará cada semana
 
-Cada semana tendrá material separado por las **clases reales** de la sección.
+Cada semana curricular publica dos cosas distintas:
 
-Estructura de referencia:
+## 1. Material y práctica de aprendizaje
+
+Vive en las áreas normales del curso:
+
+- `semanas/`;
+- `examples/`;
+- `practica/`;
+- `labs/` cuando corresponda.
+
+Aquí se enseña y practica el contenido nuevo mediante problemas pequeños y dominios variados.
+
+## 2. Incremento PetCare de la semana
+
+Vive en:
 
 ```text
-proyecto-formativo/
-├── README.md
-├── ROADMAP-SEMANAL.md
-├── ARQUITECTURA-Y-CONTINUIDAD.md
-├── semana-02/
-│   ├── README.md
-│   ├── 01-clase-martes.md
-│   └── 02-clase-sabado.md
-├── semana-03/
-│   └── ...
-└── checkpoints/
-    ├── semana-02/
-    ├── semana-03/
-    └── ...
+proyecto-formativo/semana-XX/
 ```
 
-La cantidad de guías depende de las clases efectivamente realizadas y del avance real.
+La consigna indica **qué capacidades debería incorporar PetCare usando contenidos ya abordados**, pero no entrega una receta completa ni obliga a replicar exactamente el código del profesor.
 
-## Anatomía de cada clase
-
-Cada guía debe dejar claro:
-
-1. **Partimos con:** qué versión debe funcionar antes de comenzar.
-2. **Hoy aprendemos:** contenido institucional de la sesión.
-3. **Problema en PetCare:** por qué ese contenido sirve para mejorar el programa.
-4. **Paso a paso:** implementación guiada.
-5. **Decisión:** comparación de alternativas cuando corresponda.
-6. **Hazlo tú:** parte breve que el alumno debe resolver.
-7. **Comprueba:** ejecución y casos de prueba.
-8. **Checkpoint:** qué debe quedar funcionando.
-9. **Continuidad:** desde dónde partirá la clase siguiente.
+El estudiante puede consultar el material de la semana, revisar ejemplos, preguntar dudas y desarrollar su propia solución.
 
 ---
 
-# Trabajo en clase y en casa
+# Rol del profesor durante PetCare
 
-Dependiendo de la sesión:
+El docente puede:
 
-- algunas veces se reservarán aproximadamente los **últimos 20–30 minutos** para avanzar;
-- otras veces la guía quedará como trabajo de continuidad en casa;
-- nunca se parte de cero si ya existe un checkpoint anterior.
+- presentar la consigna semanal;
+- aclarar requisitos;
+- revisar decisiones;
+- responder dudas puntuales;
+- mirar avances o repositorios;
+- realizar pequeñas defensas técnicas;
+- reservar ocasionalmente tiempo de clase para trabajo individual.
 
-La prioridad es que el alumno pueda **explicar** lo que desarrolló.
+El docente **no desarrolla PetCare completo en vivo como solución oficial**.
+
+Si se necesita demostrar un concepto durante la clase, se utiliza preferentemente un ejemplo pequeño y separado del proyecto.
+
+---
+
+# Trabajo individual y continuidad
+
+PetCare pertenece al repositorio de cada estudiante y debe evolucionar mediante commits pequeños y explicables.
+
+Una semana puede requerir uno o varios commits según el trabajo realizado. No existe la obligación artificial de hacer un commit por cada clase.
+
+Regla:
+
+```text
+contenido enseñado
+        ↓
+consigna PetCare de la semana
+        ↓
+trabajo individual
+        ↓
+checkpoint funcional
+        ↓
+la siguiente semana parte desde ese checkpoint
+```
+
+Si una semana el estudiante no termina el incremento durante horario presencial, continúa fuera de clase.
 
 ---
 
@@ -146,36 +181,21 @@ No se crean veinte clases el primer día para “preparar la arquitectura”.
 
 ---
 
-# Una decisión importante desde el principio
+# Separación progresiva
 
-Durante la Unidad 1 trabajaremos principalmente con consola, pero **la consola no debe convertirse en el negocio del sistema**.
+Durante la Unidad 1 trabajaremos principalmente con consola, pero la consola no debe convertirse en el negocio del sistema.
 
-La dirección del proyecto es:
+La dirección del proyecto será construida progresivamente:
 
 ```text
-CLI / consola
-     ↓
-core / dominio / reglas
+interfaz actual
+      ↓
+reglas y conceptos reutilizables
 ```
 
-Esto significa que, a medida que aprendamos clases y métodos, intentaremos que las reglas reutilizables puedan ejecutarse sin depender directamente de:
+No se exige comprender una arquitectura completa antes de haber aprendido las herramientas necesarias.
 
-```java
-System.out.println(...)
-Scanner
-JavaFX
-JDBC
-```
-
-No aplicaremos esta separación completa en la primera clase. Se construirá progresivamente con los conceptos que los estudiantes vayan aprendiendo.
-
-Cuando aparezca JavaFX en la Unidad 2, la meta será poder decir:
-
-> “La aplicación ya sabe administrar mascotas. Ahora cambiaremos la forma en que el usuario conversa con ella.”
-
-Y cuando aparezca JDBC:
-
-> “La aplicación ya sabe qué hacer. Ahora cambiaremos cómo guarda y recupera sus datos.”
+Cuando aparezca JavaFX, la intención será poder reutilizar lo ya construido. Cuando aparezca JDBC, se cambiará principalmente la forma de persistir datos sin desechar las reglas anteriores.
 
 ---
 
@@ -195,4 +215,4 @@ Después de la evaluación se retoma desde el último checkpoint estable.
 
 ➡️ [Ver arquitectura y reglas de continuidad](./ARQUITECTURA-Y-CONTINUIDAD.md)
 
-➡️ [Comenzar Semana 02](./semana-02/README.md)
+➡️ [PetCare · Semana 02](./semana-02/README.md)
