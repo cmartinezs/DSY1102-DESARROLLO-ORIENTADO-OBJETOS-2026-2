@@ -6,23 +6,20 @@
 
 ← [Volver al índice](../README.md)
 
-## Disponibilidad de esta semana
+## Regla de esta carpeta
 
-**Todo el contenido curricular de Semana 2 está disponible desde ahora**, aunque una parte todavía no se haya alcanzado en la clase presencial.
+`semanas/semana-02/` contiene **solamente material curricular de Semana 02**:
 
-La regla del curso es:
+- teoría;
+- guías;
+- ejemplos genéricos;
+- mini ejercicios;
+- laboratorios propios de la semana;
+- actividades de práctica.
 
-```text
-semana curricular vigente
-        ↓
-se libera el contenido completo de esa semana
-        ↓
-el avance real de cada sesión se registra por separado
-```
+El proyecto transversal no se desarrolla aquí.
 
-Por eso el alumno puede revisar y anticipar contenidos de Semana 2, pero no debe asumir que un tema ya fue explicado en clases solo porque está publicado.
-
-🌐 [Ver Semana 2 en el portal del curso](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/semanas.html)
+---
 
 ## Qué corresponde oficialmente esta semana
 
@@ -32,134 +29,152 @@ Por eso el alumno puede revisar y anticipar contenidos de Semana 2, pero no debe
 - **1.2.4** Actividad Clases y Abstracción.
 - **1.2.5** Ejercicios generales.
 
-Además debemos recuperar y consolidar contenidos de Semana 1 que quedaron comprimidos por el feriado:
+Además se recuperan y consolidan contenidos pendientes de Semana 01 debido al feriado del sábado 15 de agosto:
 
 - tipos primitivos y `String`;
 - variables y operadores;
-- `if` / `else` y operadores lógicos;
-- `switch` cuando corresponda;
+- `if`, `else if`, `else`;
+- operadores lógicos;
 - `for`, `while`, `do-while`;
 - estructura mínima de un programa Java;
-- trabajo inicial con datos definidos directamente en código.
+- ejecución desde IntelliJ IDEA;
+- datos definidos directamente en código.
 
-## 1. Práctica de clase
+Todavía no usamos `Scanner` como eje de los ejercicios.
 
-Ejercicios cortos y focalizados para consolidar fundamentos.
+---
 
-➡️ [Abrir Práctica de clase · Semana 2](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html)
+# 1. Guía principal
 
-Índice del repositorio:
+➡️ [Recuperación Semana 01 y puente a POO](./01-guia-recuperacion-y-puente-poo.md)
 
-- [practica/semana-02](../../practica/semana-02/)
-- [02-ejercicios-fundamentos-java.md](./02-ejercicios-fundamentos-java.md)
+La guía avanza con contextos pequeños e independientes:
 
-## 2. Guía de recuperación y puente a POO
+```text
+fundamentos
+→ métodos
+→ parámetros y retorno
+→ clases y objetos
+→ abstracción
+→ encapsulamiento
+```
 
-➡️ [01-guia-recuperacion-y-puente-poo.md](./01-guia-recuperacion-y-puente-poo.md)
+No depende de un dominio único.
 
-La guía conecta la sintaxis básica de Java con métodos, clases y encapsulamiento sin saltar directamente a una arquitectura compleja.
+### Profundización opcional
 
-## 3. Ejemplos de código
+➡️ [Profundización · puente hacia POO](./01-guia-recuperacion-y-puente-poo/README.md)
 
-Los ejemplos reutilizables de la semana se centralizan en la carpeta global de ejemplos:
+---
+
+# 2. Ejercicios de fundamentos
+
+➡️ [02-ejercicios-fundamentos-java.md](./02-ejercicios-fundamentos-java.md)
+
+Ejercicios cortos para practicar sintaxis, decisiones y ciclos antes de avanzar hacia POO.
+
+---
+
+# 3. Ejemplos de código
 
 ➡️ [examples/semana-02](../../examples/semana-02/)
 
-- [PetCareBasico.java](../../examples/semana-02/PetCareBasico.java) — fundamentos + primer método `static` con parámetros.
-- [ProductoDemo.java](../../examples/semana-02/ProductoDemo.java) — clase, objeto, constructor y encapsulamiento.
+Orden sugerido:
 
-La ruta local [`ejemplos/`](./ejemplos/) queda solo como referencia contextual para evitar mantener dos copias activas del mismo código.
+1. `01-MetodoSimple.java` — primer método.
+2. `02-MetodosParametrosRetorno.java` — parámetros, argumentos y retorno.
+3. `03-ProductoBasico.java` — clase y objetos.
+4. `ProductoDemo.java` — constructor y encapsulamiento básico.
 
-## 4. Laboratorio · Cuenta simple
+Los ejemplos cambian de contexto deliberadamente para demostrar que los conceptos son generales.
 
-Un laboratorio es una actividad guiada e integradora; no es un ejercicio corto.
+---
 
-➡️ [Abrir Laboratorios en la web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html)
+# 4. Laboratorio · Cuenta simple
 
-Índice del repositorio:
+➡️ [laboratorio-cuenta/README.md](./laboratorio-cuenta/README.md)
 
-- [labs/semana-02](../../labs/semana-02/)
-- [laboratorio-cuenta/README.md](./laboratorio-cuenta/README.md)
-
-El laboratorio evoluciona desde lógica estructurada hacia métodos, clase y encapsulamiento.
-
-## 5. Proyecto formativo transversal · PetCare
-
-PetCare **no es un laboratorio aislado**. Es el proyecto longitudinal del semestre y debe continuar desde checkpoints anteriores.
-
-➡️ [Abrir PetCare en la web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html)
-
-Material del proyecto:
-
-- [Proyecto de semestre](../../proyecto-formativo/README.md)
-- [Roadmap semanal](../../proyecto-formativo/ROADMAP-SEMANAL.md)
-- [Arquitectura y continuidad](../../proyecto-formativo/ARQUITECTURA-Y-CONTINUIDAD.md)
-- [Semana 02](../../proyecto-formativo/semana-02/README.md)
-- [Clase martes 18](../../proyecto-formativo/semana-02/01-clase-martes.md)
-- [Clase sábado 22](../../proyecto-formativo/semana-02/02-clase-sabado.md)
-
-El proyecto puede utilizarse como evidencia formativa adicional bajo criterio docente. No reemplaza automáticamente una evaluación.
-
-## 6. Desafío semanal
-
-La Semana 2 ya tiene un reto menos guiado, pensado para resolverse con mayor autonomía una vez que el estudiante tenga suficiente contexto de métodos, clase y encapsulamiento.
-
-➡️ [Abrir Desafío semanal](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
-
-## 7. Gran desafío 150 · Java pre-POO
-
-Hasta Semana 2 se encuentran liberados los ejercicios **1–45**:
+El laboratorio integra progresivamente:
 
 ```text
-1–20  · fundamentos
-21–45 · decisiones y ciclos
+lógica estructurada
+→ métodos
+→ clase Cuenta
+→ objetos
+→ estado protegido
 ```
 
-Las etapas que incorporan `Scanner`, métodos `static`, arrays y matrices se irán desbloqueando al llegar a las semanas curriculares correspondientes.
+No corresponde todavía introducir herencia, colecciones, excepciones ni persistencia.
 
-➡️ [Abrir Desafío 150](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-150.html)
+---
 
-## Dinámica viva de la semana
+# 5. Práctica de clase
 
-Esta semana queda preparada **Predice antes de ejecutar**, una actividad de 5–10 minutos para entrenar lectura de código antes de depender del IDE.
+➡️ [Práctica de clase · Semana 02](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html)
 
-➡️ [Abrir dinámica · Predice antes de ejecutar](./dinamica-viva-predice.md)
+Índice adicional:
 
-No agrega contenido nuevo: reutiliza operadores, condiciones, ciclos y métodos según lo que ya haya sido trabajado.
+- [practica/semana-02](../../practica/semana-02/)
 
-## Checkpoint esperado al cerrar Semana 2
+---
 
-Sin exigir que todos lleguen al mismo minuto de clase, al finalizar la semana el estudiante debería poder reconocer y trabajar con:
+# 6. Desafío semanal
+
+➡️ [Desafío semanal](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
+
+Actividad menos guiada para aplicar lo aprendido durante la semana.
+
+---
+
+# 7. Gran desafío 150 · Java pre-POO
+
+Hasta esta semana se mantienen liberados los ejercicios correspondientes a fundamentos, decisiones y ciclos.
+
+➡️ [Desafío 150](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-150.html)
+
+Los contenidos posteriores se desbloquean cuando corresponda curricularmente.
+
+---
+
+# 8. Dinámica viva
+
+➡️ [Predice antes de ejecutar](./dinamica-viva-predice.md)
+
+Actividad breve para entrenar lectura de código antes de ejecutar en el IDE.
+
+---
+
+# Checkpoint conceptual de Semana 02
+
+Al cerrar la semana el estudiante debería poder explicar y utilizar:
 
 ```text
 fundamentos Java
 → métodos
-→ parámetros y retorno
-→ datos relacionados
+→ parámetros y argumentos
+→ retorno
 → clase
-→ objetos
+→ objeto / instancia
+→ abstracción
 → private
 → comportamiento que protege estado
 ```
 
-En PetCare, el objetivo de continuidad es aproximarse a:
+## No corresponde todavía
 
-```text
-src/
-└── cl/duoc/petcare/
-    ├── cli/
-    │   └── App.java
-    └── core/model/
-        └── Mascota.java
-```
+- arrays o colecciones como contenido central;
+- herencia;
+- interfaces;
+- excepciones;
+- JavaFX;
+- JDBC;
+- persistencia.
 
-Sin adelantar todavía herencia, `Perro`, `Gato`, colecciones, excepciones, JavaFX ni persistencia.
+---
 
 ## Material público
 
 - [Biblioteca pública del curso](https://drive.google.com/drive/folders/1FmQqQQ6nslfG1OZ8FFhkqgxpnEOkpHZk?usp=sharing)
 - [Semana 02 en Google Drive](https://drive.google.com/drive/folders/1bDNTBmba5F--fULggNtShZucD9zTnE4F)
 
----
-
-> **Importante:** disponibilidad curricular y avance real no son lo mismo. Que un recurso esté visible significa que corresponde a Semana 2; el docente indicará en clase qué parte ya fue trabajada y cuál queda por desarrollar.
+> La disponibilidad del material semanal y el avance real de la sección se registran por separado.
