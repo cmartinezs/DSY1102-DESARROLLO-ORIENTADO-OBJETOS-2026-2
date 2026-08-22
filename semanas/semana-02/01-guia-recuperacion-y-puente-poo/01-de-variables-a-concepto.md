@@ -1,19 +1,18 @@
 # De variables sueltas a un concepto
 
-Al comenzar PetCare podemos representar una mascota con variables independientes:
+Podemos comenzar representando un producto con variables independientes:
 
 ```java
-String nombre = "Michi";
-int edad = 4;
-double peso = 5.2;
-boolean vacunado = true;
+String nombre = "Teclado";
+double precio = 19990;
+int stock = 5;
 ```
 
 Esto funciona, pero aparece una pregunta de diseño:
 
 > ¿Estos datos son realmente independientes?
 
-No. Todos describen a la misma mascota.
+No. Todos describen al mismo producto.
 
 ## Señal de agrupación
 
@@ -31,37 +30,35 @@ Antes:
 
 ```text
 nombre
-edad
-peso
-vacunado
+precio
+stock
 ```
 
 Después:
 
 ```text
-Mascota
+Producto
 ├── nombre
-├── edad
-├── peso
-└── vacunado
+├── precio
+└── stock
 ```
 
-## El beneficio no es solo escribir menos
+## El beneficio no es sólo escribir menos
 
 Agrupar datos permite expresar significado.
 
 ```java
-Mascota mascota;
+Producto producto;
 ```
 
-transmite más intención que mantener cuatro valores desconectados.
+transmite más intención que mantener valores desconectados.
 
-La clase comienza a representar una idea del dominio.
+La clase comienza a representar una idea del problema.
 
 ## Pregunta útil
 
 Cuando veas muchas variables relacionadas, pregunta:
 
-> ¿Qué concepto del problema describen en conjunto?
+> ¿Qué concepto describen en conjunto?
 
 Esa pregunta suele ser una buena puerta de entrada a POO.
