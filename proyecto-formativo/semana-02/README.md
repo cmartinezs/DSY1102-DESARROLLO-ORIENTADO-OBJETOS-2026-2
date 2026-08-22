@@ -3,103 +3,175 @@
 **Periodo:** 17 al 22 de agosto de 2026  
 **Sección:** DSY1102-012V
 
-Esta semana PetCare deja de ser solo una idea y comienza como proyecto individual acumulativo.
+PetCare comienza esta semana como **proyecto individual acumulativo**, pero no forma parte del flujo guiado de la clase.
 
-## Punto de partida
+La Semana 02 tiene dos pistas paralelas:
 
-Por el feriado del sábado 15 todavía debemos recuperar parte de Java básico antes de entrar de lleno en métodos, clases y encapsulamiento.
+```text
+CLASE
+métodos + clases + objetos + encapsulamiento
+mediante ejemplos y mini ejercicios independientes
 
-Por eso PetCare crecerá en dos sesiones reales.
+PETCARE
+aplicar individualmente esos contenidos
+al proyecto transversal
+```
 
 ---
 
-# Clase 1 · Martes 18
+# Prerrequisito real
 
-➡️ [01-clase-martes.md](./01-clase-martes.md)
+El martes 18 se recuperaron fundamentos de Java afectados por el feriado del sábado 15:
 
-Ruta:
+- variables y tipos primitivos;
+- `String`;
+- `System.out.println(...)`;
+- `if`, `else if`, `else`;
+- `for`, `while`, `do-while`;
+- ejecución básica de un programa en IntelliJ IDEA.
 
-```text
-variables de una mascota
-→ operadores
-→ decisiones
-→ ciclos
-→ detectar repetición
-→ primer método si el tiempo permite
-```
-
-### Salida esperada
-
-Un programa CLI simple que trabaja con datos definidos directamente en código y deja preparada la necesidad de extraer comportamiento.
+Ese trabajo habilita PetCare, pero **no fue todavía PetCare**.
 
 ---
 
-# Clase 2 · Sábado 22
+# Qué se aprende esta semana fuera de PetCare
 
-➡️ [02-clase-sabado.md](./02-clase-sabado.md)
+Durante la clase del sábado 22 se trabajarán mediante ejemplos pequeños y contextos independientes:
 
-Ruta:
+- métodos;
+- parámetros y argumentos;
+- retorno;
+- clases;
+- objetos;
+- abstracción;
+- encapsulamiento;
+- protección básica del estado.
 
-```text
-checkpoint martes
-→ métodos
-→ datos relacionados
-→ Mascota
-→ objetos
-→ private
-→ comportamiento protegido
-→ separación CLI / core
-```
+➡️ La clase guiada vive fuera del proyecto formativo.
 
-### Salida esperada
+Los ejemplos de apoyo están en:
 
-```text
-cl.duoc.petcare.cli.App
-        ↓
-cl.duoc.petcare.core.model.Mascota
-```
-
-No se pretende enseñar arquitectura avanzada. La separación solo hace visible una idea sencilla:
-
-> La mascota no debería depender de cómo el usuario conversa con el programa.
+- [`../../examples/semana-02/`](../../examples/semana-02/)
+- [`../../practica/semana-02/`](../../practica/semana-02/)
 
 ---
 
-# Trabajo individual
+# Incremento individual PetCare · Semana 02
 
-Cada estudiante debe mantener su propia versión.
+Una vez que los conceptos hayan sido trabajados en clase, cada estudiante debe iniciar y evolucionar su propio PetCare.
 
-Recomendado:
+➡️ [00-inicio-petcare.md](./00-inicio-petcare.md)
+
+La consigna no exige copiar un código oficial. Debe construir una solución propia que cumpla como mínimo con lo siguiente.
+
+## Parte A · Crear PetCare
+
+Crear un proyecto Java ejecutable llamado `petcare` dentro de su repositorio de la asignatura.
+
+Primera versión mínima:
+
+- una mascota representada inicialmente con datos simples;
+- salida legible por consola;
+- código que el estudiante pueda explicar.
+
+## Parte B · Aplicar métodos
+
+Incorporar al menos un método útil al programa.
+
+Debe poder explicar:
+
+- qué problema evita o qué operación representa;
+- qué parámetros recibe;
+- qué argumentos se utilizan al llamarlo;
+- si retorna o no un valor y por qué.
+
+## Parte C · Aplicar clase y objeto
+
+Cuando ya haya trabajado clases y objetos en el material de la semana:
+
+- crear una clase `Mascota`;
+- crear al menos dos objetos con estados distintos;
+- decidir qué datos corresponden a la mascota.
+
+## Parte D · Aplicar encapsulamiento si fue alcanzado
+
+Si encapsulamiento fue efectivamente trabajado esta semana:
+
+- proteger al menos un dato cuyo valor pueda dejar al objeto en un estado inválido;
+- crear una operación que controle una modificación válida;
+- demostrar al menos un caso aceptado y uno rechazado.
+
+Ejemplo de problema válido para pensar, no solución obligatoria:
+
+> una mascota no debería terminar con un peso negativo.
+
+---
+
+# Libertad de implementación
+
+Se evalúa transferencia, no copia.
+
+El estudiante puede:
+
+- elegir nombres razonables;
+- organizar progresivamente su código;
+- implementar una regla diferente si puede justificarla;
+- hacer más de lo mínimo siempre que no adelante contenidos innecesariamente.
+
+No debe:
+
+- copiar una solución completa del repositorio docente;
+- agregar tecnologías aún no enseñadas sólo para "hacerlo más profesional";
+- generar una arquitectura que no pueda explicar.
+
+---
+
+# Evidencia de Semana 02
+
+El checkpoint debe permitir verificar:
+
+- proyecto PetCare propio y ejecutable;
+- al menos un método aplicado con sentido;
+- primera clase y objetos si ese contenido fue alcanzado;
+- encapsulamiento sólo si fue efectivamente abordado;
+- historial Git progresivo;
+- capacidad de explicar las decisiones tomadas.
+
+## Commits
+
+No existe una cuota de commits por clase.
+
+Se esperan commits pequeños y representativos del trabajo real, por ejemplo:
 
 ```text
-commit al cerrar martes
-commit al cerrar sábado
+feat: iniciar petcare
+feat: extraer comportamiento de mascota
+feat: modelar mascota como objeto
 ```
 
-Los mensajes deberían expresar el incremento realizado, por ejemplo:
+---
 
-```text
-feat: agregar decisiones y ciclos a petcare
-feat: modelar mascota y encapsular peso
-```
+# Lo que NO corresponde todavía
 
-## Evidencia de Semana 02
-
-El alumno debe poder mostrar:
-
-- código ejecutable;
-- historial progresivo;
-- evolución desde variables a objeto;
-- explicación de una regla encapsulada;
-- diferencia entre código de consola y modelo de dominio al cierre de la semana.
-
-## No agregar todavía
+No agregar por iniciativa propia:
 
 - `ArrayList<Mascota>`;
-- `Perro` / `Gato` por herencia;
+- herencia `Perro` / `Gato`;
+- interfaces;
 - excepciones propias;
 - JavaFX;
 - JDBC;
-- persistencia.
+- persistencia;
+- frameworks.
 
-Esas necesidades aparecerán cuando corresponda en el plan.
+Esos recursos aparecerán cuando el contenido de la asignatura genere la necesidad.
+
+---
+
+# Relación con la clase
+
+La clase enseña el concepto usando ejemplos distintos. PetCare pregunta después:
+
+> **¿Puedes tomar lo que aprendiste esta semana y aplicarlo por tu cuenta a un software que ya debe seguir evolucionando?**
+
+Ese es el propósito del proyecto formativo.
