@@ -15,7 +15,8 @@
 - ejemplos genéricos;
 - mini ejercicios;
 - laboratorios propios de la semana;
-- actividades de práctica.
+- actividades de práctica;
+- guía docente de ejecución de la sesión.
 
 El proyecto transversal no se desarrolla aquí.
 
@@ -75,7 +76,15 @@ Ejercicios cortos para practicar sintaxis, decisiones y ciclos antes de avanzar 
 
 ---
 
-# 3. Ejemplos de código
+# 3. Guía docente · sábado 22
+
+➡️ [03-guia-docente-sabado-22.md](./03-guia-docente-sabado-22.md)
+
+Secuencia operativa de la clase con tiempos, ejemplos, mini ejercicios y checkpoints de aprendizaje.
+
+---
+
+# 4. Ejemplos de código
 
 ➡️ [examples/semana-02](../../examples/semana-02/)
 
@@ -90,7 +99,7 @@ Los ejemplos cambian de contexto deliberadamente para demostrar que los concepto
 
 ---
 
-# 4. Laboratorio · Cuenta simple
+# 5. Laboratorio · Cuenta simple
 
 ➡️ [laboratorio-cuenta/README.md](./laboratorio-cuenta/README.md)
 
@@ -108,7 +117,7 @@ No corresponde todavía introducir herencia, colecciones, excepciones ni persist
 
 ---
 
-# 5. Práctica de clase
+# 6. Práctica de clase
 
 ➡️ [Práctica de clase · Semana 02](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/ejercicios-clase.html)
 
@@ -118,7 +127,7 @@ No corresponde todavía introducir herencia, colecciones, excepciones ni persist
 
 ---
 
-# 6. Desafío semanal
+# 7. Desafío semanal
 
 ➡️ [Desafío semanal](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
 
@@ -126,7 +135,7 @@ Actividad menos guiada para aplicar lo aprendido durante la semana.
 
 ---
 
-# 7. Gran desafío 150 · Java pre-POO
+# 8. Gran desafío 150 · Java pre-POO
 
 Hasta esta semana se mantienen liberados los ejercicios correspondientes a fundamentos, decisiones y ciclos.
 
@@ -136,7 +145,7 @@ Los contenidos posteriores se desbloquean cuando corresponda curricularmente.
 
 ---
 
-# 8. Dinámica viva
+# 9. Dinámica viva
 
 ➡️ [Predice antes de ejecutar](./dinamica-viva-predice.md)
 
