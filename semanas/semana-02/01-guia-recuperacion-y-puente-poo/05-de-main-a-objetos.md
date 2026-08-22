@@ -17,7 +17,7 @@ Eso sirve para practicar fundamentos, pero comienza a generar problemas cuando e
 
 - muchas variables representan conceptos distintos;
 - aparecen bloques repetidos;
-- `main` contiene reglas de negocio;
+- `main` contiene reglas;
 - varias validaciones operan sobre el mismo conjunto de datos;
 - cuesta explicar qué responsabilidad tiene cada parte.
 
@@ -25,9 +25,9 @@ Eso sirve para practicar fundamentos, pero comienza a generar problemas cuando e
 
 ```text
 main
-├── mostrarFicha()
-├── pesoValido()
-└── calcularEtapa()
+├── mostrarResumen()
+├── stockValido()
+└── calcularDescuento()
 ```
 
 Esto mejora legibilidad y reutilización.
@@ -39,10 +39,10 @@ Cuando identificamos que estado y comportamiento pertenecen a un concepto, parte
 ```text
 main
   ↓ coordina
-Mascota
+Producto
 ├── estado
-├── actualizarPeso()
-└── mostrarFicha()
+├── vender()
+└── obtenerResumen()
 ```
 
 ## `main` no desaparece
@@ -53,7 +53,7 @@ Una idea útil es:
 
 ```text
 main → coordina
-objetos → conocen y ejecutan responsabilidades del dominio
+objetos → conocen y ejecutan responsabilidades propias
 ```
 
 ## Pregunta útil
