@@ -1,56 +1,58 @@
-# Inicio formal de PetCare · Semana 02 · sábado 22 de agosto
+# Inicio formal de PetCare · Semana 02
 
-PetCare **se inicia formalmente en esta sesión**.
+PetCare se inicia formalmente durante la Semana 02 como **trabajo individual paralelo a las clases**.
 
-El martes 18 se utilizó la clase para recuperar fundamentos de Java perdidos por el feriado del sábado 15: variables, tipos primitivos, `String`, `System.out.println`, condicionales, ciclos y ejecución desde IntelliJ. Ese trabajo es prerrequisito técnico, pero **no se considera todavía un checkpoint de PetCare**.
+El martes 18 se recuperaron fundamentos de Java afectados por el feriado del sábado 15. El sábado 22 se trabajan métodos, clases, objetos y encapsulamiento mediante material, ejemplos y mini ejercicios independientes.
 
-## Por qué PetCare no comienza antes
+PetCare **no se construye paso a paso con el profesor**. El estudiante lo inicia y evoluciona por cuenta propia usando lo que ya haya aprendido.
 
-El proyecto transversal debe comenzar cuando el estudiante ya puede escribir y ejecutar Java básico sin que el dominio del proyecto distraiga del aprendizaje inicial.
+---
 
-La secuencia queda así:
+# Cuándo comenzar
 
-```text
-Semana 01 / martes 18
-fundamentos Java + IntelliJ
-        ↓
-Semana 02 / sábado 22
-métodos y primeros objetos con ejemplos aislados
-        ↓
-inicio formal de PetCare
-        ↓
-aplicar lo recién aprendido
-        ↓
-checkpoint PetCare 0.1
-```
+El proyecto puede iniciarse una vez que el estudiante ya sea capaz de:
 
-## Regla didáctica
+- crear un proyecto Java en IntelliJ;
+- ejecutar un `main`;
+- declarar variables;
+- utilizar condicionales y ciclos básicos;
+- imprimir resultados por consola.
 
-PetCare no reemplaza los ejemplos de clase.
+Ese punto ya fue alcanzado en la recuperación del martes 18.
 
-Para cada concepto importante se intentará mantener esta secuencia:
+Por eso Semana 02 es un buen momento para iniciar el proyecto, aunque su desarrollo no forme parte del paso a paso de la clase.
+
+---
+
+# Regla fundamental
 
 ```text
-1. ejemplo mínimo y aislado
-2. segundo ejemplo en otro contexto
-3. explicación del concepto
-4. aplicación a PetCare
-5. checkpoint acumulativo
+primero aprendo con ejemplos pequeños
+             ↓
+luego practico
+             ↓
+después aplico por mi cuenta en PetCare
 ```
 
-De esta forma un estudiante puede reconocer que `método`, `clase`, `objeto` o `encapsulamiento` son herramientas generales de Java y no características particulares de PetCare.
+Si una parte de PetCare exige utilizar un concepto que todavía no ha sido trabajado, esa parte se deja pendiente.
 
-## Cómo crear PetCare hoy
+No se espera que el estudiante investigue por adelantado herencia, colecciones, JavaFX, JDBC u otras tecnologías sólo para completar el proyecto antes de tiempo.
 
-Cada estudiante debe trabajar en su propio repositorio de la asignatura.
+---
 
-Dentro de la ubicación destinada a ejercicios/proyecto formativo, crear un proyecto Java llamado:
+# Crear el proyecto
+
+Cada estudiante debe trabajar dentro de su propio repositorio de la asignatura.
+
+Crear un proyecto Java llamado:
 
 ```text
 petcare
 ```
 
-Por ahora basta una estructura mínima. Si todavía no se han explicado packages, puede comenzar temporalmente con:
+La estructura inicial puede ser sencilla. No es necesario diseñar una arquitectura compleja desde el primer commit.
+
+Una estructura mínima válida al comenzar puede ser:
 
 ```text
 petcare/
@@ -58,95 +60,121 @@ petcare/
     └── App.java
 ```
 
-Cuando en la misma clase aparezcan clases y organización básica, evolucionará hacia:
+Si ya se está aplicando el estándar de packages del curso, utilizar el package correspondiente al usuario del estudiante y mantener PetCare dentro de esa convención.
+
+---
+
+# Checkpoint 0 · Arranque
+
+Crear una versión ejecutable que represente al menos una mascota mediante datos simples.
+
+Por ejemplo, el programa necesita información equivalente a:
 
 ```text
-petcare/
-└── src/
-    └── cl/
-        └── duoc/
-            └── petcare/
-                ├── cli/
-                │   └── App.java
-                └── core/
-                    └── model/
-                        └── Mascota.java
+nombre
+edad
+peso
+estado de vacunación
 ```
 
-La estructura se construye cuando el contenido la justifica; no se pide memorizarla antes de entender qué contiene.
+No se entrega una implementación completa porque el estudiante ya conoce las herramientas necesarias para resolver este checkpoint.
 
-## Versión 0 · El programa más pequeño posible
+Debe poder:
 
-La primera versión de PetCare puede ser deliberadamente simple:
+1. ejecutar el programa;
+2. mostrar la información de la mascota;
+3. modificar los valores en código y comprobar el resultado;
+4. explicar cada variable utilizada.
 
-```java
-public class App {
-    public static void main(String[] args) {
-        String nombre = "Michi";
-        int edad = 4;
-        double peso = 5.2;
-        boolean vacunado = true;
+Primer commit sugerido:
 
-        System.out.println("Mascota: " + nombre);
-        System.out.println("Edad: " + edad);
-        System.out.println("Peso: " + peso);
-        System.out.println("Vacunado: " + vacunado);
-    }
-}
+```text
+feat: iniciar petcare
 ```
 
-Este código reutiliza sólo conocimientos ya trabajados. Su propósito es establecer una base que pueda transformarse durante la clase.
+---
 
-## Primera evolución esperada
+# Incremento Semana 02
 
-Después de aprender métodos con ejemplos sueltos, PetCare puede incorporar:
+Después de trabajar los contenidos correspondientes, evolucionar PetCare utilizando **sólo conceptos ya enseñados**.
 
-```java
-public static String obtenerEstadoVacunacion(boolean vacunado) {
-    if (vacunado) {
-        return "AL DÍA";
-    }
+## Métodos
 
-    return "PENDIENTE";
-}
-```
+Incorporar al menos una operación mediante un método.
 
-Después de aprender clase y objeto con un ejemplo distinto, PetCare evoluciona hacia `Mascota`.
+El estudiante debe decidir qué operación tiene sentido extraer y justificar:
 
-## Checkpoint PetCare 0.1
+- nombre del método;
+- parámetros;
+- argumentos;
+- retorno, si corresponde.
 
-No existe antes de hoy. El primer checkpoint real del proyecto se obtiene al finalizar la sesión según el avance efectivo.
+## Clase y objetos
 
-Mínimo:
+Si clases y objetos ya fueron abordados, representar `Mascota` como una clase y crear al menos dos objetos con estados diferentes.
+
+No hay una única solución correcta mientras el diseño sea coherente con lo aprendido y pueda explicarse.
+
+## Encapsulamiento
+
+Si encapsulamiento ya fue abordado, proteger al menos una regla del objeto.
+
+La evidencia debe mostrar:
+
+- un cambio permitido;
+- un cambio inválido rechazado;
+- una explicación de por qué esa regla pertenece al objeto.
+
+---
+
+# Qué entrega el profesor y qué resuelve el estudiante
+
+## El profesor entrega
+
+- contenidos de la semana;
+- ejemplos aislados;
+- mini ejercicios;
+- explicaciones conceptuales;
+- requisitos del incremento semanal;
+- apoyo para dudas concretas.
+
+## El estudiante resuelve
+
+- cómo iniciar su versión;
+- qué método extraer;
+- cómo modelar `Mascota`;
+- qué regla proteger;
+- cómo organizar sus commits;
+- cómo demostrar que su solución funciona.
+
+---
+
+# Checkpoint Semana 02
+
+El resultado esperado depende del avance curricular real.
+
+Mínimo razonable:
 
 ```text
 PetCare ejecutable
-+ al menos un método entendido por el estudiante
-+ primera clase Mascota si se alcanzó POO
++ aplicación de métodos
 ```
 
-Ideal:
+Si clases y objetos fueron alcanzados:
 
 ```text
-App
+PetCare ejecutable
 + Mascota
-+ dos objetos
-+ estado encapsulado
-+ una operación que protege una regla
++ al menos dos objetos
 ```
 
-## Commit sugerido
-
-Primer commit del proyecto:
+Si encapsulamiento también fue alcanzado:
 
 ```text
-feat: iniciar proyecto formativo petcare
+PetCare ejecutable
++ Mascota
++ objetos
++ una regla protegida
 ```
 
-Luego, si durante la misma clase se modela `Mascota`:
-
-```text
-feat: modelar primera mascota
-```
-
-La separación de commits permite observar la evolución del software.
+La prioridad es que el estudiante pueda explicar el código. No se premia agregar contenido aún no enseñado.
