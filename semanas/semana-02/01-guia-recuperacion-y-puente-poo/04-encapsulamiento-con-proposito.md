@@ -6,20 +6,35 @@ La idea importante es que un objeto pueda **proteger su propio estado** y contro
 
 ## Sin control
 
-Imagina que cualquier parte del programa pudiera hacer:
+Imagina una cuenta simple:
 
 ```java
-mascota.peso = -5;
+public class Cuenta {
+    double saldo;
+}
 ```
 
-El objeto quedaría en un estado inválido.
+Cualquier parte del programa podría hacer:
+
+```java
+cuenta.saldo = -500000;
+```
+
+El objeto podría quedar en un estado inválido para las reglas del programa.
 
 ## Con una operación controlada
 
 ```java
-public void actualizarPeso(double nuevoPeso) {
-    if (nuevoPeso > 0) {
-        peso = nuevoPeso;
+public class Cuenta {
+    private double saldo;
+
+    public boolean depositar(double monto) {
+        if (monto <= 0) {
+            return false;
+        }
+
+        saldo += monto;
+        return true;
     }
 }
 ```
@@ -30,33 +45,28 @@ Ahora el cambio pasa por una regla.
 
 `private` es una herramienta para limitar el acceso directo al estado.
 
-El objetivo real es evitar que cualquier código externo pueda romper invariantes del objeto.
+El objetivo real es evitar que cualquier código externo pueda romper las reglas del objeto.
 
 ## Getter y setter no significan automáticamente encapsulamiento
 
 Esto:
 
 ```java
-public void setPeso(double peso) {
-    this.peso = peso;
+public void setSaldo(double saldo) {
+    this.saldo = saldo;
 }
 ```
 
-expone prácticamente la misma libertad que modificar el atributo directamente.
+puede exponer prácticamente la misma libertad que modificar el atributo directamente.
 
-En cambio:
+En cambio, operaciones como:
 
 ```java
-public void actualizarPeso(double nuevoPeso) {
-    if (nuevoPeso <= 0) {
-        return;
-    }
-
-    peso = nuevoPeso;
-}
+depositar(monto)
+retirar(monto)
 ```
 
-agrega una regla y expresa intención.
+expresan intención y permiten validar reglas.
 
 ## Pregunta de diseño
 
