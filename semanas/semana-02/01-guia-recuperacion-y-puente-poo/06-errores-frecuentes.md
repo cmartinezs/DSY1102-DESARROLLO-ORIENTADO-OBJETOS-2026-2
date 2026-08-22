@@ -15,8 +15,8 @@ Si `main` conoce todos los detalles de todos los conceptos, los objetos terminan
 ## 4. Confundir clase con objeto
 
 ```text
-Mascota → clase
-Michi   → objeto/instancia
+Producto → clase
+Teclado  → objeto/instancia
 ```
 
 ## 5. Pensar que `private` por sí solo resuelve el encapsulamiento
