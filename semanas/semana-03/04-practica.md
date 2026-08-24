@@ -1,55 +1,76 @@
-# 4 · Práctica incremental
+# 4 · Práctica incremental · de métodos a objetos
 
-## Nivel 0 · checkpoint
+## Parte A · métodos
 
-Sin copiar código anterior, crea `Producto` con estado privado, constructor, getters y un método de comportamiento. Instancia dos objetos y explica estado vs comportamiento.
+Implementa y prueba desde `main`:
 
-## Nivel 1 · herencia
-
-Crea `Producto` y `ProductoDigital`. El digital agrega `tamanoMb`. Sobrescribe `mostrarDetalle()`. Explica por qué `ProductoDigital es un Producto`.
-
-## Nivel 2 · abstracta
-
-Modela `Empleado` como abstracta con `nombre` y método abstracto `calcularBono()`. Implementa `EmpleadoVentas` y `EmpleadoSoporte` con reglas diferentes.
-
-## Nivel 3 · interfaz
-
-Crea `Notificable` con `notificar()`. Implementa el contrato en dos clases de dominios distintos. Demuestra que ambas pueden recibirse en un método `enviar(Notificable n)`.
-
-## Nivel 4 · polimorfismo
-
-Crea una jerarquía `Transporte` con al menos `Bicicleta` y `Bus`. Implementa `mover()`. Escribe un método que reciba `Transporte` y ejecute `mover()` sin condicionales de tipo.
-
-## Nivel 5 · diseño
-
-Analiza este modelo incorrecto:
-
-```text
-Motor extends Auto
-Cliente extends Pedido
-PDF extends Exportable
+```java
+esPar(int numero)
+calcularTotal(double precio, int cantidad)
+esMayorDeEdad(int edad)
 ```
 
-Corrígelo y justifica cada decisión. No basta con entregar código.
+No imprimas dentro de todos los métodos: devuelve resultados cuando tenga sentido.
 
-## Desafío de transferencia
+## Parte B · clase sencilla
 
-Diseña un mini dominio distinto de los ejemplos anteriores con:
+Crea una clase `Pelicula` con:
 
-- una abstracción común;
-- dos implementaciones concretas;
-- al menos un atributo encapsulado;
-- una sobrescritura;
-- una interfaz útil;
-- una llamada polimórfica.
+- `titulo`;
+- `duracionMinutos`;
+- `clasificacionEdad`.
 
-Entrega un README corto con: problema, decisiones, diagrama textual y evidencia de ejecución.
+Agrega constructor y crea al menos tres objetos desde `main`.
 
-## Checklist
+## Parte C · comportamiento
 
-- [ ] Puedo defender cada `extends` con una relación `es-un`.
-- [ ] No hice atributos públicos para facilitar la herencia.
-- [ ] Utilicé `@Override` correctamente.
-- [ ] Distingo clase abstracta de interfaz.
-- [ ] Mi demostración polimórfica trabaja contra un tipo general.
-- [ ] Puedo explicar el código sin leerlo línea por línea.
+Agrega:
+
+```java
+public boolean puedeVerla(int edadPersona)
+```
+
+El método debe responder según la clasificación de la película.
+
+## Parte D · encapsulamiento
+
+Convierte los atributos que deban protegerse a `private`. Expón únicamente las operaciones necesarias.
+
+Agrega una regla: `duracionMinutos` no puede quedar en cero ni en valores negativos.
+
+## Parte E · ejercicio individual
+
+Elige **uno** de estos dominios neutrales:
+
+- `Producto`;
+- `Libro`;
+- `Videojuego`;
+- `Curso`;
+- `Cancion`.
+
+Debes construir una clase con al menos tres atributos, constructor, dos objetos, un método de consulta y un método que modifique estado de forma controlada.
+
+No copies el ejemplo de `Pelicula`; adapta el diseño al dominio elegido.
+
+## Parte F · PetCare
+
+Solo después de cerrar las partes anteriores, identifica **una** oportunidad de aplicar clase/objeto/encapsulamiento en PetCare. No conviertas PetCare en el ejemplo de enseñanza ni adelantes conceptos no vistos.
+
+## Evidencia
+
+- código ejecutable;
+- salida de ejemplo;
+- breve README con instrucciones;
+- respuesta: «¿qué regla protege mi objeto y dónde está implementada?»;
+- DevLog semanal.
+
+## Criterios de logro
+
+- [ ] Puedo declarar e invocar métodos.
+- [ ] Distingo parámetros, argumentos y retorno.
+- [ ] Puedo crear una clase y varias instancias.
+- [ ] Uso constructor con sentido.
+- [ ] Un método puede consultar o modificar estado.
+- [ ] Comprendo por qué algunos atributos deben ser privados.
+- [ ] Puedo proteger al menos una regla del objeto.
+- [ ] PetCare solo utiliza conceptos efectivamente aprendidos.
