@@ -6,10 +6,10 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 
 | Semana | Periodo | Actividad / contenido | Estado | Contenido consolidado |
 |---|---|---|---|---|
-| **01** | 10–15 agosto 2026 | Paradigma OO: fundamentos del lenguaje | ✅ Disponible | [Abrir Semana 01](semana-01/) |
-| **02** | 17–22 agosto 2026 | Métodos, clases y encapsulamiento | ✅ Disponible | [Abrir Semana 02](semana-02/) |
-| **03** | 24–29 agosto 2026 | **Herencia, clases abstractas, interfaces y polimorfismo** | ✅ Disponible | [Abrir Semana 03](semana-03/) |
-| 04 | 31 agosto–5 septiembre 2026 | Excepciones y colecciones | 🔒 Próximamente | Próximamente |
+| **01** | 10–15 agosto 2026 | Paradigma OO y fundamentos Java | ✅ Disponible | [Abrir Semana 01](semana-01/) |
+| **02** | 17–22 agosto 2026 | Fundamentos Java y puente hacia POO | ✅ Disponible | [Abrir Semana 02](semana-02/) |
+| **03** | 24–29 agosto 2026 | **Métodos, clases, objetos y encapsulamiento** | 🔵 Semana actual | [Abrir Semana 03](semana-03/) |
+| 04 | 31 agosto–5 septiembre 2026 | Continuidad POO según checkpoint real de Semana 03 | 🔒 Próximamente | Próximamente |
 | 05 | 7–12 septiembre 2026 | POO aplicada · EF1 | 🔒 Próximamente | Próximamente |
 | 06 | 14–19 septiembre 2026 | EP1 · Fundamentos POO | 🔒 Próximamente | Próximamente |
 | 07 | 21–26 septiembre 2026 | Maven y JavaFX | 🔒 Próximamente | Próximamente |
@@ -24,4 +24,4 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | 16 | 23–28 noviembre 2026 | EP3 · Componente con BD relacional | 🔒 Próximamente | Próximamente |
 | 17–18 | 30 noviembre–12 diciembre 2026 | EFT · Defensa técnica | 🔒 Próximamente | Próximamente |
 
-Para estudiar una semana comienza por su `README.md`. La disponibilidad curricular no debe confundirse con evidencia de contenido efectivamente alcanzado en clase.
+> La disponibilidad curricular no debe confundirse con el avance real de aula. Semana 03 consolida la transición desde fundamentos Java hacia objetos antes de introducir herencia, abstracción, interfaces o polimorfismo.
