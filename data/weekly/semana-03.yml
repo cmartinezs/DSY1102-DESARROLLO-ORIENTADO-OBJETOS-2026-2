@@ -1,0 +1,26 @@
+week: 3
+period: 2026-08-24/2026-08-29
+section: DSY1102-012V
+status: current
+focus: "Métodos, clases, objetos y encapsulamiento"
+learning_path:
+  - métodos y descomposición
+  - parámetros y retorno
+  - clases, atributos y constructores
+  - objetos e instancias
+  - métodos de instancia
+  - encapsulamiento y estado válido
+verticals:
+  semanas: semanas/semana-03/
+  labs: labs/semana-03/
+  ejemplos: ejemplos/semana-03/
+  proyecto_formativo: proyecto-formativo/semana-03/
+web:
+  weekly_challenge: desafio-semanal.html
+  oop_challenge: desafio-100-poo.html
+challenge_policy:
+  desafio_150_unlocked: 45
+  desafio_100_poo_unlocked: 10
+notes:
+  - "La disponibilidad curricular no debe confundirse con el avance real de aula."
+  - "Herencia, abstracción, interfaces y polimorfismo quedan fuera del foco central de esta semana."
