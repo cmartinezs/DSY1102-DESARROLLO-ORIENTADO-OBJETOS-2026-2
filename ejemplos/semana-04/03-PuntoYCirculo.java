@@ -58,7 +58,7 @@ class Circulo {
     }
 }
 
-public class PuntoYCirculo {
+class PuntoYCirculo {
     public static void main(String[] args) {
         Punto puntoA = new Punto(0, 0);
         Punto puntoB = new Punto(3, 4);
