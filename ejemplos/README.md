@@ -6,8 +6,9 @@ Ejemplos de código **mínimos, concretos, independientes y organizados por sema
 |---|---|---|
 | [Semana 01](./semana-01/) | tipos, operadores y estructuras de control | ✅ Disponible |
 | [Semana 02](./semana-02/) | métodos iniciales, clases y puente a objetos | ✅ Disponible |
-| [Semana 03](./semana-03/) | **métodos, constructor, objetos y encapsulamiento** | 🔵 Semana actual |
-| Semana 04+ | se agregará al llegar a cada semana curricular | 🔒 Próximamente |
+| [Semana 03](./semana-03/) | métodos, objetos, encapsulamiento, accesores, mutadores y operaciones | ✅ Consolidada |
+| [Semana 04](./semana-04/) | **constructores, sobrecarga, responsabilidades y colaboración entre objetos** | 🔵 Semana actual |
+| Semana 05+ | se agregará al llegar a cada semana curricular | 🔒 Próximamente |
 
 ## Regla canónica
 
