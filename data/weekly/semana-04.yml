@@ -4,24 +4,28 @@ section: "DSY1102-012V"
 status: CURRENT
 actual_checkpoint:
   date: "2026-09-01"
-  last_reached_concept: "constructores"
+  last_reached_concept: "composicion_introductoria"
   consolidated:
     - clases
     - atributos
     - metodos_operacionales
     - accesores_y_mutadores
-  in_progress:
     - constructores
+    - sobrecarga_de_constructores
     - encapsulamiento
-    - estado_valido
-  next:
+  in_progress:
+    - responsabilidad_de_clase
     - colaboracion_entre_objetos
+    - objetos_como_atributos
+    - objetos_como_parametros
     - composicion_introductoria
-  not_yet_reached:
+  next:
     - herencia
+    - sobrescritura
+    - polimorfismo_dinamico
+  not_yet_reached:
     - clases_abstractas
     - interfaces
-    - polimorfismo
     - colecciones
     - excepciones
 practice:
