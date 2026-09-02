@@ -28,6 +28,7 @@ constructores sobrecargados
 → responsabilidades de clase
 → colaboración entre objetos
 → composición/asociación introductoria
+→ Scanner y entrada desde consola
 → preparación para herencia
 ```
 
@@ -45,7 +46,7 @@ Se continuó el ejercicio de `Cuenta` y se trabajó en:
 - diferencia entre constructor, accesor, mutador y método operacional;
 - uso de `this` para distinguir atributos de parámetros cuando corresponde.
 
-La sobrecarga de constructores se utilizó además como una **primera introducción al concepto de polimorfismo**, dejando para la siguiente clase el desarrollo formal de herencia, sobrescritura y polimorfismo dinámico.
+La sobrecarga de constructores se utilizó además como una **primera introducción al concepto de polimorfismo**, dejando para una clase posterior el desarrollo formal de herencia, sobrescritura y polimorfismo dinámico.
 
 ### 2. Responsabilidad de clases y colaboración entre objetos
 
@@ -101,7 +102,36 @@ Cuadrilatero
  └─ vertice4 : Punto
 ```
 
-`Cuadrilatero` queda como **puente pedagógico para la próxima clase**, donde se podrán derivar figuras más específicas e introducir herencia y polimorfismo con continuidad de dominio.
+`Cuadrilatero` queda reservado como **puente pedagógico hacia herencia**, una vez completada la introducción práctica a entrada de datos mediante `Scanner`.
+
+## Próxima clase · Scanner antes de herencia
+
+Antes de continuar con `extends`, se incorporará `Scanner` como herramienta de entrada desde consola.
+
+Ruta de la sesión:
+
+```text
+package · introducción breve
+→ import java.util.Scanner
+→ Scanner(System.in)
+→ nextLine / nextInt / nextDouble
+→ problema nextInt + nextLine
+→ reutilizar Cliente + Cuenta
+→ construir objetos con datos ingresados
+→ ejecutar operaciones
+→ mantener lógica de negocio dentro de Cuenta
+→ cierre integrado
+→ dejar preparada herencia
+```
+
+El objetivo es que el estudiante comprenda que `Scanner` cambia **cómo ingresan los datos**, pero no cambia la distribución de responsabilidades del modelo:
+
+```text
+Main / Scanner = interacción
+Cuenta          = estado y reglas de negocio
+```
+
+Material: [Scanner · entrada de datos desde consola](./03-scanner-entrada-datos.md).
 
 ## Ejemplos de referencia
 
@@ -110,13 +140,16 @@ Los ejemplos de esta sesión se encuentran en [`../../ejemplos/semana-04/`](../.
 1. `Cuenta` con constructores sobrecargados;
 2. `Cuenta` colaborando con `Persona`;
 3. `Punto` y `Circulo`;
-4. `Cuadrilatero` compuesto por cuatro puntos.
+4. `Cuadrilatero` compuesto por cuatro puntos;
+5. `Cuenta` + `Cliente` recibiendo datos mediante `Scanner`.
 
 ## Precisión conceptual
 
 En esta etapa se utiliza composición en sentido introductorio para mostrar que **los objetos pueden estar construidos a partir de otros objetos**. Más adelante se distinguirán formalmente asociación, agregación y composición según la relación de dominio y ciclo de vida.
 
 Asimismo, varios constructores con distinta firma corresponden a **sobrecarga**. El polimorfismo por subtipado y sobrescritura todavía no ha sido desarrollado.
+
+`Scanner` pertenece a la capa de interacción del programa. No se incorpora dentro de las clases de dominio para pedir datos al usuario.
 
 ## Contenidos consolidados hasta este punto
 
@@ -133,6 +166,14 @@ Asimismo, varios constructores con distinta firma corresponden a **sobrecarga**.
 - colaboración entre objetos;
 - composición/asociación introductoria.
 
+## En incorporación
+
+- `package` como organización básica del código;
+- `import`;
+- `Scanner`;
+- entrada interactiva desde consola;
+- separación entre interacción y lógica de negocio.
+
 ## No adelantar todavía
 
 - implementación de jerarquías con `extends`;
@@ -144,9 +185,9 @@ Asimismo, varios constructores con distinta firma corresponden a **sobrecarga**.
 - excepciones;
 - persistencia.
 
-## Próxima clase · sábado
+## Después de Scanner
 
-Continuar desde `Cuadrilatero` para introducir progresivamente:
+Retomar `Cuadrilatero` para introducir progresivamente:
 
 ```text
 Cuadrilatero
@@ -160,12 +201,13 @@ La prioridad es que la herencia aparezca como respuesta a una necesidad del mode
 
 ## Proyecto formativo
 
-PetCare se mantiene esta semana hasta una versión con objetos correctamente construidos, encapsulados y capaces de colaborar. La herencia todavía no se exige.
+PetCare se mantiene esta semana hasta una versión con objetos correctamente construidos, encapsulados y capaces de colaborar. `Scanner` puede utilizarse en la aplicación principal para ingresar los datos, pero la lógica del dominio permanece dentro de los objetos. La herencia todavía no se exige.
 
 ## Evidencia mínima
 
 - dos ejercicios independientes;
 - Lab 04 completo;
 - avance PetCare Semana 04;
+- ejercicio integrado con `Scanner`;
 - código ejecutable;
 - DevLog con al menos un error real y su corrección.
