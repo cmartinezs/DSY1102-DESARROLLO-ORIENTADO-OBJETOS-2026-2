@@ -67,7 +67,7 @@ class Cuadrilatero {
     }
 }
 
-public class CuadrilateroApp {
+class CuadrilateroApp {
     public static void main(String[] args) {
         Punto a = new Punto(0, 0);
         Punto b = new Punto(4, 0);
