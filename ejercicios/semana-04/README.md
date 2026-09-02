@@ -1,6 +1,6 @@
 # Ejercicios · Semana 04
 
-Foco: constructores, encapsulamiento, estado válido y primeras colaboraciones entre objetos.
+Foco: constructores, encapsulamiento, estado válido, colaboración entre objetos y evolución de diseño.
 
 ## Ejercicio principal · Evolución de Cuenta
 
@@ -18,6 +18,25 @@ atributos + getters/setters + operaciones
 ```
 
 Cada etapa utiliza un `package` diferente para evitar reemplazar el código anterior y permitir comparar las versiones. Por ahora `package` se presenta únicamente como una forma de organizar clases relacionadas; se profundizará en la siguiente clase.
+
+## Ejercicio evolutivo · Scanner → LectorConsola
+
+[Ver evolución completa de Scanner a LectorConsola](./evolucion-scanner/)
+
+Este segundo ejercicio continúa desde `Cliente + Cuenta` y debe desarrollarse también por etapas, conservando cada versión:
+
+```text
+datos fijos
+→ Scanner directo en Main
+→ validación repetida dentro de Main
+→ detectar duplicación y mezcla de responsabilidades
+→ extraer LectorConsola
+→ Main coordinador
+→ sobrecarga de leerEntero / leerDecimal
+→ reconocer polimorfismo estático
+```
+
+Es importante **no entregar primero la versión final**. El valor del ejercicio está en que el estudiante experimente el problema antes de abstraer la solución.
 
 ## 1 · Refactor de Cuenta
 
