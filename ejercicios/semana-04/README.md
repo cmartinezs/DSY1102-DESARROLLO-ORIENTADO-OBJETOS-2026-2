@@ -2,6 +2,23 @@
 
 Foco: constructores, encapsulamiento, estado válido y primeras colaboraciones entre objetos.
 
+## Ejercicio principal · Evolución de Cuenta
+
+[Ver evolución completa de Cuenta bancaria](./evolucion-cuenta/)
+
+Este ejercicio conserva varias versiones del código para evidenciar el cambio de diseño:
+
+```text
+atributos + getters/setters + operaciones
+→ Main configura el objeto
+→ detectar fragilidad por inicialización manual
+→ constructor con datos obligatorios
+→ Main crea un objeto válido desde el inicio
+→ separación Cliente + Cuenta
+```
+
+Cada etapa utiliza un `package` diferente para evitar reemplazar el código anterior y permitir comparar las versiones. Por ahora `package` se presenta únicamente como una forma de organizar clases relacionadas; se profundizará en la siguiente clase.
+
 ## 1 · Refactor de Cuenta
 
 Partir del ejercicio de Semana 03 y reemplazar la inicialización mediante setters por un constructor:
