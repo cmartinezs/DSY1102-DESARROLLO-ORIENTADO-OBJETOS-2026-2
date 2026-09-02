@@ -4,9 +4,9 @@ PetCare es el proyecto incremental de DSY1102. No es el ejemplo principal de cla
 
 ## Estado actual
 
-**Semana 04 · constructores, estado válido y colaboración simple entre objetos**
+**Semana 04 · constructores, responsabilidades y colaboración simple entre objetos**
 
-Checkpoint real al **1 de septiembre de 2026**: la sección llegó a **constructores**.
+Checkpoint real al **1 de septiembre de 2026**: la sección trabajó **constructores, sobrecarga de constructores, separación de responsabilidades y composición/asociación introductoria**. El polimorfismo se mencionó como introducción conceptual, pero todavía no se ha desarrollado mediante herencia y sobrescritura.
 
 - [Semana 02 · inicio y primer checkpoint](./semana-02/README.md)
 - [Semana 03 · comportamiento y estado protegido](./semana-03/README.md)
@@ -50,21 +50,26 @@ Mascota
 Mascota ───> Tutor   (extensión opcional al consolidar)
 ```
 
-La composición aparece solo como introducción a colaboración entre objetos. No obliga a modelar una jerarquía.
+La relación entre `Mascota` y `Tutor` puede utilizarse para practicar colaboración entre objetos y separación de responsabilidades, sin introducir todavía una jerarquía de herencia.
 
 ## Fuera de alcance actual
 
 Mientras no se hayan trabajado efectivamente en aula, no corresponde exigir:
 
 - herencia;
+- sobrescritura;
+- polimorfismo dinámico;
 - clases abstractas;
 - interfaces;
-- polimorfismo;
 - colecciones;
 - excepciones propias;
 - JavaFX;
 - persistencia;
 - JDBC.
+
+## Próximo paso
+
+La siguiente clase profundizará en **herencia y polimorfismo**, manteniendo el principio de que estos mecanismos deben aparecer como respuesta a necesidades concretas del modelo de dominio.
 
 ## Documentación transversal
 
