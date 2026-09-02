@@ -1,0 +1,33 @@
+week: 4
+period: "2026-08-31/2026-09-05"
+section: "DSY1102-012V"
+status: CURRENT
+actual_checkpoint:
+  date: "2026-09-01"
+  last_reached_concept: "constructores"
+  consolidated:
+    - clases
+    - atributos
+    - metodos_operacionales
+    - accesores_y_mutadores
+  in_progress:
+    - constructores
+    - encapsulamiento
+    - estado_valido
+  next:
+    - colaboracion_entre_objetos
+    - composicion_introductoria
+  not_yet_reached:
+    - herencia
+    - clases_abstractas
+    - interfaces
+    - polimorfismo
+    - colecciones
+    - excepciones
+practice:
+  exercises: "ejercicios/semana-04"
+  lab: "labs/semana-04"
+project:
+  name: "PetCare"
+  checkpoint: "proyecto-formativo/semana-04"
+rule: "actual_classroom_progress_over_theoretical_calendar"
