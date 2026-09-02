@@ -48,7 +48,7 @@ class CuentaScanner {
     }
 }
 
-public class MainCuentaScanner {
+class MainCuentaScanner {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
