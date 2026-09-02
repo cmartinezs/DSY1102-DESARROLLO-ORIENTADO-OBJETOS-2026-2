@@ -66,7 +66,7 @@ class Cuenta {
     }
 }
 
-public class CuentaPersona {
+class CuentaPersona {
     public static void main(String[] args) {
         Persona persona = new Persona("Persona Demo", "RUT-DEMO-001");
         Cuenta cuenta = new Cuenta(persona, 100000);
