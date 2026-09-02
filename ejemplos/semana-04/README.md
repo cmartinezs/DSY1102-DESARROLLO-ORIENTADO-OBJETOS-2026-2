@@ -22,42 +22,118 @@ En esta etapa se ha trabajado en:
 2. [`02-CuentaPersona.java`](02-CuentaPersona.java) — separación de `nombre` y `rut` hacia `Persona`; `Cuenta` mantiene un atributo de tipo `Persona`.
 3. [`03-PuntoYCirculo.java`](03-PuntoYCirculo.java) — `Punto`, comunicación entre objetos mediante `calcularDistancia(Punto otro)` y reutilización de `Punto` como centro de un `Circulo`.
 4. [`04-Cuadrilatero.java`](04-Cuadrilatero.java) — cuadrilátero definido por cuatro objetos `Punto`, dejando preparado el dominio para introducir herencia.
-5. [`05-CuentaScanner.java`](05-CuentaScanner.java) — introducción directa a `java.util.Scanner` dentro de `main`, leyendo datos para construir y utilizar objetos existentes.
-6. [`06-LectorConsola.java`](06-LectorConsola.java) — siguiente nivel: clase propia que encapsula `Scanner` y centraliza validación de formato mediante `leerEntero`, `leerDecimal`, rangos y mensajes de error.
-7. [`07-CuentaConLectorConsola.java`](07-CuentaConLectorConsola.java) — integración del lector encapsulado con `Cliente` y `Cuenta`, manteniendo las reglas de negocio dentro de la clase de dominio.
+5. [`05-CuentaScanner.java`](05-CuentaScanner.java) — **versión deliberadamente extensa** con `java.util.Scanner` directamente dentro de `main`: cada dato solicitado implementa su propia lectura y validación para hacer visible la repetición.
+6. [`06-LectorConsola.java`](06-LectorConsola.java) — refactor posterior: clase propia que encapsula `Scanner`, centraliza validaciones y ofrece métodos sobrecargados como `leerEntero()` / `leerEntero(String)` / `leerEntero(String, min, max)`.
+7. [`07-CuentaConLectorConsola.java`](07-CuentaConLectorConsola.java) — misma funcionalidad de Cuenta/Cliente consumiendo `LectorConsola`; permite comparar visualmente cuánto desaparece del `main`.
 
-## Scanner como evolución de diseño
+## Secuencia didáctica: primero sentir el problema
 
-La introducción se realiza en dos pasos intencionales:
+**No presentar `LectorConsola` inmediatamente.**
+
+La intención es construir primero un programa completamente normal con `Scanner` dentro de `main` y pedir los datos uno a uno:
 
 ```text
-Main + Scanner directo
-        ↓
-se observa repetición de lectura y validación
-        ↓
-LectorConsola
-        ↓
-Main más simple y expresivo
+nombre
+→ rut
+→ pin
+→ saldo inicial
+→ depósito
+→ giro
 ```
 
-`LectorConsola` es un **wrapper** sobre `java.util.Scanner`. No se llama simplemente `Scanner` para evitar confundir nuestra clase con la clase estándar de Java.
+Cuando aparece un número, incorporar validación. Por ejemplo, el PIN debe:
 
-Ejemplo de responsabilidad del lector:
+- ser realmente un `int`;
+- rechazar letras;
+- estar dentro de un rango válido;
+- volver a preguntar cuando la entrada es incorrecta.
+
+Luego hacer lo mismo con saldo, depósito y giro.
+
+El resultado buscado es que el estudiante observe por sí mismo algo como:
+
+```text
+Main
+├─ pedir nombre
+├─ pedir RUT
+├─ validar PIN
+│  ├─ while
+│  ├─ hasNextInt
+│  ├─ mensaje de error
+│  └─ nextLine
+├─ validar saldo
+│  ├─ while
+│  ├─ hasNextDouble
+│  ├─ mensaje de error
+│  └─ nextLine
+├─ validar depósito
+│  └─ casi lo mismo otra vez
+├─ validar giro
+│  └─ casi lo mismo otra vez
+├─ crear objetos
+└─ ejecutar negocio
+```
+
+Aquí conviene **no anticipar la solución**. Preguntar a los estudiantes:
+
+- ¿Qué código estamos repitiendo?
+- ¿Qué pasaría si tuviéramos 20 datos que leer?
+- ¿Dónde corregiríamos un error de validación que aparece en cinco lugares?
+- ¿Es realmente responsabilidad del algoritmo principal saber cómo se valida cada tipo de entrada?
+
+Recién después se introduce `LectorConsola`.
+
+## El cambio: extraer una responsabilidad
+
+La misma lectura anterior pasa a expresarse así:
 
 ```java
-int edad = lector.leerEntero("Edad: ", 0, 120);
+LectorConsola lector = new LectorConsola();
+
+String nombre = lector.leerTexto("Nombre del cliente: ");
+String rut = lector.leerTexto("RUT: ");
+int pin = lector.leerEntero("PIN de 4 dígitos: ", 1000, 9999);
+double saldoInicial = lector.leerDecimalPositivo("Saldo inicial: ");
+double deposito = lector.leerDecimalPositivo("Monto a depositar: ");
+double giro = lector.leerDecimalPositivo("Monto a girar: ");
 ```
 
-La clase se encarga de repetir la pregunta cuando el usuario escribe una letra u otra entrada no válida.
+La funcionalidad no cambió. Cambió el **diseño**.
 
-Sin embargo, una distinción es fundamental:
+```text
+ANTES
+Main sabe leer + validar + construir + coordinar
+
+DESPUÉS
+LectorConsola sabe leer y validar entrada
+Main coordina
+Cuenta mantiene reglas de negocio
+Cliente mantiene datos del cliente
+```
+
+Este contraste es el objetivo central del ejemplo: que el estudiante vea que crear una clase no consiste solamente en "separar código en archivos", sino en **identificar una responsabilidad repetitiva y encapsularla**.
+
+## Momento para introducir sobrecarga / polimorfismo estático
+
+Una vez entendido `LectorConsola`, mostrar que una misma operación conceptual puede ofrecer distintas formas de uso:
+
+```java
+leerEntero()
+leerEntero(String texto)
+leerEntero(int minimo, int maximo)
+leerEntero(String texto, int minimo, int maximo)
+```
+
+Esto permite conectar con la sobrecarga ya vista en constructores y presentarlo como **polimorfismo estático / sobrecarga**, antes de llegar posteriormente al polimorfismo dinámico asociado a herencia y sobrescritura.
+
+## Separación de responsabilidades
+
+Una distinción debe mantenerse explícita:
 
 - **validación de entrada/formato** → `LectorConsola`;
 - **regla de negocio** → objeto de dominio.
 
-Por ejemplo, `LectorConsola` puede asegurar que un monto sea numérico, pero decidir si existe saldo suficiente para un giro sigue correspondiendo a `Cuenta.girar(monto)`.
-
-Esto permite volver a aplicar una idea central de POO: **cada clase debe tener una responsabilidad clara**.
+Por ejemplo, `LectorConsola` puede garantizar que el monto ingresado sea numérico y no negativo, pero decidir si existe saldo suficiente para un giro sigue correspondiendo a `Cuenta.girar(monto)`.
 
 ## Alcance técnico
 
@@ -70,28 +146,27 @@ Para no adelantar excepciones antes de trabajarlas formalmente, las validaciones
 
 Más adelante esta misma clase puede ser refactorizada cuando se estudie manejo de excepciones.
 
-## Precisión conceptual
-
-La existencia de varios constructores con distinta firma corresponde a **sobrecarga de constructores**. Puede utilizarse como primera aproximación al polimorfismo estático, pero todavía no se ha desarrollado el polimorfismo por subtipado/sobrescritura.
-
-Del mismo modo, en esta etapa se utiliza "composición" de forma introductoria para expresar que una clase puede construirse utilizando otros objetos. Más adelante se distinguirán con mayor precisión asociación, agregación y composición según la relación de dominio y ciclo de vida.
-
 ## Ruta de la próxima clase
 
 ```text
 package · introducción breve
 → import
 → Scanner directo
-→ validación básica
-→ LectorConsola
-→ encapsular repetición y validación
-→ integrar con Cuenta / Cliente
+→ pedir datos uno a uno
+→ incorporar validaciones dentro de Main
+→ dejar que aparezca repetición
+→ analizar el problema con los estudiantes
+→ extraer LectorConsola
+→ comparar ANTES / DESPUÉS
+→ sobrecarga de métodos
+→ polimorfismo estático
+→ integrar Cuenta / Cliente
 → práctica autónoma
 → Cuadrilatero
 → herencia
 ```
 
-La idea es que herencia aparezca después de haber consolidado objetos, responsabilidades, colaboración y una primera extracción real de una responsabilidad repetitiva.
+El cambio a `LectorConsola` no debe mostrarse como punto de partida: debe aparecer como **respuesta a un problema que los estudiantes ya experimentaron**.
 
 ## No adelantar todavía
 
