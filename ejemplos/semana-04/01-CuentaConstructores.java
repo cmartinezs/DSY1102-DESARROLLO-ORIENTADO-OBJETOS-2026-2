@@ -75,17 +75,17 @@ class Cuenta {
     }
 }
 
-public class CuentaConstructores {
+class CuentaConstructores {
     public static void main(String[] args) {
         Cuenta cuenta1 = new Cuenta();
-        cuenta1.setNombre("Ana Pérez");
-        cuenta1.setRut("11.111.111-1");
+        cuenta1.setNombre("Persona Demo A");
+        cuenta1.setRut("RUT-DEMO-001");
         cuenta1.depositarMonto(100000);
 
-        Cuenta cuenta2 = new Cuenta("Luis Soto", "22.222.222-2");
+        Cuenta cuenta2 = new Cuenta("Persona Demo B", "RUT-DEMO-002");
         cuenta2.depositarMonto(50000);
 
-        Cuenta cuenta3 = new Cuenta("Carla Díaz", "33.333.333-3", 150000);
+        Cuenta cuenta3 = new Cuenta("Persona Demo C", "RUT-DEMO-003", 150000);
         cuenta3.girarMonto(25000);
 
         cuenta1.mostrarDatos();
