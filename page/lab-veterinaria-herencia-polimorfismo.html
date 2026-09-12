@@ -16,13 +16,10 @@ body{margin:0;font-family:system-ui;background:#f6f8fc;color:#172033;display:gri
 <script>
 const BASE_URL='https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/e4afb4a1d3f7fcba182bbe6243a921034c1cc8eb/page/lab-veterinaria-herencia-polimorfismo.html';
 const ENH_URL='https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/master/page/lab-veterinaria-enhancements.js';
-const STANDARD_URL='https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md';
-const NOTICE=`<section id="repoStandardPersistent" style="background:#fff7ed;border:1px solid #fdba74;border-left:5px solid #ea580c;border-radius:1rem;padding:1rem 1.1rem;margin:0 0 1rem"><strong style="display:block;margin-bottom:.45rem">📁 Antes de comenzar: revisa la estructura de tu repositorio</strong><p style="margin:.35rem 0">Este laboratorio usa la estructura oficial del repositorio del estudiante. Si tu repositorio es nuevo o todavía no tiene carpetas como <code>docs</code>, <code>practica</code>, <code>labs</code>, <code>proyecto-formativo</code>, <code>desafios</code> y <code>evaluaciones</code>, primero debes prepararlo.</p><p style="margin:.55rem 0 0"><a href="${STANDARD_URL}" target="_blank" rel="noopener noreferrer" style="font-weight:800">Abrir Estándar de Repositorio del Estudiante ↗</a></p><p style="margin:.45rem 0 0;color:#9a3412"><strong>Qué hacer:</strong> abre la guía en la nueva pestaña, completa la estructura de tu repositorio, vuelve a esta página y recién continúa con el laboratorio.</p></section>`;
 Promise.all([
   fetch(BASE_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Base HTTP '+r.status);return r.text()}),
   fetch(ENH_URL+'?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Enh HTTP '+r.status);return r.text()})
 ]).then(([html,enh])=>{
-  html=html.replace('<div id="app"></div>',NOTICE+'<div id="app"></div>');
   document.open();document.write(html);document.close();
   const enhancement=document.createElement('script');enhancement.textContent=enh;document.body.appendChild(enhancement);
   const ui=document.createElement('script');
@@ -49,7 +46,15 @@ Promise.all([
       if(!validRepo(v.repoUrl)||!validPath(v.repoPath)||!v.name||!v.section||!v.deviceAlias)return false;
       return ['name','section','repoUrl','repoPath','deviceAlias'].every(k=>String(s.student[k]||'').trim()===v[k]);
     }
+    function normalizeRepoNotice(){
+      document.getElementById('repoStandardPersistent')?.remove();
+      const s=read();
+      const notices=[...document.querySelectorAll('.repo-standard-notice')];
+      if(Number(s?.currentStage)!==0){notices.forEach(n=>n.remove());return;}
+      notices.slice(1).forEach(n=>n.remove());
+    }
     function sync(){
+      normalizeRepoNotice();
       const s=read();if(!s)return;
       if(!s.actionRequirements)s.actionRequirements={};
       const ok=matchesSaved();
@@ -68,7 +73,7 @@ Promise.all([
       const wrap=e.target&&e.target.closest?e.target.closest('.switch'):null;
       if(wrap){sync();const sw=wrap.querySelector('input[type=checkbox]');if(sw?.disabled){e.preventDefault();e.stopImmediatePropagation();sw.checked=false}}
     },true);
-    setTimeout(sync,50);setTimeout(sync,300);setInterval(sync,1500);
+    setTimeout(sync,50);setTimeout(sync,300);setInterval(sync,500);
   })();`;
   document.body.appendChild(ui);
 }).catch(e=>{const msg=document.getElementById('msg');if(msg)msg.textContent='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
