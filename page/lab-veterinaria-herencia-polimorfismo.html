@@ -57,7 +57,8 @@ Promise.all([
       const app=document.getElementById('app');
       if(!app)return;
       const quiz=app.querySelector('.quiz');
-      app.querySelectorAll('.step-card').forEach(card=>card.classList.toggle('checkpoint-focus-hidden',!!quiz));
+      const shouldHide=!!(quiz&&(quiz.querySelector('.q')||quiz.querySelector('.notice-ok')));
+      app.querySelectorAll('.step-card').forEach(card=>card.classList.toggle('checkpoint-focus-hidden',shouldHide));
     }
     function releaseSessionGuard(){
       document.querySelectorAll('.step-card .switch input[type=checkbox]').forEach(sw=>{
