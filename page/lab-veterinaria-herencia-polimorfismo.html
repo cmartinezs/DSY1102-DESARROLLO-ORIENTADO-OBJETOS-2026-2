@@ -11,139 +11,121 @@
 <script>
 const SOURCE='https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/c12b81fc0c95ab84030a2b9980ec43b6a3adc772/page/lab-veterinaria-herencia-polimorfismo.html';
 fetch(SOURCE,{cache:'no-store'})
-  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()})
-  .then(src=>{
-    // 1) Elimina el MutationObserver recursivo que podía congelar la página.
-    src=src.replace(
-      "new MutationObserver(()=>applyGuards()).observe(document.body,{childList:true,subtree:true});if(typeof window.render==='function')window.render();else applyGuards()",
-      "if(typeof window.render==='function')window.render();else applyGuards()"
-    );
+.then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()})
+.then(src=>{
+  src=src.replace("new MutationObserver(()=>applyGuards()).observe(document.body,{childList:true,subtree:true});if(typeof window.render==='function')window.render();else applyGuards()","if(typeof window.render==='function')window.render();else applyGuards()");
+  src=src.replace("if(on&&!requirementMet(id)){alert('Antes de marcar este paso como realizado debes completar y guardar la acción obligatoria.');applyGuards();return}","if(on&&!requirementMet(id)){const sw=document.querySelector('.step-card .switch input[type=checkbox]');if(sw){sw.checked=false;sw.disabled=true}applyGuards();return}");
 
-    // 2) Endurece el guard: el estado no cambia y el checkbox vuelve a false inmediatamente.
-    src=src.replace(
-      "if(on&&!requirementMet(id)){alert('Antes de marcar este paso como realizado debes completar y guardar la acción obligatoria.');applyGuards();return}",
-      "if(on&&!requirementMet(id)){const sw=document.querySelector('.step-card .switch input[type=checkbox]');if(sw){sw.checked=false;sw.disabled=true}applyGuards();return}"
-    );
-
-    // 3) Intercepta el click antes de que el navegador pueda alternar el switch.
-    src=src.replace(
-      "const originalToggle=window.toggleStep;",
-      "document.addEventListener('click',function(e){const s=readState();if(!s||Number(s.currentStage)!==0)return;const first=document.querySelector('.step-card');if(!first)return;const wrap=e.target&&e.target.closest?e.target.closest('.switch'):null;if(!wrap||!first.contains(wrap))return;if(!requirementMet('s0p1')){e.preventDefault();e.stopImmediatePropagation();const sw=wrap.querySelector('input[type=checkbox]');if(sw){sw.checked=false;sw.disabled=true}applyGuards()}},true);const originalToggle=window.toggleStep;"
-    );
-
-    // 4) Valida la configuración y personaliza los comandos con los datos guardados.
-    src=src.replace(
-      "const originalSaveIdentity=window.saveIdentity;if(typeof originalSaveIdentity==='function'){window.saveIdentity=function(){originalSaveIdentity.apply(this,arguments);setTimeout(()=>{const s=readState();if(hasSavedSession(s))setRequirement('s0p1',true);applyGuards()},0)}}",
-      "function sessionMessage(text,type){const card=document.querySelector('.step-card');if(!card)return;let box=card.querySelector('.session-validation-msg');if(!box){box=document.createElement('div');box.className='session-validation-msg notice';const actions=card.querySelector('.actions');if(actions)actions.insertAdjacentElement('afterend',box)}box.className='session-validation-msg notice '+(type==='ok'?'notice-ok':'notice-danger');box.textContent=text}function personalizeSessionCommands(){const s=readState();if(!s||!s.student)return;const repo=String(s.student.repoUrl||'').trim();const path=String(s.student.repoPath||'').trim();if(!repo||!path)return;const code=[...document.querySelectorAll('.step-card .code')].find(x=>x.textContent.includes('git clone'));if(!code)return;const btn=code.querySelector('.copy');[...code.childNodes].forEach(n=>{if(n!==btn)n.remove()});code.appendChild(document.createTextNode('\\ngit clone \\\"'+repo+'\\\" \\\"'+path+'\\\"\\ncd \\\"'+path+'\\\"\\ngit status'))}const originalSaveIdentity=window.saveIdentity;if(typeof originalSaveIdentity==='function'){window.saveIdentity=function(){const url=document.getElementById('repoUrl')?.value.trim()||'';const path=document.getElementById('repoPath')?.value.trim()||'';const dev=document.getElementById('deviceAlias')?.value.trim()||'';if(!/^https:\\/\\/github\\.com\\/[^/]+\\/[^/]+\\/?$/i.test(url)){sessionMessage('La URL del repositorio debe ser una dirección de GitHub, por ejemplo: https://github.com/usuario/DSY1102-001D-nombre-apellido','error');return}if(/^https?:\\/\\//i.test(path)){sessionMessage('La ruta local no es una URL. Debe ser una ruta de este computador, por ejemplo: C:\\\\Users\\\\TuNombre\\\\Documents\\\\DSY1102-001D-nombre-apellido','error');return}if(/^https?:\\/\\//i.test(dev)){sessionMessage('El nombre del equipo debe ser un nombre corto que te permita reconocerlo, por ejemplo: Notebook-Casa o LAB-PC-12.','error');return}originalSaveIdentity.apply(this,arguments);setTimeout(()=>{const s=readState();if(hasSavedSession(s)){setRequirement('s0p1',true);personalizeSessionCommands();sessionMessage('Datos guardados. Los comandos de esta página ya utilizan tu repositorio y tu ruta local.','ok')}applyGuards()},0)}}"
-    );
-
-    // 5) También personaliza al renderizar una sesión ya guardada.
-    src=src.replace(
-      "injectGuidance()}",
-      "injectGuidance();if(typeof personalizeSessionCommands==='function')personalizeSessionCommands()}"
-    );
-
-    // 6) Notas técnicas contextualizadas: término de industria explicado después de usarlo.
-    const TECH_PATCH=`<script>
+  const PATCH=`<script>
 (function(){
-  const NOTES={
-    s0p1:[
-      ['Repositorio','Es la carpeta del proyecto que Git controla y cuya copia también puede estar en GitHub.','Te permite mantener el trabajo ordenado, guardar su historia y compartirlo.'],
-      ['Clonar un repositorio','Significa traer una copia completa del repositorio de GitHub a tu computador. En Git se usa el comando git clone.','Desde ese momento trabajas en archivos locales y luego envías tus cambios a GitHub.'],
-      ['Ruta local','Es la dirección de una carpeta dentro de tu computador, por ejemplo C:\\Users\\Ana\\Documents\\mi-repo.','Los comandos necesitan saber en qué carpeta deben trabajar. Una URL de GitHub no es una ruta local.']
-    ],
-    s0p2:[
-      ['Estructura de proyecto','Es la forma acordada de organizar carpetas y archivos dentro de un proyecto.','Una estructura consistente permite que otra persona encuentre rápidamente código, documentos y evidencias.'],
-      ['README','Es el archivo de presentación e instrucciones de una carpeta o repositorio. Normalmente se llama README.md.','En proyectos reales suele explicar qué es el proyecto, cómo usarlo y cómo está organizado.'],
-      ['Commit','Es un punto guardado en la historia de Git. Tiene una descripción que indica qué cambio se realizó.','Permite saber qué cambió, cuándo y recuperar estados anteriores.'],
-      ['Push','Es enviar a GitHub los commits que por ahora existen sólo en tu computador.','Un commit local no aparece en GitHub hasta que lo envías con push.']
-    ],
-    s1p1:[
-      ['Dominio del problema','Es el tema o realidad que el software intenta representar. Aquí el dominio es la atención veterinaria y sus animales.','Antes de programar conviene entender el problema real que estamos tratando de resolver.'],
-      ['Requerimiento','Es algo que el sistema necesita hacer o una condición que debe cumplir.','Ayuda a separar lo que realmente se necesita de una implementación particular.']
-    ],
-    s1p2:[
-      ['Concepto de dominio','Es una cosa importante dentro del problema, por ejemplo Animal, Mascota o Veterinaria.','Más adelante algunos conceptos pueden convertirse en clases, pero primero se identifican por su significado.'],
-      ['Responsabilidad','Es algo que un elemento del sistema debe hacer o conocer.','Pensar en responsabilidades ayuda a decidir después dónde debería vivir cada comportamiento.'],
-      ['Regla de negocio','Es una condición propia del problema que el sistema debe respetar.','No es una regla de Java: viene de cómo funciona la situación que estamos modelando.']
-    ],
-    s2p1:[
-      ['Algoritmo','Es una secuencia ordenada de pasos para conseguir un resultado.','Se puede describir primero en palabras simples y después transformar gradualmente en código.'],
-      ['Flujo','Es el recorrido que sigue un proceso desde el inicio hasta el resultado.','Ayuda a visualizar en qué orden ocurren las acciones.']
-    ],
-    s2p2:[
-      ['Entrada','Es información que el proceso necesita recibir para poder trabajar.','Por ejemplo, datos de un animal antes de poder atenderlo.'],
-      ['Salida o resultado','Es la información o efecto producido después de ejecutar un proceso.','Permite definir claramente qué esperamos obtener.'],
-      ['Decisión','Es un punto donde el camino puede cambiar dependiendo de una condición.','Primero detectamos la decisión en el problema; después decidimos cómo expresarla en código.']
-    ],
-    s3p1:[
-      ['Abstracción','Consiste en concentrarse en las características importantes y dejar fuera detalles que no necesitamos en ese momento.','Nos ayuda a descubrir qué tienen en común distintos animales sin distraernos con cada detalle específico.'],
-      ['Generalización','Consiste en reconocer características comunes de varios conceptos y representarlas en uno más general.','Es la idea que nos permite pasar de Perro, Gato, Tigre y León al concepto más general Animal.']
-    ],
-    s3p2:[
-      ['Jerarquía de clases','Es una organización de clases desde conceptos más generales hacia conceptos más específicos.','Permite visualizar relaciones como Animal → Mascota → Perro.'],
-      ['Relación “es-un”','Indica que un objeto específico también puede considerarse como uno más general. Por ejemplo, un Perro es una Mascota y también es un Animal.','Es una forma práctica de comprobar si una relación de herencia tiene sentido.']
-    ],
-    s4p1:[
-      ['Clase','Es una definición que describe qué datos y comportamientos tendrán ciertos objetos.','Animal.java define cómo será un Animal dentro del programa.'],
-      ['Atributo','Es un dato que pertenece a un objeto, como nombre o edad.','Representa parte del estado del objeto.'],
-      ['Constructor','Es el código que se ejecuta cuando creamos un objeto nuevo.','Sirve para dejar el objeto preparado con sus datos iniciales.'],
-      ['Instancia','Es un objeto concreto creado a partir de una clase.','La clase es la definición; la instancia es un objeto real creado usando esa definición.']
-    ],
-    s4p2:[
-      ['Herencia','Permite crear una clase más específica reutilizando lo definido en una clase más general.','Mascota y Salvaje pueden reutilizar lo que ya pertenece a Animal.'],
-      ['Superclase / clase padre','Es la clase más general de la que otra hereda. Aquí Animal es la superclase de Mascota y Salvaje.','Concentra datos y comportamientos comunes.'],
-      ['Subclase / clase hija','Es una clase más específica que hereda de otra.','Puede usar lo heredado y además agregar características propias.'],
-      ['super(...)','Es la llamada al constructor de la clase padre.','Permite construir primero correctamente la parte heredada del objeto.']
-    ],
-    s5p1:[
-      ['Especialización','Es crear un concepto más específico a partir de uno más general.','Perro y Gato especializan a Mascota agregando sólo lo que realmente los diferencia.'],
-      ['Reutilización','Es aprovechar código ya definido en vez de copiarlo nuevamente.','La herencia permite reutilizar lo que Mascota y Animal ya resolvieron.']
-    ],
-    s5p2:[
-      ['Duplicación de código','Ocurre cuando la misma información o lógica se copia en varios lugares.','Si un dato ya pertenece a Animal o Salvaje, volver a declararlo en Tigre o León genera duplicación innecesaria.'],
-      ['DRY','Sigla de Don’t Repeat Yourself: evitar repetir la misma definición o lógica sin necesidad.','Es un principio muy usado en desarrollo para reducir errores y facilitar cambios.']
-    ],
-    s6p1:[
-      ['Sobrescritura de método','Una subclase reemplaza el comportamiento heredado por una versión propia usando la misma operación. En Java suele indicarse con @Override.','Permite que atender() o emitirSonido() hagan algo distinto según el animal.'],
-      ['Firma de método','Es la forma en que identificamos una operación por su nombre y parámetros.','Para sobrescribir correctamente, la operación de la subclase debe corresponder a la del padre.']
-    ],
-    s6p2:[
-      ['Polimorfismo','Significa que podemos pedir la misma acción a objetos relacionados y cada objeto puede responder de acuerdo con su tipo real.','El código puede trabajar con Animal sin necesitar decidir manualmente qué hacer para cada especie.'],
-      ['Despacho dinámico','Es el mecanismo mediante el cual Java decide en ejecución qué versión sobrescrita de un método debe ejecutar.','Por eso una referencia Animal puede terminar ejecutando el método definido en Perro o Tigre.']
-    ],
-    s7p1:[
-      ['Tipo de referencia','Es el tipo con el que una variable mira a un objeto. Una variable Animal puede referirse a un Perro porque Perro también es un Animal.','Esto permite trabajar con varios objetos diferentes de forma uniforme.'],
-      ['Compilar','Es pedirle a Java que revise y transforme el código fuente antes de ejecutarlo.','Si hay errores de sintaxis o tipos, normalmente aparecen en esta etapa.'],
-      ['Ejecutar','Es poner el programa en funcionamiento después de que puede compilar.','Aquí comprobamos el comportamiento real de los objetos.']
-    ],
-    s7p2:[
-      ['Refactorización','Es mejorar la organización o diseño del código sin cambiar lo que el programa hace hacia afuera.','Comparar la primera idea con la solución final permite detectar cómo podríamos organizar mejor una próxima versión.'],
-      ['Evidencia técnica','Es información que permite demostrar qué se hizo y cómo se llegó al resultado: código, diagramas, commits y documentación.','En un equipo real sirve para revisión, seguimiento y colaboración.']
-    ]
-  };
+  const STORE='dsy1102-vet-lab-v1';
   const IDS=[['s0p1','s0p2'],['s1p1','s1p2'],['s2p1','s2p2'],['s3p1','s3p2'],['s4p1','s4p2'],['s5p1','s5p2'],['s6p1','s6p2'],['s7p1','s7p2']];
-  function state(){try{return JSON.parse(localStorage.getItem('dsy1102-vet-lab-v1')||'null')}catch(e){return null}}
-  function injectTechnicalNotes(){
-    const s=state();const ids=IDS[Number(s&&s.currentStage)||0]||[];
-    document.querySelectorAll('.step-card').forEach(function(card,i){
-      if(card.querySelector('.technical-notes'))return;
-      const notes=NOTES[ids[i]];if(!notes||!notes.length)return;
+  const NOTES={
+    s0p1:[['Repositorio','Es el proyecto que Git controla y que puede tener una copia en GitHub.','Permite guardar la historia del trabajo y compartirlo.'],['Clonar','Es copiar el repositorio desde GitHub hacia tu computador usando git clone.','Después trabajas sobre los archivos locales.'],['Ruta local','Es la dirección de una carpeta en tu computador, por ejemplo C:\\Users\\Ana\\Documents\\mi-repo.','Los comandos cd necesitan una ruta local; una URL no sirve como ruta del computador.']],
+    s0p2:[['Estructura de proyecto','Es la forma acordada de ordenar carpetas y archivos.','Ayuda a encontrar rápidamente código, documentación y evidencias.'],['README','Es un archivo de presentación e instrucciones, normalmente README.md.','Explica qué contiene una carpeta o proyecto.'],['Commit','Es un punto guardado en la historia de Git.','Permite saber qué cambió y cuándo.'],['Push','Es enviar a GitHub los commits hechos en tu computador.','Un commit local no aparece en GitHub hasta hacer push.']],
+    s1p1:[['Dominio del problema','Es la realidad que el software intenta representar; aquí, una veterinaria y sus animales.','Primero entendemos el problema y después decidimos cómo programarlo.'],['Requerimiento','Es algo que el sistema necesita hacer o cumplir.','Separa la necesidad de la forma concreta de implementarla.']],
+    s1p2:[['Concepto de dominio','Es una cosa importante del problema, como Animal o Veterinaria.','Después algunos conceptos pueden convertirse en clases.'],['Responsabilidad','Es algo que un elemento debe hacer o conocer.','Ayuda a decidir dónde debería vivir cada comportamiento.'],['Regla de negocio','Es una condición propia del problema.','No es una regla de Java, sino de la situación que modelamos.']],
+    s2p1:[['Algoritmo','Es una secuencia ordenada de pasos para lograr un resultado.','Primero puede escribirse en palabras y después convertirse en código.'],['Flujo','Es el recorrido del proceso desde inicio hasta resultado.','Permite ver el orden de las acciones.']],
+    s2p2:[['Entrada','Es información que el proceso necesita recibir.','Por ejemplo, datos del animal antes de atenderlo.'],['Salida','Es el resultado que produce el proceso.','Permite definir qué esperamos obtener.'],['Decisión','Es un punto donde el camino puede cambiar según una condición.','Primero detectamos la decisión; después elegimos cómo programarla.']],
+    s3p1:[['Abstracción','Es quedarse con las características importantes y dejar fuera detalles innecesarios.','Ayuda a descubrir qué comparten distintos animales.'],['Generalización','Es reunir características comunes en un concepto más general.','Permite llegar al concepto Animal desde varias especies.']],
+    s3p2:[['Jerarquía de clases','Organiza clases desde conceptos generales a específicos.','Permite visualizar Animal → Mascota → Perro.'],['Relación es-un','Indica que un concepto específico también pertenece a uno más general.','Un Perro es una Mascota y también es un Animal.']],
+    s4p1:[['Clase','Es una definición que indica qué datos y comportamientos tendrán ciertos objetos.','Animal.java define cómo será un Animal.'],['Atributo','Es un dato que pertenece a un objeto.','Representa parte de su estado.'],['Constructor','Es el código que prepara un objeto cuando se crea.','Permite iniciar sus datos correctamente.'],['Instancia','Es un objeto concreto creado desde una clase.','La clase es la definición; la instancia es un objeto real.']],
+    s4p2:[['Herencia','Permite crear una clase específica reutilizando una clase general.','Mascota y Salvaje reutilizan lo definido en Animal.'],['Superclase','Es la clase más general de la que otra hereda.','Animal es superclase de Mascota y Salvaje.'],['Subclase','Es una clase más específica que hereda de otra.','Puede reutilizar lo heredado y agregar características propias.'],['super(...)','Llama al constructor de la clase padre.','Construye correctamente la parte heredada del objeto.']],
+    s5p1:[['Especialización','Es crear un concepto más específico desde uno general.','Perro y Gato especializan Mascota.'],['Reutilización','Es aprovechar código existente en vez de copiarlo.','La herencia permite reutilizar lo que ya existe.']],
+    s5p2:[['Duplicación de código','Es repetir la misma información o lógica en varios lugares.','Hace más difícil corregir y mantener el programa.'],['DRY','Significa Don’t Repeat Yourself: evita repetir código innecesariamente.','Es un principio común de desarrollo.']],
+    s6p1:[['Sobrescritura','Es reemplazar en una subclase un comportamiento heredado por una versión propia.','En Java suele usarse @Override.'],['Firma de método','Identifica una operación por su nombre y parámetros.','La sobrescritura debe mantener la firma correspondiente.']],
+    s6p2:[['Polimorfismo','Permite pedir la misma acción a objetos relacionados y obtener respuestas distintas según el objeto real.','Podemos trabajar con Animal sin preguntar manualmente qué especie es.'],['Despacho dinámico','Es la decisión que Java hace en ejecución sobre qué versión de un método ejecutar.','Por eso una referencia Animal puede ejecutar el método de Perro o Tigre.']],
+    s7p1:[['Tipo de referencia','Es el tipo con que una variable trata a un objeto.','Una variable Animal puede referirse a un Perro.'],['Compilar','Es revisar y transformar el código antes de ejecutarlo.','Aquí suelen aparecer errores de sintaxis o tipos.'],['Ejecutar','Es poner el programa en funcionamiento.','Permite comprobar su comportamiento real.']],
+    s7p2:[['Refactorización','Es mejorar el código sin cambiar lo que hace hacia afuera.','Ayuda a mejorar diseño y claridad.'],['Evidencia técnica','Son archivos, diagramas, commits y documentos que muestran qué se hizo.','Permite revisar y seguir el trabajo en equipo.']]
+  };
+
+  function readState(){try{return JSON.parse(localStorage.getItem(STORE)||'null')}catch(e){return null}}
+  function writeState(s){localStorage.setItem(STORE,JSON.stringify(s))}
+  function isUrl(v){return /^https?:\\/\\//i.test(String(v||'').trim())}
+  function validRepoUrl(v){return /^https:\\/\\/github\\.com\\/[^/]+\\/[^/]+\\/?$/i.test(String(v||'').trim())}
+  function validLocalPath(v){const x=String(v||'').trim();return !!x&&!isUrl(x)}
+  function ensureActions(s){if(!s.actionRequirements)s.actionRequirements={};return s.actionRequirements}
+  function showMessage(text,ok){const card=document.querySelector('.step-card');if(!card)return;let box=card.querySelector('.session-validation-msg');if(!box){box=document.createElement('div');box.className='session-validation-msg notice';const a=card.querySelector('.actions');if(a)a.insertAdjacentElement('afterend',box)}box.className='session-validation-msg notice '+(ok?'notice-ok':'notice-danger');box.textContent=text}
+  function setCodeText(code,text){if(!code)return;const btn=code.querySelector('.copy');code.innerHTML='';if(btn)code.appendChild(btn);code.appendChild(document.createTextNode((btn?'\\n':'')+text))}
+  function personalizeCommands(){
+    const s=readState();if(!s||!s.student)return;
+    const repo=String(s.student.repoUrl||'').trim();const path=String(s.student.repoPath||'').trim();
+    if(!validRepoUrl(repo)||!validLocalPath(path))return;
+    document.querySelectorAll('.step-card .code').forEach(code=>{
+      const t=code.textContent;
+      if(t.includes('git clone')&&(t.includes('<URL-DE-TU-REPOSITORIO>')||t.includes('<CARPETA-DEL-REPOSITORIO>')||t.includes(repo))){
+        setCodeText(code,'git clone "'+repo+'" "'+path+'"\\ncd "'+path+'"\\ngit status');return;
+      }
+      if(t.includes('git status')&&t.includes('git add')){
+        let nt=t.replace(/cd\\s+"[^"]*"/, 'cd "'+path+'"');
+        nt=nt.replace(/^Copiar\\s*/,'').trim();setCodeText(code,nt);
+      }
+    });
+    document.querySelectorAll('.git-desktop code').forEach(el=>{if(el.textContent.includes('<ruta del repositorio>')||isUrl(el.textContent))el.textContent=path});
+  }
+  function invalidateBadLegacyState(){
+    const s=readState();if(!s||!s.student)return;
+    if(validLocalPath(s.student.repoPath))return;
+    ensureActions(s).s0p1=false;
+    if(s.steps&&s.steps.s0p1){s.steps.s0p1=false;s.xp=Math.max(0,(Number(s.xp)||0)-20)}
+    if(Number(s.currentStage)>0)s.currentStage=0;
+    s.events=s.events||[];s.events.push({at:new Date().toISOString(),type:'session_invalidated',detail:{reason:'repoPath_is_not_local'},deviceAlias:s.student.deviceAlias||''});
+    writeState(s);
+  }
+  function hardGuard(){
+    const s=readState();if(!s||Number(s.currentStage)!==0)return;
+    const first=document.querySelector('.step-card');if(!first)return;
+    const sw=first.querySelector('.switch input[type=checkbox]');if(!sw)return;
+    const ok=validRepoUrl(s.student?.repoUrl)&&validLocalPath(s.student?.repoPath)&&String(s.student?.name||'').trim()&&String(s.student?.section||'').trim()&&String(s.student?.deviceAlias||'').trim()&&ensureActions(s).s0p1===true;
+    sw.disabled=!ok;if(!ok)sw.checked=false;
+    const slider=sw.nextElementSibling;if(slider){slider.style.opacity=ok?'1':'.45';slider.style.cursor=ok?'pointer':'not-allowed'}
+  }
+  function injectNotes(){
+    const s=readState();const ids=IDS[Number(s?.currentStage)||0]||[];
+    document.querySelectorAll('.step-card').forEach((card,i)=>{
+      if(card.querySelector('.technical-notes'))return;const notes=NOTES[ids[i]];if(!notes)return;
       const anchor=card.querySelector('.guided-now')||card.querySelector('.mission');if(!anchor)return;
       const box=document.createElement('div');box.className='technical-notes';box.style.cssText='background:#f8fafc;border:1px solid #cbd5e1;border-left:5px solid #475569;border-radius:.8rem;padding:1rem;margin:.9rem 0';
-      box.innerHTML='<strong style="font-size:1.05rem">🧠 Nota técnica · Así se llama en desarrollo de software</strong><p style="margin:.35rem 0 .8rem;color:#64748b">Acabas de usar ideas que también se ocupan en proyectos reales. Estos son sus nombres técnicos:</p>'+notes.map(function(n){return '<div style="padding:.65rem 0;border-top:1px solid #e2e8f0"><strong>'+n[0]+'</strong><br><span><b>En simple:</b> '+n[1]+'</span><br><span style="color:#475569"><b>¿Para qué sirve?</b> '+n[2]+'</span></div>'}).join('');
-      anchor.insertAdjacentElement('afterend',box);
+      box.innerHTML='<strong>🧠 Nota técnica · Así se llama en desarrollo de software</strong>'+notes.map(n=>'<div style="margin-top:.75rem"><strong>'+n[0]+'</strong><br><span>'+n[1]+'</span><br><span style="color:#64748b"><strong>¿Para qué sirve?</strong> '+n[2]+'</span></div>').join('');anchor.insertAdjacentElement('afterend',box);
     });
   }
-  const oldRender=window.render;if(typeof oldRender==='function'){window.render=function(){const r=oldRender.apply(this,arguments);setTimeout(injectTechnicalNotes,0);return r}}
-  setTimeout(injectTechnicalNotes,0);
+  function refreshExtras(){personalizeCommands();hardGuard();injectNotes()}
+
+  invalidateBadLegacyState();
+
+  const oldSave=window.saveIdentity;
+  window.saveIdentity=function(){
+    const name=document.getElementById('studentName')?.value.trim()||'';
+    const section=document.getElementById('studentSection')?.value.trim()||'';
+    const repo=document.getElementById('repoUrl')?.value.trim()||'';
+    const path=document.getElementById('repoPath')?.value.trim()||'';
+    const dev=document.getElementById('deviceAlias')?.value.trim()||'';
+    if(!name||!section||!dev){showMessage('Completa nombre, sección y nombre del equipo antes de guardar.',false);return}
+    if(!validRepoUrl(repo)){showMessage('La URL del repositorio debe verse como https://github.com/usuario/repositorio.',false);return}
+    if(!validLocalPath(path)){showMessage('La ruta local debe ser una carpeta de este computador, por ejemplo C:\\Users\\TuNombre\\Documents\\DSY1102-... No pegues aquí la URL de GitHub.',false);return}
+    if(isUrl(dev)){showMessage('El nombre del equipo debe ser un nombre corto, por ejemplo Notebook-Casa o LAB-PC-12.',false);return}
+    oldSave.apply(this,arguments);
+    setTimeout(()=>{const s=readState();if(s){ensureActions(s).s0p1=true;writeState(s)}refreshExtras();showMessage('Datos guardados correctamente. Los comandos ya usan tu URL de GitHub y tu ruta local.',true)},0);
+  };
+
+  const oldRender=window.render;
+  window.render=function(){const r=oldRender.apply(this,arguments);setTimeout(refreshExtras,0);return r};
+
+  document.addEventListener('input',e=>{
+    if(!['studentName','studentSection','repoUrl','repoPath','deviceAlias'].includes(e.target?.id))return;
+    const s=readState();if(!s)return;ensureActions(s).s0p1=false;if(s.steps?.s0p1){s.steps.s0p1=false;s.xp=Math.max(0,(Number(s.xp)||0)-20)}writeState(s);hardGuard();
+  },true);
+  document.addEventListener('click',e=>{
+    const s=readState();if(!s||Number(s.currentStage)!==0)return;const first=document.querySelector('.step-card');const wrap=e.target?.closest?.('.switch');if(!first||!wrap||!first.contains(wrap))return;const sw=wrap.querySelector('input[type=checkbox]');if(sw?.disabled){e.preventDefault();e.stopImmediatePropagation();sw.checked=false}
+  },true);
+
+  refreshExtras();
 })();
 <\/script>`;
-    src=src.replace('</body>',TECH_PATCH+'\n</body>');
-
-    document.open();document.write(src);document.close();
-  })
-  .catch(e=>{document.getElementById('msg').textContent='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
+  src=src.replace('</body>',PATCH+'\n</body>');
+  document.open();document.write(src);document.close();
+})
+.catch(e=>{document.getElementById('msg').textContent='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
 </script>
 </body>
 </html>
