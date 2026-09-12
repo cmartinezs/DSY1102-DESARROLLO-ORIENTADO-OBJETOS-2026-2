@@ -19,25 +19,47 @@ body{margin:0;font-family:system-ui;background:#f6f8fc;color:#172033;display:gri
   <p id="msg"></p>
 </div>
 <script>
-const BASE_URL = 'https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/e4afb4a1d3f7fcba182bbe6243a921034c1cc8eb/page/lab-veterinaria-herencia-polimorfismo.html';
-const ENHANCEMENT_URL = 'https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/master/page/lab-veterinaria-enhancements.js';
+const BASE_URL='https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/e4afb4a1d3f7fcba182bbe6243a921034c1cc8eb/page/lab-veterinaria-herencia-polimorfismo.html';
+const ENH_URL='https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/master/page/lab-veterinaria-enhancements.js';
 
-fetch(BASE_URL, {cache:'no-store'})
-  .then(r => {
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    return r.text();
-  })
-  .then(html => {
-    const scriptTag = '<scr' + 'ipt src="' + ENHANCEMENT_URL + '?v=' + Date.now() + '"></scr' + 'ipt>';
-    const finalHtml = html.replace('</body>', scriptTag + '\n</body>');
-    document.open();
-    document.write(finalHtml);
-    document.close();
-  })
-  .catch(e => {
-    document.getElementById('msg').textContent = 'No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';
-    console.error(e);
-  });
+Promise.all([
+  fetch(BASE_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Base HTTP '+r.status);return r.text()}),
+  fetch(ENH_URL+'?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Enh HTTP '+r.status);return r.text()})
+]).then(([html,enh])=>{
+  document.open();
+  document.write(html);
+  document.close();
+
+  const enhancement=document.createElement('script');
+  enhancement.textContent=enh;
+  document.body.appendChild(enhancement);
+
+  const ui=document.createElement('script');
+  ui.textContent=`(()=>{
+    const css=document.createElement('style');
+    css.textContent='.step-card .actions .btn-primary{transition:transform .12s ease,box-shadow .12s ease,filter .12s ease}.step-card .actions .btn-primary:hover{filter:brightness(1.08);box-shadow:0 4px 12px rgba(67,56,202,.25)}.step-card .actions .btn-primary:active{transform:translateY(1px) scale(.985);box-shadow:none}.step-card .actions .btn-primary.is-saving{opacity:.78;cursor:wait}.step-card .actions .btn-primary.is-saved{background:#166534!important;color:#fff!important}';
+    document.head.appendChild(css);
+    document.addEventListener('click',e=>{
+      const b=e.target&&e.target.closest?e.target.closest('.step-card .actions .btn-primary'):null;
+      if(!b||!b.textContent.includes('Guardar'))return;
+      b.classList.remove('is-saved');b.classList.add('is-saving');b.textContent='Guardando…';
+      setTimeout(()=>{
+        const current=document.querySelector('.step-card .actions .btn-primary');
+        if(!current)return;
+        let s=null;try{s=JSON.parse(localStorage.getItem('dsy1102-vet-lab-v1')||'null')}catch(_){ }
+        const ok=!!(s&&s.actionRequirements&&s.actionRequirements.s0p1===true);
+        current.classList.remove('is-saving');
+        if(ok){current.classList.add('is-saved');current.textContent='✓ Datos de sesión guardados'}
+        else{current.textContent='Guardar datos de sesión'}
+      },180);
+    },true);
+  })();`;
+  document.body.appendChild(ui);
+}).catch(e=>{
+  const msg=document.getElementById('msg');
+  if(msg)msg.textContent='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';
+  console.error(e);
+});
 </script>
 </body>
 </html>
