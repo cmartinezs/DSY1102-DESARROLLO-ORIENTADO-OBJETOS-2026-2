@@ -4,89 +4,170 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lab Veterinaria · Herencia y Polimorfismo · DSY1102</title>
-<style>
-:root{--bg:#f6f8fc;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--card:#fff;--primary:#4338ca;--primary2:#6366f1;--ok:#15803d;--warn:#b45309;--danger:#b91c1c;--locked:#94a3b8;--code:#0f172a;--xp:#7c3aed}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.top{position:sticky;top:0;z-index:30;background:#111827;color:#fff;border-bottom:1px solid #1f2937}.topin{max-width:1280px;margin:auto;padding:.8rem 1rem;display:flex;gap:1rem;align-items:center;justify-content:space-between}.brand{font-weight:800}.stats{display:flex;gap:.55rem;flex-wrap:wrap}.pill{background:#1f2937;border:1px solid #374151;border-radius:999px;padding:.3rem .65rem;font-size:.82rem}.layout{max-width:1280px;margin:auto;display:grid;grid-template-columns:300px 1fr;gap:1rem;padding:1rem}.sidebar{position:sticky;top:70px;align-self:start;max-height:calc(100vh - 86px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1rem}.stage-link{display:block;width:100%;text-align:left;border:0;background:transparent;padding:.65rem .7rem;border-radius:.7rem;color:var(--ink);cursor:pointer;margin:.15rem 0}.stage-link:hover{background:#f1f5f9}.stage-link.active{background:#eef2ff;color:#3730a3;font-weight:800}.stage-link.locked{color:var(--locked);cursor:not-allowed}.stage-small{font-size:.76rem;color:var(--muted);display:block;margin-top:.15rem}.progress{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:.75rem 0}.progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2));width:0}.main{min-width:0}.hero{background:linear-gradient(135deg,#111827,#312e81 58%,#4f46e5);color:#fff;border-radius:1.25rem;padding:1.4rem 1.5rem;margin-bottom:1rem}.hero h1{margin:.35rem 0;font-size:clamp(1.7rem,4vw,2.6rem)}.hero p{color:#dbeafe;max-width:850px}.badge{display:inline-block;border-radius:999px;padding:.26rem .58rem;font-size:.75rem;font-weight:800;background:#e0e7ff;color:#3730a3}.card{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1.2rem;margin-bottom:1rem;box-shadow:0 2px 8px rgba(15,23,42,.03)}.card h2,.card h3{margin-top:0}.muted{color:var(--muted)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.field{margin:.8rem 0}.field label{display:block;font-weight:750;margin-bottom:.35rem}.field input{width:100%;padding:.7rem .8rem;border:1px solid #cbd5e1;border-radius:.65rem;background:#fff}.btn{appearance:none;border:0;border-radius:.7rem;padding:.68rem .9rem;font-weight:800;cursor:pointer}.btn-primary{background:var(--primary);color:#fff}.btn-secondary{background:#e2e8f0;color:#0f172a}.btn-ok{background:#166534;color:#fff}.btn-danger{background:#fee2e2;color:#991b1b}.btn:disabled{opacity:.45;cursor:not-allowed}.actions{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}.step-card{border-left:5px solid #6366f1}.step-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.mission{background:#eef2ff;border:1px solid #c7d2fe;border-radius:.8rem;padding:.9rem;margin:.9rem 0}.deliverable{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:.8rem;padding:.9rem;margin:.9rem 0}.why{background:#fff7ed;border:1px solid #fed7aa;border-radius:.8rem;padding:.9rem;margin:.9rem 0}.code{position:relative;background:var(--code);color:#e2e8f0;border-radius:.8rem;padding:1rem;overflow:auto;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem}.copy{position:absolute;right:.55rem;top:.55rem;background:#334155;color:#fff;border:0;border-radius:.45rem;padding:.35rem .55rem;cursor:pointer}.switchline{display:flex;align-items:center;gap:.7rem;margin-top:1rem;font-weight:800}.switch{position:relative;width:48px;height:27px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;inset:0;background:#cbd5e1;border-radius:99px;cursor:pointer;transition:.2s}.slider:before{content:"";position:absolute;width:21px;height:21px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}.switch input:checked+.slider{background:#16a34a}.switch input:checked+.slider:before{transform:translateX(21px)}.quiz{border:2px dashed #a5b4fc}.q{padding:.8rem 0;border-bottom:1px solid var(--line)}.q:last-child{border-bottom:0}.q label{display:block;margin:.35rem 0;cursor:pointer}.notice{padding:.8rem 1rem;border-radius:.8rem;margin:.8rem 0}.notice-ok{background:#dcfce7;color:#14532d}.notice-warn{background:#fef3c7;color:#78350f}.notice-danger{background:#fee2e2;color:#7f1d1d}.locked-panel{text-align:center;padding:2.5rem 1rem;color:var(--muted)}.diagram{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:.8rem;padding:1rem;margin:.9rem 0}.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;line-height:1.55}.flow{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap}.node{border:2px solid #c7d2fe;background:#eef2ff;color:#312e81;padding:.55rem .75rem;border-radius:.7rem;font-weight:800}.arrow{font-weight:900;color:#64748b}.xpflash{animation:flash .7s ease}@keyframes flash{50%{transform:scale(1.12);color:#c4b5fd}}.modal{position:fixed;inset:0;background:rgba(15,23,42,.68);display:none;align-items:center;justify-content:center;padding:1rem;z-index:50}.modal.show{display:flex}.modalbox{background:#fff;border-radius:1rem;max-width:650px;width:100%;padding:1.2rem;max-height:90vh;overflow:auto}.footer{font-size:.8rem;color:var(--muted);padding:1rem 0 2rem}.tabs{display:flex;gap:.4rem;margin:.8rem 0}.tab{border:1px solid #cbd5e1;background:#fff;border-radius:.55rem;padding:.45rem .65rem;cursor:pointer;font-weight:750}.tab.active{background:#e0e7ff;border-color:#a5b4fc;color:#3730a3}.hidden{display:none!important}@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:static;max-height:none}.grid2{grid-template-columns:1fr}.topin{align-items:flex-start;flex-direction:column}.stats{width:100%}.step-head{flex-direction:column}}
-</style>
+<style>body{margin:0;font-family:system-ui;background:#f6f8fc;color:#172033;display:grid;place-items:center;min-height:100vh}.box{max-width:620px;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:28px;box-shadow:0 10px 30px #0f172a12}.spin{width:34px;height:34px;border:4px solid #e0e7ff;border-top-color:#4f46e5;border-radius:50%;animation:r 1s linear infinite;margin-bottom:16px}@keyframes r{to{transform:rotate(360deg)}}code{background:#eef2ff;padding:.15rem .35rem;border-radius:.35rem}</style>
 </head>
 <body>
-<header class="top"><div class="topin"><div class="brand">DSY1102 · Lab Veterinaria</div><div class="stats"><span class="pill">⏱️ 80 min</span><span class="pill" id="xpTop">⭐ 0 XP</span><span class="pill" id="progressTop">0% completado</span><span class="pill" id="deviceTop">Equipo sin identificar</span></div></div></header>
-<div class="layout">
-<aside class="sidebar"><strong>Ruta del laboratorio</strong><div class="progress"><i id="progressBar"></i></div><div id="stageNav"></div><hr style="border:0;border-top:1px solid #e2e8f0"><button class="btn btn-secondary" style="width:100%;margin:.25rem 0" onclick="openRepoModal()">📁 Actualizar ruta del repo</button><button class="btn btn-secondary" style="width:100%;margin:.25rem 0" onclick="openExportModal()">🔐 Exportar progreso</button><button class="btn btn-secondary" style="width:100%;margin:.25rem 0" onclick="document.getElementById('importFile').click()">📥 Cargar progreso</button><input id="importFile" type="file" accept=".dsy1102progress,.json" hidden></aside>
-<main class="main">
-<section class="hero"><span class="badge">Laboratorio guiado · Herencia + Polimorfismo</span><h1>Veterinaria: primero piensa, después programa.</h1><p>Vas a construir una solución paso a paso. En cada pantalla debes comprender qué necesitas, producir una evidencia en tu repositorio y hacer un commit específico. Las etapas se desbloquean sólo cuando completas sus pasos y respondes correctamente sus dos preguntas de cierre.</p></section>
-<div id="app"></div>
-<div class="footer">Todo el progreso se almacena localmente en este navegador. Puedes exportarlo cifrado con una contraseña elegida por ti. La contraseña no se guarda.</div>
-</main>
-</div>
-<div class="modal" id="repoModal"><div class="modalbox"><h2>Ruta local del repositorio</h2><p class="muted">Esta ruta se usa para construir los comandos del laboratorio. Si cambias de computador o vuelves a clonar el repositorio, actualízala aquí.</p><div class="field"><label>Ruta del repositorio</label><input id="repoPathInput" placeholder="Ej.: C:\Users\nombre\Documents\DSY1102-001D-nombre-apellido"></div><div class="actions"><button class="btn btn-primary" onclick="saveRepoPath()">Guardar ruta</button><button class="btn btn-secondary" onclick="closeModal('repoModal')">Cancelar</button></div></div></div>
-<div class="modal" id="exportModal"><div class="modalbox"><h2>Exportar progreso cifrado</h2><p>Ingresa una contraseña que puedas recordar. Se usará para cifrar el archivo con AES-GCM mediante Web Crypto API. <strong>No se almacena dentro del archivo.</strong></p><div class="field"><label>Contraseña</label><input id="exportPass" type="password" autocomplete="new-password"></div><div class="actions"><button class="btn btn-ok" onclick="exportProgress()">Descargar progreso</button><button class="btn btn-secondary" onclick="closeModal('exportModal')">Cancelar</button></div><div id="exportMsg"></div></div></div>
-<div class="modal" id="importModal"><div class="modalbox"><h2>Cargar progreso cifrado</h2><p>Ingresa la misma contraseña utilizada al exportar el archivo.</p><div class="field"><label>Contraseña</label><input id="importPass" type="password"></div><div class="actions"><button class="btn btn-primary" onclick="importProgress()">Descifrar y cargar</button><button class="btn btn-secondary" onclick="closeModal('importModal')">Cancelar</button></div><div id="importMsg"></div></div></div>
+<div class="box"><div class="spin"></div><h1>Cargando Lab Veterinaria…</h1><p>Preparando la experiencia guiada y validando las acciones obligatorias.</p><p id="msg"></p></div>
 <script>
-const LAB_ID='DSY1102-VET-01'; const STORE='dsy1102-vet-lab-v1'; let pendingImport=null;
-const stages=[
-{id:'s0',title:'0 · Preparar entorno',mins:8,steps:[
-{id:'s0p1',title:'Identifícate y ubica tu repositorio',xp:20,what:'Antes de programar necesitamos saber quién realiza el laboratorio, desde qué equipo y en qué repositorio trabajará.',why:'El laboratorio registra evidencia por pasos. Si no sabemos cuál es tu repositorio local, los comandos posteriores podrían ejecutarse en una carpeta incorrecta.',mission:'Completa tus datos. Si todavía no tienes el repositorio en este equipo, clónalo. Después indica la ruta exacta donde quedó.',deliver:'No hay archivo todavía. El entregable de este paso es dejar configurada correctamente tu sesión y ruta local.',special:'identity'},
-{id:'s0p2',title:'Crea la estructura base del laboratorio',xp:30,what:'Todas las evidencias de esta actividad vivirán dentro de una carpeta autocontenida.',why:'Mantener análisis, diseño, código y evidencias juntos permite revisar tu proceso sin mezclarlo con otros ejercicios.',mission:'Dentro de tu repositorio crea la ruta labs/lab-veterinaria-herencia-polimorfismo/ y las carpetas docs, docs/diagramas, src y evidencias.',deliver:'labs/lab-veterinaria-herencia-polimorfismo/README.md',commit:'LAB-VET-00: prepara estructura del laboratorio',template:'# Lab Veterinaria — Herencia y Polimorfismo\n\nNombre: TU NOMBRE\nSección: TU SECCIÓN\n\nEstado: en progreso\n'}],quiz:[{q:'¿Dónde deben quedar las entregas de este laboratorio?',a:['En cualquier carpeta mientras compile','Dentro de labs/lab-veterinaria-herencia-polimorfismo/','En la raíz del repositorio'],ok:1},{q:'Si cambias de computador, ¿qué dato debes confirmar antes de continuar?',a:['La ruta local del repositorio','El nombre de la clase Animal','La cantidad de XP'],ok:0}]},
-{id:'s1',title:'1 · Comprender el problema',mins:10,steps:[
-{id:'s1p1',title:'Lee el problema sin pensar todavía en Java',xp:35,what:'Una veterinaria atiende animales. Algunos son mascotas y otros son animales salvajes. Entre las mascotas podemos encontrar perros y gatos; entre los salvajes, tigres y leones. Cada animal tiene datos comunes y también comportamientos que pueden variar.',why:'Si saltas directo a escribir clases, es fácil confundir la necesidad del problema con una implementación particular.',mission:'Escribe con tus palabras qué necesita hacer el sistema. No uses palabras como class, extends, private, constructor ni super. Describe el problema, no Java.',deliver:'docs/01-analisis-problema.md',commit:'LAB-VET-01: analiza problema de la veterinaria'},
-{id:'s1p2',title:'Encuentra sustantivos, acciones y reglas',xp:35,what:'Los sustantivos suelen señalar conceptos del dominio; las acciones sugieren responsabilidades; las reglas indican condiciones que el sistema debe respetar.',why:'Antes de decidir clases necesitamos saber qué existe y qué hace cada cosa.',mission:'En el mismo documento agrega tres listas: Conceptos, Acciones y Reglas. Incluye al menos veterinaria, animal, mascota, salvaje, perro, gato, tigre y león.',deliver:'docs/01-analisis-problema.md',commit:'LAB-VET-02: identifica conceptos acciones y reglas'}],quiz:[{q:'En esta etapa, ¿qué debemos decidir primero?',a:['La sintaxis exacta de extends','Qué necesita representar y hacer el sistema','Cuántos archivos .java existirán'],ok:1},{q:'¿Por qué evitamos escribir Java inmediatamente?',a:['Porque Java no soporta animales','Para separar la comprensión del problema de su implementación','Porque primero debemos usar una base de datos'],ok:1}]},
-{id:'s2',title:'2 · Diseñar el algoritmo',mins:10,steps:[
-{id:'s2p1',title:'Describe cómo ocurre una atención',xp:40,what:'Imagina que llega un animal a la veterinaria. Antes de pensar en objetos, necesitamos una secuencia lógica de atención.',why:'Un algoritmo es una descripción ordenada de qué debe ocurrir para resolver el problema. Todavía no dice cómo se implementará.',mission:'Escribe un paso a paso desde que llega un animal hasta que termina su atención. Usa lenguaje natural. Incluye identificarlo, reconocer qué tipo de animal es, atenderlo y mostrar el resultado.',deliver:'docs/02-algoritmo-atencion.md',commit:'LAB-VET-03: define algoritmo de atencion',diagram:'flow'},
-{id:'s2p2',title:'Revisa decisiones y resultados del flujo',xp:40,what:'Un flujo puede tener decisiones. Por ejemplo: ¿es mascota o salvaje? Pero una decisión del problema no significa automáticamente un if en el código final.',why:'Estamos modelando el comportamiento esperado, no fijando todavía la implementación.',mission:'Agrega al algoritmo qué información entra, qué resultado se espera y qué decisiones aparecen. Marca explícitamente cuáles son decisiones del negocio y evita escribir código.',deliver:'docs/02-algoritmo-atencion.md',commit:'LAB-VET-04: completa flujo conceptual de atencion'}],quiz:[{q:'¿Qué describe el algoritmo construido hasta ahora?',a:['La secuencia de lo que debe ocurrir','Las líneas exactas de Java','La estructura de paquetes definitiva'],ok:0},{q:'Una decisión del flujo conceptual...',a:['Obliga a usar un if en Java','Describe una necesidad; la implementación se decide después','Siempre debe convertirse en una clase'],ok:1}]},
-{id:'s3',title:'3 · Diseñar el modelo',mins:12,steps:[
-{id:'s3p1',title:'Descubre lo que todos los animales comparten',xp:45,what:'Perro, gato, tigre y león son diferentes, pero todos son animales. Pregúntate qué datos y acciones tienen realmente en común.',why:'La generalización aparece cuando varios conceptos comparten información o comportamiento significativo.',mission:'Crea una tabla con cada tipo de animal y anota datos comunes, datos particulares, acciones comunes y acciones particulares. No dibujes todavía una jerarquía.',deliver:'docs/03-modelo-objetos.md',commit:'LAB-VET-05: compara tipos de animales'},
-{id:'s3p2',title:'Propón una jerarquía conceptual',xp:45,what:'Ahora sí podemos organizar conceptos desde lo más general a lo más específico.',why:'La jerarquía debe nacer de las similitudes reales que encontraste, no de memorizar una figura del profesor.',mission:'Dibuja en Markdown o Mermaid tu propuesta. Debe existir Animal como concepto general; Mascota y Salvaje como especializaciones; y especies concretas debajo de ellas.',deliver:'docs/diagramas/jerarquia-clases.md',commit:'LAB-VET-06: modela jerarquia de animales',diagram:'tree'}],quiz:[{q:'¿Qué justifica que Mascota y Salvaje compartan una clase Animal?',a:['Que sus nombres sean cortos','Que comparten datos o comportamientos relevantes','Que Java exige siempre una clase padre'],ok:1},{q:'¿Cuál es la relación conceptual correcta?',a:['Animal es un tipo de Perro','Perro es un tipo de Mascota y Mascota es un tipo de Animal','Veterinaria es un tipo de Animal'],ok:1}]},
-{id:'s4',title:'4 · Construir la herencia',mins:12,steps:[
-{id:'s4p1',title:'Implementa Animal y observa el constructor',xp:50,what:'Llegó el momento de traducir parte del diseño a Java. Animal concentrará estado y comportamiento realmente común.',why:'La clase padre evita repetir la misma definición en cada especie y establece un contrato conceptual compartido.',mission:'Crea Animal.java con atributos comunes elegidos por ti y un constructor que permita dejar un Animal en estado válido. Agrega al menos un comportamiento común. No copies una solución completa: usa tu diseño anterior.',deliver:'src/Animal.java',commit:'LAB-VET-07: implementa clase Animal'},
-{id:'s4p2',title:'Crea Mascota y Salvaje usando super()',xp:55,what:'Cuando una subclase se construye, primero debe construirse la parte que pertenece a su clase padre.',why:'super(...) permite delegar al constructor de Animal la inicialización de lo que Animal conoce y debe controlar.',mission:'Crea Mascota.java y Salvaje.java. Define al menos un dato particular en cada una. Sus constructores deben recibir lo necesario y llamar explícitamente a super(...).',deliver:'src/Mascota.java y src/Salvaje.java',commit:'LAB-VET-08: implementa mascota salvaje y constructores',diagram:'construct'}],quiz:[{q:'¿Para qué usamos super(...) dentro del constructor de una subclase?',a:['Para ejecutar el constructor de la clase padre','Para convertir un objeto en static','Para crear una lista automáticamente'],ok:0},{q:'¿Qué debería inicializar Animal?',a:['Sólo datos propios de Perro','Los datos comunes que Animal conoce','Todo el sistema de la veterinaria'],ok:1}]},
-{id:'s5',title:'5 · Especializar especies',mins:10,steps:[
-{id:'s5p1',title:'Implementa Perro y Gato',xp:45,what:'Perro y Gato son mascotas concretas. Heredan lo común y pueden agregar datos o comportamiento particular.',why:'Una subclase tiene sentido cuando especializa el concepto padre; no sólo para crear más archivos.',mission:'Crea Perro.java y Gato.java. Haz que hereden de Mascota. Decide al menos una característica o comportamiento que justifique alguna diferencia entre ambos.',deliver:'src/Perro.java y src/Gato.java',commit:'LAB-VET-09: implementa especies domesticas'},
-{id:'s5p2',title:'Implementa Tigre y Leon',xp:45,what:'Tigre y Leon son animales salvajes concretos y deberían conservar la misma lógica de generalización.',why:'Una jerarquía coherente permite trabajar con conceptos generales sin perder las particularidades.',mission:'Crea Tigre.java y Leon.java heredando de Salvaje. Evita copiar atributos que ya pertenecen a Animal o Salvaje.',deliver:'src/Tigre.java y src/Leon.java',commit:'LAB-VET-10: implementa especies salvajes'}],quiz:[{q:'Si nombre y edad ya pertenecen a Animal, Perro debería...',a:['Declararlos de nuevo siempre','Heredarlos y agregar sólo lo que corresponda','Eliminar Animal'],ok:1},{q:'¿Qué indica una buena especialización?',a:['Que la subclase representa un tipo válido del concepto padre','Que tiene exactamente diez métodos','Que todas las clases tienen los mismos atributos repetidos'],ok:0}]},
-{id:'s6',title:'6 · Descubrir polimorfismo',mins:10,steps:[
-{id:'s6p1',title:'Haz que distintos animales respondan a la misma acción',xp:60,what:'La veterinaria necesita atender animales sin escribir un proceso completamente distinto para cada especie.',why:'El polimorfismo permite enviar el mismo mensaje a objetos relacionados y obtener el comportamiento apropiado para cada objeto real.',mission:'Define o reutiliza una operación común, por ejemplo atender(), emitirSonido() o describirAtencion(). Sobrescríbela donde tenga sentido. Documenta qué cambia entre especies.',deliver:'src/Animal.java y subclases modificadas',commit:'LAB-VET-11: aplica sobrescritura de comportamiento'},
-{id:'s6p2',title:'Representa una interacción polimórfica',xp:55,what:'Antes de completar main, observa la interacción: el código puede referirse a un Animal y el objeto concreto decide qué implementación ejecutar.',why:'Éste es el cambio de pensamiento importante: evitamos preguntar todo el tiempo “¿qué tipo eres?” para decidir manualmente cada comportamiento.',mission:'Crea un diagrama simple de interacción donde Main/Veterinaria envía la misma acción a varios Animal y cada objeto concreto responde según su implementación.',deliver:'docs/diagramas/interaccion-objetos.md',commit:'LAB-VET-12: documenta interaccion polimorfica',diagram:'interaction'}],quiz:[{q:'¿Qué ocurre al invocar un método sobrescrito mediante una referencia Animal?',a:['Siempre se ejecuta Animal sin importar el objeto','Se ejecuta el comportamiento correspondiente al objeto real','Java genera un error necesariamente'],ok:1},{q:'¿Qué diseño intentamos reducir usando polimorfismo?',a:['Una cadena de decisiones por tipo para elegir manualmente cada comportamiento','El uso de constructores','La existencia de métodos'],ok:0}]},
-{id:'s7',title:'7 · Construir el main',mins:8,steps:[
-{id:'s7p1',title:'Convierte el algoritmo inicial en un main progresivo',xp:65,what:'Ahora tienes suficiente modelo para volver al algoritmo del comienzo y transformarlo en una ejecución concreta.',why:'El main debe coordinar objetos; no convertirse nuevamente en el lugar donde vive toda la lógica.',mission:'Crea Main.java. Instancia al menos un Perro, un Gato, un Tigre y un Leon. Trátalos mediante el tipo general Animal cuando sea posible y ejecuta la atención de cada uno.',deliver:'src/Main.java',commit:'LAB-VET-13: integra flujo principal de veterinaria'},
-{id:'s7p2',title:'Cierra, compara y registra lo aprendido',xp:65,what:'La última evidencia no es más código: es comprobar cómo cambió tu forma de resolver el problema.',why:'Explicar una decisión demuestra comprensión mejor que simplemente mostrar que un programa compila.',mission:'Compara tu algoritmo inicial con la solución final. Explica dónde apareció herencia, dónde apareció super(), dónde aparece polimorfismo y qué evitarías si tuvieras que repetir el ejercicio.',deliver:'evidencias/cierre.md y README.md actualizado',commit:'LAB-VET-14: cierra laboratorio y documenta aprendizaje'}],quiz:[{q:'¿Cuál es la responsabilidad principal de main en esta solución?',a:['Coordinar la creación y uso de objetos','Contener toda la lógica de cada especie','Repetir todos los atributos de Animal'],ok:0},{q:'¿Qué evidencia demuestra mejor comprensión?',a:['Sólo que el código compila','Poder explicar las decisiones del modelo y relacionarlas con el comportamiento observado','Tener muchas líneas de código'],ok:1}]}
-];
-function blankState(){return{version:1,labId:LAB_ID,student:{name:'',section:'',repoUrl:'',repoPath:'',deviceAlias:''},startedAt:new Date().toISOString(),lastActivityAt:new Date().toISOString(),currentStage:0,steps:{},quizzes:{},xp:0,events:[],meta:{userAgent:navigator.userAgent,platform:navigator.platform||'no-disponible'}}}
-let state=load();
-function load(){try{const x=JSON.parse(localStorage.getItem(STORE));if(x&&x.labId===LAB_ID)return x}catch(e){}return blankState()}
-function save(type='state_saved',detail={}){state.lastActivityAt=new Date().toISOString();if(type)state.events.push({at:state.lastActivityAt,type,detail,deviceAlias:state.student.deviceAlias||''});localStorage.setItem(STORE,JSON.stringify(state));render()}
-function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-function shellPath(){return state.student.repoPath?`cd "${state.student.repoPath}"`:'cd "<RUTA-DE-TU-REPOSITORIO>"'}
-function labPath(){return 'labs/lab-veterinaria-herencia-polimorfismo'}
-function stageDone(i){const st=stages[i];return st.steps.every(p=>state.steps[p.id])&&state.quizzes[st.id]?.passed}
-function stageUnlocked(i){if(i===0)return true;return stageDone(i-1)}
-function completedSteps(){return stages.flatMap(s=>s.steps).filter(p=>state.steps[p.id]).length}
-function totalSteps(){return stages.flatMap(s=>s.steps).length}
-function percent(){const q=stages.filter((s,i)=>state.quizzes[s.id]?.passed).length;return Math.round(((completedSteps()+q)/(totalSteps()+stages.length))*100)}
-function renderNav(){const nav=document.getElementById('stageNav');nav.innerHTML=stages.map((s,i)=>`<button class="stage-link ${i===state.currentStage?'active':''} ${stageUnlocked(i)?'':'locked'}" ${stageUnlocked(i)?`onclick="goStage(${i})"`:'disabled'}>${stageDone(i)?'✓ ':stageUnlocked(i)?'● ':'🔒 '}${esc(s.title)}<span class="stage-small">${s.mins} min · ${s.steps.filter(p=>state.steps[p.id]).length}/${s.steps.length} pasos</span></button>`).join('')}
-function diagram(kind){if(kind==='flow')return `<div class="diagram"><div class="flow"><span class="node">Llega animal</span><span class="arrow">→</span><span class="node">Identificar</span><span class="arrow">→</span><span class="node">Comprender necesidad</span><span class="arrow">→</span><span class="node">Atender</span><span class="arrow">→</span><span class="node">Informar resultado</span></div><p class="muted" style="margin-bottom:0">Este diagrama muestra <strong>qué ocurre</strong>. Todavía no decide qué clases, if o métodos usarás.</p></div>`;
-if(kind==='tree')return `<div class="diagram tree">Animal\n├── Mascota\n│   ├── Perro\n│   └── Gato\n└── Salvaje\n    ├── Tigre\n    └── Leon</div>`;
-if(kind==='construct')return `<div class="diagram"><div class="flow"><span class="node">new Perro(...)</span><span class="arrow">→</span><span class="node">Perro(...)</span><span class="arrow">→ super(...)</span><span class="node">Mascota(...)</span><span class="arrow">→ super(...)</span><span class="node">Animal(...)</span></div><p class="muted" style="margin-bottom:0">Primero se construye correctamente la parte heredada y luego se completa la parte más específica.</p></div>`;
-if(kind==='interaction')return `<div class="diagram"><div class="flow"><span class="node">Main / Veterinaria</span><span class="arrow">— atender() →</span><span class="node">Animal</span><span class="arrow">⇢</span><span class="node">Perro / Gato / Tigre / Leon</span></div><p class="muted" style="margin-bottom:0">La llamada es común; el comportamiento concreto depende del objeto real.</p></div>`;return''}
-function gitBlock(p){if(!p.commit)return'';const path=shellPath();const target=p.deliver.split(' y ')[0];return `<div class="tabs"><button class="tab active" onclick="tabMode(this,'cli')">CLI Git</button><button class="tab" onclick="tabMode(this,'desktop')">GitHub Desktop</button></div><div class="git-cli"><div class="code"><button class="copy" onclick="copyCode(this)">Copiar</button>${esc(path)}\ngit status\ngit add "${labPath()}"\ngit commit -m "${esc(p.commit)}"\ngit push</div><p class="muted">Ejecuta estos comandos <strong>después de guardar tu entregable</strong>. <code>git status</code> te permite comprobar qué cambios vas a registrar.</p></div><div class="git-desktop hidden"><ol><li>Abre <strong>GitHub Desktop</strong>.</li><li>Selecciona tu repositorio DSY1102. Si no aparece: <strong>File → Add local repository…</strong> y elige <code>${esc(state.student.repoPath||'<ruta del repositorio>')}</code>.</li><li>Revisa en <strong>Changes</strong> que aparezcan sólo los archivos que esperas entregar.</li><li>En <strong>Summary</strong> escribe exactamente: <code>${esc(p.commit)}</code>.</li><li>Selecciona <strong>Commit to master</strong> (o la rama que estés usando) y luego <strong>Push origin</strong>.</li></ol></div>`}
-function identity(){return `<div class="grid2"><div class="field"><label>Nombre completo</label><input id="studentName" value="${esc(state.student.name)}" placeholder="Nombre y apellido"></div><div class="field"><label>Sección</label><input id="studentSection" value="${esc(state.student.section)}" placeholder="Ej.: 001D"></div></div><div class="field"><label>URL de tu repositorio GitHub</label><input id="repoUrl" value="${esc(state.student.repoUrl)}" placeholder="https://github.com/usuario/DSY1102-SECCION-nombre-apellido"></div><div class="grid2"><div class="field"><label>Ruta local donde clonaste el repositorio</label><input id="repoPath" value="${esc(state.student.repoPath)}" placeholder="C:\Users\...\DSY1102-..."></div><div class="field"><label>Nombre para identificar este equipo</label><input id="deviceAlias" value="${esc(state.student.deviceAlias)}" placeholder="Ej.: LAB-PC-12 o Mi notebook"></div></div><div class="notice notice-warn"><strong>Importante:</strong> un sitio web no puede leer de forma fiable el nombre real de tu computador por seguridad del navegador. Por eso debes asignarle un nombre reconocible. Se guardará junto con los eventos del progreso.</div><h4>Si aún no clonaste tu repositorio</h4><p>Abre una terminal en la carpeta donde quieras guardar tu trabajo y ejecuta:</p><div class="code"><button class="copy" onclick="copyCode(this)">Copiar</button>git clone &lt;URL-DE-TU-REPOSITORIO&gt;\ncd "&lt;CARPETA-DEL-REPOSITORIO&gt;"\ngit status</div><p>En GitHub Desktop: <strong>File → Clone repository… → URL</strong>, pega la URL de tu repositorio, elige una carpeta local y presiona <strong>Clone</strong>. Al terminar, copia o identifica la ruta local y regístrala arriba.</p><div class="actions"><button class="btn btn-primary" onclick="saveIdentity()">Guardar datos de sesión</button></div>`}
-function stepHtml(p,idx){const checked=!!state.steps[p.id];return `<article class="card step-card"><div class="step-head"><div><span class="badge">Paso ${idx+1}/${stages[state.currentStage].steps.length}</span><h2>${esc(p.title)}</h2></div><strong>+${p.xp} XP</strong></div><h3>¿Qué estamos haciendo?</h3><p>${p.what}</p><div class="why"><strong>¿Por qué lo hacemos?</strong><br>${p.why}</div>${p.diagram?diagram(p.diagram):''}<div class="mission"><strong>🎯 Tu misión</strong><br>${p.mission}</div>${p.special==='identity'?identity():`<div class="deliverable"><strong>📦 ¿Qué debes producir?</strong><br><code>${esc(p.deliver)}</code>${p.template?`<div class="code" style="margin-top:.7rem">${esc(p.template)}</div>`:''}</div>${gitBlock(p)}`}<div class="switchline"><label class="switch"><input type="checkbox" ${checked?'checked':''} onchange="toggleStep('${p.id}',this.checked,${p.xp})"><span class="slider"></span></label><span>He realizado este paso y verifiqué su entregable.</span></div></article>`}
-function quizHtml(st){const all=st.steps.every(p=>state.steps[p.id]);const passed=state.quizzes[st.id]?.passed; if(passed)return `<section class="card quiz"><div class="notice notice-ok"><strong>✓ Checkpoint superado.</strong> La siguiente etapa está desbloqueada.</div>${state.currentStage<stages.length-1?`<button class="btn btn-ok" onclick="goStage(${state.currentStage+1})">Continuar a la siguiente etapa →</button>`:'<strong>Laboratorio completo. Exporta tu progreso y asegúrate de haber hecho push de tu último commit.</strong>'}</section>`; if(!all)return `<section class="card quiz"><div class="locked-panel">🔒 Completa todos los pasos de esta etapa antes de responder sus dos preguntas.</div></section>`;return `<section class="card quiz"><h2>Checkpoint · 2 preguntas para avanzar</h2><p>Debes responder <strong>ambas correctamente</strong>. Si fallas, esta etapa volverá a modo repaso: deberás recorrer y confirmar nuevamente sus pasos antes de otro intento.</p>${st.quiz.map((q,qi)=>`<div class="q"><strong>${qi+1}. ${esc(q.q)}</strong>${q.a.map((a,ai)=>`<label><input type="radio" name="q${qi}" value="${ai}"> ${esc(a)}</label>`).join('')}</div>`).join('')}<button class="btn btn-primary" onclick="submitQuiz('${st.id}')">Revisar respuestas</button><div id="quizMsg"></div></section>`}
-function render(){state.currentStage=Math.min(state.currentStage,stages.length-1);while(state.currentStage>0&&!stageUnlocked(state.currentStage))state.currentStage--;renderNav();const pct=percent();document.getElementById('progressBar').style.width=pct+'%';document.getElementById('progressTop').textContent=pct+'% completado';document.getElementById('xpTop').textContent='⭐ '+state.xp+' XP';document.getElementById('deviceTop').textContent=state.student.deviceAlias||'Equipo sin identificar';const st=stages[state.currentStage];document.getElementById('app').innerHTML=`<section class="card"><span class="badge">${st.mins} minutos sugeridos</span><h2>${esc(st.title)}</h2><p class="muted">Completa cada paso en orden, genera la evidencia indicada y registra el commit antes de marcarlo como realizado.</p></section>${st.steps.map(stepHtml).join('')}${quizHtml(st)}`}
-function goStage(i){if(!stageUnlocked(i))return;state.currentStage=i;state.events.push({at:new Date().toISOString(),type:'stage_opened',detail:{stage:stages[i].id},deviceAlias:state.student.deviceAlias||''});localStorage.setItem(STORE,JSON.stringify(state));render();window.scrollTo({top:0,behavior:'smooth'})}
-function toggleStep(id,on,xp){const was=!!state.steps[id];state.steps[id]=on;if(on&&!was){state.xp+=xp;state.events.push({at:new Date().toISOString(),type:'step_completed',detail:{step:id,xp},deviceAlias:state.student.deviceAlias||''})}else if(!on&&was){state.xp=Math.max(0,state.xp-xp);state.events.push({at:new Date().toISOString(),type:'step_unchecked',detail:{step:id},deviceAlias:state.student.deviceAlias||''})}state.lastActivityAt=new Date().toISOString();localStorage.setItem(STORE,JSON.stringify(state));render()}
-function submitQuiz(id){const st=stages.find(s=>s.id===id);const answers=st.quiz.map((q,i)=>{const el=document.querySelector(`input[name=q${i}]:checked`);return el?Number(el.value):null});if(answers.some(x=>x===null)){document.getElementById('quizMsg').innerHTML='<div class="notice notice-warn">Debes responder las dos preguntas.</div>';return}const ok=answers.every((x,i)=>x===st.quiz[i].ok);const attempts=(state.quizzes[id]?.attempts||0)+1;state.quizzes[id]={passed:ok,attempts,lastAt:new Date().toISOString()};state.events.push({at:new Date().toISOString(),type:ok?'checkpoint_passed':'checkpoint_failed',detail:{stage:id,attempt:attempts},deviceAlias:state.student.deviceAlias||''});if(ok){state.xp+=75;localStorage.setItem(STORE,JSON.stringify(state));render()}else{st.steps.forEach(p=>state.steps[p.id]=false);state.events.push({at:new Date().toISOString(),type:'review_required',detail:{stage:id},deviceAlias:state.student.deviceAlias||''});localStorage.setItem(STORE,JSON.stringify(state));render();const q=document.getElementById('quizMsg');if(q)q.innerHTML='<div class="notice notice-danger">No superaste el checkpoint. Repasa cada paso de la etapa, vuelve a confirmar sus entregables y luego inténtalo nuevamente.</div>';window.scrollTo({top:document.querySelector('.step-card')?.offsetTop||0,behavior:'smooth'})}}
-function saveIdentity(){const n=document.getElementById('studentName').value.trim(),sec=document.getElementById('studentSection').value.trim(),url=document.getElementById('repoUrl').value.trim(),path=document.getElementById('repoPath').value.trim(),dev=document.getElementById('deviceAlias').value.trim();if(!n||!sec||!path||!dev){alert('Completa nombre, sección, ruta local y nombre del equipo.');return}state.student={name:n,section:sec,repoUrl:url,repoPath:path,deviceAlias:dev};save('session_configured',{section:sec,repoPath:path,deviceAlias:dev})}
-function openRepoModal(){document.getElementById('repoPathInput').value=state.student.repoPath||'';document.getElementById('repoModal').classList.add('show')}
-function saveRepoPath(){const p=document.getElementById('repoPathInput').value.trim();if(!p)return;const old=state.student.repoPath;state.student.repoPath=p;closeModal('repoModal');save('repo_path_updated',{from:old,to:p})}
-function closeModal(id){document.getElementById(id).classList.remove('show')}
-function openExportModal(){document.getElementById('exportPass').value='';document.getElementById('exportMsg').innerHTML='';document.getElementById('exportModal').classList.add('show')}
-function tabMode(btn,mode){const card=btn.closest('.step-card');card.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');card.querySelector('.git-cli').classList.toggle('hidden',mode!=='cli');card.querySelector('.git-desktop').classList.toggle('hidden',mode!=='desktop')}
-async function copyCode(btn){const text=btn.parentElement.innerText.replace('Copiar','').trim();await navigator.clipboard.writeText(text);btn.textContent='✓';setTimeout(()=>btn.textContent='Copiar',900)}
-function bytesToB64(bytes){let s='';bytes.forEach(b=>s+=String.fromCharCode(b));return btoa(s)}function b64ToBytes(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
-async function deriveKey(pass,salt){const raw=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:250000,hash:'SHA-256'},raw,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
-async function exportProgress(){const pass=document.getElementById('exportPass').value;if(pass.length<6){document.getElementById('exportMsg').innerHTML='<div class="notice notice-warn">Usa una contraseña de al menos 6 caracteres.</div>';return}try{const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),key=await deriveKey(pass,salt);const payload=JSON.stringify({...state,exportedAt:new Date().toISOString()});const enc=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(payload));const wrapper={format:'DSY1102-PROGRESS-AESGCM',version:1,kdf:'PBKDF2-SHA256',iterations:250000,salt:bytesToB64(salt),iv:bytesToB64(iv),data:bytesToB64(new Uint8Array(enc))};const blob=new Blob([JSON.stringify(wrapper)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);const who=(state.student.name||'alumno').toLowerCase().replace(/[^a-z0-9áéíóúñ]+/gi,'-');a.download=`DSY1102-VET-${who}.dsy1102progress`;a.click();URL.revokeObjectURL(a.href);state.events.push({at:new Date().toISOString(),type:'progress_exported',detail:{},deviceAlias:state.student.deviceAlias||''});localStorage.setItem(STORE,JSON.stringify(state));closeModal('exportModal')}catch(e){document.getElementById('exportMsg').innerHTML='<div class="notice notice-danger">No fue posible cifrar el progreso en este navegador.</div>'}}
-document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{pendingImport=JSON.parse(await f.text());document.getElementById('importPass').value='';document.getElementById('importMsg').innerHTML='';document.getElementById('importModal').classList.add('show')}catch(err){alert('El archivo seleccionado no tiene un formato válido.')}e.target.value=''})
-async function importProgress(){const pass=document.getElementById('importPass').value;if(!pendingImport||!pass)return;try{const salt=b64ToBytes(pendingImport.salt),iv=b64ToBytes(pendingImport.iv),data=b64ToBytes(pendingImport.data),key=await deriveKey(pass,salt);const dec=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,data);const restored=JSON.parse(new TextDecoder().decode(dec));if(restored.labId!==LAB_ID)throw new Error('lab');const previousPath=restored.student?.repoPath||'';state=restored;state.events=state.events||[];state.events.push({at:new Date().toISOString(),type:'progress_imported',detail:{previousPath},deviceAlias:state.student?.deviceAlias||''});localStorage.setItem(STORE,JSON.stringify(state));closeModal('importModal');render();setTimeout(()=>{alert('Progreso restaurado. Confirma ahora la ruta local del repositorio en este equipo antes de continuar.');openRepoModal()},100)}catch(e){document.getElementById('importMsg').innerHTML='<div class="notice notice-danger">No fue posible descifrar el archivo. Verifica la contraseña y que corresponda a este laboratorio.</div>'}}
-render();
+const BASE='https://raw.githubusercontent.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/e4afb4a1d3f7fcba182bbe6243a921034c1cc8eb/page/lab-veterinaria-herencia-polimorfismo.html';
+const PATCH=`<script>
+(function(){
+  const STORE='dsy1102-vet-lab-v1';
+  const REQUIRED_FIELDS=['name','section','repoPath','deviceAlias'];
+  const IDENTITY_INPUTS=new Set(['studentName','studentSection','repoUrl','repoPath','deviceAlias']);
+
+  function readState(){
+    try{return JSON.parse(localStorage.getItem(STORE)||'null')}catch(e){return null}
+  }
+  function writeState(s){localStorage.setItem(STORE,JSON.stringify(s))}
+  function ensureActions(s){
+    if(!s.actionRequirements)s.actionRequirements={};
+    return s.actionRequirements;
+  }
+  function hasSavedSession(s){
+    if(!s||!s.student)return false;
+    const fieldsOk=REQUIRED_FIELDS.every(k=>String(s.student[k]||'').trim());
+    const eventOk=Array.isArray(s.events)&&s.events.some(e=>e&&e.type==='session_configured');
+    return fieldsOk&&eventOk;
+  }
+  function requirementMet(stepId){
+    const s=readState();
+    if(!s)return false;
+    if(stepId==='s0p1'){
+      const actions=ensureActions(s);
+      if(actions.s0p1===true)return true;
+      if(hasSavedSession(s)){
+        actions.s0p1=true;
+        writeState(s);
+        return true;
+      }
+      return false;
+    }
+    return true;
+  }
+  function setRequirement(stepId,value){
+    const s=readState(); if(!s)return;
+    const actions=ensureActions(s); actions[stepId]=!!value;
+    writeState(s);
+  }
+  function invalidateIdentityProgress(reason){
+    const s=readState(); if(!s)return false;
+    const actions=ensureActions(s); actions.s0p1=false;
+    if(s.steps&&s.steps.s0p1){
+      s.steps.s0p1=false;
+      s.xp=Math.max(0,(Number(s.xp)||0)-20);
+      s.events=s.events||[];
+      s.events.push({at:new Date().toISOString(),type:'step_invalidated',detail:{step:'s0p1',reason},deviceAlias:s.student?.deviceAlias||''});
+      if(Number(s.currentStage)>0)s.currentStage=0;
+    }
+    writeState(s);
+    return true;
+  }
+  function guardSwitch(input,allowed){
+    if(!input)return;
+    input.disabled=!allowed;
+    const slider=input.nextElementSibling;
+    if(slider){slider.style.cursor=allowed?'pointer':'not-allowed';slider.style.opacity=allowed?'1':'.45'}
+    const line=input.closest('.switchline');
+    if(line){
+      let note=line.querySelector('.action-required-note');
+      if(!allowed){
+        if(!note){
+          note=document.createElement('span');note.className='action-required-note';note.style.cssText='display:block;margin-left:.5rem;color:#b45309;font-size:.82rem;font-weight:700';
+          line.appendChild(note);
+        }
+        note.textContent='🔒 Primero completa y guarda la acción obligatoria de este paso.';
+      }else if(note)note.remove();
+    }
+  }
+  function applyGuards(){
+    const s=readState(); if(!s)return;
+    const cards=[...document.querySelectorAll('.step-card')];
+    if(Number(s.currentStage)===0&&cards[0]){
+      const sw=cards[0].querySelector('.switch input[type=checkbox]');
+      guardSwitch(sw,requirementMet('s0p1'));
+      const btn=cards[0].querySelector('.actions .btn-primary');
+      if(btn){
+        const met=requirementMet('s0p1');
+        btn.textContent=met?'✓ Datos de sesión guardados':'Guardar datos de sesión';
+      }
+    }
+  }
+
+  // Migración: corrige avances creados por el bug anterior.
+  const initial=readState();
+  if(initial){
+    const actions=ensureActions(initial);
+    if(hasSavedSession(initial))actions.s0p1=true;
+    else if(initial.steps&&initial.steps.s0p1){
+      initial.steps.s0p1=false;
+      initial.xp=Math.max(0,(Number(initial.xp)||0)-20);
+      if(Number(initial.currentStage)>0)initial.currentStage=0;
+      initial.events=initial.events||[];
+      initial.events.push({at:new Date().toISOString(),type:'step_invalidated',detail:{step:'s0p1',reason:'missing_required_action'},deviceAlias:initial.student?.deviceAlias||''});
+    }
+    writeState(initial);
+  }
+
+  // Defensa doble: aunque alguien intente disparar el cambio manualmente,
+  // toggleStep no permite completar un paso con requisito pendiente.
+  const originalToggle=window.toggleStep;
+  if(typeof originalToggle==='function'){
+    window.toggleStep=function(id,on,xp){
+      if(on&&!requirementMet(id)){
+        alert('Antes de marcar este paso como realizado debes completar y guardar la acción obligatoria.');
+        applyGuards();
+        return;
+      }
+      return originalToggle.apply(this,arguments);
+    };
+  }
+
+  // Guardar sesión habilita el switch sólo si la acción terminó correctamente.
+  const originalSaveIdentity=window.saveIdentity;
+  if(typeof originalSaveIdentity==='function'){
+    window.saveIdentity=function(){
+      originalSaveIdentity.apply(this,arguments);
+      setTimeout(()=>{
+        const s=readState();
+        if(hasSavedSession(s))setRequirement('s0p1',true);
+        applyGuards();
+      },0);
+    };
+  }
+
+  // Si modifica un dato después de guardarlo, vuelve a quedar pendiente hasta guardar de nuevo.
+  document.addEventListener('input',e=>{
+    if(!IDENTITY_INPUTS.has(e.target?.id))return;
+    invalidateIdentityProgress('identity_changed_after_save');
+    applyGuards();
+  },true);
+
+  // Hook reutilizable para cualquier futura acción obligatoria dentro de un paso.
+  window.completeRequiredStepAction=function(stepId,detail){
+    const s=readState(); if(!s)return;
+    const actions=ensureActions(s); actions[stepId]=true;
+    s.events=s.events||[];
+    s.events.push({at:new Date().toISOString(),type:'required_action_completed',detail:{step:stepId,...(detail||{})},deviceAlias:s.student?.deviceAlias||''});
+    writeState(s); applyGuards();
+  };
+  window.invalidateRequiredStepAction=function(stepId){setRequirement(stepId,false);applyGuards()};
+
+  const originalRender=window.render;
+  if(typeof originalRender==='function'){
+    window.render=function(){const r=originalRender.apply(this,arguments);setTimeout(applyGuards,0);return r};
+  }
+  new MutationObserver(()=>applyGuards()).observe(document.body,{childList:true,subtree:true});
+  if(typeof window.render==='function')window.render(); else applyGuards();
+})();
+<\/script>`;
+fetch(BASE,{cache:'no-store'})
+  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()})
+  .then(html=>{
+    const patched=html.replace('</body>',PATCH+'\n</body>');
+    document.open();document.write(patched);document.close();
+  })
+  .catch(e=>{document.getElementById('msg').innerHTML='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
 </script>
 </body>
 </html>
