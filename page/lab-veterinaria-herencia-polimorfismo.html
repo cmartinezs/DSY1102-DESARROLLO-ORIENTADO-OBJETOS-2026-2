@@ -43,6 +43,104 @@ fetch(SOURCE,{cache:'no-store'})
       "injectGuidance();if(typeof personalizeSessionCommands==='function')personalizeSessionCommands()}"
     );
 
+    // 6) Notas técnicas contextualizadas: término de industria explicado después de usarlo.
+    const TECH_PATCH=`<script>
+(function(){
+  const NOTES={
+    s0p1:[
+      ['Repositorio','Es la carpeta del proyecto que Git controla y cuya copia también puede estar en GitHub.','Te permite mantener el trabajo ordenado, guardar su historia y compartirlo.'],
+      ['Clonar un repositorio','Significa traer una copia completa del repositorio de GitHub a tu computador. En Git se usa el comando git clone.','Desde ese momento trabajas en archivos locales y luego envías tus cambios a GitHub.'],
+      ['Ruta local','Es la dirección de una carpeta dentro de tu computador, por ejemplo C:\\Users\\Ana\\Documents\\mi-repo.','Los comandos necesitan saber en qué carpeta deben trabajar. Una URL de GitHub no es una ruta local.']
+    ],
+    s0p2:[
+      ['Estructura de proyecto','Es la forma acordada de organizar carpetas y archivos dentro de un proyecto.','Una estructura consistente permite que otra persona encuentre rápidamente código, documentos y evidencias.'],
+      ['README','Es el archivo de presentación e instrucciones de una carpeta o repositorio. Normalmente se llama README.md.','En proyectos reales suele explicar qué es el proyecto, cómo usarlo y cómo está organizado.'],
+      ['Commit','Es un punto guardado en la historia de Git. Tiene una descripción que indica qué cambio se realizó.','Permite saber qué cambió, cuándo y recuperar estados anteriores.'],
+      ['Push','Es enviar a GitHub los commits que por ahora existen sólo en tu computador.','Un commit local no aparece en GitHub hasta que lo envías con push.']
+    ],
+    s1p1:[
+      ['Dominio del problema','Es el tema o realidad que el software intenta representar. Aquí el dominio es la atención veterinaria y sus animales.','Antes de programar conviene entender el problema real que estamos tratando de resolver.'],
+      ['Requerimiento','Es algo que el sistema necesita hacer o una condición que debe cumplir.','Ayuda a separar lo que realmente se necesita de una implementación particular.']
+    ],
+    s1p2:[
+      ['Concepto de dominio','Es una cosa importante dentro del problema, por ejemplo Animal, Mascota o Veterinaria.','Más adelante algunos conceptos pueden convertirse en clases, pero primero se identifican por su significado.'],
+      ['Responsabilidad','Es algo que un elemento del sistema debe hacer o conocer.','Pensar en responsabilidades ayuda a decidir después dónde debería vivir cada comportamiento.'],
+      ['Regla de negocio','Es una condición propia del problema que el sistema debe respetar.','No es una regla de Java: viene de cómo funciona la situación que estamos modelando.']
+    ],
+    s2p1:[
+      ['Algoritmo','Es una secuencia ordenada de pasos para conseguir un resultado.','Se puede describir primero en palabras simples y después transformar gradualmente en código.'],
+      ['Flujo','Es el recorrido que sigue un proceso desde el inicio hasta el resultado.','Ayuda a visualizar en qué orden ocurren las acciones.']
+    ],
+    s2p2:[
+      ['Entrada','Es información que el proceso necesita recibir para poder trabajar.','Por ejemplo, datos de un animal antes de poder atenderlo.'],
+      ['Salida o resultado','Es la información o efecto producido después de ejecutar un proceso.','Permite definir claramente qué esperamos obtener.'],
+      ['Decisión','Es un punto donde el camino puede cambiar dependiendo de una condición.','Primero detectamos la decisión en el problema; después decidimos cómo expresarla en código.']
+    ],
+    s3p1:[
+      ['Abstracción','Consiste en concentrarse en las características importantes y dejar fuera detalles que no necesitamos en ese momento.','Nos ayuda a descubrir qué tienen en común distintos animales sin distraernos con cada detalle específico.'],
+      ['Generalización','Consiste en reconocer características comunes de varios conceptos y representarlas en uno más general.','Es la idea que nos permite pasar de Perro, Gato, Tigre y León al concepto más general Animal.']
+    ],
+    s3p2:[
+      ['Jerarquía de clases','Es una organización de clases desde conceptos más generales hacia conceptos más específicos.','Permite visualizar relaciones como Animal → Mascota → Perro.'],
+      ['Relación “es-un”','Indica que un objeto específico también puede considerarse como uno más general. Por ejemplo, un Perro es una Mascota y también es un Animal.','Es una forma práctica de comprobar si una relación de herencia tiene sentido.']
+    ],
+    s4p1:[
+      ['Clase','Es una definición que describe qué datos y comportamientos tendrán ciertos objetos.','Animal.java define cómo será un Animal dentro del programa.'],
+      ['Atributo','Es un dato que pertenece a un objeto, como nombre o edad.','Representa parte del estado del objeto.'],
+      ['Constructor','Es el código que se ejecuta cuando creamos un objeto nuevo.','Sirve para dejar el objeto preparado con sus datos iniciales.'],
+      ['Instancia','Es un objeto concreto creado a partir de una clase.','La clase es la definición; la instancia es un objeto real creado usando esa definición.']
+    ],
+    s4p2:[
+      ['Herencia','Permite crear una clase más específica reutilizando lo definido en una clase más general.','Mascota y Salvaje pueden reutilizar lo que ya pertenece a Animal.'],
+      ['Superclase / clase padre','Es la clase más general de la que otra hereda. Aquí Animal es la superclase de Mascota y Salvaje.','Concentra datos y comportamientos comunes.'],
+      ['Subclase / clase hija','Es una clase más específica que hereda de otra.','Puede usar lo heredado y además agregar características propias.'],
+      ['super(...)','Es la llamada al constructor de la clase padre.','Permite construir primero correctamente la parte heredada del objeto.']
+    ],
+    s5p1:[
+      ['Especialización','Es crear un concepto más específico a partir de uno más general.','Perro y Gato especializan a Mascota agregando sólo lo que realmente los diferencia.'],
+      ['Reutilización','Es aprovechar código ya definido en vez de copiarlo nuevamente.','La herencia permite reutilizar lo que Mascota y Animal ya resolvieron.']
+    ],
+    s5p2:[
+      ['Duplicación de código','Ocurre cuando la misma información o lógica se copia en varios lugares.','Si un dato ya pertenece a Animal o Salvaje, volver a declararlo en Tigre o León genera duplicación innecesaria.'],
+      ['DRY','Sigla de Don’t Repeat Yourself: evitar repetir la misma definición o lógica sin necesidad.','Es un principio muy usado en desarrollo para reducir errores y facilitar cambios.']
+    ],
+    s6p1:[
+      ['Sobrescritura de método','Una subclase reemplaza el comportamiento heredado por una versión propia usando la misma operación. En Java suele indicarse con @Override.','Permite que atender() o emitirSonido() hagan algo distinto según el animal.'],
+      ['Firma de método','Es la forma en que identificamos una operación por su nombre y parámetros.','Para sobrescribir correctamente, la operación de la subclase debe corresponder a la del padre.']
+    ],
+    s6p2:[
+      ['Polimorfismo','Significa que podemos pedir la misma acción a objetos relacionados y cada objeto puede responder de acuerdo con su tipo real.','El código puede trabajar con Animal sin necesitar decidir manualmente qué hacer para cada especie.'],
+      ['Despacho dinámico','Es el mecanismo mediante el cual Java decide en ejecución qué versión sobrescrita de un método debe ejecutar.','Por eso una referencia Animal puede terminar ejecutando el método definido en Perro o Tigre.']
+    ],
+    s7p1:[
+      ['Tipo de referencia','Es el tipo con el que una variable mira a un objeto. Una variable Animal puede referirse a un Perro porque Perro también es un Animal.','Esto permite trabajar con varios objetos diferentes de forma uniforme.'],
+      ['Compilar','Es pedirle a Java que revise y transforme el código fuente antes de ejecutarlo.','Si hay errores de sintaxis o tipos, normalmente aparecen en esta etapa.'],
+      ['Ejecutar','Es poner el programa en funcionamiento después de que puede compilar.','Aquí comprobamos el comportamiento real de los objetos.']
+    ],
+    s7p2:[
+      ['Refactorización','Es mejorar la organización o diseño del código sin cambiar lo que el programa hace hacia afuera.','Comparar la primera idea con la solución final permite detectar cómo podríamos organizar mejor una próxima versión.'],
+      ['Evidencia técnica','Es información que permite demostrar qué se hizo y cómo se llegó al resultado: código, diagramas, commits y documentación.','En un equipo real sirve para revisión, seguimiento y colaboración.']
+    ]
+  };
+  const IDS=[['s0p1','s0p2'],['s1p1','s1p2'],['s2p1','s2p2'],['s3p1','s3p2'],['s4p1','s4p2'],['s5p1','s5p2'],['s6p1','s6p2'],['s7p1','s7p2']];
+  function state(){try{return JSON.parse(localStorage.getItem('dsy1102-vet-lab-v1')||'null')}catch(e){return null}}
+  function injectTechnicalNotes(){
+    const s=state();const ids=IDS[Number(s&&s.currentStage)||0]||[];
+    document.querySelectorAll('.step-card').forEach(function(card,i){
+      if(card.querySelector('.technical-notes'))return;
+      const notes=NOTES[ids[i]];if(!notes||!notes.length)return;
+      const anchor=card.querySelector('.guided-now')||card.querySelector('.mission');if(!anchor)return;
+      const box=document.createElement('div');box.className='technical-notes';box.style.cssText='background:#f8fafc;border:1px solid #cbd5e1;border-left:5px solid #475569;border-radius:.8rem;padding:1rem;margin:.9rem 0';
+      box.innerHTML='<strong style="font-size:1.05rem">🧠 Nota técnica · Así se llama en desarrollo de software</strong><p style="margin:.35rem 0 .8rem;color:#64748b">Acabas de usar ideas que también se ocupan en proyectos reales. Estos son sus nombres técnicos:</p>'+notes.map(function(n){return '<div style="padding:.65rem 0;border-top:1px solid #e2e8f0"><strong>'+n[0]+'</strong><br><span><b>En simple:</b> '+n[1]+'</span><br><span style="color:#475569"><b>¿Para qué sirve?</b> '+n[2]+'</span></div>'}).join('');
+      anchor.insertAdjacentElement('afterend',box);
+    });
+  }
+  const oldRender=window.render;if(typeof oldRender==='function'){window.render=function(){const r=oldRender.apply(this,arguments);setTimeout(injectTechnicalNotes,0);return r}}
+  setTimeout(injectTechnicalNotes,0);
+})();
+<\/script>`;
+    src=src.replace('</body>',TECH_PATCH+'\n</body>');
+
     document.open();document.write(src);document.close();
   })
   .catch(e=>{document.getElementById('msg').textContent='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
