@@ -25,8 +25,10 @@ Promise.all([
   const ui=document.createElement('script');
   ui.textContent=`(()=>{
     const STORE='dsy1102-vet-lab-v1';
+    let reviewStage=null;
+    let lastStage=null;
     const css=document.createElement('style');
-    css.textContent='.step-card .actions .btn-primary{transition:transform .12s ease,box-shadow .12s ease,filter .12s ease}.step-card .actions .btn-primary:hover{filter:brightness(1.08);box-shadow:0 4px 12px rgba(67,56,202,.25)}.step-card .actions .btn-primary:active{transform:translateY(1px) scale(.985);box-shadow:none}.step-card .actions .btn-primary.is-saving{opacity:.78;cursor:wait}.step-card .actions .btn-primary.is-saved{background:#166534!important;color:#fff!important}.checkpoint-focus-hidden{display:none!important}';
+    css.textContent='.step-card .actions .btn-primary{transition:transform .12s ease,box-shadow .12s ease,filter .12s ease}.step-card .actions .btn-primary:hover{filter:brightness(1.08);box-shadow:0 4px 12px rgba(67,56,202,.25)}.step-card .actions .btn-primary:active{transform:translateY(1px) scale(.985);box-shadow:none}.step-card .actions .btn-primary.is-saving{opacity:.78;cursor:wait}.step-card .actions .btn-primary.is-saved{background:#166534!important;color:#fff!important}.checkpoint-focus-hidden{display:none!important}.review-mode-note{background:#eff6ff;border:1px solid #93c5fd;border-radius:.8rem;padding:.8rem 1rem;margin:.8rem 0;color:#1e3a8a}';
     document.head.appendChild(css);
 
     function read(){try{return JSON.parse(localStorage.getItem(STORE)||'null')}catch(_){return null}}
@@ -53,12 +55,51 @@ Promise.all([
       if(Number(s?.currentStage)!==0){notices.forEach(n=>n.remove());return;}
       notices.slice(1).forEach(n=>n.remove());
     }
+    function ensureReviewControls(){
+      const app=document.getElementById('app');
+      const s=read();
+      if(!app||!s)return;
+      const current=Number(s.currentStage)||0;
+      if(lastStage!==current){reviewStage=null;lastStage=current;}
+      const quiz=app.querySelector('.quiz');
+      if(!quiz)return;
+      const passed=!!quiz.querySelector('.notice-ok');
+      let btn=quiz.querySelector('.review-stage-btn');
+      let note=app.querySelector('.review-mode-note');
+      if(!passed){if(btn)btn.remove();if(note)note.remove();return;}
+      if(!btn){
+        btn=document.createElement('button');
+        btn.type='button';
+        btn.className='btn btn-secondary review-stage-btn';
+        btn.style.marginLeft='.5rem';
+        const primary=quiz.querySelector('button');
+        if(primary)primary.insertAdjacentElement('afterend',btn);else quiz.appendChild(btn);
+      }
+      const reviewing=reviewStage===current;
+      btn.textContent=reviewing?'✕ Cerrar repaso':'↩ Repasar esta etapa';
+      if(reviewing){
+        if(!note){
+          note=document.createElement('div');
+          note.className='review-mode-note';
+          note.innerHTML='<strong>Modo repaso.</strong> Estás revisando una etapa ya superada. Tu progreso, XP y checkpoint no se modificarán.';
+          const firstCard=app.querySelector('.step-card');
+          if(firstCard)firstCard.insertAdjacentElement('beforebegin',note);
+        }
+      }else if(note)note.remove();
+    }
     function focusCheckpoint(){
       const app=document.getElementById('app');
-      if(!app)return;
+      const s=read();
+      if(!app||!s)return;
+      const current=Number(s.currentStage)||0;
+      if(lastStage!==current){reviewStage=null;lastStage=current;}
       const quiz=app.querySelector('.quiz');
-      const shouldHide=!!(quiz&&(quiz.querySelector('.q')||quiz.querySelector('.notice-ok')));
+      const hasQuestions=!!quiz?.querySelector('.q');
+      const passed=!!quiz?.querySelector('.notice-ok');
+      const reviewing=passed&&reviewStage===current;
+      const shouldHide=hasQuestions||(passed&&!reviewing);
       app.querySelectorAll('.step-card').forEach(card=>card.classList.toggle('checkpoint-focus-hidden',shouldHide));
+      ensureReviewControls();
     }
     function releaseSessionGuard(){
       document.querySelectorAll('.step-card .switch input[type=checkbox]').forEach(sw=>{
@@ -86,6 +127,14 @@ Promise.all([
     document.addEventListener('input',e=>{if(['studentName','studentSection','repoUrl','repoPath','deviceAlias'].includes(e.target?.id))setTimeout(sync,0)},true);
     document.addEventListener('click',e=>{
       const s=read();
+      const reviewBtn=e.target&&e.target.closest?e.target.closest('.review-stage-btn'):null;
+      if(reviewBtn){
+        const current=Number(s?.currentStage)||0;
+        reviewStage=reviewStage===current?null:current;
+        focusCheckpoint();
+        if(reviewStage===current){setTimeout(()=>document.querySelector('.review-mode-note')?.scrollIntoView({behavior:'smooth',block:'start'}),0)}
+        return;
+      }
       const b=e.target&&e.target.closest?e.target.closest('.step-card .actions .btn-primary'):null;
       if(Number(s?.currentStage)===0&&b&&b.textContent.includes('Guardar')){b.classList.remove('is-saved');b.classList.add('is-saving');b.textContent='Guardando…';setTimeout(()=>{b.classList.remove('is-saving');sync()},250)}
       const wrap=e.target&&e.target.closest?e.target.closest('.switch'):null;
