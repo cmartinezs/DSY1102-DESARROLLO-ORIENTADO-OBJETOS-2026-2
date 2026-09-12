@@ -1,79 +1,29 @@
-# DSY1102 · Desarrollo Orientado a Objetos · 2026-2
+# Portal web del curso
 
-Repositorio docente de apoyo para **DSY1102 Desarrollo Orientado a Objetos**.
+La web del curso es el punto de entrada para estudiantes y la **fuente canónica de los enunciados de actividades prácticas**.
 
-## Portal del curso
+## Regla de disponibilidad
 
-- [Portal web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/)
-- [Semanas](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/semanas.html)
-- [Laboratorios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html)
-- [Proyecto formativo](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html)
-- [Desafíos y ejercicios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
+El portal libera contenido según la **semana curricular**. En Semana 2 deben estar disponibles todos los recursos de Semanas 1 y 2, independiente de si cada punto ya fue alcanzado en la sesión presencial.
 
-## Estructura canónica
+La bitácora docente del avance real se mantiene fuera de la web pública.
 
-El material de aprendizaje se organiza en **cuatro verticales independientes**:
+## Navegación principal
 
-```text
-/
-├── semanas/             contenido curricular y ampliaciones por semana
-├── labs/                laboratorios guiados paso a paso
-├── ejemplos/            ejemplos mínimos, concretos e independientes
-├── proyecto-formativo/  proyecto incremental semana a semana
-├── docs/                documentación transversal
-├── data/                metadatos auxiliares
-└── page/                fuente estática del portal web
-```
+1. `semanas.html` — contenido liberado por semana.
+2. `repositorio-estudiante.html` — estándar obligatorio para organizar el repositorio personal del estudiante.
+3. `ejercicios-clase.html` — práctica corta y focalizada.
+4. `laboratorios.html` — actividades guiadas e integradoras.
+5. `proyecto-formativo.html` — PetCare, longitudinal durante el semestre.
+6. `desafio-semanal.html` — problemas menos guiados con materia ya liberada.
+7. `desafio-150.html` / `ejercicios-150.html` — Gran Desafío Java pre-POO.
 
-### 1. `semanas/` — aprender
+## Estado actual · Semana 2
 
-Cada semana tiene un `README.md` que funciona como índice y resumen. Cada materia se documenta en archivos Markdown separados. Los contenidos de ampliación, cuando exceden el mínimo del programa, se agrupan en subcarpetas con su propio `README.md`.
+- Semana 1: disponible.
+- Semana 2: disponible completa.
+- Estándar del repositorio del estudiante: publicado.
+- Desafío 150: ejercicios 1–45 disponibles.
+- Contenido curricular posterior: se libera al llegar a la semana correspondiente.
 
-### 2. `labs/` — practicar guiado
-
-Existe como máximo un laboratorio principal por semana. Debe ser reproducible, explícito y paso a paso. Cada paso incluye un **checkpoint verificable**. Los laboratorios son independientes salvo que una dependencia anterior sea técnicamente imprescindible; en ese caso debe declararse de forma explícita.
-
-### 3. `ejemplos/` — demostrar
-
-Los ejemplos son ejecuciones individuales, breves e independientes. Cada ejemplo debe demostrar un concepto concreto sin arrastrar accidentalmente la arquitectura del proyecto formativo.
-
-### 4. `proyecto-formativo/` — integrar incrementalmente
-
-Es un proyecto longitudinal. Cada semana depende de la anterior y contiene checklist de inicio, implementación secuencial por materia y checklist de finalización.
-
-## Prácticas y desafíos
-
-`practica/` y `desafios/` **no son verticales raíz**.
-
-- práctica mínima o demostrativa → `ejemplos/` o material de la semana;
-- práctica guiada sustancial → `labs/`;
-- desafíos → preferentemente portal web del curso, enlazados desde la semana correspondiente cuando aplique.
-
-## GitHub Pages · bypass financiero
-
-GitHub Actions **no se utiliza para desplegar el portal**. La fuente editable permanece en `page/` sobre `master`; la publicación se realiza mediante la rama estática `gh-pages` usando **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**.
-
-Consulta [`docs/ESTRUCTURA-CANONICA.md`](docs/ESTRUCTURA-CANONICA.md) para las reglas completas.
-
-## Repositorio personal del estudiante
-
-Cada estudiante mantiene un único repositorio para toda la asignatura con formato:
-
-```text
-DSY1102-012V-nombre-apellido
-```
-
-El estándar se encuentra en [`docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md`](docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md).
-
-## Clonar y actualizar
-
-```bash
-git clone https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2.git
-cd DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2
-```
-
-```bash
-git pull
-```
-
-> AVA continúa siendo la plataforma oficial para comunicaciones y recursos institucionales que correspondan.
+Los Markdown del repositorio actúan como índices, referencias históricas, guías técnicas o material complementario y enlazan a la web cuando el enunciado canónico está publicado allí.
