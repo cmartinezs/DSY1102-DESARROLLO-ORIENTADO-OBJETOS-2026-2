@@ -15,159 +15,182 @@ const PATCH=`<script>
   const STORE='dsy1102-vet-lab-v1';
   const REQUIRED_FIELDS=['name','section','repoPath','deviceAlias'];
   const IDENTITY_INPUTS=new Set(['studentName','studentSection','repoUrl','repoPath','deviceAlias']);
-
-  function readState(){
-    try{return JSON.parse(localStorage.getItem(STORE)||'null')}catch(e){return null}
-  }
-  function writeState(s){localStorage.setItem(STORE,JSON.stringify(s))}
-  function ensureActions(s){
-    if(!s.actionRequirements)s.actionRequirements={};
-    return s.actionRequirements;
-  }
-  function hasSavedSession(s){
-    if(!s||!s.student)return false;
-    const fieldsOk=REQUIRED_FIELDS.every(k=>String(s.student[k]||'').trim());
-    const eventOk=Array.isArray(s.events)&&s.events.some(e=>e&&e.type==='session_configured');
-    return fieldsOk&&eventOk;
-  }
-  function requirementMet(stepId){
-    const s=readState();
-    if(!s)return false;
-    if(stepId==='s0p1'){
-      const actions=ensureActions(s);
-      if(actions.s0p1===true)return true;
-      if(hasSavedSession(s)){
-        actions.s0p1=true;
-        writeState(s);
-        return true;
-      }
-      return false;
-    }
-    return true;
-  }
-  function setRequirement(stepId,value){
-    const s=readState(); if(!s)return;
-    const actions=ensureActions(s); actions[stepId]=!!value;
-    writeState(s);
-  }
-  function invalidateIdentityProgress(reason){
-    const s=readState(); if(!s)return false;
-    const actions=ensureActions(s); actions.s0p1=false;
-    if(s.steps&&s.steps.s0p1){
-      s.steps.s0p1=false;
-      s.xp=Math.max(0,(Number(s.xp)||0)-20);
-      s.events=s.events||[];
-      s.events.push({at:new Date().toISOString(),type:'step_invalidated',detail:{step:'s0p1',reason},deviceAlias:s.student?.deviceAlias||''});
-      if(Number(s.currentStage)>0)s.currentStage=0;
-    }
-    writeState(s);
-    return true;
-  }
-  function guardSwitch(input,allowed){
-    if(!input)return;
-    input.disabled=!allowed;
-    const slider=input.nextElementSibling;
-    if(slider){slider.style.cursor=allowed?'pointer':'not-allowed';slider.style.opacity=allowed?'1':'.45'}
-    const line=input.closest('.switchline');
-    if(line){
-      let note=line.querySelector('.action-required-note');
-      if(!allowed){
-        if(!note){
-          note=document.createElement('span');note.className='action-required-note';note.style.cssText='display:block;margin-left:.5rem;color:#b45309;font-size:.82rem;font-weight:700';
-          line.appendChild(note);
-        }
-        note.textContent='🔒 Primero completa y guarda la acción obligatoria de este paso.';
-      }else if(note)note.remove();
-    }
-  }
-  function applyGuards(){
-    const s=readState(); if(!s)return;
-    const cards=[...document.querySelectorAll('.step-card')];
-    if(Number(s.currentStage)===0&&cards[0]){
-      const sw=cards[0].querySelector('.switch input[type=checkbox]');
-      guardSwitch(sw,requirementMet('s0p1'));
-      const btn=cards[0].querySelector('.actions .btn-primary');
-      if(btn){
-        const met=requirementMet('s0p1');
-        btn.textContent=met?'✓ Datos de sesión guardados':'Guardar datos de sesión';
-      }
-    }
-  }
-
-  // Migración: corrige avances creados por el bug anterior.
-  const initial=readState();
-  if(initial){
-    const actions=ensureActions(initial);
-    if(hasSavedSession(initial))actions.s0p1=true;
-    else if(initial.steps&&initial.steps.s0p1){
-      initial.steps.s0p1=false;
-      initial.xp=Math.max(0,(Number(initial.xp)||0)-20);
-      if(Number(initial.currentStage)>0)initial.currentStage=0;
-      initial.events=initial.events||[];
-      initial.events.push({at:new Date().toISOString(),type:'step_invalidated',detail:{step:'s0p1',reason:'missing_required_action'},deviceAlias:initial.student?.deviceAlias||''});
-    }
-    writeState(initial);
-  }
-
-  // Defensa doble: aunque alguien intente disparar el cambio manualmente,
-  // toggleStep no permite completar un paso con requisito pendiente.
-  const originalToggle=window.toggleStep;
-  if(typeof originalToggle==='function'){
-    window.toggleStep=function(id,on,xp){
-      if(on&&!requirementMet(id)){
-        alert('Antes de marcar este paso como realizado debes completar y guardar la acción obligatoria.');
-        applyGuards();
-        return;
-      }
-      return originalToggle.apply(this,arguments);
-    };
-  }
-
-  // Guardar sesión habilita el switch sólo si la acción terminó correctamente.
-  const originalSaveIdentity=window.saveIdentity;
-  if(typeof originalSaveIdentity==='function'){
-    window.saveIdentity=function(){
-      originalSaveIdentity.apply(this,arguments);
-      setTimeout(()=>{
-        const s=readState();
-        if(hasSavedSession(s))setRequirement('s0p1',true);
-        applyGuards();
-      },0);
-    };
-  }
-
-  // Si modifica un dato después de guardarlo, vuelve a quedar pendiente hasta guardar de nuevo.
-  document.addEventListener('input',e=>{
-    if(!IDENTITY_INPUTS.has(e.target?.id))return;
-    invalidateIdentityProgress('identity_changed_after_save');
-    applyGuards();
-  },true);
-
-  // Hook reutilizable para cualquier futura acción obligatoria dentro de un paso.
-  window.completeRequiredStepAction=function(stepId,detail){
-    const s=readState(); if(!s)return;
-    const actions=ensureActions(s); actions[stepId]=true;
-    s.events=s.events||[];
-    s.events.push({at:new Date().toISOString(),type:'required_action_completed',detail:{step:stepId,...(detail||{})},deviceAlias:s.student?.deviceAlias||''});
-    writeState(s); applyGuards();
+  const GUIDES={
+    s0p1:{steps:[
+      'Abre la página de tu repositorio personal de DSY1102 en GitHub.',
+      'Si todavía no lo tienes en este computador, clónalo. Con GitHub Desktop usa File → Clone repository. Con terminal usa git clone seguido de la URL de tu repositorio.',
+      'Abre la carpeta clonada en el Explorador de archivos y copia o identifica su ruta completa. Ejemplo: C:\\Users\\TuNombre\\Documents\\DSY1102-001D-nombre-apellido.',
+      'Completa en esta pantalla tu nombre completo, sección, URL del repositorio, ruta local y un nombre reconocible para este equipo.',
+      'Presiona Guardar datos de sesión. No continúes sólo por haber escrito los datos: deben quedar guardados.',
+      'Cuando el botón muestre que los datos fueron guardados, recién entonces marca el switch del paso.'
+    ],check:['Tu nombre y sección siguen visibles después de guardar.','La ruta local termina en la carpeta de tu repositorio, no en una carpeta superior.','El switch está habilitado sólo después de guardar.']},
+    s0p2:{steps:[
+      'Abre la carpeta raíz de tu repositorio. Es la carpeta que contiene README.md y otras carpetas del curso.',
+      'Dentro de ella crea una carpeta llamada labs si todavía no existe.',
+      'Dentro de labs crea exactamente lab-veterinaria-herencia-polimorfismo.',
+      'Dentro del laboratorio crea estas carpetas: docs, src y evidencias.',
+      'Dentro de docs crea además la carpeta diagramas.',
+      'Crea el archivo README.md dentro de lab-veterinaria-herencia-polimorfismo y copia la plantilla mostrada en esta pantalla. Reemplaza TU NOMBRE y TU SECCIÓN.',
+      'Guarda el archivo.',
+      'Ejecuta los comandos Git indicados. Espera a que git push termine antes de marcar el paso.'
+    ],check:['Existe labs/lab-veterinaria-herencia-polimorfismo/README.md.','Existen docs, docs/diagramas, src y evidencias.','GitHub muestra el commit LAB-VET-00: prepara estructura del laboratorio.']},
+    s1p1:{steps:[
+      'Abre la carpeta docs del laboratorio.',
+      'Crea un archivo llamado 01-analisis-problema.md.',
+      'Escribe un título: # Análisis del problema.',
+      'Debajo, explica con tus propias palabras qué necesita hacer la veterinaria.',
+      'No escribas código ni palabras de implementación como class, extends, private, constructor o super.',
+      'Guarda el archivo y vuelve a leerlo. Debe entenderse aunque la persona que lo lea no conozca Java.',
+      'Haz el commit y push indicados.'
+    ],check:['El archivo se llama exactamente 01-analisis-problema.md.','Describe el problema y no una solución en Java.','El commit LAB-VET-01 aparece en GitHub.']},
+    s1p2:{steps:[
+      'Abre docs/01-analisis-problema.md.',
+      'Al final agrega el subtítulo ## Conceptos y una lista con los elementos importantes del problema.',
+      'Agrega ## Acciones y escribe qué cosas deben poder ocurrir durante una atención.',
+      'Agrega ## Reglas y escribe condiciones que el sistema debería respetar.',
+      'Comprueba que aparezcan, al menos, veterinaria, animal, mascota, salvaje, perro, gato, tigre y león.',
+      'Guarda, revisa los cambios con git status y realiza el commit indicado.'
+    ],check:['El mismo archivo contiene Conceptos, Acciones y Reglas.','Las listas describen el problema, no sintaxis Java.','El commit LAB-VET-02 aparece en GitHub.']},
+    s2p1:{steps:[
+      'Dentro de docs crea 02-algoritmo-atencion.md.',
+      'Escribe # Algoritmo de atención.',
+      'Imagina que un animal acaba de llegar. Escribe el primer paso que debería ocurrir.',
+      'Continúa numerando acciones hasta llegar al final de la atención.',
+      'Incluye identificar al animal, reconocer qué tipo de atención necesita, atenderlo y mostrar o registrar el resultado.',
+      'No escribas todavía if, switch, clases ni métodos Java.',
+      'Guarda el archivo, haz commit y push.'
+    ],check:['El documento tiene una secuencia ordenada.','Cada punto describe qué ocurre, no cómo programarlo.','El commit LAB-VET-03 aparece en GitHub.']},
+    s2p2:{steps:[
+      'Abre docs/02-algoritmo-atencion.md.',
+      'Agrega una sección ## Entradas e indica qué información necesita conocer la atención.',
+      'Agrega ## Decisiones del problema y anota decisiones conceptuales, por ejemplo distinguir mascota de salvaje.',
+      'Agrega ## Resultado esperado y explica qué debería ocurrir cuando termina una atención.',
+      'Revisa que ninguna decisión esté escrita todavía como código Java.',
+      'Guarda, ejecuta git status y realiza el commit indicado.'
+    ],check:['Hay secciones de Entradas, Decisiones y Resultado esperado.','Las decisiones son conceptuales y no código.','El commit LAB-VET-04 aparece en GitHub.']},
+    s3p1:{steps:[
+      'Dentro de docs crea 03-modelo-objetos.md.',
+      'Escribe # Comparación de animales.',
+      'Crea una tabla con filas para Perro, Gato, Tigre y León.',
+      'Crea columnas para datos comunes, datos particulares, acciones comunes y acciones particulares.',
+      'Completa la tabla comparando realmente los conceptos. No inventes diferencias sólo para llenar celdas.',
+      'Después de la tabla escribe qué elementos aparecen repetidos en varios animales.',
+      'Guarda y realiza el commit indicado.'
+    ],check:['La tabla compara las cuatro especies.','Puedes identificar qué cosas son comunes.','El commit LAB-VET-05 aparece en GitHub.']},
+    s3p2:{steps:[
+      'Abre docs/diagramas.',
+      'Crea jerarquia-clases.md.',
+      'Escribe un diagrama donde Animal esté arriba.',
+      'Debajo de Animal ubica Mascota y Salvaje.',
+      'Debajo de Mascota ubica Perro y Gato. Debajo de Salvaje ubica Tigre y León.',
+      'Puedes usar Mermaid o un diagrama de texto. Lo importante es que la relación se entienda.',
+      'Compara tu diagrama con la tabla anterior: cada relación debe tener sentido por los elementos comunes encontrados.',
+      'Guarda, commit y push.'
+    ],check:['Animal es el concepto más general.','Perro/Gato dependen de Mascota y Tigre/León de Salvaje.','El commit LAB-VET-06 aparece en GitHub.']},
+    s4p1:{steps:[
+      'Abre la carpeta src del laboratorio en tu editor.',
+      'Crea Animal.java.',
+      'Escribe la declaración de la clase Animal.',
+      'Agrega sólo atributos que de verdad sean comunes a los animales según tu diseño anterior.',
+      'Crea un constructor que reciba los datos necesarios para crear un Animal válido.',
+      'Dentro del constructor asigna cada parámetro al atributo correspondiente usando this cuando corresponda.',
+      'Agrega al menos un comportamiento común sencillo.',
+      'Guarda y compila. Si aparece un error, léelo y corrígelo antes de continuar.',
+      'Haz commit y push.'
+    ],check:['Animal.java existe dentro de src.','Tiene atributos comunes y constructor.','El código compila antes del commit.','El commit LAB-VET-07 aparece en GitHub.']},
+    s4p2:{steps:[
+      'Crea src/Mascota.java y src/Salvaje.java.',
+      'Haz que Mascota herede de Animal y que Salvaje herede de Animal.',
+      'Elige al menos un dato que tenga sentido sólo para Mascota y otro que tenga sentido sólo para Salvaje.',
+      'Crea el constructor de Mascota.',
+      'La primera operación del constructor debe delegar a Animal usando super(...) con los datos que Animal necesita.',
+      'Repite la misma idea en Salvaje.',
+      'Compila los tres archivos juntos. No hagas commit si aún hay errores de compilación.',
+      'Cuando compile, realiza commit y push.'
+    ],check:['Mascota extends Animal y Salvaje extends Animal.','Ambos constructores llaman a super(...).','No repetiste atributos que ya pertenecen a Animal.','El commit LAB-VET-08 aparece en GitHub.']},
+    s5p1:{steps:[
+      'Crea src/Perro.java.',
+      'Haz que Perro herede de Mascota.',
+      'Crea su constructor y usa super(...) para inicializar la parte Mascota/Animal.',
+      'Agrega sólo una característica o comportamiento que realmente diferencie a Perro cuando tenga sentido.',
+      'Crea src/Gato.java y repite el proceso heredando de Mascota.',
+      'Compila ambos junto al resto de clases.',
+      'Corrige errores antes de hacer commit y push.'
+    ],check:['Perro y Gato heredan de Mascota.','Sus constructores dejan correctamente inicializada la parte heredada.','No duplican datos comunes.','El commit LAB-VET-09 aparece en GitHub.']},
+    s5p2:{steps:[
+      'Crea src/Tigre.java y haz que herede de Salvaje.',
+      'Crea su constructor usando super(...).',
+      'Crea src/Leon.java y haz que herede de Salvaje.',
+      'Crea su constructor usando super(...).',
+      'Revisa Animal y Salvaje antes de agregar nuevos atributos: si el dato ya existe arriba, no lo declares nuevamente.',
+      'Compila todas las clases.',
+      'Cuando compile, realiza commit y push.'
+    ],check:['Tigre y León heredan de Salvaje.','Los constructores utilizan super(...).','No hay atributos comunes repetidos.','El commit LAB-VET-10 aparece en GitHub.']},
+    s6p1:{steps:[
+      'Revisa qué acción podría recibir cualquier Animal. Puedes usar atender(), emitirSonido() o describirAtencion(), según tu diseño.',
+      'Declara esa operación en Animal.',
+      'Elige al menos dos especies donde el comportamiento tenga sentido que sea diferente.',
+      'Sobrescribe el método en esas subclases usando exactamente la misma firma.',
+      'Si conoces @Override, úsalo encima del método sobrescrito.',
+      'Compila y prueba que no existan errores.',
+      'Guarda, commit y push.'
+    ],check:['Existe una operación común definida desde Animal.','Hay subclases que la sobrescriben.','La firma coincide entre padre e hijo.','El commit LAB-VET-11 aparece en GitHub.']},
+    s6p2:{steps:[
+      'Crea docs/diagramas/interaccion-objetos.md.',
+      'Dibuja un elemento Main o Veterinaria.',
+      'Dibuja varios objetos concretos: por ejemplo Perro, Gato, Tigre y León.',
+      'Representa que Main/Veterinaria envía la misma acción común a todos.',
+      'Anota que cada objeto puede responder con su propia implementación.',
+      'Guarda el diagrama y revisa que se entienda sin mirar el código.',
+      'Haz commit y push.'
+    ],check:['El diagrama muestra una misma llamada hacia distintos animales.','Se entiende que la respuesta depende del objeto concreto.','El commit LAB-VET-12 aparece en GitHub.']},
+    s7p1:{steps:[
+      'Crea src/Main.java.',
+      'Dentro de main crea al menos un Perro, un Gato, un Tigre y un León usando sus constructores.',
+      'Crea una estructura que te permita tratarlos como Animal cuando sea posible. Puede ser una colección o varias variables del tipo general.',
+      'Recorre o utiliza esos animales llamando a la operación común definida antes.',
+      'Ejecuta el programa.',
+      'Observa si cada objeto muestra el comportamiento que corresponde a su clase concreta.',
+      'Si el resultado no es el esperado, corrige antes del commit.',
+      'Cuando funcione, commit y push.'
+    ],check:['Main.java compila y ejecuta.','Se crean las cuatro especies.','La misma operación produce comportamiento según el objeto concreto.','El commit LAB-VET-13 aparece en GitHub.']},
+    s7p2:{steps:[
+      'Abre evidencias y crea cierre.md.',
+      'Escribe # Cierre del laboratorio.',
+      'Explica con tus palabras dónde utilizaste herencia.',
+      'Explica por qué fue necesario super() en los constructores.',
+      'Explica dónde observaste polimorfismo al ejecutar el programa.',
+      'Compara la solución final con el algoritmo conceptual escrito al comienzo.',
+      'Actualiza README.md del laboratorio cambiando Estado: en progreso por Estado: completado.',
+      'Guarda ambos archivos.',
+      'Ejecuta git status, verifica los cambios, realiza el último commit y push.',
+      'Abre tu repositorio en GitHub y comprueba que el último commit y los archivos estén visibles.'
+    ],check:['evidencias/cierre.md responde las cuatro reflexiones.','README.md indica Estado: completado.','El commit LAB-VET-14 está visible en GitHub.']}
   };
-  window.invalidateRequiredStepAction=function(stepId){setRequirement(stepId,false);applyGuards()};
 
-  const originalRender=window.render;
-  if(typeof originalRender==='function'){
-    window.render=function(){const r=originalRender.apply(this,arguments);setTimeout(applyGuards,0);return r};
-  }
-  new MutationObserver(()=>applyGuards()).observe(document.body,{childList:true,subtree:true});
-  if(typeof window.render==='function')window.render(); else applyGuards();
+  function readState(){try{return JSON.parse(localStorage.getItem(STORE)||'null')}catch(e){return null}}
+  function writeState(s){localStorage.setItem(STORE,JSON.stringify(s))}
+  function ensureActions(s){if(!s.actionRequirements)s.actionRequirements={};return s.actionRequirements}
+  function hasSavedSession(s){if(!s||!s.student)return false;const fieldsOk=REQUIRED_FIELDS.every(k=>String(s.student[k]||'').trim());const eventOk=Array.isArray(s.events)&&s.events.some(e=>e&&e.type==='session_configured');return fieldsOk&&eventOk}
+  function requirementMet(stepId){const s=readState();if(!s)return false;if(stepId==='s0p1'){const actions=ensureActions(s);if(actions.s0p1===true)return true;if(hasSavedSession(s)){actions.s0p1=true;writeState(s);return true}return false}return true}
+  function setRequirement(stepId,value){const s=readState();if(!s)return;ensureActions(s)[stepId]=!!value;writeState(s)}
+  function invalidateIdentityProgress(reason){const s=readState();if(!s)return false;ensureActions(s).s0p1=false;if(s.steps&&s.steps.s0p1){s.steps.s0p1=false;s.xp=Math.max(0,(Number(s.xp)||0)-20);s.events=s.events||[];s.events.push({at:new Date().toISOString(),type:'step_invalidated',detail:{step:'s0p1',reason},deviceAlias:s.student?.deviceAlias||''});if(Number(s.currentStage)>0)s.currentStage=0}writeState(s);return true}
+  function guardSwitch(input,allowed){if(!input)return;input.disabled=!allowed;const slider=input.nextElementSibling;if(slider){slider.style.cursor=allowed?'pointer':'not-allowed';slider.style.opacity=allowed?'1':'.45'}const line=input.closest('.switchline');if(line){let note=line.querySelector('.action-required-note');if(!allowed){if(!note){note=document.createElement('span');note.className='action-required-note';note.style.cssText='display:block;margin-left:.5rem;color:#b45309;font-size:.82rem;font-weight:700';line.appendChild(note)}note.textContent='🔒 Primero completa y guarda la acción obligatoria de este paso.'}else if(note)note.remove()}}
+  function currentStepIds(){const s=readState();const ids=[['s0p1','s0p2'],['s1p1','s1p2'],['s2p1','s2p2'],['s3p1','s3p2'],['s4p1','s4p2'],['s5p1','s5p2'],['s6p1','s6p2'],['s7p1','s7p2']];return ids[Number(s?.currentStage)||0]||[]}
+  function injectGuidance(){const ids=currentStepIds();document.querySelectorAll('.step-card').forEach((card,i)=>{const id=ids[i],g=GUIDES[id];if(!g||card.querySelector('.guided-now'))return;const mission=card.querySelector('.mission');if(!mission)return;const box=document.createElement('div');box.className='guided-now';box.style.cssText='background:#eff6ff;border:1px solid #93c5fd;border-radius:.8rem;padding:1rem;margin:.9rem 0';box.innerHTML='<strong style="font-size:1.05rem">🧭 Haz esto ahora</strong><ol style="padding-left:1.35rem;line-height:1.55">'+g.steps.map(x=>'<li style="margin:.45rem 0">'+x+'</li>').join('')+'</ol><div style="background:#fff;border:1px solid #bfdbfe;border-radius:.65rem;padding:.75rem"><strong>✅ Comprueba antes de continuar</strong><ul style="padding-left:1.25rem;margin-bottom:0">'+g.check.map(x=>'<li style="margin:.3rem 0">'+x+'</li>').join('')+'</ul></div>';mission.insertAdjacentElement('afterend',box)})}
+  function applyGuards(){const s=readState();if(!s)return;const cards=[...document.querySelectorAll('.step-card')];if(Number(s.currentStage)===0&&cards[0]){const sw=cards[0].querySelector('.switch input[type=checkbox]');guardSwitch(sw,requirementMet('s0p1'));const btn=cards[0].querySelector('.actions .btn-primary');if(btn){const met=requirementMet('s0p1');btn.textContent=met?'✓ Datos de sesión guardados':'Guardar datos de sesión'}}injectGuidance()}
+
+  const initial=readState();if(initial){const actions=ensureActions(initial);if(hasSavedSession(initial))actions.s0p1=true;else if(initial.steps&&initial.steps.s0p1){initial.steps.s0p1=false;initial.xp=Math.max(0,(Number(initial.xp)||0)-20);if(Number(initial.currentStage)>0)initial.currentStage=0;initial.events=initial.events||[];initial.events.push({at:new Date().toISOString(),type:'step_invalidated',detail:{step:'s0p1',reason:'missing_required_action'},deviceAlias:initial.student?.deviceAlias||''})}writeState(initial)}
+
+  const originalToggle=window.toggleStep;if(typeof originalToggle==='function'){window.toggleStep=function(id,on,xp){if(on&&!requirementMet(id)){alert('Antes de marcar este paso como realizado debes completar y guardar la acción obligatoria.');applyGuards();return}return originalToggle.apply(this,arguments)}}
+  const originalSaveIdentity=window.saveIdentity;if(typeof originalSaveIdentity==='function'){window.saveIdentity=function(){originalSaveIdentity.apply(this,arguments);setTimeout(()=>{const s=readState();if(hasSavedSession(s))setRequirement('s0p1',true);applyGuards()},0)}}
+  document.addEventListener('input',e=>{if(!IDENTITY_INPUTS.has(e.target?.id))return;invalidateIdentityProgress('identity_changed_after_save');applyGuards()},true)
+  window.completeRequiredStepAction=function(stepId,detail){const s=readState();if(!s)return;ensureActions(s)[stepId]=true;s.events=s.events||[];s.events.push({at:new Date().toISOString(),type:'required_action_completed',detail:{step:stepId,...(detail||{})},deviceAlias:s.student?.deviceAlias||''});writeState(s);applyGuards()};window.invalidateRequiredStepAction=function(stepId){setRequirement(stepId,false);applyGuards()}
+  const originalRender=window.render;if(typeof originalRender==='function'){window.render=function(){const r=originalRender.apply(this,arguments);setTimeout(applyGuards,0);return r}}
+  new MutationObserver(()=>applyGuards()).observe(document.body,{childList:true,subtree:true});if(typeof window.render==='function')window.render();else applyGuards()
 })();
 <\/script>`;
-fetch(BASE,{cache:'no-store'})
-  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()})
-  .then(html=>{
-    const patched=html.replace('</body>',PATCH+'\n</body>');
-    document.open();document.write(patched);document.close();
-  })
-  .catch(e=>{document.getElementById('msg').innerHTML='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
+fetch(BASE,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()}).then(html=>{const patched=html.replace('</body>',PATCH+'\n</body>');document.open();document.write(patched);document.close()}).catch(e=>{document.getElementById('msg').innerHTML='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
 </script>
 </body>
 </html>
