@@ -53,9 +53,18 @@ Promise.all([
       if(Number(s?.currentStage)!==0){notices.forEach(n=>n.remove());return;}
       notices.slice(1).forEach(n=>n.remove());
     }
+    function releaseSessionGuard(){
+      document.querySelectorAll('.step-card .switch input[type=checkbox]').forEach(sw=>{
+        sw.disabled=false;
+        const slider=sw.nextElementSibling;
+        if(slider){slider.style.opacity='1';slider.style.cursor='pointer'}
+        sw.closest('.switchline')?.querySelector('.action-required-note')?.remove();
+      });
+    }
     function sync(){
       normalizeRepoNotice();
       const s=read();if(!s)return;
+      if(Number(s.currentStage)!==0){releaseSessionGuard();return;}
       if(!s.actionRequirements)s.actionRequirements={};
       const ok=matchesSaved();
       if(s.actionRequirements.s0p1!==ok){s.actionRequirements.s0p1=ok;write(s)}
@@ -68,10 +77,11 @@ Promise.all([
 
     document.addEventListener('input',e=>{if(['studentName','studentSection','repoUrl','repoPath','deviceAlias'].includes(e.target?.id))setTimeout(sync,0)},true);
     document.addEventListener('click',e=>{
+      const s=read();
       const b=e.target&&e.target.closest?e.target.closest('.step-card .actions .btn-primary'):null;
-      if(b&&b.textContent.includes('Guardar')){b.classList.remove('is-saved');b.classList.add('is-saving');b.textContent='Guardando…';setTimeout(()=>{b.classList.remove('is-saving');sync()},250)}
+      if(Number(s?.currentStage)===0&&b&&b.textContent.includes('Guardar')){b.classList.remove('is-saved');b.classList.add('is-saving');b.textContent='Guardando…';setTimeout(()=>{b.classList.remove('is-saving');sync()},250)}
       const wrap=e.target&&e.target.closest?e.target.closest('.switch'):null;
-      if(wrap){sync();const sw=wrap.querySelector('input[type=checkbox]');if(sw?.disabled){e.preventDefault();e.stopImmediatePropagation();sw.checked=false}}
+      if(Number(s?.currentStage)===0&&wrap){sync();const sw=wrap.querySelector('input[type=checkbox]');if(sw?.disabled){e.preventDefault();e.stopImmediatePropagation();sw.checked=false}}
     },true);
     setTimeout(sync,50);setTimeout(sync,300);setInterval(sync,500);
   })();`;
