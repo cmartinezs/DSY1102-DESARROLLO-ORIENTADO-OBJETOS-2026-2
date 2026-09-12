@@ -13,17 +13,17 @@
       steps: [
         'Abre tu repositorio personal de DSY1102 en GitHub.',
         'Antes de continuar, revisa que tu repositorio siga el estándar oficial del curso. Si es nuevo, abre la guía enlazada en esta pantalla y prepara primero su estructura.',
-        'Si todavía no tienes el repositorio en este computador, clónalo con GitHub Desktop o con git clone.',
-        'Ubica la carpeta clonada en tu computador. La ruta local se parece a C:\\Users\\TuNombre\\Documents\\DSY1102-... y NO empieza por https://.',
+        'Si todavía no tienes el repositorio en este computador, primero completa los datos de esta pantalla.',
+        'Ubica la carpeta donde dejarás o ya dejaste el repositorio en tu computador. La ruta local se parece a C:\\Users\\TuNombre\\Documents\\DSY1102-... y NO empieza por https://.',
         'Completa nombre, sección, URL de GitHub, ruta local y un nombre corto para identificar este equipo.',
         'Presiona Guardar datos de sesión.',
-        'Comprueba que los comandos mostrados en esta misma pantalla cambien y usen tus datos reales.',
+        'Después de guardar aparecerá el comando de clonación personalizado con tu URL y tu ruta local.',
         'Sólo después de guardar correctamente se habilitará el switch del paso.'
       ],
       check: [
         'La URL empieza por https://github.com/.',
         'La ruta local corresponde a una carpeta de tu computador.',
-        'Los comandos ya no muestran placeholders como <URL-DE-TU-REPOSITORIO>.',
+        'El comando de clonación muestra tus datos reales y no placeholders.',
         'El switch se habilita sólo después de guardar.'
       ]
     },
@@ -89,6 +89,17 @@
     const s = readState();
     return STEP_IDS[Number(s?.currentStage) || 0] || [];
   }
+  function sessionReady(s = readState()) {
+    return !!(
+      s?.student &&
+      validRepoUrl(s.student.repoUrl) &&
+      validLocalPath(s.student.repoPath) &&
+      String(s.student.name || '').trim() &&
+      String(s.student.section || '').trim() &&
+      String(s.student.deviceAlias || '').trim() &&
+      ensureActions(s).s0p1 === true
+    );
+  }
   function showMessage(text, ok) {
     const card = document.querySelector('.step-card');
     if (!card) return;
@@ -108,16 +119,57 @@
     if (btn) code.appendChild(btn);
     code.appendChild(document.createTextNode((btn ? '\n' : '') + text));
   }
+  function findCloneCode(first) {
+    if (!first) return null;
+    return [...first.querySelectorAll('.code')].find(code => {
+      const t = code.textContent || '';
+      return t.includes('git clone') || t.includes('<URL-DE-TU-REPOSITORIO>') || t.includes('<CARPETA-DEL-REPOSITORIO>');
+    }) || null;
+  }
+  function layoutSessionSetup() {
+    const s = readState();
+    if (!s || Number(s.currentStage) !== 0) return;
+    const first = document.querySelector('.step-card');
+    if (!first) return;
+
+    const saveBtn = first.querySelector('.actions .btn-primary');
+    const actions = saveBtn?.closest('.actions');
+    const heading = [...first.querySelectorAll('h4')].find(h => h.textContent.includes('clonaste'));
+    const cloneCode = findCloneCode(first);
+
+    if (actions && heading && actions.nextElementSibling !== heading) {
+      heading.insertAdjacentElement('beforebegin', actions);
+    }
+
+    if (!cloneCode) return;
+    let waiting = first.querySelector('.clone-waiting');
+    if (!waiting) {
+      waiting = document.createElement('div');
+      waiting.className = 'clone-waiting';
+      waiting.style.cssText = 'background:#f8fafc;border:1px dashed #94a3b8;border-radius:.8rem;padding:1rem;margin:.75rem 0;color:#475569;font-weight:700';
+      waiting.innerHTML = '⏳ Esperando datos de sesión…<br><span style="font-weight:400;font-size:.92rem">Completa los datos de arriba y presiona <strong>Guardar datos de sesión</strong>. Después aparecerá aquí tu comando personalizado.</span>';
+      cloneCode.insertAdjacentElement('beforebegin', waiting);
+    }
+
+    const ready = sessionReady(s);
+    cloneCode.style.display = ready ? '' : 'none';
+    waiting.style.display = ready ? 'none' : '';
+
+    if (saveBtn) {
+      saveBtn.classList.toggle('is-saved', ready);
+      if (ready && !saveBtn.classList.contains('is-saving')) saveBtn.textContent = '✓ Datos de sesión guardados';
+      if (!ready && !saveBtn.classList.contains('is-saving')) saveBtn.textContent = 'Guardar datos de sesión';
+    }
+  }
   function personalizeCommands() {
     const s = readState();
-    if (!s?.student) return;
+    if (!sessionReady(s)) return;
     const repo = String(s.student.repoUrl || '').trim();
     const path = String(s.student.repoPath || '').trim();
-    if (!validRepoUrl(repo) || !validLocalPath(path)) return;
 
     document.querySelectorAll('.step-card .code').forEach(code => {
-      const t = code.textContent;
-      if (t.includes('git clone')) {
+      const t = code.textContent || '';
+      if (t.includes('git clone') || t.includes('<URL-DE-TU-REPOSITORIO>') || t.includes('<CARPETA-DEL-REPOSITORIO>')) {
         setCodeText(code, `git clone "${repo}" "${path}"\ncd "${path}"\ngit status`);
         return;
       }
@@ -172,13 +224,20 @@
       anchor.insertAdjacentElement('afterend', box);
     });
   }
+  function injectStyles() {
+    if (document.getElementById('lab-enhancement-styles')) return;
+    const css = document.createElement('style');
+    css.id = 'lab-enhancement-styles';
+    css.textContent = '.step-card .actions .btn-primary{transition:transform .12s ease,box-shadow .12s ease,filter .12s ease}.step-card .actions .btn-primary:hover{filter:brightness(1.08);box-shadow:0 4px 12px rgba(67,56,202,.25)}.step-card .actions .btn-primary:active{transform:translateY(1px) scale(.985);box-shadow:none}.step-card .actions .btn-primary.is-saving{opacity:.75;cursor:wait}.step-card .actions .btn-primary.is-saved{background:#166534!important;color:#fff!important}';
+    document.head.appendChild(css);
+  }
   function hardGuard() {
     const s = readState();
     if (!s || Number(s.currentStage) !== 0) return;
     const first = document.querySelector('.step-card');
     const sw = first?.querySelector('.switch input[type=checkbox]');
     if (!sw) return;
-    const ok = validRepoUrl(s.student?.repoUrl) && validLocalPath(s.student?.repoPath) && String(s.student?.name || '').trim() && String(s.student?.section || '').trim() && String(s.student?.deviceAlias || '').trim() && ensureActions(s).s0p1 === true;
+    const ok = sessionReady(s);
     sw.disabled = !ok;
     if (!ok) sw.checked = false;
     const slider = sw.nextElementSibling;
@@ -202,10 +261,13 @@
     writeState(s);
   }
   function refresh() {
+    injectStyles();
     injectStandardNotice();
     injectGuidance();
     injectNotes();
+    layoutSessionSetup();
     personalizeCommands();
+    layoutSessionSetup();
     hardGuard();
   }
 
@@ -219,16 +281,20 @@
       const repo = document.getElementById('repoUrl')?.value.trim() || '';
       const path = document.getElementById('repoPath')?.value.trim() || '';
       const dev = document.getElementById('deviceAlias')?.value.trim() || '';
+      const button = document.querySelector('.step-card .actions .btn-primary');
+
       if (!name || !section || !dev) { showMessage('Completa nombre, sección y nombre del equipo antes de guardar.', false); return; }
       if (!validRepoUrl(repo)) { showMessage('La URL del repositorio debe verse como https://github.com/usuario/repositorio.', false); return; }
       if (!validLocalPath(path)) { showMessage('La ruta local debe ser una carpeta real del computador, por ejemplo C:\\Users\\TuNombre\\Documents\\DSY1102-... No pegues aquí la URL de GitHub.', false); return; }
       if (isUrl(dev)) { showMessage('El nombre del equipo debe ser un nombre corto, por ejemplo Notebook-Casa o LAB-PC-12.', false); return; }
+
+      if (button) { button.classList.remove('is-saved'); button.classList.add('is-saving'); button.textContent = 'Guardando…'; }
       oldSaveIdentity.apply(this, arguments);
       setTimeout(() => {
         const s = readState();
         if (s) { ensureActions(s).s0p1 = true; writeState(s); }
         refresh();
-        showMessage('Datos guardados correctamente. Los comandos ya usan tu URL de GitHub y tu ruta local.', true);
+        showMessage('Datos guardados correctamente. El comando ya usa tu URL de GitHub y tu ruta local.', true);
       }, 0);
     };
   }
@@ -249,7 +315,7 @@
     ensureActions(s).s0p1 = false;
     if (s.steps?.s0p1) { s.steps.s0p1 = false; s.xp = Math.max(0, (Number(s.xp) || 0) - 20); }
     writeState(s);
-    hardGuard();
+    refresh();
   }, true);
 
   document.addEventListener('click', e => {
