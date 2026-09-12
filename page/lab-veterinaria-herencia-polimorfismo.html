@@ -31,6 +31,18 @@ fetch(SOURCE,{cache:'no-store'})
       "document.addEventListener('click',function(e){const s=readState();if(!s||Number(s.currentStage)!==0)return;const first=document.querySelector('.step-card');if(!first)return;const wrap=e.target&&e.target.closest?e.target.closest('.switch'):null;if(!wrap||!first.contains(wrap))return;if(!requirementMet('s0p1')){e.preventDefault();e.stopImmediatePropagation();const sw=wrap.querySelector('input[type=checkbox]');if(sw){sw.checked=false;sw.disabled=true}applyGuards()}},true);const originalToggle=window.toggleStep;"
     );
 
+    // 4) Valida la configuración y personaliza los comandos con los datos guardados.
+    src=src.replace(
+      "const originalSaveIdentity=window.saveIdentity;if(typeof originalSaveIdentity==='function'){window.saveIdentity=function(){originalSaveIdentity.apply(this,arguments);setTimeout(()=>{const s=readState();if(hasSavedSession(s))setRequirement('s0p1',true);applyGuards()},0)}}",
+      "function sessionMessage(text,type){const card=document.querySelector('.step-card');if(!card)return;let box=card.querySelector('.session-validation-msg');if(!box){box=document.createElement('div');box.className='session-validation-msg notice';const actions=card.querySelector('.actions');if(actions)actions.insertAdjacentElement('afterend',box)}box.className='session-validation-msg notice '+(type==='ok'?'notice-ok':'notice-danger');box.textContent=text}function personalizeSessionCommands(){const s=readState();if(!s||!s.student)return;const repo=String(s.student.repoUrl||'').trim();const path=String(s.student.repoPath||'').trim();if(!repo||!path)return;const code=[...document.querySelectorAll('.step-card .code')].find(x=>x.textContent.includes('git clone'));if(!code)return;const btn=code.querySelector('.copy');[...code.childNodes].forEach(n=>{if(n!==btn)n.remove()});code.appendChild(document.createTextNode('\\ngit clone \\\"'+repo+'\\\" \\\"'+path+'\\\"\\ncd \\\"'+path+'\\\"\\ngit status'))}const originalSaveIdentity=window.saveIdentity;if(typeof originalSaveIdentity==='function'){window.saveIdentity=function(){const url=document.getElementById('repoUrl')?.value.trim()||'';const path=document.getElementById('repoPath')?.value.trim()||'';const dev=document.getElementById('deviceAlias')?.value.trim()||'';if(!/^https:\\/\\/github\\.com\\/[^/]+\\/[^/]+\\/?$/i.test(url)){sessionMessage('La URL del repositorio debe ser una dirección de GitHub, por ejemplo: https://github.com/usuario/DSY1102-001D-nombre-apellido','error');return}if(/^https?:\\/\\//i.test(path)){sessionMessage('La ruta local no es una URL. Debe ser una ruta de este computador, por ejemplo: C:\\\\Users\\\\TuNombre\\\\Documents\\\\DSY1102-001D-nombre-apellido','error');return}if(/^https?:\\/\\//i.test(dev)){sessionMessage('El nombre del equipo debe ser un nombre corto que te permita reconocerlo, por ejemplo: Notebook-Casa o LAB-PC-12.','error');return}originalSaveIdentity.apply(this,arguments);setTimeout(()=>{const s=readState();if(hasSavedSession(s)){setRequirement('s0p1',true);personalizeSessionCommands();sessionMessage('Datos guardados. Los comandos de esta página ya utilizan tu repositorio y tu ruta local.','ok')}applyGuards()},0)}}"
+    );
+
+    // 5) También personaliza al renderizar una sesión ya guardada.
+    src=src.replace(
+      "injectGuidance()}",
+      "injectGuidance();if(typeof personalizeSessionCommands==='function')personalizeSessionCommands()}"
+    );
+
     document.open();document.write(src);document.close();
   })
   .catch(e=>{document.getElementById('msg').textContent='No se pudo cargar el laboratorio. Recarga la página. Si el problema continúa, informa al docente.';console.error(e)});
