@@ -114,15 +114,15 @@ publication:
 
 conformance:
   target: FULL
-  current: W7_4_READY_FOR_CANONICAL_REPLAY
+  current: W7_4_MACHINE_PASS_PENDING_HUMAN_REVIEW
   declared_gaps:
     - id: W7-4-ADOPTION-001
       concern: CANONICAL_REPOSITORY_SITE_ADOPTION
       affected_audiences: [USER, DEVELOPER, GOVERNANCE]
       rationale: >-
-        The EDUCATIONAL Repository Information Contract and repository-site ADEL artifact are being
-        adopted under Wave 7.4. Canonical Builder replay, deterministic product acceptance,
-        representative browser review and publication-readiness classification are not yet closed.
+        Canonical Builder replay and machine product acceptance have passed with this single declared
+        adoption gap. Representative desktop/mobile captures are ready, but human learner-first and
+        temporal-truth acceptance remains pending before final closure.
       status: OPEN
       owner: CAP-RKP-001-WAVE-7
       closure_when:
@@ -132,3 +132,27 @@ conformance:
         - REPRESENTATIVE_MOBILE_REVIEW_PASS
         - TEMPORAL_TRUTH_PASS
         - PUBLICATION_READINESS_CLASSIFIED
+  closure_evidence:
+    preclosure_source_revision: 3d6393804284dfb3362726ac84786f043d1b84c9
+    canonical_replay: PASS_WITH_DECLARED_GAPS
+    product_acceptance: PASS_WITH_DECLARED_GAPS
+    knowledge_items: 8
+    sources_present: 8
+    sources_missing: 0
+    diagnostics: 0
+    semantic_input: adel-resolved-projection
+    resolved_semantic_nodes: 6
+    knowledge_pages: 8
+    output_files: 15
+    generated_links_checked: 75
+    generated_links_broken: 0
+    shell_navigation: PASS
+    knowledge_discoverability: PASS
+    deterministic_replay: true
+    publication_readiness: READY_FOR_PROVIDER_VERIFICATION
+    fixture_specific_schema_fork_required: false
+    repository_specific_builder_hardcoding_required: false
+    browser_review: READY_FOR_HUMAN_REVIEW
+    human_review: PENDING
+    machine_evidence: governance/evidence/W7-4-MACHINE-ACCEPTANCE.md
+    reconciliation: governance/reconciliations/2026-09-14-W7-4-CANONICAL-BUILDER-ADOPTION.md
