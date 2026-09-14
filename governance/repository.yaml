@@ -1,0 +1,134 @@
+schema_version: 1
+repository:
+  name: DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2
+  owner: cmartinezs
+  canonical_url: https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2
+  type: EDUCATIONAL
+  secondary_types: []
+  facets:
+    - COURSE_REPOSITORY
+    - LEARNER_FIRST
+  purpose: >-
+    Provide a learner-first, reproducible support repository for DSY1102 Desarrollo Orientado a
+    Objetos 2026-2, organizing weekly learning progression, concepts, examples, exercises,
+    challenges, guided laboratories, the incremental PetCare project and course-operation guidance
+    while preserving AVA and institutional sources as the authorities for official communications,
+    evaluations and resources that belong there.
+  status:
+    lifecycle: ACTIVE
+  canonical_branch: master
+
+audiences:
+  primary:
+    - USER
+  secondary:
+    - DEVELOPER
+    - GOVERNANCE
+
+knowledge:
+  - id: course-orientation
+    source: README.md
+    type: [CONCEPT, STRUCTURE, GUIDE, REFERENCE]
+    intent: [DESCRIPTIVE, SUMMARY, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER, GOVERNANCE]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: weekly-learning-path
+    source: semanas/README.md
+    type: [STRUCTURE, GUIDE, REFERENCE]
+    intent: [EXPLANATORY, PROCEDURAL, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: worked-examples
+    source: ejemplos/README.md
+    type: [GUIDE, REFERENCE]
+    intent: [EXPLANATORY, PROCEDURAL, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: exercises-and-challenges
+    source: ejercicios/README.md
+    type: [GUIDE, REFERENCE]
+    intent: [PROCEDURAL, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: guided-laboratories
+    source: labs/README.md
+    type: [PROCEDURE, GUIDE, REFERENCE]
+    intent: [PROCEDURAL, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: formative-project
+    source: proyecto-formativo/README.md
+    type: [GUIDE, STRUCTURE, REFERENCE]
+    intent: [PROCEDURAL, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: evaluation-and-evidence-guidance
+    source: docs/ACTIVIDAD-FORMATIVA-TRANSVERSAL.md
+    type: [GUIDE, RULE, REFERENCE]
+    intent: [EXPLANATORY, PROCEDURAL, REFERENCE]
+    audiences: [USER, DEVELOPER, GOVERNANCE]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: weekly-maintainer-guidance
+    source: docs/CHECKLIST-OPERACION-SEMANAL.md
+    type: [PROCEDURE, RULE, REFERENCE]
+    intent: [PROCEDURAL, REFERENCE]
+    audiences: [DEVELOPER, GOVERNANCE]
+    authority: GOVERNED_REFERENCE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+publication:
+  enabled: true
+  derived_read_model: true
+  visibility: PUBLIC
+  target: GH_PAGES
+  branch: gh-pages
+  mode: BUILD_FROM_BRANCH
+  folder: /
+  github_actions_deployment:
+    allowed: false
+  freshness:
+    same_change_expected: true
+  completeness_mode: ACTIVE_DECLARED_GAPS_ALLOWED
+
+conformance:
+  target: FULL
+  current: W7_4_READY_FOR_CANONICAL_REPLAY
+  declared_gaps:
+    - id: W7-4-ADOPTION-001
+      concern: CANONICAL_REPOSITORY_SITE_ADOPTION
+      affected_audiences: [USER, DEVELOPER, GOVERNANCE]
+      rationale: >-
+        The EDUCATIONAL Repository Information Contract and repository-site ADEL artifact are being
+        adopted under Wave 7.4. Canonical Builder replay, deterministic product acceptance,
+        representative browser review and publication-readiness classification are not yet closed.
+      status: OPEN
+      owner: CAP-RKP-001-WAVE-7
+      closure_when:
+        - CANONICAL_BUILDER_REPLAY_CLASSIFIED
+        - ZERO_UNDECLARED_BLOCKING_GAPS
+        - REPRESENTATIVE_DESKTOP_REVIEW_PASS
+        - REPRESENTATIVE_MOBILE_REVIEW_PASS
+        - TEMPORAL_TRUTH_PASS
+        - PUBLICATION_READINESS_CLASSIFIED
