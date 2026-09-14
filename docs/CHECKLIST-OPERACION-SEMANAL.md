@@ -11,11 +11,11 @@ No reemplaza la planificación institucional. Su objetivo es evitar desalineacio
 - [ ] Revisar el avance real de la sección y las deudas de la semana anterior.
 - [ ] Crear o reconciliar `semanas/semana-XX/`.
 - [ ] Liberar el contenido que corresponde por semana curricular, aunque aún no se haya alcanzado completamente en clase.
-- [ ] Preparar ejemplos en `examples/semana-XX/` cuando corresponda.
-- [ ] Preparar práctica corta en `practica/semana-XX/` cuando corresponda.
+- [ ] Preparar ejemplos en `ejemplos/semana-XX/` cuando corresponda.
+- [ ] Preparar práctica breve, refuerzo o desafíos en `ejercicios/semana-XX/` cuando corresponda.
 - [ ] Preparar laboratorio en `labs/semana-XX/` cuando exista una actividad integradora.
 - [ ] Definir el incremento/checkpoint de PetCare sin adelantar contenidos futuros.
-- [ ] Actualizar desafío semanal y desbloqueos de grandes desafíos si corresponde.
+- [ ] Actualizar desafíos destacados y desbloqueos cuando corresponda, manteniendo su fuente canónica en el repositorio.
 - [ ] Verificar enlaces entre repo, portal y Material Público.
 
 ## 2. Ruta mínima que debe ver el estudiante
@@ -43,12 +43,13 @@ La página principal debe responder, sin necesidad de explorar el repo:
 - [ ] Publicar o actualizar el resumen real de la semana.
 - [ ] Actualizar PetCare desde el estado efectivamente alcanzado.
 - [ ] Confirmar qué ejercicios/desafíos quedan disponibles para estudio autónomo.
-- [ ] Reconciliar `semanas/`, `practica/`, `labs/`, `examples/`, `proyecto-formativo/` y `page/`.
+- [ ] Reconciliar `semanas/`, `ejemplos/`, `ejercicios/`, `labs/` y `proyecto-formativo/`.
 - [ ] Comprobar que no existan dos fuentes activas del mismo artefacto.
 - [ ] Revisar que todos los enlaces públicos funcionen.
 - [ ] Registrar deuda pedagógica o técnica que deba retomarse la semana siguiente.
 - [ ] Actualizar `data/weekly/semana-XX.yml` con plan vs avance real, evidencias, DevLog agregado, PetCare, bloqueos y foco siguiente.
 - [ ] Mantener en `null` cualquier métrica sin evidencia confiable; no estimar ni completar datos personales.
+- [ ] Confirmar que el portal publicado en `gh-pages` siga siendo un read model derivado de las fuentes de `master`, sin mantener una raíz `page/` paralela.
 
 ## 5. Estadísticas semanales
 
@@ -61,7 +62,7 @@ Al cerrar la semana, verificar que el YAML permita derivar al menos:
 - participación agregada en DevLog cuando ya exista medición;
 - evidencia formativa disponible;
 - estado de PetCare;
-- avance de prácticas/labs/desafíos;
+- avance de ejercicios/labs/desafíos;
 - bloqueos y deuda para la semana siguiente.
 
 El archivo estadístico es agregado y operacional: no contiene nombres ni notas individuales.
