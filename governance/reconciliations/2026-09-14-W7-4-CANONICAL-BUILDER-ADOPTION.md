@@ -5,7 +5,7 @@
 **Repository:** `cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2`  
 **Classification target:** `EDUCATIONAL`  
 **Facets:** `COURSE_REPOSITORY`, `LEARNER_FIRST`  
-**Status:** `READY_FOR_CANONICAL_REPLAY`
+**Status:** `MACHINE_PASS_PENDING_HUMAN_REVIEW`
 
 ## Purpose
 
@@ -79,45 +79,103 @@ Forbidden shortcuts:
 - generated portal content becoming course or institutional authority;
 - reintroducing `page/` merely to satisfy the adopter.
 
-## Initial conformance state
+## Pre-closure machine acceptance
 
-`W7-4-ADOPTION-001` remains OPEN only for the adoption workflow itself:
+Adopter source revision:
 
-- canonical Builder replay;
-- deterministic build evidence;
-- product/link/shell/discoverability acceptance;
-- representative desktop/mobile and temporal-truth review;
-- publication-readiness classification.
+`3d6393804284dfb3362726ac84786f043d1b84c9`
 
-No required EDUCATIONAL concern is knowingly absent from the mapped repository sources at replay start.
+Governed commands:
 
-## Acceptance
+```text
+make w7-adopter-replay
+make w7-adopter-product-gate
+make w7-adopter-browser-review
+```
 
-The canonical replay must prove:
+Command execution result: PASS for all three targets.
 
-- exact adopter revision recorded;
-- `repository-site.adel` compiles;
-- production semantic input is `adel-resolved-projection`;
-- all declared knowledge sources exist;
-- deterministic output;
-- no fixture-specific schema fork;
-- no repository-specific Builder hardcoding;
-- generated link integrity acceptable for publication;
-- governed shell and knowledge discoverability pass;
-- learner-first orientation is preserved;
-- desktop/mobile review passes;
-- temporal truth does not advertise stale `page/` or stale current-week markers;
-- publication readiness is explicitly classified.
+Canonical replay classification:
+
+`PASS_WITH_DECLARED_GAPS`
+
+Product acceptance classification:
+
+`PASS_WITH_DECLARED_GAPS`
+
+Verified machine state:
+
+- 8 knowledge items;
+- 8 sources present;
+- 0 sources missing;
+- 0 diagnostics;
+- all 8 knowledge items are explicit descriptor entries;
+- convention-discovered items = 0;
+- only declared gap = `W7-4-ADOPTION-001`;
+- production semantic input = `adel-resolved-projection`;
+- resolved semantic nodes = 6;
+- knowledge pages = 8;
+- output files = 15;
+- deterministic semantic nodes/output/repository identity/gaps/section hubs/page count;
+- 75 generated links checked;
+- 0 broken links;
+- governed shell/navigation = PASS;
+- knowledge discoverability = PASS;
+- publication readiness = `READY_FOR_PROVIDER_VERIFICATION`;
+- fixture-specific schema fork required = false;
+- repository-specific Builder hardcoding required = false.
+
+Evidence: `governance/evidence/W7-4-MACHINE-ACCEPTANCE.md`.
+
+## Browser review readiness
+
+Browser capture gate completed with:
+
+`READY_FOR_HUMAN_REVIEW`
+
+Representative pages:
+
+- Home (`index.html`);
+- Conformance (`conformance.html`);
+- Knowledge (`knowledge.html`);
+- Course Orientation (`knowledge/course-orientation.html`).
+
+Each surface was captured at desktop `1440x1100` and mobile `390x844`, producing eight screenshots. Structural checks confirm shell and required navigation on every capture.
+
+## Remaining human acceptance
+
+The current gate is deliberately human. Review must establish:
+
+- global navigation is coherent and usable;
+- repository identity is visible and consistent;
+- content hierarchy is readable without clipping or overlap;
+- section/detail navigation preserves the global shell;
+- mobile layout has no horizontal page overflow;
+- material course knowledge is discoverable without relying on source links;
+- learner-first orientation is evident;
+- current-state messaging is understandable;
+- stale `page/` truth is absent from current course orientation;
+- stale Week 04 `Actual/Próximamente` truth is absent from the current projected learner path.
+
+Until the representative desktop/mobile and temporal-truth review passes:
+
+```text
+W7_4_MACHINE = PASS_WITH_DECLARED_GAPS
+W7_4_HUMAN = PENDING
+W7_4_ADOPTION_001 = OPEN
+PR_5_MERGE_ALLOWED = false
+WAVE_7_FULL_COHORT_COMPLETE = false
+```
 
 ## Wave progression
 
-W7.4 is the final planned adopter of the current cohort. Full Wave 7 completion MUST NOT be claimed until this adopter is classified and its PR is merged or otherwise closed with an accepted outcome.
+W7.4 is the final planned adopter of the current cohort. Full Wave 7 completion MUST NOT be claimed until this adopter is classified and PR #5 is merged or otherwise closed with an accepted outcome.
 
 ## Non-claims
 
 This branch does not yet claim:
 
-- W7.4 complete;
+- final W7.4 closure;
 - Wave 7 full cohort complete;
 - provider-side Pages state verified;
 - ADEL Core changes required;
@@ -126,4 +184,4 @@ This branch does not yet claim:
 
 ## Next action
 
-Run the current governed W7 adopter gates from `standard-repo-website-builder` against this branch, classify machine acceptance, then perform representative browser/human review before merging the adoption PR.
+Perform human review of the eight generated browser captures. If learner-first desktop/mobile usability and temporal truth pass, persist human acceptance, remove `W7-4-ADOPTION-001`, replay the adopter in gap-free post-closure state, and only then merge PR #5.
