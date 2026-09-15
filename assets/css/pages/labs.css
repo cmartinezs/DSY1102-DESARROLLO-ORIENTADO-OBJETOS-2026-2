@@ -1,0 +1,5 @@
+.labs-hero { background: linear-gradient(135deg,#111827,#0f766e); }
+.lab-card { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 1.25rem; }
+.lab-card--current { border: 2px solid #5eead4; }
+.lab-tags { display: flex; gap: .4rem; flex-wrap: wrap; }
+.lab-tag { display: inline-block; border: 1px solid var(--color-line); border-radius: 999px; padding: .25rem .55rem; background: #f8fafc; font-size: .8rem; }
