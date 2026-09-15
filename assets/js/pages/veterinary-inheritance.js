@@ -79,11 +79,25 @@ function workflowTabs(step) {
       <section class="vet1-tabpanel" role="tabpanel" hidden data-tab-panel="cli">
         <div class="notice notice-info"><strong>Antes de comenzar:</strong> abre una terminal ubicada en la carpeta raíz de tu repositorio. La ruta de trabajo configurada para este equipo es <code>${esc(repoPathLabel())}</code>.</div>
         <div class="notice notice-warning"><strong>No copies ni ejecutes todos los comandos juntos.</strong> Ejecuta un paso, observa el resultado y recién después continúa con el siguiente.</div>
-        ${commandStep(1, 'Revisa el estado del repositorio', 'git status', 'Comprueba que estás en el repositorio correcto y reconoce los archivos que modificaste.')}
-        ${commandStep(2, 'Prepara los archivos del laboratorio', `git add "${labPath()}"`, 'Este comando deja preparados para el commit los cambios de esta carpeta.')}
-        ${commandStep(3, 'Verifica qué quedó preparado', 'git status', 'Confirma que los archivos correctos quedaron en staged antes de crear el commit.')}
-        ${commandStep(4, 'Crea el commit', `git commit -m "${commitMessage}"`, 'Ejecuta este comando sólo cuando ya validaste los cambios preparados.')}
-        ${commandStep(5, 'Envía el commit a GitHub', 'git push', 'Hazlo después de que git commit haya finalizado correctamente y espera la confirmación del push.')}
+        <div class="vet1-cli-carousel" data-cli-carousel data-cli-index="0">
+          <div class="vet1-cli-carousel__viewport">
+            <div class="vet1-cli-slide is-active" data-cli-slide="0">${commandStep(1, 'Revisa el estado del repositorio', 'git status', 'Comprueba que estás en el repositorio correcto y reconoce los archivos que modificaste.')}</div>
+            <div class="vet1-cli-slide" data-cli-slide="1" hidden>${commandStep(2, 'Prepara los archivos del laboratorio', `git add "${labPath()}"`, 'Este comando deja preparados para el commit los cambios de esta carpeta.')}</div>
+            <div class="vet1-cli-slide" data-cli-slide="2" hidden>${commandStep(3, 'Verifica qué quedó preparado', 'git status', 'Confirma que los archivos correctos quedaron en staged antes de crear el commit.')}</div>
+            <div class="vet1-cli-slide" data-cli-slide="3" hidden>${commandStep(4, 'Crea el commit', `git commit -m "${commitMessage}"`, 'Ejecuta este comando sólo cuando ya validaste los cambios preparados.')}</div>
+            <div class="vet1-cli-slide" data-cli-slide="4" hidden>${commandStep(5, 'Envía el commit a GitHub', 'git push', 'Hazlo después de que git commit haya finalizado correctamente y espera la confirmación del push.')}</div>
+          </div>
+          <div class="vet1-cli-carousel__footer">
+            <button class="btn btn-secondary" type="button" data-cli-prev disabled>← Anterior</button>
+            <div class="vet1-cli-carousel__status">
+              <strong data-cli-counter>Paso 1 de 5</strong>
+              <div class="vet1-cli-carousel__dots" aria-label="Pasos de la secuencia CLI">
+                ${[0,1,2,3,4].map(i => `<button type="button" class="vet1-cli-dot ${i===0?'is-active':''}" data-cli-go="${i}" aria-label="Ir al paso ${i+1}"></button>`).join('')}
+              </div>
+            </div>
+            <button class="btn btn-primary" type="button" data-cli-next>Siguiente →</button>
+          </div>
+        </div>
         <div class="notice notice-info">${icon('check')} Si un comando muestra un error, detente y resuélvelo antes de ejecutar el siguiente.</div>
       </section>
     </div>
@@ -209,6 +223,29 @@ app.addEventListener('click', async event => {
       panel.classList.toggle('is-active', active);
       panel.hidden = !active;
     });
+    return;
+  }
+
+  const carouselButton = event.target.closest('[data-cli-prev], [data-cli-next], [data-cli-go]');
+  if (carouselButton) {
+    const carousel = carouselButton.closest('[data-cli-carousel]');
+    const slides = [...carousel.querySelectorAll('[data-cli-slide]')];
+    let index = Number(carousel.dataset.cliIndex || 0);
+    if (carouselButton.hasAttribute('data-cli-prev')) index--;
+    if (carouselButton.hasAttribute('data-cli-next')) index++;
+    if (carouselButton.hasAttribute('data-cli-go')) index = Number(carouselButton.dataset.cliGo);
+    index = Math.max(0, Math.min(slides.length - 1, index));
+    carousel.dataset.cliIndex = String(index);
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === index;
+      slide.classList.toggle('is-active', active);
+      slide.hidden = !active;
+    });
+    carousel.querySelectorAll('[data-cli-go]').forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
+    carousel.querySelector('[data-cli-counter]').textContent = `Paso ${index + 1} de ${slides.length}`;
+    carousel.querySelector('[data-cli-prev]').disabled = index === 0;
+    carousel.querySelector('[data-cli-next]').disabled = index === slides.length - 1;
+    carousel.querySelector('[data-cli-next]').textContent = index === slides.length - 1 ? 'Último paso' : 'Siguiente →';
     return;
   }
 
