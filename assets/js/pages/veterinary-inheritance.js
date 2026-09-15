@@ -1,9 +1,11 @@
-import { LAB_ID, STORAGE_KEY, identityComplete, loadState, moveToStage, progressPercent, saveState, stageDone, stageUnlocked, stages, submitQuiz, toggleStep, updateIdentity, updateRepoPath } from '../business/labs/veterinary-inheritance-model.js';
+import { LAB_ID, identityComplete, loadState, moveToStage, progressPercent, saveState, stageDone, stageUnlocked, stages, submitQuiz, toggleStep, updateIdentity, updateRepoPath } from '../business/labs/veterinary-inheritance-model.js';
 import { decryptProgress, encryptProgress } from '../business/labs/veterinary-inheritance-crypto.js';
 
 let state = loadState();
 let pendingImport = null;
+let reviewStage = null;
 
+const ICONS = '../../../assets/img/icons.svg';
 const app = document.querySelector('#vet1-app');
 const nav = document.querySelector('#vet1-stage-nav');
 const progressBar = document.querySelector('#vet1-progress-bar');
@@ -16,6 +18,7 @@ const repoDialog = document.querySelector('#vet1-repo-dialog');
 const importFile = document.querySelector('#vet1-import-file');
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+const icon = (name, className='icon') => `<svg class="${className}" aria-hidden="true"><use href="${ICONS}#${name}"></use></svg>`;
 
 function persist() { saveState(state); render(); }
 function shellPath() { return state.student.repoPath ? `cd "${state.student.repoPath}"` : 'cd "<RUTA-DE-TU-REPOSITORIO>"'; }
@@ -29,66 +32,102 @@ function diagram(kind) {
   return '';
 }
 
-function identityForm() {
+function identityForm(readOnly = false) {
   const s = state.student;
+  const disabled = readOnly ? 'disabled' : '';
   return `<div class="vet1-identity">
-    <label class="vet1-field">Nombre completo<input id="studentName" value="${esc(s.name)}" placeholder="Nombre y apellido"></label>
-    <label class="vet1-field">Sección<input id="studentSection" value="${esc(s.section)}" placeholder="Ej.: 001D"></label>
-    <label class="vet1-field">URL de tu repositorio GitHub<input id="repoUrl" value="${esc(s.repoUrl)}" placeholder="https://github.com/usuario/DSY1102-SECCION-nombre-apellido"></label>
-    <label class="vet1-field">Ruta local del repositorio<input id="repoPath" value="${esc(s.repoPath)}" placeholder="C:\\Users\\...\\DSY1102-..."></label>
-    <label class="vet1-field">Nombre de este equipo<input id="deviceAlias" value="${esc(s.deviceAlias)}" placeholder="LAB-PC-12 o Mi notebook"></label>
+    <label class="vet1-field">Nombre completo<input id="studentName" value="${esc(s.name)}" placeholder="Nombre y apellido" ${disabled}></label>
+    <label class="vet1-field">Sección<input id="studentSection" value="${esc(s.section)}" placeholder="Ej.: 001D" ${disabled}></label>
+    <label class="vet1-field">URL de tu repositorio GitHub<input id="repoUrl" value="${esc(s.repoUrl)}" placeholder="https://github.com/usuario/DSY1102-SECCION-nombre-apellido" ${disabled}></label>
+    <label class="vet1-field">Ruta local del repositorio<input id="repoPath" value="${esc(s.repoPath)}" placeholder="C:\\Users\\...\\DSY1102-..." ${disabled}></label>
+    <label class="vet1-field">Nombre de este equipo<input id="deviceAlias" value="${esc(s.deviceAlias)}" placeholder="LAB-PC-12 o Mi notebook" ${disabled}></label>
   </div>
   <div class="notice notice-warning"><strong>Importante:</strong> el navegador no expone de forma fiable el nombre real del equipo; usa un alias reconocible.</div>
-  <div class="vet1-actions"><button class="btn btn-primary" data-action="save-identity">Guardar datos de sesión</button></div>`;
+  ${readOnly ? '' : `<div class="vet1-actions"><button class="btn btn-primary" data-action="save-identity">${icon('save')} Guardar datos de sesión</button></div>`}`;
 }
 
 function gitBlock(step) {
   if (!step.commit) return '';
-  return `<div class="vet1-code"><button class="btn btn-secondary vet1-copy" data-copy-code>Copiar</button>${esc(shellPath())}\ngit status\ngit add "${labPath()}"\ngit commit -m "${esc(step.commit)}"\ngit push</div>`;
+  return `<div class="vet1-code"><button class="btn btn-secondary vet1-copy" data-copy-code>${icon('clipboard')} Copiar</button>${esc(shellPath())}\ngit status\ngit add "${labPath()}"\ngit commit -m "${esc(step.commit)}"\ngit push</div>`;
 }
 
-function stepHtml(step, index) {
+function stepHtml(step, index, reviewOnly = false) {
   const checked = Boolean(state.steps[step.id]);
   const currentStage = stages[state.currentStage];
-  const passed = Boolean(state.quizzes[currentStage.id]?.passed);
   const identityReady = step.id !== 's0p1' || identityComplete(state.student);
-  const disabled = passed || !identityReady;
-  return `<article class="panel vet1-step stack">
+  const disabled = reviewOnly || !identityReady;
+  return `<article class="panel vet1-step stack ${reviewOnly ? 'is-review' : ''}">
     <div class="vet1-step__head"><div><span class="badge">Paso ${index + 1}/${currentStage.steps.length}</span><h2>${esc(step.title)}</h2></div><strong>+${step.xp} XP</strong></div>
     <div><h3>¿Qué estamos haciendo?</h3><p>${esc(step.what)}</p></div>
     <div class="vet1-why"><strong>¿Por qué lo hacemos?</strong><br>${esc(step.why)}</div>
     ${step.diagram ? diagram(step.diagram) : ''}
-    <div class="vet1-mission"><strong>🎯 Tu misión</strong><br>${esc(step.mission)}</div>
-    ${step.special === 'identity' ? identityForm() : `<div class="vet1-deliverable"><strong>📦 Entregable</strong><br><code>${esc(step.deliver)}</code>${step.template ? `<pre class="vet1-code">${esc(step.template)}</pre>` : ''}</div>${gitBlock(step)}`}
-    <label class="vet1-switchline"><input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}> He realizado este paso y verifiqué su entregable.</label>
-    ${step.id === 's0p1' && !identityReady ? '<div class="notice notice-warning">Guarda primero datos válidos de sesión para habilitar este paso.</div>' : ''}
+    <div class="vet1-mission"><strong>Tu misión</strong><br>${esc(step.mission)}</div>
+    ${step.special === 'identity' ? identityForm(reviewOnly) : `<div class="vet1-deliverable"><strong>Entregable</strong><br><code>${esc(step.deliver)}</code>${step.template ? `<pre class="vet1-code">${esc(step.template)}</pre>` : ''}</div>${gitBlock(step)}`}
+    <label class="switch-control vet1-switchline">
+      <input class="switch-control__input" type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}>
+      <span class="switch-control__track" aria-hidden="true"></span>
+      <span>${reviewOnly ? 'Paso completado' : 'He realizado este paso y verifiqué su entregable.'}</span>
+    </label>
+    ${step.id === 's0p1' && !identityReady && !reviewOnly ? '<div class="notice notice-warning">Guarda primero datos válidos de sesión para habilitar este paso.</div>' : ''}
   </article>`;
 }
 
 function quizHtml(stage) {
-  const passed = Boolean(state.quizzes[stage.id]?.passed);
-  const allSteps = stage.steps.every(step => state.steps[step.id]);
-  if (passed) {
-    return `<section class="panel stack"><div class="notice notice-success"><strong>✓ Checkpoint superado.</strong> La siguiente etapa está desbloqueada.</div>${state.currentStage < stages.length - 1 ? '<button class="btn btn-success" data-action="next-stage">Continuar a la siguiente etapa →</button>' : '<strong>Laboratorio completo. Exporta tu progreso y confirma el último push.</strong>'}</section>`;
-  }
-  if (!allSteps) return '<section class="panel"><div class="notice notice-info">🔒 Completa todos los pasos de esta etapa antes del checkpoint.</div></section>';
-  return `<section class="panel stack"><h2>Checkpoint · 2 preguntas para avanzar</h2>${stage.quiz.map((question, qIndex) => `<div class="vet1-quiz-question"><strong>${qIndex + 1}. ${esc(question.q)}</strong>${question.a.map((answer, aIndex) => `<label><input type="radio" name="quiz-${qIndex}" value="${aIndex}"> ${esc(answer)}</label>`).join('')}</div>`).join('')}<button class="btn btn-primary" data-action="submit-quiz">Revisar respuestas</button><div id="vet1-quiz-message"></div></section>`;
+  return `<section class="panel stack vet1-checkpoint">
+    <div class="vet1-section-heading">${icon('question','icon icon-lg')}<div><span class="badge">Checkpoint</span><h2>2 preguntas para avanzar</h2></div></div>
+    <p class="muted">Completaste todos los pasos de esta etapa. Ahora valida tu comprensión antes de continuar.</p>
+    ${stage.quiz.map((question, qIndex) => `<div class="vet1-quiz-question"><strong>${qIndex + 1}. ${esc(question.q)}</strong>${question.a.map((answer, aIndex) => `<label><input type="radio" name="quiz-${qIndex}" value="${aIndex}"> ${esc(answer)}</label>`).join('')}</div>`).join('')}
+    <button class="btn btn-primary" data-action="submit-quiz">${icon('check')} Revisar respuestas</button>
+    <div id="vet1-quiz-message"></div>
+  </section>`;
+}
+
+function passedHtml(stage, reviewing) {
+  const hasNext = state.currentStage < stages.length - 1;
+  return `<section class="panel stack vet1-passed">
+    <div class="notice notice-success"><strong>${icon('check')} Checkpoint superado.</strong> Tu avance queda guardado y esta etapa no necesita rehacerse.</div>
+    ${reviewing ? '<div class="notice notice-info"><strong>Modo repaso.</strong> Puedes revisar todos los pasos, pero los switches están bloqueados para proteger tu avance y XP.</div>' : ''}
+    <div class="vet1-actions">
+      <button class="btn btn-secondary" data-action="${reviewing ? 'close-review' : 'review-stage'}">${icon(reviewing ? 'x' : 'eye')} ${reviewing ? 'Cerrar repaso' : 'Repasar esta etapa'}</button>
+      ${hasNext ? `<button class="btn btn-success" data-action="next-stage">Continuar a la siguiente etapa ${icon('arrow-right')}</button>` : '<strong>Laboratorio completo. Exporta tu progreso y confirma el último push.</strong>'}
+    </div>
+  </section>`;
 }
 
 function renderNav() {
-  nav.innerHTML = stages.map((stage, index) => `<button class="vet1-stage ${index === state.currentStage ? 'is-active' : ''}" data-stage="${index}" ${stageUnlocked(state,index) ? '' : 'disabled'}>${stageDone(state,index) ? '✓' : stageUnlocked(state,index) ? '●' : '🔒'} ${esc(stage.title)}<br><small>${stage.mins} min · ${stage.steps.filter(step => state.steps[step.id]).length}/${stage.steps.length} pasos</small></button>`).join('');
+  nav.innerHTML = stages.map((stage, index) => {
+    const done = stageDone(state,index);
+    const unlocked = stageUnlocked(state,index);
+    const statusIcon = done ? 'check' : unlocked ? 'circle' : 'lock';
+    return `<button class="vet1-stage ${index === state.currentStage ? 'is-active' : ''}" data-stage="${index}" ${unlocked ? '' : 'disabled'}>${icon(statusIcon)}<span>${esc(stage.title)}<br><small>${stage.mins} min · ${stage.steps.filter(step => state.steps[step.id]).length}/${stage.steps.length} pasos</small></span></button>`;
+  }).join('');
 }
 
 function render() {
   while (state.currentStage > 0 && !stageUnlocked(state, state.currentStage)) state.currentStage--;
+  if (reviewStage !== null && reviewStage !== state.currentStage) reviewStage = null;
   const stage = stages[state.currentStage];
+  const passed = Boolean(state.quizzes[stage.id]?.passed);
+  const allSteps = stage.steps.every(step => state.steps[step.id]);
+  const reviewing = passed && reviewStage === state.currentStage;
   const percent = progressPercent(state);
+
   renderNav();
   progressBar.style.width = `${percent}%`;
   progressTop.textContent = `${percent}% completado`;
   xpTop.textContent = `⭐ ${state.xp} XP`;
   deviceTop.textContent = state.student.deviceAlias || 'Equipo sin identificar';
-  app.innerHTML = `<section class="panel"><span class="badge">${stage.mins} minutos sugeridos</span><h2>${esc(stage.title)}</h2><p class="muted">Completa cada paso, genera la evidencia y registra el commit antes de marcarlo.</p></section>${stage.steps.map(stepHtml).join('')}${quizHtml(stage)}`;
+
+  const intro = `<section class="panel"><span class="badge">${stage.mins} minutos sugeridos</span><h2>${esc(stage.title)}</h2><p class="muted">${passed ? 'Etapa superada.' : allSteps ? 'Pasos completados. Responde el checkpoint para cerrar la etapa.' : 'Completa cada paso, genera la evidencia y registra el commit antes de marcarlo.'}</p></section>`;
+  let body = '';
+  if (passed) {
+    body = `${reviewing ? stage.steps.map((step,index)=>stepHtml(step,index,true)).join('') : ''}${passedHtml(stage, reviewing)}`;
+  } else if (allSteps) {
+    body = quizHtml(stage);
+  } else {
+    body = `${stage.steps.map((step,index)=>stepHtml(step,index,false)).join('')}<section class="panel"><div class="notice notice-info">${icon('lock')} El checkpoint aparecerá cuando completes todos los pasos de esta etapa.</div></section>`;
+  }
+  app.innerHTML = intro + body;
 }
 
 function readIdentityFromDom() {
@@ -103,17 +142,18 @@ function readIdentityFromDom() {
 
 nav.addEventListener('click', event => {
   const button = event.target.closest('[data-stage]'); if (!button) return;
+  reviewStage = null;
   state = moveToStage(state, Number(button.dataset.stage)); persist(); window.scrollTo({top:0,behavior:'smooth'});
 });
 
 app.addEventListener('change', event => {
-  const input = event.target.closest('[data-step]'); if (!input) return;
+  const input = event.target.closest('[data-step]'); if (!input || input.disabled || reviewStage !== null) return;
   state = toggleStep(state, input.dataset.step, input.checked); persist();
 });
 
 app.addEventListener('click', async event => {
   const copy = event.target.closest('[data-copy-code]');
-  if (copy) { const code = copy.parentElement.innerText.replace('Copiar','').trim(); await navigator.clipboard.writeText(code); copy.textContent='✓'; setTimeout(()=>copy.textContent='Copiar',900); return; }
+  if (copy) { const code = copy.parentElement.innerText.replace('Copiar','').trim(); await navigator.clipboard.writeText(code); copy.innerHTML=`${icon('check')} Copiado`; setTimeout(()=>copy.innerHTML=`${icon('clipboard')} Copiar`,900); return; }
   const action = event.target.closest('[data-action]')?.dataset.action;
   if (!action) return;
   if (action === 'save-identity') {
@@ -122,10 +162,16 @@ app.addEventListener('click', async event => {
   }
   if (action === 'submit-quiz') {
     const answers = stages[state.currentStage].quiz.map((_, index) => document.querySelector(`input[name="quiz-${index}"]:checked`)?.value ?? null);
-    try { const before = state; state = submitQuiz(state, state.currentStage, answers); const passed = state.quizzes[stages[state.currentStage].id]?.passed; persist(); if (!passed) alert('No superaste el checkpoint. Los pasos de esta etapa deben revisarse nuevamente.'); }
-    catch { document.querySelector('#vet1-quiz-message').innerHTML = '<div class="notice notice-warning">Debes responder las dos preguntas.</div>'; }
+    try {
+      state = submitQuiz(state, state.currentStage, answers);
+      const passed = state.quizzes[stages[state.currentStage].id]?.passed;
+      persist();
+      if (!passed) alert('No superaste el checkpoint. Los pasos de esta etapa deben revisarse nuevamente.');
+    } catch { document.querySelector('#vet1-quiz-message').innerHTML = '<div class="notice notice-warning">Debes responder las dos preguntas.</div>'; }
   }
-  if (action === 'next-stage') { state = moveToStage(state, state.currentStage + 1); persist(); window.scrollTo({top:0,behavior:'smooth'}); }
+  if (action === 'review-stage') { reviewStage = state.currentStage; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+  if (action === 'close-review') { reviewStage = null; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+  if (action === 'next-stage') { reviewStage = null; state = moveToStage(state, state.currentStage + 1); persist(); window.scrollTo({top:0,behavior:'smooth'}); }
 });
 
 document.querySelector('#vet1-open-repo').addEventListener('click', () => { document.querySelector('#vet1-repo-path').value = state.student.repoPath || ''; repoDialog.showModal(); });
@@ -152,6 +198,7 @@ document.querySelector('#vet1-import-confirm').addEventListener('click', async (
   try {
     const restored = await decryptProgress(pendingImport, document.querySelector('#vet1-import-password').value, LAB_ID);
     state = { ...restored, events: restored.events || [] };
+    reviewStage = null;
     saveState(state); importDialog.close(); render(); repoDialog.showModal(); document.querySelector('#vet1-repo-path').value = state.student.repoPath || '';
   } catch { alert('No fue posible descifrar el archivo. Verifica la contraseña y el laboratorio.'); }
 });
