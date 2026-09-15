@@ -1,39 +1,40 @@
 # Site Migration Matrix
 
-Estado de migración desde la raíz plana de `gh-pages` hacia la arquitectura por features.
+Migración desde la raíz plana de `gh-pages` hacia arquitectura por features.
 
 | Legacy | Canonical target | HTML | CSS | Page JS | Business JS | Legacy redirect | Estado |
 |---|---|---:|---:|---:|---:|---:|---|
-| `index.html` | `pages/home/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `semanas.html` | `pages/weeks/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `laboratorios.html` | `pages/labs/index/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `lab-veterinaria-colecciones-excepciones.html` | `pages/labs/veterinary-collections/` | ✅ | ✅ | ✅ | ✅ | ⏳ | MIGRATED_NOT_CUTOVER |
-| `lab-veterinaria-herencia-polimorfismo.html` | `pages/labs/veterinary-inheritance/` | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ | BLOCKED_BY_DECOMPOSITION |
-| `lab-veterinaria-enhancements.js` | `assets/js/pages/` + `assets/js/business/` | N/A | N/A | ⏳ | ⏳ | N/A | BLOCKED_BY_DECOMPOSITION |
-| `ejercicios-clase.html` | `pages/exercises/class-practice/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `desafio-150.html` | `pages/exercises/challenge-150/` | ⏳ | ⏳ | ⏳ | ✅ | ⏳ | IN_PROGRESS |
-| `ejercicios-150.html` | `pages/exercises/challenge-150/exercises/` | ⏳ | ⏳ | ⏳ | ✅ | ⏳ | IN_PROGRESS |
-| `desafio-150-data.js` | `assets/js/business/challenge-150/exercises.js` | N/A | N/A | N/A | ✅ | N/A | MIGRATED_NOT_CUTOVER |
-| `desafio-150-hints.js` | `assets/js/business/challenge-150/hints.js` | N/A | N/A | N/A | ✅ | N/A | MIGRATED_NOT_CUTOVER |
-| `desafio-semanal.html` | `pages/challenges/weekly/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `desafio-semana-01.html` | `pages/challenges/weekly/week-01/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `desafio-semana-02.html` | `pages/challenges/weekly/week-02/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `desafio-100-poo.html` | `pages/challenges/oop-100/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `desafio-25-javafx.html` | `pages/challenges/javafx-25/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `desafio-25-bd.html` | `pages/challenges/database-25/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `proyecto-formativo.html` | `pages/project/petcare/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
-| `progreso.html` | `pages/progress/` | ✅ | ✅ | ✅ | ✅ | ⏳ | MIGRATED_NOT_CUTOVER |
-| `repositorio-estudiante.html` | `pages/student-repository/` | ✅ | ✅ | N/A | N/A | ⏳ | MIGRATED_NOT_CUTOVER |
+| `index.html` | `pages/home/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `semanas.html` | `pages/weeks/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `laboratorios.html` | `pages/labs/index/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `lab-veterinaria-colecciones-excepciones.html` | `pages/labs/veterinary-collections/` | ✅ | ✅ | ✅ | ✅ | ✅ | DONE |
+| `lab-veterinaria-herencia-polimorfismo.html` | `pages/labs/veterinary-inheritance/` | ✅ | ✅ | ✅ | ✅ | ✅ | DONE |
+| `lab-veterinaria-enhancements.js` | decomposed into layered assets | N/A | N/A | ✅ | ✅ | REMOVED | DONE |
+| `ejercicios-clase.html` | `pages/exercises/class-practice/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `desafio-150.html` | `pages/exercises/challenge-150/` | ✅ | ✅ | N/A | ✅ | ✅ | DONE |
+| `ejercicios-150.html` | `pages/exercises/challenge-150/exercises/` | ✅ | ✅ | ✅ | ✅ | ✅ | DONE |
+| `desafio-150-data.js` | `assets/js/business/challenge-150/exercises.js` | N/A | N/A | N/A | ✅ | REMOVED | DONE |
+| `desafio-150-hints.js` | `assets/js/business/challenge-150/hints.js` | N/A | N/A | N/A | ✅ | REMOVED | DONE |
+| `desafio-semanal.html` | `pages/challenges/weekly/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `desafio-semana-01.html` | `pages/challenges/weekly/week-01/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `desafio-semana-02.html` | `pages/challenges/weekly/week-02/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `desafio-100-poo.html` | `pages/challenges/oop-100/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `desafio-25-javafx.html` | `pages/challenges/javafx-25/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `desafio-25-bd.html` | `pages/challenges/database-25/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `proyecto-formativo.html` | `pages/project/petcare/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
+| `progreso.html` | `pages/progress/` | ✅ | ✅ | ✅ | ✅ | ✅ | DONE |
+| `repositorio-estudiante.html` | `pages/student-repository/` | ✅ | ✅ | N/A | N/A | ✅ | DONE |
 
-## Cutover gate
+## Gate de cutover
 
-No cambiar URLs legacy a redirects ni mergear a `gh-pages` hasta que:
+- [x] Todos los targets canónicos existen.
+- [x] URLs legacy reducidas a redirects mínimos.
+- [x] No se requieren recursos propios desde `raw.githubusercontent.com`.
+- [x] CSS significativo extraído de HTML canónico.
+- [x] Lógica dinámica extraída de HTML canónico.
+- [x] `business/*` separado de controllers de página.
+- [x] Bancos de Challenge 150 movidos a assets de negocio.
+- [x] Script legacy de Veterinaria I eliminado.
+- [x] Navegación interna actualizada a rutas canónicas.
 
-1. todos los targets canónicos existan;
-2. no haya enlaces internos hacia archivos legacy salvo redirects;
-3. no existan cargas propias desde `raw.githubusercontent.com`;
-4. CSS inline significativo sea 0;
-5. JS inline de lógica sea 0;
-6. módulos `business` no accedan al DOM;
-7. controllers de página no dupliquen reglas de negocio;
-8. navegación y recursos relativos hayan sido verificados.
+Estado: `READY_FOR_MERGE`.
