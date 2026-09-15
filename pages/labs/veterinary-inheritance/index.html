@@ -56,20 +56,20 @@
   </dialog>
 
   <dialog id="vet1-export-dialog" class="vet1-dialog">
-    <div class="vet1-dialog__body stack">
+    <form class="vet1-dialog__body stack" method="dialog" id="vet1-export-form">
       <h2>Exportar progreso cifrado</h2>
       <p>La contraseña se usa para cifrar el archivo con AES-GCM y no se guarda dentro de él.</p>
       <label class="vet1-field">Contraseña<input id="vet1-export-password" type="password" autocomplete="new-password"></label>
       <div class="vet1-actions"><button class="btn btn-success" id="vet1-export-confirm" type="button"><svg class="icon" aria-hidden="true"><use href="../../../assets/img/icons.svg#download"></use></svg> Descargar progreso</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div>
-    </div>
+    </form>
   </dialog>
 
   <dialog id="vet1-import-dialog" class="vet1-dialog">
-    <div class="vet1-dialog__body stack">
+    <form class="vet1-dialog__body stack" method="dialog" id="vet1-import-form">
       <h2>Cargar progreso cifrado</h2>
-      <label class="vet1-field">Contraseña<input id="vet1-import-password" type="password"></label>
+      <label class="vet1-field">Contraseña<input id="vet1-import-password" type="password" autocomplete="current-password"></label>
       <div class="vet1-actions"><button class="btn btn-primary" id="vet1-import-confirm" type="button"><svg class="icon" aria-hidden="true"><use href="../../../assets/img/icons.svg#upload"></use></svg> Descifrar y cargar</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div>
-    </div>
+    </form>
   </dialog>
 
   <script type="module" src="../../../assets/js/pages/veterinary-inheritance.js"></script>
