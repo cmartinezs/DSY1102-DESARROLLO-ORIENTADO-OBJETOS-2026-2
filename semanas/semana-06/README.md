@@ -2,31 +2,67 @@
 
 ## Propósito
 
-Integrar los fundamentos de POO ya trabajados con estructuras que permitan administrar conjuntos de objetos y controlar situaciones inválidas dentro de una solución real.
+Aprender a administrar conjuntos de datos y objetos con arrays y colecciones, y controlar situaciones inválidas mediante excepciones, separando claramente **enseñanza del concepto**, **práctica breve** e **integración guiada**.
 
 ## Contenidos
 
-- arrays de objetos;
-- limitaciones del tamaño fijo;
+- arrays y arrays de objetos;
+- tamaño fijo, índices y recorridos;
 - `List` y `ArrayList`;
-- agregar, recorrer, buscar y eliminar objetos;
-- colecciones con herencia y polimorfismo;
-- situaciones inválidas del dominio;
+- `add`, `get`, `size`, búsqueda y eliminación;
+- colecciones de objetos y polimorfismo;
+- situaciones inválidas;
 - `throw`, `try` y `catch`;
-- validaciones y manejo explícito de errores.
+- excepciones específicas y manejo explícito de errores.
 
-## Enfoque de clase
+## Ruta de aprendizaje
 
-Los contenidos no se trabajan como temas aislados. Se continúa la misma solución de Veterinaria construida en Semana 05 y se introduce una nueva necesidad: administrar múltiples animales y responder de forma controlada cuando una operación no puede completarse.
+Semana 6 no parte directamente desde Veterinaria. Primero se aprende cada herramienta con código pequeño y sin contexto complejo; después se practica de forma individual; finalmente se integra sobre la solución de Semana 05.
 
-La progresión didáctica es deliberada:
+```text
+concepto mínimo
+    ↓
+ejemplo ejecutable
+    ↓
+ejercicio breve
+    ↓
+variación / práctica
+    ↓
+integración en Veterinaria II
+```
+
+## Material de enseñanza
+
+1. [`01-arrays.md`](01-arrays.md) — tamaño fijo, índices, recorridos y arrays de objetos.
+2. [`02-list-arraylist.md`](02-list-arraylist.md) — colección dinámica, operaciones básicas y listas de objetos.
+3. [`03-excepciones.md`](03-excepciones.md) — `try/catch`, `throw`, responsabilidades y excepción propia.
+
+Los ejemplos ejecutables viven en [`../../ejemplos/semana-06/`](../../ejemplos/semana-06/).
+
+## Práctica individual
+
+El banco de [`../../ejercicios/semana-06/`](../../ejercicios/semana-06/) contiene ejercicios pequeños de 5–15 minutos. Los primeros bloques aíslan arrays, listas y excepciones; sólo al final aparecen ejercicios puente con `Animal`.
+
+## Laboratorio integrador
+
+**Veterinaria II · Arrays, colecciones y excepciones**
+
+Veterinaria II continúa el artefacto creado por el estudiante durante Veterinaria I. No crea otro proyecto.
+
+Ruta esperada en el repositorio del estudiante:
+
+```text
+labs/lab-veterinaria-herencia-polimorfismo/
+```
+
+La guía canónica está en [`../../labs/semana-06/`](../../labs/semana-06/) y conduce paso a paso por:
 
 ```text
 solución existente
     ↓
 Animal[]
     ↓
-observar limitaciones
+limitaciones observables
     ↓
 List<Animal> / ArrayList<Animal>
     ↓
@@ -36,54 +72,25 @@ modelar situaciones inválidas
     ↓
 throw + try/catch
     ↓
-integración y reflexión
+integración final
 ```
 
-## Laboratorio principal
+## Separación de capas
 
-**Veterinaria II · Arrays, colecciones y excepciones**
+| Capa | Responsabilidad |
+|---|---|
+| `semanas/semana-06/` | Enseñar conceptos con snippets pequeños y código suelto |
+| `ejemplos/semana-06/` | Proveer programas Java mínimos y ejecutables |
+| `ejercicios/semana-06/` | Practicar individualmente una habilidad concreta |
+| `labs/semana-06/` | Integrar conocimiento semanal y acumulado con guía, código de apoyo, entregables y checkpoints |
 
-### Prerrequisito obligatorio
+## Criterio de salida
 
-Haber completado **Veterinaria I · Herencia y Polimorfismo**.
+Al cerrar la semana, el estudiante debe poder:
 
-### Regla de continuidad
-
-Veterinaria II no crea otro proyecto. Evoluciona el mismo artefacto:
-
-```text
-labs/lab-veterinaria-herencia-polimorfismo/
-```
-
-El código sigue viviendo en `src/`. La nueva fase agrega documentación y evidencias en:
-
-```text
-docs/veterinaria-ii/
-evidencias/veterinaria-ii/
-```
-
-La guía canónica está en [`../../labs/semana-06/`](../../labs/semana-06/).
-
-## Ruta de trabajo
-
-1. recuperar y ejecutar la solución anterior;
-2. registrar una línea base;
-3. implementar una primera gestión con `Animal[]`;
-4. documentar sus limitaciones;
-5. migrar a `List<Animal>` / `ArrayList<Animal>`;
-6. implementar búsqueda y eliminación;
-7. modelar errores del dominio;
-8. aplicar excepciones de forma consciente;
-9. integrar un flujo completo y reflexionar sobre la evolución.
-
-## Evidencia esperada
-
-Cada etapa produce entregables concretos y commits incrementales. La web guiada refleja la misma ruta con progreso, checkpoint de comprensión, GitHub Desktop/CLI y repaso no destructivo.
-
-## Trabajo autónomo
-
-Aplicar el mismo razonamiento a una jerarquía propia: almacenar múltiples objetos, justificar la colección elegida y controlar al menos una situación inválida.
-
-## Cierre de la experiencia
-
-El estudiante debe ser capaz de decidir qué clases necesita, cómo se relacionan, dónde corresponde aplicar herencia o polimorfismo, cómo administrar múltiples objetos y qué situaciones deben modelarse explícitamente como errores del dominio.
+- crear y recorrer arrays;
+- explicar sus limitaciones;
+- usar `List` / `ArrayList` y sus operaciones esenciales;
+- administrar objetos dentro de una colección;
+- distinguir quién detecta una condición inválida, quién lanza una excepción y quién debe capturarla;
+- aplicar todo lo anterior a una solución OO ya existente sin concentrar responsabilidades en `main`.
