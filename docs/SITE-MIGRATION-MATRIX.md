@@ -36,5 +36,6 @@ Migración desde la raíz plana de `gh-pages` hacia arquitectura por features.
 - [x] Bancos de Challenge 150 movidos a assets de negocio.
 - [x] Script legacy de Veterinaria I eliminado.
 - [x] Navegación interna actualizada a rutas canónicas.
+- [x] PR #6 mergeado por squash a `gh-pages`.
 
-Estado: `READY_FOR_MERGE`.
+Estado: `MERGED_TO_GH_PAGES`.
