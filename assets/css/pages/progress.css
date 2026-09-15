@@ -1,0 +1,7 @@
+.progress-hero { background: linear-gradient(135deg,#111827,#312e81); }
+.progress-list { display: grid; gap: .65rem; }
+.progress-item { border: 1px solid var(--color-line); border-radius: var(--radius-md); background: #fff; padding: .9rem 1rem; }
+.progress-item.is-done { opacity: .7; }
+.progress-item.is-done label { text-decoration: line-through; }
+.progress-track { height: 1rem; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+.progress-track > div { height: 100%; background: var(--color-primary); width: 0; transition: width .2s ease; }
