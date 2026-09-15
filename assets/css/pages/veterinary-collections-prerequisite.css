@@ -1,0 +1,11 @@
+.vet2-prerequisite-gate { border:2px solid #f59e0b; background:linear-gradient(180deg,#fffdf7,#ffffff); box-shadow:0 14px 36px rgba(120,53,15,.08); }
+.vet2-prerequisite-gate__head { display:flex; gap:.9rem; align-items:flex-start; }
+.vet2-prerequisite-gate__head h2 { margin:.2rem 0 0; }
+.vet2-prerequisite-gate__icon { width:3rem; height:3rem; flex:0 0 3rem; border-radius:999px; display:grid; place-items:center; background:#fef3c7; font-size:1.4rem; }
+.vet2-prerequisite-progress { display:grid; gap:.45rem; }
+.vet2-prerequisite-progress__meta { display:flex; justify-content:space-between; gap:1rem; }
+.vet2-prerequisite-progress__track { height:.8rem; background:#e5e7eb; border-radius:999px; overflow:hidden; }
+.vet2-prerequisite-progress__track > div { height:100%; background:linear-gradient(90deg,#d97706,#f59e0b); border-radius:inherit; }
+.vet2-prerequisite-gate__actions { display:flex; gap:.65rem; flex-wrap:wrap; }
+#vet2-app[hidden] { display:none !important; }
+@media(max-width:700px){.vet2-prerequisite-gate__head{align-items:center}.vet2-prerequisite-progress__meta{flex-direction:column;gap:.2rem}}
