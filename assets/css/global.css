@@ -46,6 +46,19 @@ code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 
 .btn-success { background: #166534; color: #fff; }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
 
+.icon { width: 1rem; height: 1rem; flex: 0 0 auto; vertical-align: -.15em; }
+.icon-lg { width: 1.2rem; height: 1.2rem; }
+
+.switch-control { display: inline-flex; align-items: center; gap: .7rem; cursor: pointer; user-select: none; }
+.switch-control__input { position: absolute; opacity: 0; pointer-events: none; }
+.switch-control__track { position: relative; width: 46px; height: 26px; flex: 0 0 auto; border-radius: 999px; background: #cbd5e1; border: 1px solid #94a3b8; transition: background .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.switch-control__track::after { content: ""; position: absolute; width: 20px; height: 20px; left: 2px; top: 2px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(15,23,42,.25); transition: transform .18s ease; }
+.switch-control__input:checked + .switch-control__track { background: var(--color-success); border-color: var(--color-success); }
+.switch-control__input:checked + .switch-control__track::after { transform: translateX(20px); }
+.switch-control__input:focus-visible + .switch-control__track { box-shadow: 0 0 0 3px rgba(67,56,202,.2); }
+.switch-control__input:disabled + .switch-control__track { opacity: .45; cursor: not-allowed; }
+.switch-control:has(.switch-control__input:disabled) { cursor: not-allowed; color: var(--color-muted); }
+
 .badge { display: inline-block; border-radius: 999px; padding: .25rem .55rem; font-size: .75rem; font-weight: 800; background: #e0e7ff; color: #3730a3; }
 .notice { padding: .8rem 1rem; border-radius: var(--radius-md); border: 1px solid transparent; }
 .notice-info { background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
