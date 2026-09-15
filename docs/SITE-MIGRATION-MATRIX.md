@@ -36,6 +36,9 @@ Migración desde la raíz plana de `gh-pages` hacia arquitectura por features.
 - [x] Bancos de Challenge 150 movidos a assets de negocio.
 - [x] Script legacy de Veterinaria I eliminado.
 - [x] Navegación interna actualizada a rutas canónicas.
-- [x] PR #6 mergeado por squash a `gh-pages`.
+- [x] Completion controls normalizados como switches.
+- [x] Iconografía local compartida disponible.
+- [x] Veterinaria I implementa trabajo → checkpoint → aprobado → repaso no destructivo.
+- [x] Instrucciones Git de Veterinaria I ofrecen rutas equivalentes GitHub Desktop y CLI paso a paso.
 
-Estado: `MERGED_TO_GH_PAGES`.
+Estado: `MIGRATED_AND_PUBLISHED`.
