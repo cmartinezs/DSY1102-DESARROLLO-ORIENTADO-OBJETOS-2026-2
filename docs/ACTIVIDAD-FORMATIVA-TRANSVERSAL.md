@@ -4,7 +4,7 @@
 
 **PetCare** es el proyecto formativo transversal de semestre de DSY1102.
 
-Ya no se entiende solo como un dominio para ejemplos: cada estudiante mantiene una evolución propia del mismo software durante el curso, aplicando lo visto clase a clase y conservando checkpoints verificables.
+Cada estudiante mantiene una evolución propia del mismo software durante el curso, aplicando lo visto clase a clase y conservando checkpoints verificables.
 
 Material principal del proyecto:
 
@@ -28,9 +28,11 @@ Cada experiencia debe responder:
 La experiencia buscada es:
 
 ```text
-contenido teórico / ejemplo
+contenido teórico / ejemplo mínimo
         ↓
-problema concreto en PetCare
+práctica breve e independiente
+        ↓
+problema concreto en PetCare o lab
         ↓
 implementación guiada
         ↓
@@ -43,9 +45,7 @@ checkpoint
 
 ## Evidencia individual
 
-PetCare es individual y acumulativo.
-
-El trabajo sostenido puede ser considerado por el docente como evidencia adicional para **compensar una calificación baja del semestre** cuando corresponda, pero no constituye un reemplazo automático de evaluaciones institucionales.
+PetCare es individual y acumulativo. El trabajo sostenido puede ser considerado por el docente como evidencia adicional para compensar una calificación baja del semestre cuando corresponda, pero no constituye un reemplazo automático de evaluaciones institucionales.
 
 La evidencia debe mostrar proceso real:
 
@@ -59,8 +59,9 @@ La evidencia debe mostrar proceso real:
 ## Separación respecto de evaluaciones
 
 - PetCare no anticipa el dominio de las evaluaciones sumativas.
-- Se pausa cuando convenga durante EP1, EP2 y EP3.
+- Se pausa cuando corresponda efectivamente durante EP1, EP2 y EP3.
 - Después se retoma desde el último checkpoint estable.
+- La planificación histórica de evaluaciones no debe sobrescribir el checkpoint real de aula ni el contenido efectivamente liberado.
 
 ## Dirección técnica del semestre
 
@@ -84,43 +85,35 @@ flowchart LR
 
 Esto no se enseña completo desde la primera semana. Se construye cuando el contenido lo permite.
 
-La intención es que:
-
-- la CLI sea la interfaz de Unidad 1;
-- JavaFX sea otra interfaz en Unidad 2;
-- JSON sea un mecanismo de persistencia de Unidad 2;
-- JDBC sea otro mecanismo de persistencia en Unidad 3;
-- el modelo y las reglas del negocio no tengan que reescribirse cada vez.
-
-## Evolución resumida
+## Evolución resumida · checkpoint real al 15 de septiembre de 2026
 
 ### Semana 02
 
-Variables/ciclos → métodos → `Mascota` → encapsulamiento → separación mínima `cli` / `core.model`.
+Fundamentos Java, condicionales, ciclos, métodos y puente progresivo hacia objetos.
 
 ### Semana 03
 
-Herencia, interfaces y polimorfismo cuando el problema del dominio lo justifique.
+Clases, objetos, atributos, métodos y encapsulamiento.
 
 ### Semana 04
 
-Colecciones y excepciones; varias mascotas; búsquedas y operaciones sobre el conjunto.
+Constructores, estado válido, colaboración/composición introductoria y separación de responsabilidades en entrada por consola.
 
 ### Semana 05
 
-Consolidación Unidad 1: core Java puro + CLI.
+Herencia, sobrescritura y polimorfismo dinámico. Veterinaria I funciona como laboratorio integrador de esa progresión.
 
 ### Semana 06
 
-EP1: pausa.
+Arrays, arrays de objetos, `List` / `ArrayList`, búsqueda/eliminación y excepciones. Veterinaria II integra el conocimiento semanal sobre la solución OO de Semana 05.
 
 ### Semanas 07–11
 
-Maven → JavaFX → FXML/eventos → MVC/TableView → persistencia JSON → integración.
+Maven → JavaFX → FXML/eventos → MVC/TableView → persistencia JSON → integración, sujeto al checkpoint real.
 
 ### Semana 12
 
-EP2: pausa.
+EP2 según calendario institucional vigente.
 
 ### Semanas 13–15
 
@@ -128,7 +121,7 @@ JDBC → CRUD → DAO/Repository → integración BD.
 
 ### Semana 16
 
-EP3: pausa.
+EP3 según calendario institucional vigente.
 
 ### Semanas 17–18
 
