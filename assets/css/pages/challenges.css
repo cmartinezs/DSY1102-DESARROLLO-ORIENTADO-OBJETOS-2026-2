@@ -1,0 +1,9 @@
+.challenge-hero { background: linear-gradient(135deg,#3b0764,#7e22ce); }
+.challenge-hero--oop { background: linear-gradient(135deg,#052e16,#166534); }
+.challenge-hero--javafx { background: linear-gradient(135deg,#082f49,#0369a1); }
+.challenge-hero--database { background: linear-gradient(135deg,#3f1d0b,#b45309); }
+.challenge-card { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 1.25rem; }
+.challenge-rule { border-left: 4px solid #7e22ce; padding-left: 1rem; }
+.challenge-history-item + .challenge-history-item { border-top: 1px solid #eef2f7; }
+.challenge-exercise { border-left: 4px solid #16a34a; padding-left: 1rem; }
+.challenge-exercise + .challenge-exercise { margin-top: 1rem; }

@@ -1,0 +1,6 @@
+.weeks-hero { background: linear-gradient(135deg,#111827,#1d4ed8); }
+.week-card { border: 1px solid var(--color-line); border-radius: var(--radius-lg); background: var(--color-surface); padding: 1.25rem; }
+.week-card--current { border: 2px solid #6366f1; }
+.week-card--next { border: 2px solid #14b8a6; }
+.week-resource { border-left: 3px solid #dbeafe; padding-left: .85rem; }
+.week-resource + .week-resource { margin-top: .75rem; }

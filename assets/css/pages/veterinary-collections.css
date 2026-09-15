@@ -1,0 +1,6 @@
+.vet2-hero { background: linear-gradient(135deg,#111827,#0f766e); }
+.vet2-step { border-left: 5px solid #14b8a6; }
+.vet2-step.is-complete { border-left-color: #16a34a; background: #f0fdf4; }
+.vet2-step.is-locked { opacity: .55; }
+.vet2-step h2 { margin-top: 0; }
+.vet2-delivery { background: #0f172a; color: #e2e8f0; border-radius: var(--radius-md); padding: 1rem; overflow: auto; }

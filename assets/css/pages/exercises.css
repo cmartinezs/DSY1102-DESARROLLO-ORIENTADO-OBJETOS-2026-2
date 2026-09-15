@@ -1,0 +1,5 @@
+.exercises-hero { background: linear-gradient(135deg,#0f172a,#1d4ed8); }
+.exercise-group { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-lg); overflow: hidden; }
+.exercise-item { padding: 1rem; border-top: 1px solid #eef0f4; }
+.exercise-item:first-child { border-top: 0; }
+.exercise-item h3 { margin-top: 0; }

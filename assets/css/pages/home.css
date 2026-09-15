@@ -1,0 +1,10 @@
+.home-hero { margin-bottom: 1rem; }
+.home-hero h1 { margin: .5rem 0; font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -.03em; }
+.home-hero p { max-width: 860px; color: #dbeafe; }
+.home-flow { display: grid; gap: .8rem; }
+.home-step { border-left: 4px solid #2563eb; padding: .9rem 1rem; background: #fff; border-radius: .75rem; }
+.home-step--next { border-left-color: #0f766e; }
+.home-week-links, .home-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+.home-feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 900px) { .home-feature-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 600px) { .home-feature-grid { grid-template-columns: 1fr; } }

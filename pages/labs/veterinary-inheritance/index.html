@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lab Veterinaria · Herencia y Polimorfismo · DSY1102</title>
+  <link rel="stylesheet" href="../../../assets/css/global.css">
+  <link rel="stylesheet" href="../../../assets/css/pages/veterinary-inheritance.css">
+</head>
+<body>
+  <header class="vet1-top">
+    <div class="vet1-top__inner">
+      <strong>DSY1102 · Lab Veterinaria</strong>
+      <div class="vet1-stats">
+        <span class="vet1-pill">⏱️ 80 min</span>
+        <span class="vet1-pill" id="vet1-xp-top">⭐ 0 XP</span>
+        <span class="vet1-pill" id="vet1-progress-top">0% completado</span>
+        <span class="vet1-pill" id="vet1-device-top">Equipo sin identificar</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="vet1-layout">
+    <aside class="vet1-sidebar stack">
+      <div>
+        <strong>Ruta del laboratorio</strong>
+        <div class="vet1-progress"><div id="vet1-progress-bar"></div></div>
+      </div>
+      <nav id="vet1-stage-nav" class="vet1-nav" aria-label="Etapas del laboratorio"></nav>
+      <div class="vet1-actions">
+        <button class="btn btn-secondary" id="vet1-open-repo" type="button">📁 Actualizar ruta</button>
+        <button class="btn btn-secondary" id="vet1-open-export" type="button">🔐 Exportar progreso</button>
+        <button class="btn btn-secondary" id="vet1-open-import" type="button">📥 Cargar progreso</button>
+        <input id="vet1-import-file" type="file" accept=".dsy1102progress,.json" hidden>
+      </div>
+      <a class="btn btn-secondary" href="../index/">← Laboratorios</a>
+    </aside>
+
+    <main class="stack">
+      <section class="hero vet1-hero">
+        <span class="badge">Laboratorio guiado · Herencia + Polimorfismo</span>
+        <h1>Veterinaria: primero piensa, después programa.</h1>
+        <p>Construirás una solución paso a paso. Cada etapa exige comprensión, evidencia y un checkpoint antes de avanzar.</p>
+      </section>
+      <div id="vet1-app" class="stack"></div>
+      <footer class="muted">El progreso se almacena localmente en este navegador. Puedes exportarlo cifrado con una contraseña elegida por ti.</footer>
+    </main>
+  </div>
+
+  <dialog id="vet1-repo-dialog" class="vet1-dialog">
+    <div class="vet1-dialog__body stack">
+      <h2>Ruta local del repositorio</h2>
+      <label class="vet1-field">Ruta del repositorio<input id="vet1-repo-path" placeholder="C:\Users\nombre\Documents\DSY1102-..."></label>
+      <div class="vet1-actions"><button class="btn btn-primary" id="vet1-save-repo" type="button">Guardar ruta</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="vet1-export-dialog" class="vet1-dialog">
+    <div class="vet1-dialog__body stack">
+      <h2>Exportar progreso cifrado</h2>
+      <p>La contraseña se usa para cifrar el archivo con AES-GCM y no se guarda dentro de él.</p>
+      <label class="vet1-field">Contraseña<input id="vet1-export-password" type="password" autocomplete="new-password"></label>
+      <div class="vet1-actions"><button class="btn btn-success" id="vet1-export-confirm" type="button">Descargar progreso</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="vet1-import-dialog" class="vet1-dialog">
+    <div class="vet1-dialog__body stack">
+      <h2>Cargar progreso cifrado</h2>
+      <label class="vet1-field">Contraseña<input id="vet1-import-password" type="password"></label>
+      <div class="vet1-actions"><button class="btn btn-primary" id="vet1-import-confirm" type="button">Descifrar y cargar</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div>
+    </div>
+  </dialog>
+
+  <script type="module" src="../../../assets/js/pages/veterinary-inheritance.js"></script>
+</body>
+</html>
