@@ -2,7 +2,7 @@
 
 Este roadmap alinea el proyecto formativo con el contenido de DSY1102 y fija qué debe evolucionar semana a semana.
 
-> El avance real de la sección manda. Si una clase avanza menos de lo previsto, la siguiente guía parte desde el checkpoint real.
+> El avance real de la sección manda. Si una clase avanza menos o más de lo previsto, la siguiente guía parte desde el checkpoint real. Las referencias históricas a evaluaciones no reemplazan el contenido efectivamente trabajado.
 
 ---
 
@@ -17,9 +17,7 @@ Este roadmap alinea el proyecto formativo con el contenido de DSY1102 y fija qu�
 
 ## PetCare
 
-Presentación del contexto y primeras variables sueltas cuando corresponda.
-
-No se introduce todavía una arquitectura formal.
+Presentación del contexto y primeras variables sueltas cuando corresponda. No se introduce todavía una arquitectura formal.
 
 ---
 
@@ -27,9 +25,7 @@ No se introduce todavía una arquitectura formal.
 
 ## PetCare
 
-Datos simples de una mascota en `main`, condicionales, ciclos y extracción gradual de lógica a métodos cuando el grupo esté preparado.
-
-No se fuerza todavía una arquitectura OO completa.
+Datos simples de una mascota en `main`, condicionales, ciclos y extracción gradual de lógica a métodos cuando el grupo esté preparado. No se fuerza todavía una arquitectura OO completa.
 
 ---
 
@@ -75,55 +71,69 @@ El martes 1 de septiembre la sección llegó a **constructores**.
 - getters/setters con criterio;
 - responsabilidades;
 - colaboración simple entre objetos;
-- composición introductoria, por ejemplo `Mascota -> Tutor`.
+- composición introductoria, por ejemplo `Mascota -> Tutor`;
+- entrada por consola y refactor de responsabilidades cuando corresponde.
 
 ## Checkpoint
 
 ```text
 cli.App
     ↓
-core.model.Mascota ───> core.model.Tutor (opcional tras consolidar)
+core.model.Mascota ───> core.model.Tutor
 ```
 
 La CLI crea objetos y demuestra operaciones. El modelo protege su propio estado.
 
-## Fuera de alcance mientras no se enseñe
-
-- herencia;
-- clases abstractas;
-- interfaces;
-- polimorfismo;
-- colecciones;
-- excepciones.
-
 ---
 
-# Semana 05 · Continuidad POO aplicada / EF1
+# Semana 05 · Herencia y polimorfismo · Veterinaria I
 
-## Regla de entrada
-
-La planificación concreta de Semana 05 se define a partir del checkpoint real de Semana 04.
-
-Si constructores, encapsulamiento y colaboración simple están consolidados, el siguiente paso natural es:
+## Evolución real
 
 ```text
 generalización / especialización
 → herencia
 → sobrescritura
-→ polimorfismo
+→ polimorfismo dinámico
 ```
 
-Solo después, y si el ritmo real lo permite, se incorporan colecciones y manejo de errores.
+El laboratorio Veterinaria I consolida una jerarquía de animales y permite observar comportamiento polimórfico. Arrays, colecciones y excepciones se reservan para la siguiente progresión.
 
-## Objetivo
+## Checkpoint
 
-Consolidar Unidad 1 sin introducir tecnologías de Unidad 2 y preparar EF1 desde lo efectivamente trabajado.
+El estudiante debe poder construir una jerarquía sencilla, sobrescribir comportamiento y utilizar referencias del tipo base para trabajar con subtipos.
 
 ---
 
-# Semana 06 · EP1
+# Semana 06 · Arrays, colecciones y excepciones · Veterinaria II
 
-PetCare se pausa durante la evaluación formal.
+## Entrada
+
+Se parte desde la jerarquía OO consolidada en Semana 05, pero los conceptos nuevos se enseñan primero mediante ejemplos mínimos e independientes.
+
+## Progresión
+
+```text
+arrays
+→ arrays de objetos
+→ limitaciones de tamaño fijo
+→ List / ArrayList
+→ búsqueda y eliminación
+→ situaciones inválidas
+→ throw
+→ try/catch
+→ excepción específica cuando corresponda
+```
+
+## Integración
+
+Veterinaria II evoluciona el mismo artefacto del estudiante para administrar múltiples animales y manejar situaciones inválidas de forma explícita.
+
+## Checkpoint
+
+Al cerrar la semana el estudiante debe poder administrar conjuntos de objetos, justificar array versus lista, y explicar quién detecta, lanza y captura una excepción.
+
+> La planificación histórica que ubicaba EP1 como única actividad de Semana 06 queda subordinada al avance real confirmado al 15 de septiembre de 2026.
 
 ---
 
@@ -194,7 +204,7 @@ Consolidación y refactor del flujo completo.
 
 # Semana 12 · EP2
 
-PetCare se pausa.
+PetCare se pausa cuando corresponda según calendario institucional vigente.
 
 ---
 
@@ -230,7 +240,7 @@ Consolidación de CRUD, JDBC, DAO/Repository, UI, core y manejo de errores.
 
 # Semana 16 · EP3
 
-PetCare se pausa.
+PetCare se pausa cuando corresponda según calendario institucional vigente.
 
 ---
 

@@ -2,11 +2,21 @@
 
 ## Arrays, colecciones y excepciones sobre la misma solución
 
-Veterinaria II **continúa exactamente la solución construida en Veterinaria I**. No se crea un proyecto nuevo, no se duplica `src/` y no se reemplaza la jerarquía ya construida.
+Veterinaria II **continúa exactamente la solución construida por el estudiante en Veterinaria I**. No se crea un proyecto nuevo, no se duplica `src/` y no se reemplaza la jerarquía ya construida.
+
+## Antes del laboratorio
+
+Este lab es la capa integradora de Semana 6. Antes de comenzarlo se espera haber revisado:
+
+- conceptos: [`../../semanas/semana-06/`](../../semanas/semana-06/);
+- ejemplos ejecutables: [`../../ejemplos/semana-06/`](../../ejemplos/semana-06/);
+- ejercicios breves: [`../../ejercicios/semana-06/`](../../ejercicios/semana-06/).
+
+El laboratorio **no reemplaza esas capas**: toma esos conocimientos y los aplica sobre una solución OO existente.
 
 ## Prerrequisito
 
-Debes haber terminado Veterinaria I en:
+Debes haber terminado Veterinaria I en tu repositorio de trabajo:
 
 ```text
 labs/lab-veterinaria-herencia-polimorfismo/
@@ -16,7 +26,7 @@ Ese mismo directorio sigue siendo la raíz de trabajo.
 
 ## Objetivo
 
-Evolucionar la solución para administrar múltiples animales y controlar situaciones inválidas, siguiendo esta progresión:
+Evolucionar la solución para administrar múltiples animales y controlar situaciones inválidas:
 
 ```text
 Herencia + Polimorfismo
@@ -60,7 +70,7 @@ labs/lab-veterinaria-herencia-polimorfismo/
 
 ## Ruta pedagógica
 
-La implementación se divide en ocho etapas. Cada una tiene misión, entregable, evidencia Git y checkpoint de comprensión.
+La implementación se divide en ocho etapas. Cada una tiene misión, código de apoyo cuando corresponde, entregable, evidencia Git y checkpoint de comprensión.
 
 1. [Retomar la solución existente](./01-continuidad.md)
 2. [Construir una primera versión con `Animal[]`](./02-array.md)
@@ -70,6 +80,18 @@ La implementación se divide en ocho etapas. Cada una tiene misión, entregable,
 6. [Modelar errores del dominio](./06-errores.md)
 7. [Aplicar `throw`, `try` y `catch`](./07-excepciones.md)
 8. [Integrar, probar y cerrar](./08-integracion.md)
+
+## Regla de scaffolding
+
+Los snippets de la guía cumplen una función muy concreta:
+
+```text
+recordar sintaxis
+→ mostrar una forma mínima
+→ dejar la decisión de diseño al estudiante
+```
+
+No deben convertirse en una solución completa para copiar y pegar. El estudiante debe decidir responsabilidades, nombres y adaptación a su jerarquía real.
 
 ## Evidencias obligatorias
 
@@ -85,12 +107,7 @@ La implementación se divide en ocho etapas. Cada una tiene misión, entregable,
 
 ## Regla Git
 
-Cada paso de implementación debe registrarse como avance independiente. La web guiada ofrece dos rutas equivalentes:
-
-- GitHub Desktop;
-- Terminal / CLI.
-
-La CLI se enseña como secuencia observable `status → add → status → commit → push`, mostrando la salida esperada según el tipo real de cambio producido por la instrucción.
+Cada paso de implementación debe registrarse como avance independiente. La web guiada ofrece dos rutas equivalentes: GitHub Desktop y Terminal/CLI.
 
 ## Web guiada
 
