@@ -5,7 +5,7 @@
 **Repository:** `cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2`  
 **Classification target:** `EDUCATIONAL`  
 **Facets:** `COURSE_REPOSITORY`, `LEARNER_FIRST`  
-**Status:** `MACHINE_PASS_PENDING_HUMAN_REVIEW`
+**Status:** `CLOSURE_REPLAY_REQUIRED`
 
 ## Purpose
 
@@ -15,8 +15,6 @@ W7.4 is the final planned adopter of the current Wave 7 cohort. It must not intr
 
 ## Governed fixture
 
-The authoritative fixture requires:
-
 ```text
 repository.type = EDUCATIONAL
 repository.facets = [COURSE_REPOSITORY, LEARNER_FIRST]
@@ -24,33 +22,13 @@ audiences.primary = [USER]
 audiences.secondary = [DEVELOPER, GOVERNANCE]
 ```
 
-Required concerns and mapped sources:
+Mapped concerns are backed by existing course sources: course orientation, weekly learning path, concepts, examples, exercises/challenges, labs, PetCare, evaluation/evidence guidance and weekly maintainer guidance. AVA remains the institutional authority where applicable.
 
-| Concern | Source |
-| --- | --- |
-| Course orientation | `README.md` |
-| Learning path | `semanas/README.md` |
-| Weekly progression | `semanas/README.md` |
-| Concepts | `semanas/README.md` and weekly material linked from it |
-| Examples | `ejemplos/README.md` |
-| Exercises | `ejercicios/README.md` |
-| Challenges | `ejercicios/README.md` plus root course policy |
-| Labs | `labs/README.md` |
-| Formative/incremental integration | `proyecto-formativo/README.md` |
-| Evaluation/evidence guidance | `docs/ACTIVIDAD-FORMATIVA-TRANSVERSAL.md` |
-| Maintainer guidance | `docs/CHECKLIST-OPERACION-SEMANAL.md` |
+## Temporal-truth reconciliation
 
-AVA remains the institutional authority for communications, evaluations and resources that must be managed there. The Repository Site is a derived navigation/knowledge surface, not a replacement institutional source.
+Before replay, local documentation was reconciled so the adopter no longer advertises a root `page/` source that does not exist, no longer uses obsolete `examples/` / `practica/` aliases in the local weekly checklist, and no longer marks Week 04 as `Actual` while Week 06 material already exists.
 
-## Temporal-truth reconciliation before replay
-
-The adoption audit found local documentation that no longer matched the repository tree:
-
-- root `README.md` still described `page/` as the editable portal source although `page/` is absent from `master`;
-- the weekly-operation checklist still referenced `examples/`, `practica/` and `page/` instead of this repository's actual roots `ejemplos/`, `ejercicios/` and the derived `gh-pages` publication surface;
-- `ejercicios/README.md` and `labs/README.md` marked Week 04 as `Actual` despite Week 06 material already existing.
-
-Those local truths were reconciled in this branch before canonical replay. The transversal `docs/CANON-REPOSITORIO-DOCENTE.md` is not redefined by W7.4; any future change to that shared canon must be governed independently.
+The transversal `docs/CANON-REPOSITORIO-DOCENTE.md` remains outside this adopter-specific change.
 
 ## Canonical semantic path
 
@@ -70,118 +48,99 @@ Builder private Knowledge IR / CompilationInput
 standard-repo-website-builder
 ```
 
-Forbidden shortcuts:
-
-- direct `repository.yaml` production semantic interpretation in the Builder;
-- EDUCATIONAL-specific Builder hardcoding;
-- fixture-specific schema/profile fork;
-- hidden registry/filesystem semantic rediscovery;
-- generated portal content becoming course or institutional authority;
-- reintroducing `page/` merely to satisfy the adopter.
+No ADEL Core change, profile bump, schema fork or repository-specific Builder hardcoding was required.
 
 ## Pre-closure machine acceptance
 
-Adopter source revision:
+Latest reviewed pre-closure revision: `ab92458c8955baed912171a6031878c4bc71d710`.
 
-`3d6393804284dfb3362726ac84786f043d1b84c9`
+Verified:
 
-Governed commands:
-
-```text
-make w7-adopter-replay
-make w7-adopter-product-gate
-make w7-adopter-browser-review
-```
-
-Command execution result: PASS for all three targets.
-
-Canonical replay classification:
-
-`PASS_WITH_DECLARED_GAPS`
-
-Product acceptance classification:
-
-`PASS_WITH_DECLARED_GAPS`
-
-Verified machine state:
-
-- 8 knowledge items;
-- 8 sources present;
-- 0 sources missing;
-- 0 diagnostics;
-- all 8 knowledge items are explicit descriptor entries;
-- convention-discovered items = 0;
+- canonical replay = `PASS_WITH_DECLARED_GAPS`;
+- product gate = `PASS_WITH_DECLARED_GAPS`;
 - only declared gap = `W7-4-ADOPTION-001`;
+- 8 knowledge items / 8 sources present / 0 missing;
+- diagnostics = 0;
 - production semantic input = `adel-resolved-projection`;
 - resolved semantic nodes = 6;
-- knowledge pages = 8;
-- output files = 15;
-- deterministic semantic nodes/output/repository identity/gaps/section hubs/page count;
-- 75 generated links checked;
-- 0 broken links;
-- governed shell/navigation = PASS;
+- deterministic outputs, identity, gaps, section hubs and page count;
+- 8 knowledge pages / 15 output files;
+- 75 links checked / 0 broken;
+- shell/navigation = PASS;
 - knowledge discoverability = PASS;
 - publication readiness = `READY_FOR_PROVIDER_VERIFICATION`;
-- fixture-specific schema fork required = false;
-- repository-specific Builder hardcoding required = false.
+- schema fork required = false;
+- repository-specific Builder hardcoding required = false;
+- browser captures = `READY_FOR_HUMAN_REVIEW`.
 
-Evidence: `governance/evidence/W7-4-MACHINE-ACCEPTANCE.md`.
+Machine evidence: `governance/evidence/W7-4-MACHINE-ACCEPTANCE.md`.
 
-## Browser review readiness
+## Human review
 
-Browser capture gate completed with:
+Representative desktop/mobile captures for Home, Conformance, Knowledge and Course Orientation were reviewed.
 
-`READY_FOR_HUMAN_REVIEW`
+Result: `PASS`.
 
-Representative pages:
+Accepted criteria:
 
-- Home (`index.html`);
-- Conformance (`conformance.html`);
-- Knowledge (`knowledge.html`);
-- Course Orientation (`knowledge/course-orientation.html`).
+- global navigation coherent and usable;
+- repository identity visible and consistent;
+- readable content hierarchy;
+- shell preserved through section/detail navigation;
+- no visible mobile horizontal page overflow;
+- material knowledge discoverable without source-only navigation;
+- learner-first EDUCATIONAL orientation preserved;
+- current-state/temporal truth consistent with the pre-closure declared-gap state.
 
-Each surface was captured at desktop `1440x1100` and mobile `390x844`, producing eight screenshots. Structural checks confirm shell and required navigation on every capture.
+Non-blocking observation: the long repository identity is visually truncated in the mobile header, but identity remains recognizable and navigation usable.
 
-## Remaining human acceptance
+Human evidence: `governance/evidence/W7-4-HUMAN-REVIEW-PASS.md`.
 
-The current gate is deliberately human. Review must establish:
+## Gap closure
 
-- global navigation is coherent and usable;
-- repository identity is visible and consistent;
-- content hierarchy is readable without clipping or overlap;
-- section/detail navigation preserves the global shell;
-- mobile layout has no horizontal page overflow;
-- material course knowledge is discoverable without relying on source links;
-- learner-first orientation is evident;
-- current-state messaging is understandable;
-- stale `page/` truth is absent from current course orientation;
-- stale Week 04 `Actual/Próximamente` truth is absent from the current projected learner path.
+`W7-4-ADOPTION-001` is now closed because its closure conditions have been satisfied:
 
-Until the representative desktop/mobile and temporal-truth review passes:
+- canonical replay classified;
+- no undeclared blocking gaps;
+- desktop review PASS;
+- mobile review PASS;
+- temporal truth PASS;
+- publication readiness classified.
+
+Closing the gap changes `governance/repository.yaml`, so evidence from the pre-closure revision is not sufficient to claim final W7.4 PASS.
+
+Current state:
 
 ```text
-W7_4_MACHINE = PASS_WITH_DECLARED_GAPS
-W7_4_HUMAN = PENDING
-W7_4_ADOPTION_001 = OPEN
+W7_4_MACHINE_PRECLOSURE = PASS_WITH_DECLARED_GAPS
+W7_4_HUMAN = PASS
+W7_4_ADOPTION_001 = CLOSED
+W7_4_FINAL_REPLAY = PENDING
 PR_5_MERGE_ALLOWED = false
 WAVE_7_FULL_COHORT_COMPLETE = false
 ```
 
-## Wave progression
+## Final exit gate
 
-W7.4 is the final planned adopter of the current cohort. Full Wave 7 completion MUST NOT be claimed until this adopter is classified and PR #5 is merged or otherwise closed with an accepted outcome.
+Run the canonical replay and product gate against the post-closure revision. Required final state:
+
+```text
+w7-adopter-replay = PASS
+w7-adopter-product-gate = PASS
+declared_gaps = []
+sources_missing = 0
+broken_links = 0
+semantic_input = adel-resolved-projection
+```
+
+A final browser capture may be used to confirm Conformance now renders the gap-free `Validation: PASS` state. Only after final replay acceptance may PR #5 merge and Wave 7 full-cohort completion be claimed.
 
 ## Non-claims
 
-This branch does not yet claim:
+This record does not yet claim:
 
-- final W7.4 closure;
+- final W7.4 PASS;
 - Wave 7 full cohort complete;
 - provider-side Pages state verified;
 - ADEL Core changes required;
-- `repository-site@0.2` required;
 - AVA authority replaced.
-
-## Next action
-
-Perform human review of the eight generated browser captures. If learner-first desktop/mobile usability and temporal truth pass, persist human acceptance, remove `W7-4-ADOPTION-001`, replay the adopter in gap-free post-closure state, and only then merge PR #5.
