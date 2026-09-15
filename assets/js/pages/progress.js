@@ -9,7 +9,13 @@ let state = loadProgress();
 function render() {
   list.innerHTML = items.map((text, index) => {
     const checked = Boolean(state[index]);
-    return `<div class="progress-item ${checked ? 'is-done' : ''}"><input type="checkbox" id="progress-${index}" data-index="${index}" ${checked ? 'checked' : ''}> <label for="progress-${index}">${text}</label></div>`;
+    return `<div class="progress-item ${checked ? 'is-done' : ''}">
+      <label class="switch-control" for="progress-${index}">
+        <input class="switch-control__input" type="checkbox" id="progress-${index}" data-index="${index}" ${checked ? 'checked' : ''}>
+        <span class="switch-control__track" aria-hidden="true"></span>
+        <span>${text}</span>
+      </label>
+    </div>`;
   }).join('');
   const summary = summarize(state);
   counter.textContent = `${summary.done} de ${summary.total}`;
