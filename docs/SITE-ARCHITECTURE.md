@@ -1,57 +1,3 @@
-# Site Architecture
-
-## Purpose
-
-The DSY1102 public site is organized as a layered static application rather than a flat collection of HTML files.
-
-## Canonical layout
-
-```text
-assets/
-  img/
-  css/
-    global.css
-    pages/
-  js/
-    global.js
-    business/
-    pages/
-pages/
-  home/
-  weeks/
-  labs/
-  exercises/
-  challenges/
-  project/
-  progress/
-  student-repository/
-```
-
-## Responsibilities
-
-### `pages/**/index.html`
-
-Owns semantic document structure and page content. Canonical HTML must not contain significant presentation CSS or application logic.
-
-### `assets/css/global.css`
-
-Owns shared design tokens and reusable components such as buttons, notices, icons and switches.
-
-### `assets/css/pages/*`
-
-Owns feature/page-specific presentation.
-
-### `assets/js/global.js`
-
-Owns reusable browser/UI utilities that are not feature-domain rules.
-
-### `assets/js/pages/*`
-
-Owns DOM interaction and page controllers. Controllers render state, bind events and call business modules, but must not duplicate domain rules.
-
-### `assets/js/business/*`
-
-Owns state transitions, validation, progress rules, persistence contracts and reusable feature data. Business modules must not depend on the DOM.
 
 ### `assets/img/*`
 
@@ -86,29 +32,8 @@ CLI instructions must follow these conventions:
 - prefer observable sequences such as `git status → git add → git status → git commit → git push`;
 - the second `git status` is a verification step: learners must confirm exactly what is staged before committing;
 - do not visually imply that several commands form one script to paste and execute as a block;
-- if a command fails, the sequence stops until the learner understands or resolves the error.
-
-Both routes must lead to the same expected Git state and commit message.
-
-## Separation rules
-
-1. `master/page/` must not exist.
-2. Published UI implementation belongs to `gh-pages`.
-3. Canonical teaching/source content remains in the teaching structures on `master` (`semanas/`, `labs/`, `ejercicios/`, `docs/`, `proyecto-formativo/`, etc.).
-4. Runtime site code must not fetch its own implementation from `raw.githubusercontent.com`.
-5. A legacy URL may redirect, but it must not contain its own feature logic.
-6. Business modules must remain independently understandable without browser DOM APIs.
-7. Page controllers own presentation orchestration, not domain semantics.
-
-## Cutover discipline
-
-A migrated feature is complete only when:
-
-- its canonical `pages/*` target exists;
-- required local assets exist;
-- internal navigation points to canonical targets;
-- legacy URLs are redirects only;
-- own runtime dependencies do not use `raw.githubusercontent.com`;
-- significant inline CSS is eliminated;
-- dynamic logic is outside canonical HTML;
-- business state/rules are outside the page controller where applicable.
+- if a command fails, the sequence stops until the learner understands or resolves the error;
+- expected CLI output must be reconciled with the actual instruction of the learning step, not presented as a catalogue of every possible Git state;
+- for a step that creates a file, the primary pre-staging expectation is that exact file as `Untracked`; for a step that edits an existing file, it is that exact file under `Changes not staged for commit`; mixed steps may show both only when the instructions themselves require both states;
+- IDE auto-staging is treated as a specific exception, not a second generic scenario: if IntelliJ IDEA already performed `Add to Git`, explain that the same expected files may already appear in `Changes to be committed` with the corresponding `new file` or `modified` status;
+- expected-output guidance must identify files from the current step and tell the learner to stop when unrelated files are staged.
