@@ -77,7 +77,16 @@ Every Git checkpoint should present two equivalent routes:
 1. **GitHub Desktop**: review `Changes`, select the intended files, enter the required Summary, commit to the current branch and `Push origin`.
 2. **Terminal / CLI**: present one command at a time in execution order, with a short explanation of what the learner should observe before continuing.
 
-CLI instructions must not visually imply that several commands are a single script. Each command is an independent action and must have its own copy control. The learner executes one command, reads the result, and only then proceeds to the next command. If a command returns an error, the sequence stops until that error is understood or resolved.
+CLI instructions must follow these conventions:
+
+- present the CLI as a realistic terminal session, including a prompt and terminal-like visual treatment;
+- state once, before the sequence begins, that the terminal must already be located at the repository root;
+- do not repeat `cd` before every Git operation or every checkpoint;
+- keep each command independently copyable and executable;
+- prefer observable sequences such as `git status → git add → git status → git commit → git push`;
+- the second `git status` is a verification step: learners must confirm exactly what is staged before committing;
+- do not visually imply that several commands form one script to paste and execute as a block;
+- if a command fails, the sequence stops until the learner understands or resolves the error.
 
 Both routes must lead to the same expected Git state and commit message.
 
