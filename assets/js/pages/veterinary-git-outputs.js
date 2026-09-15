@@ -3,9 +3,34 @@ import { loadState, stages } from '../business/labs/veterinary-inheritance-model
 const LAB_PATH = 'labs/lab-veterinaria-herencia-polimorfismo';
 const app = document.querySelector('#vet1-app');
 
-function deliverablePaths(step) {
-  const matches = String(step?.deliver || '').match(/[A-Za-z0-9_.\/-]+\.(?:java|md)/g) || [];
-  return [...new Set(matches.map(path => `${LAB_PATH}/${path}`))];
+const STEP_EXPECTATIONS = {
+  s0p2: { kind:'new', paths:['README.md'] },
+  s1p1: { kind:'new', paths:['docs/01-analisis-problema.md'] },
+  s1p2: { kind:'modified', paths:['docs/01-analisis-problema.md'] },
+  s2p1: { kind:'new', paths:['docs/02-algoritmo-atencion.md'] },
+  s2p2: { kind:'modified', paths:['docs/02-algoritmo-atencion.md'] },
+  s3p1: { kind:'new', paths:['docs/03-modelo-objetos.md'] },
+  s3p2: { kind:'new', paths:['docs/diagramas/jerarquia-clases.md'] },
+  s4p1: { kind:'new', paths:['src/Animal.java'] },
+  s4p2: { kind:'new', paths:['src/Mascota.java','src/Salvaje.java'] },
+  s5p1: { kind:'new', paths:['src/Perro.java','src/Gato.java'] },
+  s5p2: { kind:'new', paths:['src/Tigre.java','src/Leon.java'] },
+  s6p1: {
+    kind:'modified',
+    paths:['src/Animal.java'],
+    note:'Además de Animal.java, deben aparecer sólo las subclases concretas en las que realmente hayas implementado o sobrescrito el comportamiento común. No es obligatorio que aparezcan todas si tu solución no las modificó.'
+  },
+  s6p2: { kind:'new', paths:['docs/diagramas/interaccion-objetos.md'] },
+  s7p1: { kind:'new', paths:['src/Main.java'] },
+  s7p2: {
+    kind:'mixed',
+    newPaths:['evidencias/cierre.md'],
+    modifiedPaths:['README.md']
+  }
+};
+
+function qualify(paths = []) {
+  return paths.map(path => `${LAB_PATH}/${path}`);
 }
 
 function gitRemoteUrl(state) {
@@ -14,67 +39,112 @@ function gitRemoteUrl(state) {
   return url.endsWith('.git') ? url : `${url}.git`;
 }
 
+function branchHeader() {
+  return `On branch master\nYour branch is up to date with 'origin/master'.`;
+}
+
+function untrackedBlock(paths) {
+  return `${branchHeader()}\n\nUntracked files:\n  (use "git add <file>..." to include in what will be committed)\n${paths.map(path => `        ${path}`).join('\n')}\n\nnothing added to commit but untracked files present (use "git add" to track)`;
+}
+
+function modifiedBlock(paths) {
+  return `${branchHeader()}\n\nChanges not staged for commit:\n  (use "git add <file>..." to update what will be committed)\n${paths.map(path => `        modified:   ${path}`).join('\n')}\n\nno changes added to commit (use "git add" and/or "git commit -a")`;
+}
+
+function mixedBlock(newPaths, modifiedPaths) {
+  return `${branchHeader()}\n\nChanges not staged for commit:\n  (use "git add <file>..." to update what will be committed)\n${modifiedPaths.map(path => `        modified:   ${path}`).join('\n')}\n\nUntracked files:\n  (use "git add <file>..." to include in what will be committed)\n${newPaths.map(path => `        ${path}`).join('\n')}\n\nno changes added to commit (use "git add" and/or "git commit -a")`;
+}
+
+function stagedBlock(newPaths = [], modifiedPaths = []) {
+  const lines = [
+    ...newPaths.map(path => `        new file:   ${path}`),
+    ...modifiedPaths.map(path => `        modified:   ${path}`)
+  ];
+  return `${branchHeader()}\n\nChanges to be committed:\n  (use "git restore --staged <file>..." to unstage)\n${lines.join('\n')}`;
+}
+
+function expectationFor(step) {
+  return STEP_EXPECTATIONS[step.id] || { kind:'new', paths:[] };
+}
+
+function resolvedPaths(expectation) {
+  if (expectation.kind === 'mixed') {
+    return {
+      newPaths: qualify(expectation.newPaths),
+      modifiedPaths: qualify(expectation.modifiedPaths)
+    };
+  }
+  const paths = qualify(expectation.paths);
+  return expectation.kind === 'new'
+    ? { newPaths: paths, modifiedPaths: [] }
+    : { newPaths: [], modifiedPaths: paths };
+}
+
+function preAddOutput(expectation) {
+  const { newPaths, modifiedPaths } = resolvedPaths(expectation);
+  let text;
+  let interpretation;
+
+  if (expectation.kind === 'new') {
+    text = untrackedBlock(newPaths);
+    interpretation = `En este paso estás creando ${newPaths.length === 1 ? 'un archivo nuevo' : 'archivos nuevos'}. Antes de git add, ${newPaths.length === 1 ? 'debe aparecer como Untracked file' : 'deben aparecer como Untracked files'}.`;
+  } else if (expectation.kind === 'modified') {
+    text = modifiedBlock(modifiedPaths);
+    interpretation = `En este paso estás modificando ${modifiedPaths.length === 1 ? 'un archivo que ya existía' : 'archivos que ya existían'}. Antes de git add, ${modifiedPaths.length === 1 ? 'debe aparecer' : 'deben aparecer'} en Changes not staged for commit.`;
+  } else {
+    text = mixedBlock(newPaths, modifiedPaths);
+    interpretation = 'Este paso mezcla un archivo nuevo y uno ya existente: el nuevo debe aparecer en Untracked files y el existente en Changes not staged for commit.';
+  }
+
+  const autoAddText = stagedBlock(newPaths, modifiedPaths);
+  const autoAddNote = 'Excepción específica de IntelliJ IDEA: si al crear o editar el archivo aceptaste que IntelliJ lo agregara automáticamente a Git (por ejemplo, mediante “Add” / “Add to Git” o una configuración equivalente), puede aparecer ya en Changes to be committed antes de ejecutar git add. Eso es válido. Verifica que sean exactamente los archivos de este paso y continúa al siguiente comando; ejecutar git add nuevamente no causa problema.';
+
+  return [{
+    label:'Lo esperado en este paso',
+    text,
+    note:[interpretation, expectation.note].filter(Boolean).join(' '),
+    secondary:{
+      label:'Si IntelliJ IDEA ya hizo git add automáticamente',
+      text:autoAddText,
+      note:autoAddNote
+    }
+  }];
+}
+
+function postAddOutput(expectation) {
+  const { newPaths, modifiedPaths } = resolvedPaths(expectation);
+  return [{
+    label:'Lo esperado después de git add',
+    text:stagedBlock(newPaths, modifiedPaths),
+    note:`Antes de crear el commit, confirma que aparecen exactamente los archivos correspondientes a este paso.${expectation.note ? ` ${expectation.note}` : ''} Si ves archivos ajenos a esta actividad, no continúes hasta corregir el staging.`
+  }];
+}
+
 function expectedOutputs(step, state) {
-  const targets = deliverablePaths(step);
-  const paths = targets.length ? targets : [LAB_PATH];
-  const indented = paths.map(path => `        ${path}`).join('\n');
-  const modified = paths.map(path => `        modified:   ${path}`).join('\n');
-  const stagedNew = paths.map(path => `        new file:   ${path}`).join('\n');
-  const stagedModified = paths.map(path => `        modified:   ${path}`).join('\n');
-  const count = Math.max(1, paths.length);
+  const expectation = expectationFor(step);
+  const { newPaths, modifiedPaths } = resolvedPaths(expectation);
+  const allPaths = [...newPaths, ...modifiedPaths];
+  const count = Math.max(1, allPaths.length);
   const filesLabel = count === 1 ? 'file' : 'files';
 
   return [
-    [
-      {
-        label: 'Si los entregables de este paso son archivos nuevos',
-        text: `On branch master\nYour branch is up to date with 'origin/master'.\n\nUntracked files:\n  (use "git add <file>..." to include in what will be committed)\n${indented}\n\nnothing added to commit but untracked files present (use "git add" to track)`
-      },
-      {
-        label: 'Si estás modificando archivos que ya existían',
-        text: `On branch master\nYour branch is up to date with 'origin/master'.\n\nChanges not staged for commit:\n  (use "git add <file>..." to update what will be committed)\n${modified}\n\nno changes added to commit (use "git add" and/or "git commit -a")`
-      },
-      {
-        label: 'Si ves el árbol limpio',
-        text: `On branch master\nYour branch is up to date with 'origin/master'.\n\nnothing to commit, working tree clean`,
-        note: 'En este punto, un árbol limpio sólo es correcto si ya habías registrado este avance. Si todavía no has hecho el commit de este paso, detente y comprueba que guardaste los archivos en la ruta correcta.'
-      }
-    ],
-    [
-      {
-        label: 'Salida esperada',
-        text: '(sin salida)',
-        note: 'git add normalmente no imprime nada cuando funciona. Si vuelve al prompt sin error, el staging terminó correctamente.'
-      }
-    ],
-    [
-      {
-        label: 'Si los archivos son nuevos',
-        text: `On branch master\nYour branch is up to date with 'origin/master'.\n\nChanges to be committed:\n  (use "git restore --staged <file>..." to unstage)\n${stagedNew}`
-      },
-      {
-        label: 'Si los archivos ya existían y fueron modificados',
-        text: `On branch master\nYour branch is up to date with 'origin/master'.\n\nChanges to be committed:\n  (use "git restore --staged <file>..." to unstage)\n${stagedModified}`
-      }
-    ],
-    [
-      {
-        label: 'Salida esperada; el hash y los conteos cambian',
-        text: `[master a1b2c3d] ${step.commit}\n ${count} ${filesLabel} changed, <n> insertions(+), <m> deletions(-)`,
-        note: 'Lo importante es reconocer el mensaje de commit que acabas de usar y que Git informe que creó un commit nuevo.'
-      }
-    ],
-    [
-      {
-        label: 'Al enviar un commit nuevo',
-        text: `Enumerating objects: ..., done.\nCounting objects: 100% (.../...), done.\nWriting objects: 100% (.../...), done.\nTo ${gitRemoteUrl(state)}\n   <commit-anterior>..<commit-nuevo>  master -> master`
-      },
-      {
-        label: 'Si ese commit ya estaba enviado al remoto',
-        text: 'Everything up-to-date',
-        note: 'Este mensaje indica que Git no encontró commits locales pendientes de enviar.'
-      }
-    ]
+    preAddOutput(expectation),
+    [{
+      label:'Salida esperada',
+      text:'(sin salida)',
+      note:'git add normalmente no imprime nada cuando funciona. Si vuelve al prompt sin mostrar un error, continúa con el segundo git status para verificar el staging.'
+    }],
+    postAddOutput(expectation),
+    [{
+      label:'Lo esperado al crear el commit',
+      text:`[master a1b2c3d] ${step.commit}\n ${count} ${filesLabel} changed, <n> insertions(+), <m> deletions(-)`,
+      note:'El hash y los conteos varían. Debes reconocer el mensaje de commit de este paso y comprobar que Git informa que creó un commit nuevo.'
+    }],
+    [{
+      label:'Lo esperado al enviar el commit',
+      text:`Enumerating objects: ..., done.\nCounting objects: 100% (.../...), done.\nWriting objects: 100% (.../...), done.\nTo ${gitRemoteUrl(state)}\n   <commit-anterior>..<commit-nuevo>  master -> master`,
+      note:'La cantidad de objetos y los hashes cambian. Lo importante es que termine con master -> master (o el nombre de la rama que estés usando) y sin errores.'
+    }]
   ];
 }
 
@@ -88,6 +158,29 @@ function findStepForCarousel(carousel) {
   return stages.flatMap(stage => stage.steps).find(step => step.commit === match[1]) || null;
 }
 
+function appendOutputCase(parent, output, extraClass = '') {
+  const item = document.createElement('div');
+  item.className = `vet1-terminal__expected-case ${extraClass}`.trim();
+
+  const label = document.createElement('div');
+  label.className = 'vet1-terminal__expected-label';
+  label.textContent = output.label;
+  item.appendChild(label);
+
+  const pre = document.createElement('pre');
+  pre.textContent = output.text;
+  item.appendChild(pre);
+
+  if (output.note) {
+    const note = document.createElement('div');
+    note.className = 'vet1-terminal__expected-note';
+    note.textContent = output.note;
+    item.appendChild(note);
+  }
+
+  parent.appendChild(item);
+}
+
 function renderExpectedOutput(terminalBody, outputs) {
   const wrapper = document.createElement('div');
   wrapper.className = 'vet1-terminal__expected';
@@ -98,26 +191,10 @@ function renderExpectedOutput(terminalBody, outputs) {
   wrapper.appendChild(title);
 
   outputs.forEach(output => {
-    const item = document.createElement('div');
-    item.className = 'vet1-terminal__expected-case';
-
-    const label = document.createElement('div');
-    label.className = 'vet1-terminal__expected-label';
-    label.textContent = output.label;
-    item.appendChild(label);
-
-    const pre = document.createElement('pre');
-    pre.textContent = output.text;
-    item.appendChild(pre);
-
-    if (output.note) {
-      const note = document.createElement('div');
-      note.className = 'vet1-terminal__expected-note';
-      note.textContent = output.note;
-      item.appendChild(note);
+    appendOutputCase(wrapper, output);
+    if (output.secondary) {
+      appendOutputCase(wrapper, output.secondary, 'is-secondary');
     }
-
-    wrapper.appendChild(item);
   });
 
   terminalBody.appendChild(wrapper);
