@@ -1,0 +1,4 @@
+.student-repo-hero { background: linear-gradient(135deg,#111827,#312e81); }
+.repo-tree { background: #111827; color: #e5e7eb; border-radius: var(--radius-md); padding: 1rem; overflow: auto; }
+.repo-rule { border-left: 4px solid #4f46e5; padding-left: 1rem; }
+.devlog-card { background: #eef2ff; border: 1px solid #c7d2fe; border-radius: var(--radius-lg); padding: 1.25rem; }
