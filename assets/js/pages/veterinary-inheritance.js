@@ -46,9 +46,43 @@ function identityForm(readOnly = false) {
   ${readOnly ? '' : `<div class="vet1-actions"><button class="btn btn-primary" data-action="save-identity">${icon('save')} Guardar datos de sesión</button></div>`}`;
 }
 
+function commandStep(number, title, command, explanation) {
+  return `<div class="vet1-cli-step">
+    <div class="vet1-cli-step__head"><span class="vet1-cli-number">${number}</span><div><strong>${esc(title)}</strong><div class="muted">${esc(explanation)}</div></div></div>
+    <div class="vet1-command"><code>${esc(command)}</code><button class="btn btn-secondary" type="button" data-copy-command="${esc(command)}">${icon('clipboard')} Copiar</button></div>
+  </div>`;
+}
+
 function gitBlock(step) {
   if (!step.commit) return '';
-  return `<div class="vet1-code"><button class="btn btn-secondary vet1-copy" data-copy-code>${icon('clipboard')} Copiar</button>${esc(shellPath())}\ngit status\ngit add "${labPath()}"\ngit commit -m "${esc(step.commit)}"\ngit push</div>`;
+  const commitMessage = step.commit;
+  return `<section class="vet1-version-control stack">
+    <div class="vet1-section-heading">${icon('git-branch','icon icon-lg')}<div><span class="badge">Control de versiones</span><h3>Guarda este avance en Git</h3></div></div>
+    <p class="muted">Puedes hacerlo con <strong>GitHub Desktop</strong> o con <strong>Terminal / CLI</strong>. El resultado debe ser el mismo: un commit de este paso enviado a GitHub.</p>
+
+    <details class="vet1-workflow" open>
+      <summary>${icon('desktop')} <strong>Ruta A · GitHub Desktop</strong> <span class="muted">Recomendada si aún no manejas la terminal</span></summary>
+      <ol class="vet1-desktop-steps">
+        <li><strong>Abre GitHub Desktop</strong> y confirma que está seleccionado tu repositorio <code>DSY1102-...</code>.</li>
+        <li>En la pestaña <strong>Changes</strong>, revisa los archivos modificados. Deja seleccionados sólo los cambios que corresponden a este avance.</li>
+        <li>En <strong>Summary (required)</strong>, escribe exactamente:<div class="vet1-command"><code>${esc(commitMessage)}</code><button class="btn btn-secondary" type="button" data-copy-command="${esc(commitMessage)}">${icon('clipboard')} Copiar</button></div></li>
+        <li>Presiona <strong>Commit to current branch</strong>. Espera a que GitHub Desktop confirme el commit antes de continuar.</li>
+        <li>Presiona <strong>Push origin</strong> para enviar el commit a GitHub. Si el botón dice <strong>Fetch origin</strong> y no hay cambios pendientes, revisa el historial para confirmar que el commit ya fue enviado.</li>
+      </ol>
+      <div class="notice notice-info">${icon('check')} Terminas esta ruta cuando el commit aparece en el historial de GitHub Desktop y fue enviado al repositorio remoto.</div>
+    </details>
+
+    <details class="vet1-workflow">
+      <summary>${icon('terminal')} <strong>Ruta B · Terminal / CLI</strong> <span class="muted">Ejecuta un comando por vez</span></summary>
+      <div class="notice notice-warning"><strong>No copies ni ejecutes todos los comandos juntos.</strong> Ejecuta el paso 1, observa el resultado y recién después continúa con el siguiente.</div>
+      ${commandStep(1, 'Ubícate en tu repositorio', shellPath(), 'Hazlo sólo si tu terminal todavía no está abierta en la carpeta raíz del repositorio.')}
+      ${commandStep(2, 'Revisa qué cambió', 'git status', 'Lee el resultado. Debes reconocer los archivos que modificaste antes de preparar el commit.')}
+      ${commandStep(3, 'Prepara los archivos del laboratorio', `git add "${labPath()}"`, 'Este comando agrega al próximo commit los cambios de esta carpeta. Luego puedes ejecutar git status nuevamente para verificar.')}
+      ${commandStep(4, 'Crea el commit', `git commit -m "${commitMessage}"`, 'Ejecuta este comando sólo después de confirmar que los archivos correctos están preparados.')}
+      ${commandStep(5, 'Envía el commit a GitHub', 'git push', 'Hazlo después de que git commit haya finalizado correctamente. Espera la confirmación del push.')}
+      <div class="notice notice-info">${icon('check')} Si un comando muestra un error, detente y resuélvelo antes de ejecutar el siguiente.</div>
+    </details>
+  </section>`;
 }
 
 function stepHtml(step, index, reviewOnly = false) {
@@ -152,8 +186,14 @@ app.addEventListener('change', event => {
 });
 
 app.addEventListener('click', async event => {
-  const copy = event.target.closest('[data-copy-code]');
-  if (copy) { const code = copy.parentElement.innerText.replace('Copiar','').trim(); await navigator.clipboard.writeText(code); copy.innerHTML=`${icon('check')} Copiado`; setTimeout(()=>copy.innerHTML=`${icon('clipboard')} Copiar`,900); return; }
+  const commandButton = event.target.closest('[data-copy-command]');
+  if (commandButton) {
+    await navigator.clipboard.writeText(commandButton.dataset.copyCommand);
+    const previous = commandButton.innerHTML;
+    commandButton.innerHTML = `${icon('check')} Copiado`;
+    setTimeout(() => { commandButton.innerHTML = previous; }, 900);
+    return;
+  }
   const action = event.target.closest('[data-action]')?.dataset.action;
   if (!action) return;
   if (action === 'save-identity') {
