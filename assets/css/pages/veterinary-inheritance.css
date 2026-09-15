@@ -5,13 +5,14 @@
 .vet1-layout { max-width:1280px; margin:auto; display:grid; grid-template-columns:300px minmax(0,1fr); gap:1rem; padding:1rem; }
 .vet1-sidebar { position:sticky; top:72px; align-self:start; max-height:calc(100vh - 90px); overflow:auto; background:#fff; border:1px solid var(--color-line); border-radius:var(--radius-lg); padding:1rem; }
 .vet1-nav { display:grid; gap:.3rem; }
-.vet1-stage { width:100%; text-align:left; border:0; background:transparent; padding:.65rem .7rem; border-radius:.7rem; cursor:pointer; color:var(--color-ink); }
+.vet1-stage { width:100%; text-align:left; border:0; background:transparent; padding:.65rem .7rem; border-radius:.7rem; cursor:pointer; color:var(--color-ink); display:flex; align-items:flex-start; gap:.5rem; }
 .vet1-stage.is-active { background:#eef2ff; color:#3730a3; font-weight:800; }
 .vet1-stage:disabled { color:#94a3b8; cursor:not-allowed; }
 .vet1-progress { height:10px; background:#e2e8f0; border-radius:99px; overflow:hidden; margin:.75rem 0; }
 .vet1-progress > div { height:100%; background:linear-gradient(90deg,#4338ca,#6366f1); width:0; transition:width .2s ease; }
 .vet1-hero { background:linear-gradient(135deg,#111827,#312e81 58%,#4f46e5); }
 .vet1-step { border-left:5px solid #6366f1; }
+.vet1-step.is-review { border-left-color:#16a34a; background:#fbfffc; }
 .vet1-step__head { display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; }
 .vet1-mission { background:#eef2ff; border:1px solid #c7d2fe; border-radius:var(--radius-md); padding:.9rem; }
 .vet1-why { background:#fff7ed; border:1px solid #fed7aa; border-radius:var(--radius-md); padding:.9rem; }
@@ -21,9 +22,13 @@
 .vet1-diagram { overflow:auto; background:#fff; border:1px solid var(--color-line); border-radius:var(--radius-md); padding:1rem; }
 .vet1-flow { display:flex; gap:.55rem; align-items:center; flex-wrap:wrap; }
 .vet1-node { border:2px solid #c7d2fe; background:#eef2ff; color:#312e81; padding:.55rem .75rem; border-radius:.7rem; font-weight:800; }
-.vet1-switchline { display:flex; gap:.7rem; align-items:center; font-weight:700; }
+.vet1-switchline { font-weight:700; }
 .vet1-quiz-question { padding:.8rem 0; border-bottom:1px solid var(--color-line); }
 .vet1-quiz-question label { display:block; margin:.35rem 0; }
+.vet1-checkpoint { border:2px solid #c7d2fe; box-shadow:0 12px 32px rgba(67,56,202,.08); }
+.vet1-passed { border:2px solid #bbf7d0; }
+.vet1-section-heading { display:flex; align-items:center; gap:.7rem; }
+.vet1-section-heading h2 { margin:.2rem 0 0; }
 .vet1-dialog { width:min(650px,calc(100vw - 2rem)); border:0; border-radius:var(--radius-lg); padding:0; }
 .vet1-dialog::backdrop { background:rgba(15,23,42,.68); }
 .vet1-dialog__body { padding:1.25rem; }
@@ -31,4 +36,5 @@
 .vet1-identity { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
 .vet1-field { display:grid; gap:.35rem; }
 .vet1-field input { width:100%; padding:.7rem .8rem; border:1px solid #cbd5e1; border-radius:.65rem; }
+.vet1-field input:disabled { background:#f8fafc; color:#64748b; }
 @media(max-width:900px){.vet1-layout{grid-template-columns:1fr}.vet1-sidebar{position:static;max-height:none}.vet1-identity{grid-template-columns:1fr}.vet1-top__inner{align-items:flex-start;flex-direction:column}.vet1-step__head{flex-direction:column}}
