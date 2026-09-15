@@ -18,7 +18,8 @@ const STEP_EXPECTATIONS = {
   s6p1: {
     kind:'modified',
     paths:['src/Animal.java'],
-    note:'Además de Animal.java, deben aparecer sólo las subclases concretas en las que realmente hayas implementado o sobrescrito el comportamiento común. No es obligatorio que aparezcan todas si tu solución no las modificó.'
+    note:'Además de Animal.java, deben aparecer sólo las subclases concretas en las que realmente hayas implementado o sobrescrito el comportamiento común. No es obligatorio que aparezcan todas si tu solución no las modificó.',
+    flexibleCount:true
   },
   s6p2: { kind:'new', paths:['docs/diagramas/interaccion-objetos.md'] },
   s7p1: { kind:'new', paths:['src/Main.java'] },
@@ -80,6 +81,14 @@ function resolvedPaths(expectation) {
     : { newPaths: [], modifiedPaths: paths };
 }
 
+function intellijAutoAddObservation(newPaths, modifiedPaths) {
+  const parts = [
+    ...newPaths.map(path => `${path} como “new file”`),
+    ...modifiedPaths.map(path => `${path} como “modified”`)
+  ];
+  return `Observación sobre IntelliJ IDEA: al crear o editar estos archivos, IntelliJ puede preguntarte si quieres agregarlos a Git. Si aceptaste “Add” / “Add to Git”, antes de ejecutar git add ya aparecerán en “Changes to be committed”: ${parts.join('; ')}. Eso también es correcto, porque el IDE ya realizó el staging. Verifica que sean exactamente los archivos de este paso; no deben aparecer archivos ajenos a la actividad.`;
+}
+
 function preAddOutput(expectation) {
   const { newPaths, modifiedPaths } = resolvedPaths(expectation);
   let text;
@@ -96,18 +105,10 @@ function preAddOutput(expectation) {
     interpretation = 'Este paso mezcla un archivo nuevo y uno ya existente: el nuevo debe aparecer en Untracked files y el existente en Changes not staged for commit.';
   }
 
-  const autoAddText = stagedBlock(newPaths, modifiedPaths);
-  const autoAddNote = 'Excepción específica de IntelliJ IDEA: si al crear o editar el archivo aceptaste que IntelliJ lo agregara automáticamente a Git (por ejemplo, mediante “Add” / “Add to Git” o una configuración equivalente), puede aparecer ya en Changes to be committed antes de ejecutar git add. Eso es válido. Verifica que sean exactamente los archivos de este paso y continúa al siguiente comando; ejecutar git add nuevamente no causa problema.';
-
   return [{
     label:'Lo esperado en este paso',
     text,
-    note:[interpretation, expectation.note].filter(Boolean).join(' '),
-    secondary:{
-      label:'Si IntelliJ IDEA ya hizo git add automáticamente',
-      text:autoAddText,
-      note:autoAddNote
-    }
+    note:[interpretation, expectation.note, intellijAutoAddObservation(newPaths, modifiedPaths)].filter(Boolean).join(' ')
   }];
 }
 
@@ -124,8 +125,9 @@ function expectedOutputs(step, state) {
   const expectation = expectationFor(step);
   const { newPaths, modifiedPaths } = resolvedPaths(expectation);
   const allPaths = [...newPaths, ...modifiedPaths];
-  const count = Math.max(1, allPaths.length);
-  const filesLabel = count === 1 ? 'file' : 'files';
+  const countText = expectation.flexibleCount
+    ? '<n> files changed'
+    : `${Math.max(1, allPaths.length)} ${allPaths.length === 1 ? 'file' : 'files'} changed`;
 
   return [
     preAddOutput(expectation),
@@ -137,7 +139,7 @@ function expectedOutputs(step, state) {
     postAddOutput(expectation),
     [{
       label:'Lo esperado al crear el commit',
-      text:`[master a1b2c3d] ${step.commit}\n ${count} ${filesLabel} changed, <n> insertions(+), <m> deletions(-)`,
+      text:`[master a1b2c3d] ${step.commit}\n ${countText}, <n> insertions(+), <m> deletions(-)`,
       note:'El hash y los conteos varían. Debes reconocer el mensaje de commit de este paso y comprobar que Git informa que creó un commit nuevo.'
     }],
     [{
@@ -158,9 +160,9 @@ function findStepForCarousel(carousel) {
   return stages.flatMap(stage => stage.steps).find(step => step.commit === match[1]) || null;
 }
 
-function appendOutputCase(parent, output, extraClass = '') {
+function appendOutputCase(parent, output) {
   const item = document.createElement('div');
-  item.className = `vet1-terminal__expected-case ${extraClass}`.trim();
+  item.className = 'vet1-terminal__expected-case';
 
   const label = document.createElement('div');
   label.className = 'vet1-terminal__expected-label';
@@ -190,13 +192,7 @@ function renderExpectedOutput(terminalBody, outputs) {
   title.textContent = 'Salida esperada (o similar)';
   wrapper.appendChild(title);
 
-  outputs.forEach(output => {
-    appendOutputCase(wrapper, output);
-    if (output.secondary) {
-      appendOutputCase(wrapper, output.secondary, 'is-secondary');
-    }
-  });
-
+  outputs.forEach(output => appendOutputCase(wrapper, output));
   terminalBody.appendChild(wrapper);
 }
 
