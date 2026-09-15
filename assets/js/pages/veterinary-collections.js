@@ -1,8 +1,10 @@
 import { checkpoints, loadProgress, saveProgress, toggleCheckpoint } from '../business/labs/veterinary-collections-progress.js';
 
+const ICONS = '../../../assets/img/icons.svg';
 const prerequisite = document.querySelector('#prerequisite');
 const container = document.querySelector('#checkpoints');
 let progress = loadProgress();
+const icon = name => `<svg class="icon" aria-hidden="true"><use href="${ICONS}#${name}"></use></svg>`;
 
 function render() {
   const unlocked = prerequisite.checked;
@@ -15,7 +17,7 @@ function render() {
         <p>${item.body}</p>
         <p class="muted">Evidencia: ${item.evidence}</p>
         <button class="btn ${done ? 'btn-success' : 'btn-secondary'}" data-checkpoint="${index}" ${unlocked ? '' : 'disabled'}>
-          ${done ? '✓ Completado' : 'Marcar completado'}
+          ${icon(done ? 'check' : 'circle')} ${done ? 'Completado' : 'Marcar completado'}
         </button>
       </article>`;
   }).join('');
