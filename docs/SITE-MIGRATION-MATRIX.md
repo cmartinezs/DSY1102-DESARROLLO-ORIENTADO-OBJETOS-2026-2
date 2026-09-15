@@ -39,6 +39,7 @@ Migración desde la raíz plana de `gh-pages` hacia arquitectura por features.
 - [x] Completion controls normalizados como switches.
 - [x] Iconografía local compartida disponible.
 - [x] Veterinaria I implementa trabajo → checkpoint → aprobado → repaso no destructivo.
-- [x] Instrucciones Git de Veterinaria I ofrecen rutas equivalentes GitHub Desktop y CLI paso a paso.
+- [x] Instrucciones Git de Veterinaria I ofrecen rutas equivalentes GitHub Desktop y CLI.
+- [x] CLI presenta y copia cada comando como acción individual, con validación del resultado antes de continuar.
 
 Estado: `MIGRATED_AND_PUBLISHED`.
