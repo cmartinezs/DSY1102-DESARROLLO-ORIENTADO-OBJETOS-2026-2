@@ -66,8 +66,8 @@ function openExercise(id) {
     <p>${esc(activeExercise.description)}</p>
     <p><strong>Dificultad:</strong> ${esc(activeExercise.difficulty)} · <strong>Tags:</strong> ${(activeExercise.tags || []).map(esc).join(', ')}</p>
     <section><h3>Hints de la etapa</h3><div id="challenge-hints">${used.map(index => `<div class="challenge150-hint">${esc(hints[index] || '')}</div>`).join('')}</div>${used.length < hints.length ? '<button class="btn btn-secondary" id="challenge-use-hint">Usar un hint</button>' : '<div class="muted">No quedan hints nuevos para esta etapa.</div>'}</section>
-    <div class="stack" style="margin-top:1rem"><button class="btn ${completed.has(activeExercise.id) ? 'btn-success' : 'btn-primary'}" id="challenge-dialog-toggle">${completed.has(activeExercise.id) ? '✓ Completado' : 'Marcar como realizado'}</button><button class="btn btn-secondary" id="challenge-close">Cerrar</button></div>`;
-  dialog.showModal();
+    <div class="stack challenge150-dialog-actions"><button class="btn ${completed.has(activeExercise.id) ? 'btn-success' : 'btn-primary'}" id="challenge-dialog-toggle">${completed.has(activeExercise.id) ? '✓ Completado' : 'Marcar como realizado'}</button><button class="btn btn-secondary" id="challenge-close">Cerrar</button></div>`;
+  if (!dialog.open) dialog.showModal();
   document.querySelector('#challenge-close').addEventListener('click', () => dialog.close());
   document.querySelector('#challenge-dialog-toggle').addEventListener('click', () => {
     completed = toggleCompleted(completed, activeExercise.id); saveCompleted(completed); dialog.close(); render();
