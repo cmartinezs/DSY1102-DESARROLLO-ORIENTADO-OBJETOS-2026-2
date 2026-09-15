@@ -21,7 +21,6 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;',
 const icon = (name, className='icon') => `<svg class="${className}" aria-hidden="true"><use href="${ICONS}#${name}"></use></svg>`;
 
 function persist() { saveState(state); render(); }
-function shellPath() { return state.student.repoPath ? `cd "${state.student.repoPath}"` : 'cd "<RUTA-DE-TU-REPOSITORIO>"'; }
 function labPath() { return 'labs/lab-veterinaria-herencia-polimorfismo'; }
 
 function diagram(kind) {
@@ -49,7 +48,10 @@ function identityForm(readOnly = false) {
 function commandStep(number, title, command, explanation) {
   return `<div class="vet1-cli-step">
     <div class="vet1-cli-step__head"><span class="vet1-cli-number">${number}</span><div><strong>${esc(title)}</strong><div class="muted">${esc(explanation)}</div></div></div>
-    <div class="vet1-command"><code>${esc(command)}</code><button class="btn btn-secondary" type="button" data-copy-command="${esc(command)}">${icon('clipboard')} Copiar</button></div>
+    <div class="vet1-terminal">
+      <div class="vet1-terminal__bar"><span class="vet1-terminal__dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Terminal</span></div>
+      <div class="vet1-terminal__body"><span class="vet1-terminal__prompt" aria-hidden="true">❯</span><code>${esc(command)}</code><button class="vet1-terminal__copy" type="button" data-copy-command="${esc(command)}" aria-label="Copiar comando">${icon('clipboard')} <span>Copiar</span></button></div>
+    </div>
   </div>`;
 }
 
@@ -74,12 +76,13 @@ function gitBlock(step) {
 
     <details class="vet1-workflow">
       <summary>${icon('terminal')} <strong>Ruta B · Terminal / CLI</strong> <span class="muted">Ejecuta un comando por vez</span></summary>
-      <div class="notice notice-warning"><strong>No copies ni ejecutes todos los comandos juntos.</strong> Ejecuta el paso 1, observa el resultado y recién después continúa con el siguiente.</div>
-      ${commandStep(1, 'Ubícate en tu repositorio', shellPath(), 'Hazlo sólo si tu terminal todavía no está abierta en la carpeta raíz del repositorio.')}
-      ${commandStep(2, 'Revisa qué cambió', 'git status', 'Lee el resultado. Debes reconocer los archivos que modificaste antes de preparar el commit.')}
-      ${commandStep(3, 'Prepara los archivos del laboratorio', `git add "${labPath()}"`, 'Este comando agrega al próximo commit los cambios de esta carpeta. Luego puedes ejecutar git status nuevamente para verificar.')}
-      ${commandStep(4, 'Crea el commit', `git commit -m "${commitMessage}"`, 'Ejecuta este comando sólo después de confirmar que los archivos correctos están preparados.')}
-      ${commandStep(5, 'Envía el commit a GitHub', 'git push', 'Hazlo después de que git commit haya finalizado correctamente. Espera la confirmación del push.')}
+      <div class="notice notice-info"><strong>Antes de comenzar:</strong> abre una terminal ubicada en la <strong>carpeta raíz de tu repositorio DSY1102</strong>. No necesitas volver a ejecutar <code>cd</code> en cada paso.</div>
+      <div class="notice notice-warning"><strong>No copies ni ejecutes todos los comandos juntos.</strong> Ejecuta uno, observa su resultado y recién después continúa con el siguiente.</div>
+      ${commandStep(1, 'Revisa el estado del repositorio', 'git status', 'Comprueba que estás en el repositorio correcto y reconoce los archivos que modificaste.')}
+      ${commandStep(2, 'Prepara los archivos del laboratorio', `git add "${labPath()}"`, 'Este comando deja preparados para el commit los cambios de esta carpeta.')}
+      ${commandStep(3, 'Verifica qué quedó preparado', 'git status', 'Revisa la sección Changes to be committed. Si aparece algo que no corresponde, corrígelo antes de continuar.')}
+      ${commandStep(4, 'Crea el commit', `git commit -m "${commitMessage}"`, 'Hazlo sólo cuando el estado anterior muestre exactamente los cambios que quieres registrar.')}
+      ${commandStep(5, 'Envía el commit a GitHub', 'git push', 'Ejecuta el push sólo después de que el commit haya finalizado correctamente.')}
       <div class="notice notice-info">${icon('check')} Si un comando muestra un error, detente y resuélvelo antes de ejecutar el siguiente.</div>
     </details>
   </section>`;
