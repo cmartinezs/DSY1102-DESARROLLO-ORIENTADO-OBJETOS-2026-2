@@ -3,40 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Veterinaria II · Colecciones y Excepciones · DSY1102</title>
+  <title>Veterinaria II · Arrays, Colecciones y Excepciones · DSY1102</title>
   <link rel="stylesheet" href="../../../assets/css/global.css">
   <link rel="stylesheet" href="../../../assets/css/pages/veterinary-collections.css">
 </head>
 <body>
-  <nav class="site-nav"><div class="site-nav__inner"><a class="site-brand" href="../index/">DSY1102 · Laboratorios</a><a class="btn btn-secondary" href="../index/">Volver</a></div></nav>
-  <main class="site-shell stack">
-    <section class="hero vet2-hero"><span class="badge">Extensión obligatoria</span><h1>Veterinaria II · Colecciones y Excepciones</h1><p>Arrays → List/ArrayList → búsqueda y eliminación → excepciones → solución integrada.</p></section>
-
-    <section class="panel stack">
-      <div class="muted">Antes de comenzar</div>
-      <h2>Prerrequisito</h2>
-      <p>Debes haber completado <strong>Veterinaria · Herencia y Polimorfismo</strong>. Este laboratorio continúa ese código: no debes comenzar un proyecto nuevo.</p>
-      <div class="notice notice-info"><strong>Ruta anterior:</strong> <code>labs/lab-veterinaria-herencia-polimorfismo/</code><br><strong>Nueva ruta:</strong> <code>labs/lab-veterinaria-colecciones-excepciones/</code></div>
-      <label class="switch-control" for="prerequisite">
-        <input class="switch-control__input" type="checkbox" id="prerequisite">
-        <span class="switch-control__track" aria-hidden="true"></span>
-        <span>Confirmo que terminé el laboratorio anterior y puedo explicar mi jerarquía.</span>
-      </label>
-    </section>
-
-    <section id="checkpoints" class="stack" aria-live="polite"></section>
-
-    <section class="panel stack">
-      <h2>Entrega mínima</h2>
-      <pre class="vet2-delivery"><code>labs/lab-veterinaria-colecciones-excepciones/
-├── README.md
-├── docs/
-│   └── decisiones.md
-├── src/
-└── evidencias/</code></pre>
-      <p>El README debe explicar qué cambió desde el laboratorio anterior, por qué se pasó de array a colección y qué situaciones se controlaron mediante excepciones.</p>
-    </section>
-  </main>
+  <header class="vet2-top"><div class="vet2-top__inner"><strong>DSY1102 · Veterinaria II</strong><div class="vet2-stats"><span class="vet2-pill">⏱️ 88 min</span><span class="vet2-pill" id="vet2-xp-top">⭐ 0 XP</span><span class="vet2-pill" id="vet2-progress-top">0% completado</span><span class="vet2-pill" id="vet2-device-top">Equipo sin identificar</span></div></div></header>
+  <div class="vet2-layout">
+    <aside class="vet2-sidebar stack">
+      <div><strong>Ruta del laboratorio</strong><div class="vet2-progress"><div id="vet2-progress-bar"></div></div></div>
+      <nav id="vet2-stage-nav" class="vet2-nav" aria-label="Etapas de Veterinaria II"></nav>
+      <div class="vet2-actions"><button class="btn btn-secondary" id="vet2-open-repo" type="button"><svg class="icon"><use href="../../../assets/img/icons.svg#folder"></use></svg> Actualizar ruta</button><button class="btn btn-secondary" id="vet2-open-export" type="button"><svg class="icon"><use href="../../../assets/img/icons.svg#download"></use></svg> Exportar progreso</button><button class="btn btn-secondary" id="vet2-open-import" type="button"><svg class="icon"><use href="../../../assets/img/icons.svg#upload"></use></svg> Cargar progreso</button><input id="vet2-import-file" type="file" accept=".dsy1102progress,.json" hidden></div>
+      <a class="btn btn-secondary" href="../veterinary-inheritance/"><svg class="icon"><use href="../../../assets/img/icons.svg#eye"></use></svg> Repasar Veterinaria I</a>
+      <a class="btn btn-secondary" href="../index/">Laboratorios</a>
+    </aside>
+    <main class="stack">
+      <section class="hero vet2-hero"><span class="badge">Continuación obligatoria · Veterinaria I → II</span><h1>La misma veterinaria ahora debe administrar muchos animales.</h1><p>Partiremos con un array, descubriremos sus limitaciones, evolucionaremos a colecciones y modelaremos errores con excepciones.</p></section>
+      <section class="panel notice notice-info"><strong>No crees otro proyecto.</strong> Todo el código continúa en <code>labs/lab-veterinaria-herencia-polimorfismo/</code>. Veterinaria II agrega documentación en <code>docs/veterinaria-ii/</code> y evidencia en <code>evidencias/veterinaria-ii/</code>.</section>
+      <div id="vet2-app" class="stack"></div>
+      <footer class="muted">El progreso se almacena localmente. Puedes exportarlo cifrado para continuar en otro equipo.</footer>
+    </main>
+  </div>
+  <dialog id="vet2-repo-dialog" class="vet2-dialog"><div class="vet2-dialog__body stack"><h2>Ruta local del repositorio</h2><label class="vet2-field">Ruta<input id="vet2-repo-dialog-path"></label><div class="vet2-actions"><button class="btn btn-primary" id="vet2-save-repo" type="button">Guardar ruta</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div></div></dialog>
+  <dialog id="vet2-export-dialog" class="vet2-dialog"><form class="vet2-dialog__body stack" method="dialog"><h2>Exportar progreso cifrado</h2><label class="vet2-field">Contraseña<input id="vet2-export-password" type="password" autocomplete="new-password"></label><div class="vet2-actions"><button class="btn btn-success" id="vet2-export-confirm" type="button">Descargar progreso</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div></form></dialog>
+  <dialog id="vet2-import-dialog" class="vet2-dialog"><form class="vet2-dialog__body stack" method="dialog"><h2>Cargar progreso cifrado</h2><label class="vet2-field">Contraseña<input id="vet2-import-password" type="password" autocomplete="current-password"></label><div class="vet2-actions"><button class="btn btn-primary" id="vet2-import-confirm" type="button">Descifrar y cargar</button><button class="btn btn-secondary" data-close-dialog type="button">Cancelar</button></div></form></dialog>
   <script type="module" src="../../../assets/js/pages/veterinary-collections.js"></script>
 </body>
 </html>
