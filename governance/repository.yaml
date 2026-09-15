@@ -114,26 +114,10 @@ publication:
 
 conformance:
   target: FULL
-  current: W7_4_MACHINE_PASS_PENDING_HUMAN_REVIEW
-  declared_gaps:
-    - id: W7-4-ADOPTION-001
-      concern: CANONICAL_REPOSITORY_SITE_ADOPTION
-      affected_audiences: [USER, DEVELOPER, GOVERNANCE]
-      rationale: >-
-        Canonical Builder replay and machine product acceptance have passed with this single declared
-        adoption gap. Representative desktop/mobile captures are ready, but human learner-first and
-        temporal-truth acceptance remains pending before final closure.
-      status: OPEN
-      owner: CAP-RKP-001-WAVE-7
-      closure_when:
-        - CANONICAL_BUILDER_REPLAY_CLASSIFIED
-        - ZERO_UNDECLARED_BLOCKING_GAPS
-        - REPRESENTATIVE_DESKTOP_REVIEW_PASS
-        - REPRESENTATIVE_MOBILE_REVIEW_PASS
-        - TEMPORAL_TRUTH_PASS
-        - PUBLICATION_READINESS_CLASSIFIED
+  current: W7_4_CLOSURE_REPLAY_REQUIRED
+  declared_gaps: []
   closure_evidence:
-    preclosure_source_revision: 3d6393804284dfb3362726ac84786f043d1b84c9
+    preclosure_source_revision: ab92458c8955baed912171a6031878c4bc71d710
     canonical_replay: PASS_WITH_DECLARED_GAPS
     product_acceptance: PASS_WITH_DECLARED_GAPS
     knowledge_items: 8
@@ -153,6 +137,8 @@ conformance:
     fixture_specific_schema_fork_required: false
     repository_specific_builder_hardcoding_required: false
     browser_review: READY_FOR_HUMAN_REVIEW
-    human_review: PENDING
+    human_review: PASS
+    human_evidence: governance/evidence/W7-4-HUMAN-REVIEW-PASS.md
     machine_evidence: governance/evidence/W7-4-MACHINE-ACCEPTANCE.md
     reconciliation: governance/reconciliations/2026-09-14-W7-4-CANONICAL-BUILDER-ADOPTION.md
+    final_replay: PENDING
