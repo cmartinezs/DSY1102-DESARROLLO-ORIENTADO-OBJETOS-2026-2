@@ -17,10 +17,11 @@ const importDialog = document.querySelector('#vet1-import-dialog');
 const repoDialog = document.querySelector('#vet1-repo-dialog');
 const importFile = document.querySelector('#vet1-import-file');
 
-const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
-const icon = (name, className='icon') => `<svg class="${className}" aria-hidden="true"><use href="${ICONS}#${name}"></use></svg>`;
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
+const icon = (name, className = 'icon') => `<svg class="${className}" aria-hidden="true"><use href="${ICONS}#${name}"></use></svg>`;
 
 function persist() { saveState(state); render(); }
+function repoPathLabel() { return state.student.repoPath || '<ruta-raiz-del-repositorio>'; }
 function labPath() { return 'labs/lab-veterinaria-herencia-polimorfismo'; }
 
 function diagram(kind) {
@@ -49,43 +50,49 @@ function commandStep(number, title, command, explanation) {
   return `<div class="vet1-cli-step">
     <div class="vet1-cli-step__head"><span class="vet1-cli-number">${number}</span><div><strong>${esc(title)}</strong><div class="muted">${esc(explanation)}</div></div></div>
     <div class="vet1-terminal">
-      <div class="vet1-terminal__bar"><span class="vet1-terminal__dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Terminal</span></div>
-      <div class="vet1-terminal__body"><span class="vet1-terminal__prompt" aria-hidden="true">❯</span><code>${esc(command)}</code><button class="vet1-terminal__copy" type="button" data-copy-command="${esc(command)}" aria-label="Copiar comando">${icon('clipboard')} <span>Copiar</span></button></div>
+      <div class="vet1-terminal__bar"><span class="vet1-terminal__dots"><i></i><i></i><i></i></span><span class="vet1-terminal__title">Terminal</span><span class="vet1-terminal__path">${esc(repoPathLabel())}</span></div>
+      <div class="vet1-terminal__body"><div class="vet1-terminal__line"><span class="vet1-terminal__prompt">❯</span><code>${esc(command)}</code><button class="btn btn-secondary" type="button" data-copy-command="${esc(command)}">${icon('clipboard')} Copiar</button></div></div>
     </div>
   </div>`;
 }
 
-function gitBlock(step) {
-  if (!step.commit) return '';
+function workflowTabs(step) {
   const commitMessage = step.commit;
   return `<section class="vet1-version-control stack">
-    <div class="vet1-section-heading">${icon('git-branch','icon icon-lg')}<div><span class="badge">Control de versiones</span><h3>Guarda este avance en Git</h3></div></div>
+    <div class="vet1-section-heading">${icon('git-branch', 'icon icon-lg')}<div><span class="badge">Control de versiones</span><h3>Guarda este avance en Git</h3></div></div>
     <p class="muted">Puedes hacerlo con <strong>GitHub Desktop</strong> o con <strong>Terminal / CLI</strong>. El resultado debe ser el mismo: un commit de este paso enviado a GitHub.</p>
-
-    <details class="vet1-workflow" open>
-      <summary>${icon('desktop')} <strong>Ruta A · GitHub Desktop</strong> <span class="muted">Recomendada si aún no manejas la terminal</span></summary>
-      <ol class="vet1-desktop-steps">
-        <li><strong>Abre GitHub Desktop</strong> y confirma que está seleccionado tu repositorio <code>DSY1102-...</code>.</li>
-        <li>En la pestaña <strong>Changes</strong>, revisa los archivos modificados. Deja seleccionados sólo los cambios que corresponden a este avance.</li>
-        <li>En <strong>Summary (required)</strong>, escribe exactamente:<div class="vet1-command"><code>${esc(commitMessage)}</code><button class="btn btn-secondary" type="button" data-copy-command="${esc(commitMessage)}">${icon('clipboard')} Copiar</button></div></li>
-        <li>Presiona <strong>Commit to current branch</strong>. Espera a que GitHub Desktop confirme el commit antes de continuar.</li>
-        <li>Presiona <strong>Push origin</strong> para enviar el commit a GitHub. Si el botón dice <strong>Fetch origin</strong> y no hay cambios pendientes, revisa el historial para confirmar que el commit ya fue enviado.</li>
-      </ol>
-      <div class="notice notice-info">${icon('check')} Terminas esta ruta cuando el commit aparece en el historial de GitHub Desktop y fue enviado al repositorio remoto.</div>
-    </details>
-
-    <details class="vet1-workflow">
-      <summary>${icon('terminal')} <strong>Ruta B · Terminal / CLI</strong> <span class="muted">Ejecuta un comando por vez</span></summary>
-      <div class="notice notice-info"><strong>Antes de comenzar:</strong> abre una terminal ubicada en la <strong>carpeta raíz de tu repositorio DSY1102</strong>. No necesitas volver a ejecutar <code>cd</code> en cada paso.</div>
-      <div class="notice notice-warning"><strong>No copies ni ejecutes todos los comandos juntos.</strong> Ejecuta uno, observa su resultado y recién después continúa con el siguiente.</div>
-      ${commandStep(1, 'Revisa el estado del repositorio', 'git status', 'Comprueba que estás en el repositorio correcto y reconoce los archivos que modificaste.')}
-      ${commandStep(2, 'Prepara los archivos del laboratorio', `git add "${labPath()}"`, 'Este comando deja preparados para el commit los cambios de esta carpeta.')}
-      ${commandStep(3, 'Verifica qué quedó preparado', 'git status', 'Revisa la sección Changes to be committed. Si aparece algo que no corresponde, corrígelo antes de continuar.')}
-      ${commandStep(4, 'Crea el commit', `git commit -m "${commitMessage}"`, 'Hazlo sólo cuando el estado anterior muestre exactamente los cambios que quieres registrar.')}
-      ${commandStep(5, 'Envía el commit a GitHub', 'git push', 'Ejecuta el push sólo después de que el commit haya finalizado correctamente.')}
-      <div class="notice notice-info">${icon('check')} Si un comando muestra un error, detente y resuélvelo antes de ejecutar el siguiente.</div>
-    </details>
+    <div class="vet1-tabs" data-vet1-tabs>
+      <div class="vet1-tabs__list" role="tablist" aria-label="Alternativas de Git para este paso">
+        <button type="button" class="vet1-tab is-active" role="tab" aria-selected="true" data-tab-target="desktop">${icon('desktop')} Ruta A · GitHub Desktop <span class="muted">Recomendada si aún no manejas la terminal</span></button>
+        <button type="button" class="vet1-tab" role="tab" aria-selected="false" data-tab-target="cli">${icon('terminal')} Ruta B · Terminal / CLI <span class="muted">Ejecuta un comando por vez</span></button>
+      </div>
+      <section class="vet1-tabpanel is-active" role="tabpanel" data-tab-panel="desktop">
+        <ol class="vet1-desktop-steps">
+          <li><strong>Abre GitHub Desktop</strong> y confirma que está seleccionado tu repositorio <code>DSY1102-...</code>.</li>
+          <li>En la pestaña <strong>Changes</strong>, revisa los archivos modificados. Deja seleccionados sólo los cambios que corresponden a este avance.</li>
+          <li>En <strong>Summary (required)</strong>, escribe exactamente:<div class="vet1-text-snippet"><div class="vet1-text-snippet__label">Mensaje de commit</div><div class="vet1-text-snippet__value">${esc(commitMessage)}</div><button class="btn btn-secondary" type="button" data-copy-command="${esc(commitMessage)}">${icon('clipboard')} Copiar texto</button></div></li>
+          <li>Presiona <strong>Commit to current branch</strong>. Espera a que GitHub Desktop confirme el commit antes de continuar.</li>
+          <li>Presiona <strong>Push origin</strong> para enviar el commit a GitHub. Si el botón dice <strong>Fetch origin</strong> y no hay cambios pendientes, revisa el historial para confirmar que el commit ya fue enviado.</li>
+        </ol>
+        <div class="notice notice-info">${icon('check')} Terminas esta ruta cuando el commit aparece en el historial de GitHub Desktop y fue enviado al repositorio remoto.</div>
+      </section>
+      <section class="vet1-tabpanel" role="tabpanel" hidden data-tab-panel="cli">
+        <div class="notice notice-info"><strong>Antes de comenzar:</strong> abre una terminal ubicada en la carpeta raíz de tu repositorio. La ruta de trabajo configurada para este equipo es <code>${esc(repoPathLabel())}</code>.</div>
+        <div class="notice notice-warning"><strong>No copies ni ejecutes todos los comandos juntos.</strong> Ejecuta un paso, observa el resultado y recién después continúa con el siguiente.</div>
+        ${commandStep(1, 'Revisa el estado del repositorio', 'git status', 'Comprueba que estás en el repositorio correcto y reconoce los archivos que modificaste.')}
+        ${commandStep(2, 'Prepara los archivos del laboratorio', `git add "${labPath()}"`, 'Este comando deja preparados para el commit los cambios de esta carpeta.')}
+        ${commandStep(3, 'Verifica qué quedó preparado', 'git status', 'Confirma que los archivos correctos quedaron en staged antes de crear el commit.')}
+        ${commandStep(4, 'Crea el commit', `git commit -m "${commitMessage}"`, 'Ejecuta este comando sólo cuando ya validaste los cambios preparados.')}
+        ${commandStep(5, 'Envía el commit a GitHub', 'git push', 'Hazlo después de que git commit haya finalizado correctamente y espera la confirmación del push.')}
+        <div class="notice notice-info">${icon('check')} Si un comando muestra un error, detente y resuélvelo antes de ejecutar el siguiente.</div>
+      </section>
+    </div>
   </section>`;
+}
+
+function gitBlock(step) {
+  if (!step.commit) return '';
+  return workflowTabs(step);
 }
 
 function stepHtml(step, index, reviewOnly = false) {
@@ -111,7 +118,7 @@ function stepHtml(step, index, reviewOnly = false) {
 
 function quizHtml(stage) {
   return `<section class="panel stack vet1-checkpoint">
-    <div class="vet1-section-heading">${icon('question','icon icon-lg')}<div><span class="badge">Checkpoint</span><h2>2 preguntas para avanzar</h2></div></div>
+    <div class="vet1-section-heading">${icon('question', 'icon icon-lg')}<div><span class="badge">Checkpoint</span><h2>2 preguntas para avanzar</h2></div></div>
     <p class="muted">Completaste todos los pasos de esta etapa. Ahora valida tu comprensión antes de continuar.</p>
     ${stage.quiz.map((question, qIndex) => `<div class="vet1-quiz-question"><strong>${qIndex + 1}. ${esc(question.q)}</strong>${question.a.map((answer, aIndex) => `<label><input type="radio" name="quiz-${qIndex}" value="${aIndex}"> ${esc(answer)}</label>`).join('')}</div>`).join('')}
     <button class="btn btn-primary" data-action="submit-quiz">${icon('check')} Revisar respuestas</button>
@@ -133,8 +140,8 @@ function passedHtml(stage, reviewing) {
 
 function renderNav() {
   nav.innerHTML = stages.map((stage, index) => {
-    const done = stageDone(state,index);
-    const unlocked = stageUnlocked(state,index);
+    const done = stageDone(state, index);
+    const unlocked = stageUnlocked(state, index);
     const statusIcon = done ? 'check' : unlocked ? 'circle' : 'lock';
     return `<button class="vet1-stage ${index === state.currentStage ? 'is-active' : ''}" data-stage="${index}" ${unlocked ? '' : 'disabled'}>${icon(statusIcon)}<span>${esc(stage.title)}<br><small>${stage.mins} min · ${stage.steps.filter(step => state.steps[step.id]).length}/${stage.steps.length} pasos</small></span></button>`;
   }).join('');
@@ -158,11 +165,11 @@ function render() {
   const intro = `<section class="panel"><span class="badge">${stage.mins} minutos sugeridos</span><h2>${esc(stage.title)}</h2><p class="muted">${passed ? 'Etapa superada.' : allSteps ? 'Pasos completados. Responde el checkpoint para cerrar la etapa.' : 'Completa cada paso, genera la evidencia y registra el commit antes de marcarlo.'}</p></section>`;
   let body = '';
   if (passed) {
-    body = `${reviewing ? stage.steps.map((step,index)=>stepHtml(step,index,true)).join('') : ''}${passedHtml(stage, reviewing)}`;
+    body = `${reviewing ? stage.steps.map((step, index) => stepHtml(step, index, true)).join('') : ''}${passedHtml(stage, reviewing)}`;
   } else if (allSteps) {
     body = quizHtml(stage);
   } else {
-    body = `${stage.steps.map((step,index)=>stepHtml(step,index,false)).join('')}<section class="panel"><div class="notice notice-info">${icon('lock')} El checkpoint aparecerá cuando completes todos los pasos de esta etapa.</div></section>`;
+    body = `${stage.steps.map((step, index) => stepHtml(step, index, false)).join('')}<section class="panel"><div class="notice notice-info">${icon('lock')} El checkpoint aparecerá cuando completes todos los pasos de esta etapa.</div></section>`;
   }
   app.innerHTML = intro + body;
 }
@@ -180,7 +187,7 @@ function readIdentityFromDom() {
 nav.addEventListener('click', event => {
   const button = event.target.closest('[data-stage]'); if (!button) return;
   reviewStage = null;
-  state = moveToStage(state, Number(button.dataset.stage)); persist(); window.scrollTo({top:0,behavior:'smooth'});
+  state = moveToStage(state, Number(button.dataset.stage)); persist(); window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 app.addEventListener('change', event => {
@@ -189,6 +196,22 @@ app.addEventListener('change', event => {
 });
 
 app.addEventListener('click', async event => {
+  const tabButton = event.target.closest('[data-tab-target]');
+  if (tabButton) {
+    const tabs = tabButton.closest('[data-vet1-tabs]');
+    tabs.querySelectorAll('[data-tab-target]').forEach(button => {
+      const active = button === tabButton;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    tabs.querySelectorAll('[data-tab-panel]').forEach(panel => {
+      const active = panel.dataset.tabPanel === tabButton.dataset.tabTarget;
+      panel.classList.toggle('is-active', active);
+      panel.hidden = !active;
+    });
+    return;
+  }
+
   const commandButton = event.target.closest('[data-copy-command]');
   if (commandButton) {
     await navigator.clipboard.writeText(commandButton.dataset.copyCommand);
@@ -197,6 +220,7 @@ app.addEventListener('click', async event => {
     setTimeout(() => { commandButton.innerHTML = previous; }, 900);
     return;
   }
+
   const action = event.target.closest('[data-action]')?.dataset.action;
   if (!action) return;
   if (action === 'save-identity') {
@@ -212,20 +236,20 @@ app.addEventListener('click', async event => {
       if (!passed) alert('No superaste el checkpoint. Los pasos de esta etapa deben revisarse nuevamente.');
     } catch { document.querySelector('#vet1-quiz-message').innerHTML = '<div class="notice notice-warning">Debes responder las dos preguntas.</div>'; }
   }
-  if (action === 'review-stage') { reviewStage = state.currentStage; render(); window.scrollTo({top:0,behavior:'smooth'}); }
-  if (action === 'close-review') { reviewStage = null; render(); window.scrollTo({top:0,behavior:'smooth'}); }
-  if (action === 'next-stage') { reviewStage = null; state = moveToStage(state, state.currentStage + 1); persist(); window.scrollTo({top:0,behavior:'smooth'}); }
+  if (action === 'review-stage') { reviewStage = state.currentStage; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  if (action === 'close-review') { reviewStage = null; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  if (action === 'next-stage') { reviewStage = null; state = moveToStage(state, state.currentStage + 1); persist(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
 });
 
 document.querySelector('#vet1-open-repo').addEventListener('click', () => { document.querySelector('#vet1-repo-path').value = state.student.repoPath || ''; repoDialog.showModal(); });
 document.querySelector('#vet1-save-repo').addEventListener('click', () => { try { state = updateRepoPath(state, document.querySelector('#vet1-repo-path').value.trim()); saveState(state); repoDialog.close(); render(); } catch { alert('Ingresa una ruta local válida.'); } });
 document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
 
-document.querySelector('#vet1-open-export').addEventListener('click', () => { document.querySelector('#vet1-export-password').value=''; exportDialog.showModal(); });
+document.querySelector('#vet1-open-export').addEventListener('click', () => { document.querySelector('#vet1-export-password').value = ''; exportDialog.showModal(); });
 document.querySelector('#vet1-export-confirm').addEventListener('click', async () => {
   try {
     const wrapper = await encryptProgress(state, document.querySelector('#vet1-export-password').value);
-    const blob = new Blob([JSON.stringify(wrapper)], {type:'application/json'});
+    const blob = new Blob([JSON.stringify(wrapper)], { type: 'application/json' });
     const anchor = document.createElement('a'); anchor.href = URL.createObjectURL(blob); anchor.download = 'DSY1102-VET-progress.dsy1102progress'; anchor.click(); URL.revokeObjectURL(anchor.href); exportDialog.close();
   } catch (error) { alert(error.message === 'PASSWORD_TOO_SHORT' ? 'Usa una contraseña de al menos 6 caracteres.' : 'No fue posible cifrar el progreso.'); }
 });
@@ -233,9 +257,9 @@ document.querySelector('#vet1-export-confirm').addEventListener('click', async (
 document.querySelector('#vet1-open-import').addEventListener('click', () => importFile.click());
 importFile.addEventListener('change', async event => {
   const file = event.target.files?.[0]; if (!file) return;
-  try { pendingImport = JSON.parse(await file.text()); document.querySelector('#vet1-import-password').value=''; importDialog.showModal(); }
+  try { pendingImport = JSON.parse(await file.text()); document.querySelector('#vet1-import-password').value = ''; importDialog.showModal(); }
   catch { alert('El archivo seleccionado no tiene un formato válido.'); }
-  event.target.value='';
+  event.target.value = '';
 });
 document.querySelector('#vet1-import-confirm').addEventListener('click', async () => {
   try {
