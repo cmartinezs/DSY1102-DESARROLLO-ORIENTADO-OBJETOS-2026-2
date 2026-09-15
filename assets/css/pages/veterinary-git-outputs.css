@@ -1,0 +1,7 @@
+.vet1-terminal__expected { margin-top:1rem; padding-top:.9rem; border-top:1px solid rgba(148,163,184,.22); display:grid; gap:.8rem; }
+.vet1-terminal__expected-title { color:#a7f3d0; font-weight:800; font-size:.9rem; }
+.vet1-terminal__expected-case { display:grid; gap:.4rem; }
+.vet1-terminal__expected-label { color:#93c5fd; font-size:.8rem; font-weight:700; }
+.vet1-terminal__expected-case pre { margin:0; max-height:220px; overflow:auto; padding:.75rem .8rem; border-radius:.65rem; background:#0f172a; border:1px solid rgba(148,163,184,.16); color:#cbd5e1; font:.82rem/1.45 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; white-space:pre; }
+.vet1-terminal__expected-note { color:#cbd5e1; font-size:.82rem; line-height:1.45; }
+.vet1-cli-carousel__viewport { min-height:330px; }
