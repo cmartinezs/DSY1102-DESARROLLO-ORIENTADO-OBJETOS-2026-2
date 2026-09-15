@@ -1,116 +1,105 @@
-# Arquitectura del sitio DSY1102
+# Site Architecture
 
-## Objetivo
+## Purpose
 
-Separar publicación, presentación, interacción y reglas funcionales. Ningún HTML debe contener lógica de negocio ni estilos de página significativos.
+The DSY1102 public site is organized as a layered static application rather than a flat collection of HTML files.
 
-## Estructura canónica
+## Canonical layout
 
 ```text
-/
-├── index.html                       # compatibility entrypoint solamente
-├── assets/
-│   ├── img/
-│   │   └── .gitkeep
-│   ├── css/
-│   │   ├── global.css
-│   │   └── pages/
-│   │       └── <feature>.css
-│   └── js/
-│       ├── global.js
-│       ├── business/
-│       │   └── <domain>/
-│       │       └── *.js
-│       └── pages/
-│           └── <feature>.js
-└── pages/
-    ├── home/
-    ├── weeks/
-    ├── labs/
-    │   ├── index/
-    │   ├── veterinary-inheritance/
-    │   └── veterinary-collections/
-    ├── exercises/
-    │   ├── class-practice/
-    │   └── challenge-150/
-    ├── challenges/
-    │   ├── weekly/
-    │   ├── oop-100/
-    │   ├── javafx-25/
-    │   └── database-25/
-    ├── project/
-    │   └── petcare/
-    ├── progress/
-    └── student-repository/
+assets/
+  img/
+  css/
+    global.css
+    pages/
+  js/
+    global.js
+    business/
+    pages/
+pages/
+  home/
+  weeks/
+  labs/
+  exercises/
+  challenges/
+  project/
+  progress/
+  student-repository/
 ```
 
-## Responsabilidades por capa
+## Responsibilities
 
 ### `pages/**/index.html`
 
-Sólo estructura semántica y composición de la vista:
-
-- contenido estático;
-- landmarks HTML;
-- referencias a `assets/css/global.css`;
-- referencia a un CSS específico de feature cuando exista;
-- referencia al controlador JS de página cuando exista.
-
-No debe contener:
-
-- bloques `<style>` salvo una excepción documentada;
-- lógica de dominio;
-- persistencia `localStorage`;
-- reglas de desbloqueo/progreso;
-- bancos de ejercicios/hints;
-- fetch a `raw.githubusercontent.com`.
+Owns semantic document structure and page content. Canonical HTML must not contain significant presentation CSS or application logic.
 
 ### `assets/css/global.css`
 
-Design tokens y componentes reutilizables: tipografía, layout, navegación, tarjetas, botones, badges, mensajes, estados y responsive base.
+Owns shared design tokens and reusable components such as buttons, notices, icons and switches.
 
-### `assets/css/pages/*.css`
+### `assets/css/pages/*`
 
-Sólo estilos propios de una feature o página. No replica reglas globales.
+Owns feature/page-specific presentation.
 
 ### `assets/js/global.js`
 
-Utilidades de presentación compartidas y sin reglas de negocio: DOM helpers, navegación, clipboard y utilidades de URL.
+Owns reusable browser/UI utilities that are not feature-domain rules.
 
-### `assets/js/pages/*.js`
+### `assets/js/pages/*`
 
-Controladores/adapters de UI:
+Owns DOM interaction and page controllers. Controllers render state, bind events and call business modules, but must not duplicate domain rules.
 
-- listeners DOM;
-- renderizado;
-- traducción de eventos UI a operaciones del dominio;
-- importación de módulos `business`.
+### `assets/js/business/*`
 
-No debe contener reglas de negocio persistentes.
+Owns state transitions, validation, progress rules, persistence contracts and reusable feature data. Business modules must not depend on the DOM.
 
-### `assets/js/business/**`
+### `assets/img/*`
 
-Lógica independiente de la página:
+Owns local visual assets, including the shared SVG icon sprite. Site-owned iconography should not require third-party runtime CDNs.
 
-- modelos de estado;
-- validaciones;
-- cálculo de progreso;
-- desbloqueos;
-- serialización/import/export;
-- bancos de datos e hints;
-- reglas de dominio.
+## Compatibility URLs
 
-No debe depender del DOM.
+Historical root HTML URLs may remain only as compatibility redirects to canonical `pages/*` targets. They are not valid locations for a second implementation.
 
-## Compatibilidad
+## Instructional control conventions
 
-Las URLs históricas de raíz se mantendrán temporalmente como redirects mínimos hacia `pages/**`. Esos archivos no son implementación ni pueden contener lógica.
+- Boolean completion controls are rendered as switches while retaining an accessible checkbox input underneath.
+- Reusable actions should have consistent local iconography.
+- A completed learning checkpoint must preserve approved progress when the learner enters review mode.
+- Review/read-only modes must not mutate XP, completion state or checkpoint results.
 
-## Reglas de publicación
+## Git instruction pattern for learners
 
-1. `master/page/` no existe y no debe recrearse.
-2. Los recursos del sitio se resuelven localmente dentro de `gh-pages`.
-3. No se permite depender de `raw.githubusercontent.com` para recursos de runtime propios del sitio.
-4. Dependencias CDN externas deben ser explícitas y versionadas.
-5. Un feature nuevo se publica bajo `pages/<feature>/` y sus assets bajo `assets/`.
-6. Cada HTML de feature debe poder identificar inequívocamente su CSS y controlador de página.
+When a teaching feature asks a student to create evidence in Git, the site must not assume terminal proficiency.
+
+Every Git checkpoint should present two equivalent routes:
+
+1. **GitHub Desktop**: review `Changes`, select the intended files, enter the required Summary, commit to the current branch and `Push origin`.
+2. **Terminal / CLI**: present one command at a time in execution order, with a short explanation of what the learner should observe before continuing.
+
+CLI instructions must not visually imply that several commands are a single script. Copy actions belong to individual commands rather than to the full sequence. Errors should explicitly stop the learner before the next command.
+
+Both routes must lead to the same expected Git state and commit message.
+
+## Separation rules
+
+1. `master/page/` must not exist.
+2. Published UI implementation belongs to `gh-pages`.
+3. Canonical teaching/source content remains in the teaching structures on `master` (`semanas/`, `labs/`, `ejercicios/`, `docs/`, `proyecto-formativo/`, etc.).
+4. Runtime site code must not fetch its own implementation from `raw.githubusercontent.com`.
+5. A legacy URL may redirect, but it must not contain its own feature logic.
+6. Business modules must remain independently understandable without browser DOM APIs.
+7. Page controllers own presentation orchestration, not domain semantics.
+
+## Cutover discipline
+
+A migrated feature is complete only when:
+
+- its canonical `pages/*` target exists;
+- required local assets exist;
+- internal navigation points to canonical targets;
+- legacy URLs are redirects only;
+- own runtime dependencies do not use `raw.githubusercontent.com`;
+- significant inline CSS is eliminated;
+- dynamic logic is outside canonical HTML;
+- business state/rules are outside the page controller where applicable.
