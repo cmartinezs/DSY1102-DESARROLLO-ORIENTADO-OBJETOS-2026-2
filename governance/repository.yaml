@@ -1,0 +1,144 @@
+schema_version: 1
+repository:
+  name: DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2
+  owner: cmartinezs
+  canonical_url: https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2
+  type: EDUCATIONAL
+  secondary_types: []
+  facets:
+    - COURSE_REPOSITORY
+    - LEARNER_FIRST
+  purpose: >-
+    Provide a learner-first, reproducible support repository for DSY1102 Desarrollo Orientado a
+    Objetos 2026-2, organizing weekly learning progression, concepts, examples, exercises,
+    challenges, guided laboratories, the incremental PetCare project and course-operation guidance
+    while preserving AVA and institutional sources as the authorities for official communications,
+    evaluations and resources that belong there.
+  status:
+    lifecycle: ACTIVE
+  canonical_branch: master
+
+audiences:
+  primary:
+    - USER
+  secondary:
+    - DEVELOPER
+    - GOVERNANCE
+
+knowledge:
+  - id: course-orientation
+    source: README.md
+    type: [CONCEPT, STRUCTURE, GUIDE, REFERENCE]
+    intent: [DESCRIPTIVE, SUMMARY, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER, GOVERNANCE]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: weekly-learning-path
+    source: semanas/README.md
+    type: [STRUCTURE, GUIDE, REFERENCE]
+    intent: [EXPLANATORY, PROCEDURAL, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: worked-examples
+    source: ejemplos/README.md
+    type: [GUIDE, REFERENCE]
+    intent: [EXPLANATORY, PROCEDURAL, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: exercises-and-challenges
+    source: ejercicios/README.md
+    type: [GUIDE, REFERENCE]
+    intent: [PROCEDURAL, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: guided-laboratories
+    source: labs/README.md
+    type: [PROCEDURE, GUIDE, REFERENCE]
+    intent: [PROCEDURAL, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: formative-project
+    source: proyecto-formativo/README.md
+    type: [GUIDE, STRUCTURE, REFERENCE]
+    intent: [PROCEDURAL, EXPLANATORY, REFERENCE]
+    audiences: [USER, DEVELOPER]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: evaluation-and-evidence-guidance
+    source: docs/ACTIVIDAD-FORMATIVA-TRANSVERSAL.md
+    type: [GUIDE, RULE, REFERENCE]
+    intent: [EXPLANATORY, PROCEDURAL, REFERENCE]
+    audiences: [USER, DEVELOPER, GOVERNANCE]
+    authority: CANONICAL_INFORMATIVE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+  - id: weekly-maintainer-guidance
+    source: docs/CHECKLIST-OPERACION-SEMANAL.md
+    type: [PROCEDURE, RULE, REFERENCE]
+    intent: [PROCEDURAL, REFERENCE]
+    audiences: [DEVELOPER, GOVERNANCE]
+    authority: GOVERNED_REFERENCE
+    confidentiality: PUBLIC
+    publication: REQUIRED
+
+publication:
+  enabled: true
+  derived_read_model: true
+  visibility: PUBLIC
+  target: GH_PAGES
+  branch: gh-pages
+  mode: BUILD_FROM_BRANCH
+  folder: /
+  github_actions_deployment:
+    allowed: false
+  freshness:
+    same_change_expected: true
+  completeness_mode: ACTIVE_DECLARED_GAPS_ALLOWED
+
+conformance:
+  target: FULL
+  current: W7_4_CLOSURE_REPLAY_REQUIRED
+  declared_gaps: []
+  closure_evidence:
+    preclosure_source_revision: ab92458c8955baed912171a6031878c4bc71d710
+    canonical_replay: PASS_WITH_DECLARED_GAPS
+    product_acceptance: PASS_WITH_DECLARED_GAPS
+    knowledge_items: 8
+    sources_present: 8
+    sources_missing: 0
+    diagnostics: 0
+    semantic_input: adel-resolved-projection
+    resolved_semantic_nodes: 6
+    knowledge_pages: 8
+    output_files: 15
+    generated_links_checked: 75
+    generated_links_broken: 0
+    shell_navigation: PASS
+    knowledge_discoverability: PASS
+    deterministic_replay: true
+    publication_readiness: READY_FOR_PROVIDER_VERIFICATION
+    fixture_specific_schema_fork_required: false
+    repository_specific_builder_hardcoding_required: false
+    browser_review: READY_FOR_HUMAN_REVIEW
+    human_review: PASS
+    human_evidence: governance/evidence/W7-4-HUMAN-REVIEW-PASS.md
+    machine_evidence: governance/evidence/W7-4-MACHINE-ACCEPTANCE.md
+    reconciliation: governance/reconciliations/2026-09-14-W7-4-CANONICAL-BUILDER-ADOPTION.md
+    final_replay: PENDING

@@ -19,10 +19,10 @@ El material de aprendizaje se organiza en **cuatro verticales independientes**:
 ├── semanas/             contenido curricular y ampliaciones por semana
 ├── labs/                laboratorios guiados paso a paso
 ├── ejemplos/            ejemplos mínimos, concretos e independientes
+├── ejercicios/          práctica breve, refuerzo y desafíos
 ├── proyecto-formativo/  proyecto incremental semana a semana
 ├── docs/                documentación transversal
-├── data/                metadatos auxiliares
-└── page/                fuente estática del portal web
+└── data/                metadatos auxiliares
 ```
 
 ### 1. `semanas/` — aprender
@@ -46,14 +46,17 @@ Es un proyecto longitudinal. Cada semana depende de la anterior y contiene check
 `practica/` y `desafios/` **no son verticales raíz**.
 
 - práctica mínima o demostrativa → `ejemplos/` o material de la semana;
+- práctica breve, refuerzo o desafío → `ejercicios/`;
 - práctica guiada sustancial → `labs/`;
-- desafíos → preferentemente portal web del curso, enlazados desde la semana correspondiente cuando aplique.
+- desafíos destacados → pueden exponerse además en el portal web y deben enlazar a su fuente mantenida cuando corresponda.
 
-## GitHub Pages · bypass financiero
+## GitHub Pages · publicación sin Actions
 
-GitHub Actions **no se utiliza para desplegar el portal**. La fuente editable permanece en `page/` sobre `master`; la publicación se realiza mediante la rama estática `gh-pages` usando **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**.
+GitHub Actions **no se utiliza para desplegar el portal**. `master` conserva las fuentes canónicas del curso; la web publicada es una superficie derivada y se materializa en la rama estática `gh-pages` mediante **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**.
 
-Consulta [`docs/ESTRUCTURA-CANONICA.md`](docs/ESTRUCTURA-CANONICA.md) para las reglas completas.
+No existe una raíz canónica `page/` en `master`; el portal no debe convertirse en una segunda fuente normativa ni requerir la reintroducción de esa carpeta.
+
+Consulta [`docs/ESTRUCTURA-CANONICA.md`](docs/ESTRUCTURA-CANONICA.md) para las reglas completas cuando aplique y la documentación transversal vigente en `docs/` para la operación docente.
 
 ## Repositorio personal del estudiante
 
