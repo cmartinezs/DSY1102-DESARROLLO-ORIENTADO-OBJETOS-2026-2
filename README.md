@@ -13,6 +13,7 @@ Principios vigentes:
 - estado y reglas funcionales viven en `assets/js/business/`;
 - la iconografía propia vive en `assets/img/`;
 - los controles booleanos visibles se representan mediante switches;
-- los flujos Git para estudiantes deben contemplar GitHub Desktop y CLI paso a paso, sin asumir dominio previo de terminal.
+- los flujos Git para estudiantes deben contemplar GitHub Desktop y CLI paso a paso;
+- en CLI, cada comando es una acción independiente: se ejecuta, se revisa su resultado y sólo después se continúa al siguiente.
 
 Ver `docs/SITE-ARCHITECTURE.md` para el contrato completo de arquitectura y UX instruccional.
