@@ -114,7 +114,7 @@ publication:
 
 conformance:
   target: FULL
-  current: W7_4_FINAL_HUMAN_CONFIRMATION_REQUIRED
+  current: W7_4_COMPLETE
   declared_gaps: []
   closure_evidence:
     preclosure_source_revision: ab92458c8955baed912171a6031878c4bc71d710
@@ -142,6 +142,7 @@ conformance:
     machine_evidence: governance/evidence/W7-4-MACHINE-ACCEPTANCE.md
     reconciliation: governance/reconciliations/2026-09-14-W7-4-CANONICAL-BUILDER-ADOPTION.md
     final_source_revision: ddcf790f508f07cb0a27dacd185d46de9b59ef5f
+    final_validated_revision: 2f659aba6ba3773b15fa380b4af78b5db7a62526
     final_replay: PASS
     final_product_acceptance: PASS
     final_declared_gaps: []
@@ -152,4 +153,9 @@ conformance:
     final_semantic_input: adel-resolved-projection
     final_resolved_semantic_nodes: 6
     final_browser_capture: READY_FOR_HUMAN_REVIEW
-    final_human_review: PENDING
+    final_human_review: PASS
+    adoption_gap: CLOSED
+    pull_request: 5
+    pull_request_state: MERGED
+    merge_commit: 5c269b41617dcaedcbe658bef9207899483fcab8
+    wave_7_full_cohort: COMPLETE

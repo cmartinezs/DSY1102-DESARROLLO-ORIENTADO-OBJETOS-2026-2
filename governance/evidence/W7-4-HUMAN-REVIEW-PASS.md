@@ -6,7 +6,7 @@
 **Classification:** `EDUCATIONAL / COURSE_REPOSITORY / LEARNER_FIRST`
 **Result:** `PASS`
 
-## Reviewed captures
+## Initial human review
 
 Representative desktop/mobile captures were reviewed for:
 
@@ -14,8 +14,6 @@ Representative desktop/mobile captures were reviewed for:
 - `conformance.html`;
 - `knowledge.html`;
 - `knowledge/course-orientation.html`.
-
-## Acceptance
 
 PASS for:
 
@@ -25,37 +23,38 @@ PASS for:
 - section/detail navigation preserving the governed shell;
 - no visible horizontal page overflow on mobile;
 - material knowledge discoverable without relying only on source links;
-- temporal truth consistent with the pre-closure state (`PASS_WITH_DECLARED_GAPS` while `W7-4-ADOPTION-001` remained open);
-- learner-first orientation preserved for the EDUCATIONAL adopter;
-- course orientation, learning progression and institutional-authority boundaries remain understandable.
+- learner-first EDUCATIONAL orientation preserved;
+- course orientation, learning progression and institutional-authority boundaries understandable;
+- temporal truth consistent with the pre-closure declared-gap state.
 
-## Non-blocking observation
+Non-blocking observation: the long repository identity in the mobile header is visually truncated at the right edge, but identity remains recognizable and navigation remains usable.
 
-The long repository identity in the mobile header is visually truncated at the right edge. Navigation remains usable and repository identity remains recognizable, so this is classified as non-blocking UX debt rather than an adoption failure.
+## Final post-reconciliation confirmation
 
-## Closure consequence
+After the W7.4 branch was reconciled with the current course `master`, a fresh browser capture was generated for replay source revision `ddcf790f508f07cb0a27dacd185d46de9b59ef5f`.
 
-Human acceptance satisfies the remaining conditions for `W7-4-ADOPTION-001`.
+The final gap-free machine state was:
 
-The gap may now be closed, but because closing it changes `governance/repository.yaml`, a final canonical replay against the post-closure revision is required before W7.4 may be classified `PASS`, PR #5 may merge, and Wave 7 full-cohort completion may be claimed.
+```text
+canonical replay = PASS
+product gate = PASS
+declared gaps = []
+sources missing = 0
+broken links = 0
+semantic input = adel-resolved-projection
+```
 
-## Post-reconciliation confirmation status
+The fresh representative captures received final human visual confirmation as PASS. Conformance rendered the gap-free state and no new blocking learner-first, navigation, hierarchy, mobile-layout or temporal-truth defect was identified.
 
-A fresh browser capture was generated for source revision
-`ddcf790f508f07cb0a27dacd185d46de9b59ef5f` after the W7.4 branch was reconciled with the current course
-`master`.
-
-Machine structural checks passed for all eight desktop/mobile captures and the
-product gate is now gap-free.
-
-The original human review remains valid historical evidence for the W7.4
-learner-first design and UX criteria. A final human confirmation of the fresh
-post-reconciliation captures remains required before PR #5 is merged.
-
-Current status:
+## Final closure consequence
 
 ```text
 ORIGINAL_HUMAN_REVIEW = PASS
 FINAL_BROWSER_CAPTURE = READY_FOR_HUMAN_REVIEW
-FINAL_HUMAN_CONFIRMATION = PENDING
+FINAL_HUMAN_CONFIRMATION = PASS
+W7_4_ADOPTION_001 = CLOSED
+PR_5_MERGED = true
+WAVE_7_FULL_COHORT_COMPLETE = true
 ```
+
+PR #5 merged as commit `5c269b41617dcaedcbe658bef9207899483fcab8`, and Issue #4 closed as completed. This document now records both the original review and the final post-reconciliation confirmation without erasing the historical sequence.
