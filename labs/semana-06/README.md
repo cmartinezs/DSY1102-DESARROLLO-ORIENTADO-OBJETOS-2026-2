@@ -1,51 +1,114 @@
 # Lab · Veterinaria II
 
-## Gestión de animales, colecciones y excepciones
+## Arrays, colecciones y excepciones sobre la misma solución
 
-### Prerrequisito
-Debes haber terminado el laboratorio anterior:
+Veterinaria II **continúa exactamente la solución construida por el estudiante en Veterinaria I**. No se crea un proyecto nuevo, no se duplica `src/` y no se reemplaza la jerarquía ya construida.
+
+## Antes del laboratorio
+
+Este lab es la capa integradora de Semana 6. Antes de comenzarlo se espera haber revisado:
+
+- conceptos: [`../../semanas/semana-06/`](../../semanas/semana-06/);
+- ejemplos ejecutables: [`../../ejemplos/semana-06/`](../../ejemplos/semana-06/);
+- ejercicios breves: [`../../ejercicios/semana-06/`](../../ejercicios/semana-06/).
+
+El laboratorio **no reemplaza esas capas**: toma esos conocimientos y los aplica sobre una solución OO existente.
+
+## Prerrequisito
+
+Debes haber terminado Veterinaria I en tu repositorio de trabajo:
 
 ```text
 labs/lab-veterinaria-herencia-polimorfismo/
 ```
 
-No comiences este laboratorio desde cero. Debes reutilizar y extender tu solución anterior.
+Ese mismo directorio sigue siendo la raíz de trabajo.
 
 ## Objetivo
-Evolucionar el sistema de Veterinaria para administrar múltiples animales y controlar situaciones de error.
 
-## Ruta de trabajo
-1. Recuperar el proyecto anterior.
-2. Confirmar la jerarquía `Animal` y sus subclases.
-3. Crear una primera solución con `Animal[]`.
-4. Recorrer el array y ejecutar comportamiento polimórfico.
-5. Identificar limitaciones del array.
-6. Reemplazarlo por `List<Animal>` / `ArrayList<Animal>`.
-7. Implementar registrar, listar, buscar y eliminar.
-8. Detectar casos de error.
-9. Incorporar `try`, `catch` y `throw`.
-10. Probar escenarios válidos e inválidos.
-
-## Evidencias esperadas
-- análisis previo;
-- diseño de la solución;
-- primera versión con array;
-- explicación de sus limitaciones;
-- versión con colección;
-- manejo de excepciones;
-- pruebas de ejecución;
-- commits de avance.
-
-## Entrega
-Crea en tu repositorio:
+Evolucionar la solución para administrar múltiples animales y controlar situaciones inválidas:
 
 ```text
-labs/lab-veterinaria-colecciones-excepciones/
-├── README.md
-├── docs/
-│   └── decisiones.md
-├── src/
-└── evidencias/
+Herencia + Polimorfismo
+        ↓
+Animal[]
+        ↓
+limitaciones del array
+        ↓
+List<Animal> / ArrayList<Animal>
+        ↓
+búsqueda y eliminación
+        ↓
+errores del dominio
+        ↓
+throw + try/catch
+        ↓
+integración final
 ```
 
-La web guiada del laboratorio está publicada en GitHub Pages desde **Laboratorios**.
+## Estructura de continuidad
+
+El código continúa en `src/`. La documentación y evidencias específicas de esta segunda fase se separan por subcarpeta:
+
+```text
+labs/lab-veterinaria-herencia-polimorfismo/
+├── README.md
+├── src/
+│   ├── Animal.java
+│   ├── Mascota.java
+│   ├── Salvaje.java
+│   ├── Perro.java
+│   ├── Gato.java
+│   ├── Tigre.java
+│   ├── Leon.java
+│   └── ...
+├── docs/
+│   └── veterinaria-ii/
+└── evidencias/
+    └── veterinaria-ii/
+```
+
+## Ruta pedagógica
+
+La implementación se divide en ocho etapas. Cada una tiene misión, código de apoyo cuando corresponde, entregable, evidencia Git y checkpoint de comprensión.
+
+1. [Retomar la solución existente](./01-continuidad.md)
+2. [Construir una primera versión con `Animal[]`](./02-array.md)
+3. [Descubrir las limitaciones del array](./03-limitaciones-array.md)
+4. [Evolucionar a `List<Animal>` / `ArrayList<Animal>`](./04-colecciones.md)
+5. [Implementar búsqueda y eliminación](./05-busqueda-eliminacion.md)
+6. [Modelar errores del dominio](./06-errores.md)
+7. [Aplicar `throw`, `try` y `catch`](./07-excepciones.md)
+8. [Integrar, probar y cerrar](./08-integracion.md)
+
+## Regla de scaffolding
+
+Los snippets de la guía cumplen una función muy concreta:
+
+```text
+recordar sintaxis
+→ mostrar una forma mínima
+→ dejar la decisión de diseño al estudiante
+```
+
+No deben convertirse en una solución completa para copiar y pegar. El estudiante debe decidir responsabilidades, nombres y adaptación a su jerarquía real.
+
+## Evidencias obligatorias
+
+- inventario inicial de clases y responsabilidades;
+- versión funcional con `Animal[]`;
+- justificación escrita de las limitaciones del array;
+- migración razonada a `List<Animal>`;
+- búsqueda y eliminación con responsabilidad fuera de `main`;
+- catálogo de situaciones inválidas;
+- ejecución válida y ejecución inválida controlada;
+- reflexión final comparando Veterinaria I y II;
+- commits incrementales conciliados con cada paso.
+
+## Regla Git
+
+Cada paso de implementación debe registrarse como avance independiente. La web guiada ofrece dos rutas equivalentes: GitHub Desktop y Terminal/CLI.
+
+## Web guiada
+
+La experiencia publicada en GitHub Pages debe reflejar este contenido canónico y usar el mismo patrón de Veterinaria I: etapas, progreso, checkpoints, repaso no destructivo y evidencias por paso.
