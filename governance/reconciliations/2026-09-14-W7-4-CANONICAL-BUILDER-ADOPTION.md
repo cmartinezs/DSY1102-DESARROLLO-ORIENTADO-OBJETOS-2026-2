@@ -1,11 +1,11 @@
 # W7.4 Canonical Builder Adoption — DSY1102
 
-**Issue:** #4  
-**Wave:** W7.4  
-**Repository:** `cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2`  
-**Classification target:** `EDUCATIONAL`  
-**Facets:** `COURSE_REPOSITORY`, `LEARNER_FIRST`  
-**Status:** `CLOSURE_REPLAY_REQUIRED`
+**Issue:** #4
+**Wave:** W7.4
+**Repository:** `cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2`
+**Classification target:** `EDUCATIONAL`
+**Facets:** `COURSE_REPOSITORY`, `LEARNER_FIRST`
+**Status:** `FINAL_HUMAN_CONFIRMATION_REQUIRED`
 
 ## Purpose
 
@@ -144,3 +144,56 @@ This record does not yet claim:
 - provider-side Pages state verified;
 - ADEL Core changes required;
 - AVA authority replaced.
+
+## Final post-closure replay
+
+The adopter branch was reconciled with the current `master` course state and
+the governed W7.4 gates were re-executed against source revision
+`ddcf790f508f07cb0a27dacd185d46de9b59ef5f`.
+
+### Machine result
+
+```text
+w7-adopter-replay = PASS
+w7-adopter-product-gate = PASS
+declared_gaps = []
+sources_missing = 0
+diagnostics = 0
+broken_links = 0
+semantic_input = adel-resolved-projection
+resolved_semantic_nodes = 6
+```
+
+The canonical replay verified deterministic builds, repository identity,
+declared gaps, section hubs and knowledge-page count.
+
+The product gate verified 75 generated links with zero broken links, governed
+navigation, knowledge discoverability and publication readiness
+`READY_FOR_PROVIDER_VERIFICATION`.
+
+### Browser capture
+
+`w7-adopter-browser-review` completed successfully and produced eight fresh
+desktop/mobile captures for Home, Conformance, Knowledge and Course
+Orientation.
+
+Its semantic status is:
+
+`READY_FOR_HUMAN_REVIEW`
+
+This is intentionally not represented as a human PASS.
+
+### Current closure state
+
+```text
+W7_4_MACHINE = PASS
+W7_4_PRODUCT = PASS
+W7_4_ADOPTION_001 = CLOSED
+W7_4_FINAL_BROWSER_CAPTURE = READY_FOR_HUMAN_REVIEW
+W7_4_FINAL_HUMAN_CONFIRMATION = PENDING
+PR_5_MERGE_ALLOWED = false
+WAVE_7_FULL_COHORT_COMPLETE = false
+```
+
+PR #5 may be promoted to merge-allowed only after the fresh post-reconciliation
+captures receive final human confirmation.
