@@ -5,7 +5,7 @@
 **Repository:** `cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2`
 **Classification target:** `EDUCATIONAL`
 **Facets:** `COURSE_REPOSITORY`, `LEARNER_FIRST`
-**Status:** `FINAL_HUMAN_CONFIRMATION_REQUIRED`
+**Status:** `COMPLETE`
 
 ## Purpose
 
@@ -26,9 +26,9 @@ Mapped concerns are backed by existing course sources: course orientation, weekl
 
 ## Temporal-truth reconciliation
 
-Before replay, local documentation was reconciled so the adopter no longer advertises a root `page/` source that does not exist, no longer uses obsolete `examples/` / `practica/` aliases in the local weekly checklist, and no longer marks Week 04 as `Actual` while Week 06 material already exists.
+Local documentation was reconciled so the adopter no longer advertises a root `page/` source that does not exist, no longer uses obsolete local aliases, and does not retain stale Week 04 current-state markers while later material exists.
 
-The transversal `docs/CANON-REPOSITORIO-DOCENTE.md` remains outside this adopter-specific change.
+The transversal `docs/CANON-REPOSITORIO-DOCENTE.md` remained outside this adopter-specific change.
 
 ## Canonical semantic path
 
@@ -50,108 +50,37 @@ standard-repo-website-builder
 
 No ADEL Core change, profile bump, schema fork or repository-specific Builder hardcoding was required.
 
-## Pre-closure machine acceptance
+## Historical pre-closure acceptance
 
-Latest reviewed pre-closure revision: `ab92458c8955baed912171a6031878c4bc71d710`.
+Pre-closure replay classified the adopter as `PASS_WITH_DECLARED_GAPS` with only `W7-4-ADOPTION-001` open. Machine and product acceptance otherwise passed, with all eight mapped sources present and zero broken generated links.
 
-Verified:
+Representative desktop/mobile review also passed the learner-first, navigation, hierarchy, mobile-layout and temporal-truth criteria. That review satisfied the final closure conditions for the adoption gap.
 
-- canonical replay = `PASS_WITH_DECLARED_GAPS`;
-- product gate = `PASS_WITH_DECLARED_GAPS`;
-- only declared gap = `W7-4-ADOPTION-001`;
-- 8 knowledge items / 8 sources present / 0 missing;
-- diagnostics = 0;
-- production semantic input = `adel-resolved-projection`;
-- resolved semantic nodes = 6;
-- deterministic outputs, identity, gaps, section hubs and page count;
-- 8 knowledge pages / 15 output files;
-- 75 links checked / 0 broken;
-- shell/navigation = PASS;
-- knowledge discoverability = PASS;
-- publication readiness = `READY_FOR_PROVIDER_VERIFICATION`;
-- schema fork required = false;
-- repository-specific Builder hardcoding required = false;
-- browser captures = `READY_FOR_HUMAN_REVIEW`.
+## Reconciliation with concurrent course work
 
-Machine evidence: `governance/evidence/W7-4-MACHINE-ACCEPTANCE.md`.
+While W7.4 was open, the course repository continued evolving through Week 06 / Veterinaria II work in parallel conversations. The W7.4 branch was therefore reconciled with the then-current `master` before final acceptance.
 
-## Human review
-
-Representative desktop/mobile captures for Home, Conformance, Knowledge and Course Orientation were reviewed.
-
-Result: `PASS`.
-
-Accepted criteria:
-
-- global navigation coherent and usable;
-- repository identity visible and consistent;
-- readable content hierarchy;
-- shell preserved through section/detail navigation;
-- no visible mobile horizontal page overflow;
-- material knowledge discoverable without source-only navigation;
-- learner-first EDUCATIONAL orientation preserved;
-- current-state/temporal truth consistent with the pre-closure declared-gap state.
-
-Non-blocking observation: the long repository identity is visually truncated in the mobile header, but identity remains recognizable and navigation usable.
-
-Human evidence: `governance/evidence/W7-4-HUMAN-REVIEW-PASS.md`.
-
-## Gap closure
-
-`W7-4-ADOPTION-001` is now closed because its closure conditions have been satisfied:
-
-- canonical replay classified;
-- no undeclared blocking gaps;
-- desktop review PASS;
-- mobile review PASS;
-- temporal truth PASS;
-- publication readiness classified.
-
-Closing the gap changes `governance/repository.yaml`, so evidence from the pre-closure revision is not sufficient to claim final W7.4 PASS.
-
-Current state:
+Relevant sequence:
 
 ```text
-W7_4_MACHINE_PRECLOSURE = PASS_WITH_DECLARED_GAPS
-W7_4_HUMAN = PASS
-W7_4_ADOPTION_001 = CLOSED
-W7_4_FINAL_REPLAY = PENDING
-PR_5_MERGE_ALLOWED = false
-WAVE_7_FULL_COHORT_COMPLETE = false
+458cf11  Merge PR #7 · Week 06 pedagogical reconciliation
+    ↓
+ddcf790  reconcile W7.4 branch with current course state
+    ↓
+2f659ab  persist final machine acceptance
+    ↓
+5c269b4  merge PR #5 · W7.4 EDUCATIONAL adoption
 ```
 
-## Final exit gate
+This ensures the final W7.4 replay included the relevant pedagogical changes rather than validating a stale branch.
 
-Run the canonical replay and product gate against the post-closure revision. Required final state:
+## Final post-closure acceptance
 
-```text
-w7-adopter-replay = PASS
-w7-adopter-product-gate = PASS
-declared_gaps = []
-sources_missing = 0
-broken_links = 0
-semantic_input = adel-resolved-projection
-```
+Replay source revision: `ddcf790f508f07cb0a27dacd185d46de9b59ef5f`.
 
-A final browser capture may be used to confirm Conformance now renders the gap-free `Validation: PASS` state. Only after final replay acceptance may PR #5 merge and Wave 7 full-cohort completion be claimed.
+Final validated revision: `2f659aba6ba3773b15fa380b4af78b5db7a62526`.
 
-## Non-claims
-
-This record does not yet claim:
-
-- final W7.4 PASS;
-- Wave 7 full cohort complete;
-- provider-side Pages state verified;
-- ADEL Core changes required;
-- AVA authority replaced.
-
-## Final post-closure replay
-
-The adopter branch was reconciled with the current `master` course state and
-the governed W7.4 gates were re-executed against source revision
-`ddcf790f508f07cb0a27dacd185d46de9b59ef5f`.
-
-### Machine result
+Verified final machine state:
 
 ```text
 w7-adopter-replay = PASS
@@ -164,36 +93,45 @@ semantic_input = adel-resolved-projection
 resolved_semantic_nodes = 6
 ```
 
-The canonical replay verified deterministic builds, repository identity,
-declared gaps, section hubs and knowledge-page count.
+Additional verified product state:
 
-The product gate verified 75 generated links with zero broken links, governed
-navigation, knowledge discoverability and publication readiness
-`READY_FOR_PROVIDER_VERIFICATION`.
+- deterministic outputs, repository identity, declared gaps, section hubs and knowledge-page count;
+- 8 knowledge pages / 15 output files;
+- 75 generated links / 0 broken;
+- governed shell/navigation = PASS;
+- knowledge discoverability = PASS;
+- publication readiness = `READY_FOR_PROVIDER_VERIFICATION`;
+- no fixture-specific schema fork;
+- no repository-specific Builder hardcoding.
 
-### Browser capture
+Fresh post-reconciliation browser captures were generated and subsequently received final human visual confirmation as PASS.
 
-`w7-adopter-browser-review` completed successfully and produced eight fresh
-desktop/mobile captures for Home, Conformance, Knowledge and Course
-Orientation.
-
-Its semantic status is:
-
-`READY_FOR_HUMAN_REVIEW`
-
-This is intentionally not represented as a human PASS.
-
-### Current closure state
+## Final closure state
 
 ```text
 W7_4_MACHINE = PASS
 W7_4_PRODUCT = PASS
+W7_4_HUMAN = PASS
 W7_4_ADOPTION_001 = CLOSED
-W7_4_FINAL_BROWSER_CAPTURE = READY_FOR_HUMAN_REVIEW
-W7_4_FINAL_HUMAN_CONFIRMATION = PENDING
-PR_5_MERGE_ALLOWED = false
-WAVE_7_FULL_COHORT_COMPLETE = false
+PR_5_MERGED = true
+ISSUE_4_COMPLETED = true
+WAVE_7_FULL_COHORT_COMPLETE = true
 ```
 
-PR #5 may be promoted to merge-allowed only after the fresh post-reconciliation
-captures receive final human confirmation.
+PR #5 merged as commit `5c269b41617dcaedcbe658bef9207899483fcab8`. Issue #4 closed as completed.
+
+## Authority boundaries preserved
+
+- no ADEL Core change;
+- no `repository-site@0.2`;
+- no EDUCATIONAL-specific Builder hardcoding;
+- no fixture-specific schema fork;
+- no hidden semantic rediscovery;
+- no resurrection of `page/` merely to satisfy the portal;
+- AVA remains institutional authority where applicable;
+- generated portal remains a derived read model;
+- `gh-pages` remains a separate publication history and was not merged into `master`.
+
+## Post-merge metadata reconciliation
+
+Issue #8 exists solely to reconcile canonical governance metadata with the already-established merged outcome. It does not reopen W7.4 acceptance and does not modify pedagogical material or the publication branch.
