@@ -77,6 +77,13 @@ Repite el ejercicio anterior usando `List<Animal>` y `ArrayList<Animal>`.
 ### 21. Búsqueda y error controlado
 Busca un animal por identificador. Si no existe, lanza una excepción específica o `IllegalArgumentException` como primera aproximación.
 
+## E · Ejercicio integrador guiado
+
+### 22. MarketApp
+Construye una aplicación de consola para gestionar productos y ventas utilizando `List` / `ArrayList`. Incluye ingreso y eliminación de productos, registro de ventas y resumen de caja.
+
+El enunciado detallado y el código inicial están en [`22-market-app/`](22-market-app/).
+
 ## Regla de trabajo
 
 Para los ejercicios 1–18 no agregues arquitectura innecesaria. El foco es **practicar el concepto indicado**. Para 19–21 reutiliza lo aprendido en Semana 05 sólo como puente hacia Veterinaria II.
