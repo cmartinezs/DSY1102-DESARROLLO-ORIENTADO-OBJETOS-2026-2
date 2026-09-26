@@ -4,13 +4,15 @@
 
 ```text
 requerimiento
+→ package dominio
 → Recurso abstracto
 → subtipos
-→ método abstracto
 → interfaz Descargable
+→ MediaHub crea y administra
 → List<Recurso>
 → polimorfismo
-→ menú
+→ LecturaEntrada
+→ Main coordina
 → excepciones
 → prueba
 ```
@@ -18,25 +20,28 @@ requerimiento
 ## Checklist
 
 - [ ] el proyecto compila;
-- [ ] todos los archivos usan el package correcto;
+- [ ] las entidades están en `cl.duoc.dsy1102.mediahub.dominio`;
 - [ ] Recurso no puede instanciarse;
 - [ ] cada subtipo define sus días de préstamo;
 - [ ] Ebook y Audiolibro son Descargables;
-- [ ] todos los recursos caben en una misma List<Recurso>;
+- [ ] todos los recursos caben en una misma `List<Recurso>`;
+- [ ] MediaHub crea los objetos concretos;
+- [ ] Main no utiliza constructores del dominio;
+- [ ] LecturaEntrada concentra Scanner;
 - [ ] buscar por código funciona;
 - [ ] prestar y devolver respetan el estado;
 - [ ] descargar funciona solo donde corresponde;
-- [ ] los errores no terminan la aplicación;
-- [ ] Main no concentra la lógica del dominio.
+- [ ] los errores no terminan la aplicación.
 
 ## Qué deberías poder explicar
 
+- ¿por qué las entidades viven en un package de dominio?
 - ¿por qué Recurso es abstracta?
-- ¿por qué obtenerDiasPrestamo() es abstracto?
 - ¿por qué Descargable es interfaz?
 - ¿por qué la lista usa Recurso?
-- ¿dónde aparece el polimorfismo?
+- ¿por qué Main no crea objetos concretos?
 - ¿qué responsabilidad tiene MediaHub?
+- ¿qué responsabilidad tiene LecturaEntrada?
 - ¿qué responsabilidad tiene Main?
 
 ## Proyecto completo
