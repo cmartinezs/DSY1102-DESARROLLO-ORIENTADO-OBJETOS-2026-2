@@ -1,23 +1,8 @@
 # 05 · Main, menú, LecturaEntrada y manejo de excepciones
 
-## Una responsabilidad nueva: LecturaEntrada
+## Responsabilidad de LecturaEntrada
 
-Hasta ahora Main estaba leyendo directamente desde `Scanner`.
-
-Eso mezcla dos responsabilidades:
-
-```text
-Main
-├── coordinar el menú
-└── preocuparse de cómo leer y validar cada dato
-```
-
-Lo mejoramos creando:
-
-```text
-LecturaEntrada
-└── Scanner
-```
+`LecturaEntrada` encapsula `Scanner` y protege la interacción frente a entradas inválidas.
 
 Esta clase se hace responsable de:
 
@@ -28,30 +13,27 @@ Esta clase se hace responsable de:
 - validar rangos simples;
 - cerrar Scanner al terminar.
 
-Ejemplos de uso:
-
-```java
-int opcion = entrada.leerEnteroEnRango(
-        "Seleccione una opción: ",
-        0,
-        10
-);
-```
-
-```java
-String codigo = entrada.leerTextoNoVacio("Código: ");
-```
-
 ## Responsabilidad de Main
 
-Con esta separación, Main se concentra en:
+Main se concentra en:
 
 - mostrar opciones;
 - decidir qué operación ejecutar;
-- capturar errores provenientes del dominio;
-- coordinar `LecturaEntrada` y `MediaHub`.
+- pedir datos mediante `LecturaEntrada`;
+- delegar la creación y gestión de recursos a `MediaHub`;
+- capturar errores provenientes del dominio.
 
-Main ya no necesita conocer los detalles de Scanner.
+Main no utiliza `new LibroFisico(...)`, `new Pelicula(...)`, `new Ebook(...)` ni `new Audiolibro(...)`.
+
+Ejemplo:
+
+```java
+mediaHub.registrarPelicula(
+        entrada.leerTextoNoVacio("Código: "),
+        entrada.leerTextoNoVacio("Título: "),
+        entrada.leerTextoNoVacio("Director: ")
+);
+```
 
 ## Menú objetivo
 
@@ -73,7 +55,6 @@ Main ya no necesita conocer los detalles de Scanner.
 ## Dos tipos de errores
 
 ### Errores de entrada
-
 Los controla `LecturaEntrada`:
 
 - opción no numérica;
@@ -81,7 +62,6 @@ Los controla `LecturaEntrada`:
 - texto vacío.
 
 ### Errores del dominio
-
 Los detectan las clases responsables y Main los informa:
 
 - código duplicado;
@@ -90,41 +70,13 @@ Los detectan las clases responsables y Main los informa:
 - devolver uno ya disponible;
 - descargar un recurso físico.
 
-Esto permite separar:
-
-```text
-problema al LEER
-→ LecturaEntrada
-
-problema en la REGLA DE NEGOCIO
-→ dominio / MediaHub
-```
-
-## Polimorfismo e instanceof
-
-No usamos `instanceof` para decidir los días de préstamo:
-
-```java
-recurso.obtenerDiasPrestamo();
-```
-
-Sí puede tener sentido consultar una capacidad opcional:
-
-```java
-if (recurso instanceof Descargable) {
-    // cumple ese contrato
-}
-```
-
 ## Avance consolidado esperado
 
 - existe `LecturaEntrada.java`;
-- Scanner queda encapsulado dentro de esa clase;
-- existe `Main.java`;
-- el menú utiliza un `switch` clásico;
-- una entrada no numérica vuelve a solicitarse;
-- una opción fuera de 0 a 10 vuelve a solicitarse;
+- Scanner queda encapsulado;
+- Main usa un `switch` clásico;
+- Main no instancia clases concretas del dominio;
 - las operaciones delegan en MediaHub;
-- los errores de negocio no terminan abruptamente la aplicación.
+- los errores no terminan abruptamente la aplicación.
 
 ➡️ [Siguiente: integración final](./06-integracion-y-prueba-final.md)
