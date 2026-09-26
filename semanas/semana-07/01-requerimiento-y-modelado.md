@@ -35,6 +35,7 @@ Responder:
 - ¿qué diferencia hay entre un recurso físico y uno digital?
 - ¿“Descargable” representa una familia o una capacidad?
 - ¿quién debería administrar la lista?
+- ¿quién debería hacerse responsable de leer y validar la entrada del usuario?
 - ¿qué debería hacer Main y qué no?
 
 ## Modelo inicial
@@ -45,6 +46,15 @@ Recurso
 ├── Pelicula
 ├── Ebook
 └── Audiolibro
+
+MediaHub
+└── administra List<Recurso>
+
+LecturaEntrada
+└── administra Scanner y protege la entrada
+
+Main
+└── coordina la interacción
 ```
 
 ## Estructura objetivo
@@ -60,11 +70,19 @@ proyecto-integracion-ea1/
         ├── Ebook.java
         ├── Audiolibro.java
         ├── MediaHub.java
+        ├── LecturaEntrada.java
         └── Main.java
 ```
 
+## Responsabilidades
+
+- `Recurso` y sus subtipos: representar el dominio y su comportamiento.
+- `MediaHub`: administrar el conjunto de recursos.
+- `LecturaEntrada`: encapsular `Scanner`, leer datos y repetir la solicitud cuando la entrada no sea válida.
+- `Main`: mostrar el menú y coordinar las llamadas entre las demás clases.
+
 ## Avance consolidado esperado
 
-Debes poder justificar las entidades, sus responsabilidades y por qué la aplicación necesita una clase que administre el conjunto de recursos.
+Debes poder justificar las entidades, sus responsabilidades y por qué Scanner no debería quedar repartido por toda la aplicación.
 
 ➡️ [Siguiente: clases abstractas](./02-clases-abstractas.md)
