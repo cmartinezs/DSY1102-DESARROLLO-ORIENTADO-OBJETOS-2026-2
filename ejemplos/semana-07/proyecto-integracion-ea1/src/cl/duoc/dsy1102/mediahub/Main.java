@@ -1,5 +1,7 @@
 package cl.duoc.dsy1102.mediahub;
 
+import cl.duoc.dsy1102.mediahub.dominio.Recurso;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -90,11 +92,11 @@ public class Main {
             LecturaEntrada entrada,
             MediaHub mediaHub
     ) {
-        mediaHub.agregarRecurso(new LibroFisico(
+        mediaHub.registrarLibroFisico(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
                 entrada.leerTextoNoVacio("Autor: ")
-        ));
+        );
         System.out.println("Libro registrado.");
     }
 
@@ -102,11 +104,11 @@ public class Main {
             LecturaEntrada entrada,
             MediaHub mediaHub
     ) {
-        mediaHub.agregarRecurso(new Pelicula(
+        mediaHub.registrarPelicula(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
                 entrada.leerTextoNoVacio("Director: ")
-        ));
+        );
         System.out.println("Película registrada.");
     }
 
@@ -114,11 +116,11 @@ public class Main {
             LecturaEntrada entrada,
             MediaHub mediaHub
     ) {
-        mediaHub.agregarRecurso(new Ebook(
+        mediaHub.registrarEbook(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
                 entrada.leerTextoNoVacio("Autor: ")
-        ));
+        );
         System.out.println("Ebook registrado.");
     }
 
@@ -126,11 +128,11 @@ public class Main {
             LecturaEntrada entrada,
             MediaHub mediaHub
     ) {
-        mediaHub.agregarRecurso(new Audiolibro(
+        mediaHub.registrarAudiolibro(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
                 entrada.leerTextoNoVacio("Autor o narrador: ")
-        ));
+        );
         System.out.println("Audiolibro registrado.");
     }
 
