@@ -17,6 +17,19 @@ List<Recurso> recursos = new ArrayList<>();
 
 y puede contener cualquier subtipo.
 
+## MediaHub también crea los objetos
+
+Para evitar que Main conozca las clases concretas del dominio, MediaHub ofrece operaciones de registro:
+
+```java
+public void registrarLibroFisico(String codigo, String titulo, String autor)
+public void registrarPelicula(String codigo, String titulo, String director)
+public void registrarEbook(String codigo, String titulo, String autor)
+public void registrarAudiolibro(String codigo, String titulo, String creador)
+```
+
+MediaHub recibe datos simples y decide qué objeto crear.
+
 ## Operación polimórfica
 
 ```java
@@ -31,7 +44,7 @@ Cada objeto responde con su propia política sin preguntar manualmente su tipo.
 
 `MediaHub` debe poder:
 
-- agregar recursos;
+- crear y agregar recursos;
 - listar;
 - buscar por código;
 - prestar;
@@ -46,10 +59,11 @@ Debes poder explicar:
 - por qué usamos `List<Recurso>`;
 - cómo se almacenan distintos subtipos juntos;
 - cómo aparece el polimorfismo;
-- por qué estas operaciones pertenecen a MediaHub y no a Main.
+- por qué Main no crea objetos concretos del dominio;
+- por qué estas operaciones pertenecen a MediaHub.
 
 ## Avance consolidado esperado
 
-Debe existir `MediaHub.java` con su `List<Recurso>` y operaciones básicas de administración.
+Debe existir `MediaHub.java` con su `List<Recurso>`, operaciones de registro y administración.
 
 ➡️ [Siguiente: Main, menú y excepciones](./05-main-menu-y-excepciones.md)
