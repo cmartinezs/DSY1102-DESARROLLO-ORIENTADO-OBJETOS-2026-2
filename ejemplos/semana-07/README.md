@@ -1,6 +1,6 @@
 # Ejemplos · Semana 07
 
-## Proyecto integrador EA1
+## Proyecto integrador EA1 · Biblioteca MediaHub
 
 ➡️ [Abrir proyecto completo](./proyecto-integracion-ea1/)
 
@@ -9,16 +9,17 @@ Esta semana el ejemplo principal es un **proyecto Java completo**, no un archivo
 ```text
 proyecto-integracion-ea1/
 └── src/
-    └── cl/duoc/dsy1102/integracion/
-        ├── Animal.java
-        ├── Vacunable.java
-        ├── Perro.java
-        ├── Gato.java
-        ├── Ave.java
-        ├── Veterinaria.java
+    └── cl/duoc/dsy1102/mediahub/
+        ├── Recurso.java
+        ├── Descargable.java
+        ├── LibroFisico.java
+        ├── Pelicula.java
+        ├── Ebook.java
+        ├── Audiolibro.java
+        ├── MediaHub.java
         └── Main.java
 ```
 
-La guía semanal construye la solución mediante checkpoints conceptuales. Esta carpeta conserva solamente la **solución final ejecutable** para evitar duplicación y divergencia entre versiones.
+La guía semanal construye la solución por contenido y avance consolidado. Esta carpeta conserva la **solución final ejecutable**.
 
-➡️ [Guía de construcción por checkpoints](../../semanas/semana-07/01-clase-especial-integracion-ea1.md)
+➡️ [Volver a Semana 07](../../semanas/semana-07/)
