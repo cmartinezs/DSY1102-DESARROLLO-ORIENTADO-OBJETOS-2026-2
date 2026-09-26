@@ -1,62 +1,55 @@
 # 04 · List y polimorfismo
 
-Hasta ahora podemos crear animales individuales. Ahora necesitamos administrar varios.
+Ahora necesitamos administrar múltiples recursos.
 
-## Nueva responsabilidad
+## Clase responsable
 
-Creamos:
+```text
+MediaHub
+└── List<Recurso>
+```
 
-~~~text
-Veterinaria
-└── List<Animal>
-~~~
+La lista usa el tipo padre:
 
-Veterinaria administra los animales registrados.
+```java
+List<Recurso> recursos = new ArrayList<>();
+```
 
-## ¿Por qué List<Animal>?
+y puede contener cualquier subtipo.
 
-Porque todos los tipos concretos son subtipos de Animal.
+## Operación polimórfica
 
-~~~java
-List<Animal> animales = new ArrayList<>();
-~~~
-
-La misma lista puede contener Perro, Gato y Ave.
-
-## Recorrido polimórfico
-
-~~~java
-for (Animal animal : animales) {
-    animal.emitirSonido();
+```java
+for (Recurso recurso : recursos) {
+    System.out.println(recurso.obtenerDiasPrestamo());
 }
-~~~
+```
 
-No necesitamos preguntar si el objeto es Perro, Gato o Ave para decidir qué sonido ejecutar.
-
-El tipo real del objeto determina qué implementación se ejecuta.
+Cada objeto responde con su propia política sin preguntar manualmente su tipo.
 
 ## Operaciones esperadas
 
-Veterinaria debe poder:
+`MediaHub` debe poder:
 
-- agregar un animal;
-- listar animales;
-- buscar por nombre;
-- hacer que todos emitan su sonido.
+- agregar recursos;
+- listar;
+- buscar por código;
+- prestar;
+- devolver;
+- mostrar políticas de préstamo;
+- descargar cuando el recurso cumpla el contrato.
 
 ## Conocimiento que debes adquirir
 
 Debes poder explicar:
 
-- por qué la lista usa el tipo padre;
-- cómo puede contener distintos subtipos;
-- cómo funciona el polimorfismo al recorrerla;
-- por qué la administración de animales pertenece a Veterinaria y no a Main.
+- por qué usamos `List<Recurso>`;
+- cómo se almacenan distintos subtipos juntos;
+- cómo aparece el polimorfismo;
+- por qué estas operaciones pertenecen a MediaHub y no a Main.
 
 ## Avance consolidado esperado
 
-Al finalizar esta etapa ya deberías tener Veterinaria.java con una List<Animal> y métodos para administrar el conjunto.
-
-Todavía no necesitamos terminar el menú.
+Debe existir `MediaHub.java` con su `List<Recurso>` y operaciones básicas de administración.
 
 ➡️ [Siguiente: Main, menú y excepciones](./05-main-menu-y-excepciones.md)
