@@ -6,7 +6,7 @@ Proyecto Java de consola utilizado como referencia completa para la Semana 07.
 
 MediaHub administra recursos físicos y digitales de una biblioteca multimedia.
 
-El proyecto integra una jerarquía de recursos, políticas de préstamo diferentes, una capacidad de descarga para recursos digitales, administración mediante `List<Recurso>` y manejo de errores desde una aplicación de consola.
+El proyecto integra una jerarquía de recursos, políticas de préstamo diferentes, una capacidad de descarga para recursos digitales, administración mediante `List<Recurso>`, entrada segura por consola y manejo de errores.
 
 ## Estructura
 
@@ -23,12 +23,20 @@ src/
                 ├── Ebook.java
                 ├── Audiolibro.java
                 ├── MediaHub.java
+                ├── LecturaEntrada.java
                 └── Main.java
 ```
 
-## Ejecutar
+## Responsabilidades principales
 
-Ejecutar:
+```text
+Recurso / subtipos → dominio
+MediaHub           → administración de recursos
+LecturaEntrada     → Scanner + validación de entrada
+Main               → menú y coordinación
+```
+
+## Ejecutar
 
 ```text
 cl.duoc.dsy1102.mediahub.Main
@@ -49,7 +57,8 @@ cl.duoc.dsy1102.mediahub.Main
 - `List<Recurso>` / `ArrayList`;
 - búsqueda por código;
 - préstamo y devolución;
-- menú de consola;
+- clase especializada para entrada de consola;
+- `switch` clásico;
 - validaciones;
 - `try/catch`;
 - flujo controlado ante errores.
