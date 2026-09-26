@@ -1,14 +1,57 @@
-# 05 · Main, menú y manejo de excepciones
+# 05 · Main, menú, LecturaEntrada y manejo de excepciones
+
+## Una responsabilidad nueva: LecturaEntrada
+
+Hasta ahora Main estaba leyendo directamente desde `Scanner`.
+
+Eso mezcla dos responsabilidades:
+
+```text
+Main
+├── coordinar el menú
+└── preocuparse de cómo leer y validar cada dato
+```
+
+Lo mejoramos creando:
+
+```text
+LecturaEntrada
+└── Scanner
+```
+
+Esta clase se hace responsable de:
+
+- leer texto;
+- impedir valores vacíos;
+- leer enteros;
+- volver a solicitar cuando el usuario escribe texto donde se espera un número;
+- validar rangos simples;
+- cerrar Scanner al terminar.
+
+Ejemplos de uso:
+
+```java
+int opcion = entrada.leerEnteroEnRango(
+        "Seleccione una opción: ",
+        0,
+        10
+);
+```
+
+```java
+String codigo = entrada.leerTextoNoVacio("Código: ");
+```
 
 ## Responsabilidad de Main
 
-Main se encarga de la interacción:
+Con esta separación, Main se concentra en:
 
 - mostrar opciones;
-- leer datos;
-- convertir entradas;
-- capturar errores;
-- invocar operaciones de MediaHub.
+- decidir qué operación ejecutar;
+- capturar errores provenientes del dominio;
+- coordinar `LecturaEntrada` y `MediaHub`.
+
+Main ya no necesita conocer los detalles de Scanner.
 
 ## Menú objetivo
 
@@ -27,15 +70,35 @@ Main se encarga de la interacción:
 0. Salir
 ```
 
-## Errores que debemos controlar
+## Dos tipos de errores
+
+### Errores de entrada
+
+Los controla `LecturaEntrada`:
 
 - opción no numérica;
-- código vacío;
+- opción fuera de rango;
+- texto vacío.
+
+### Errores del dominio
+
+Los detectan las clases responsables y Main los informa:
+
 - código duplicado;
 - recurso inexistente;
-- intento de prestar un recurso no disponible;
-- intento de devolver uno ya disponible;
-- intentar descargar un recurso físico.
+- prestar un recurso no disponible;
+- devolver uno ya disponible;
+- descargar un recurso físico.
+
+Esto permite separar:
+
+```text
+problema al LEER
+→ LecturaEntrada
+
+problema en la REGLA DE NEGOCIO
+→ dominio / MediaHub
+```
 
 ## Polimorfismo e instanceof
 
@@ -55,10 +118,13 @@ if (recurso instanceof Descargable) {
 
 ## Avance consolidado esperado
 
+- existe `LecturaEntrada.java`;
+- Scanner queda encapsulado dentro de esa clase;
 - existe `Main.java`;
-- el menú es funcional;
+- el menú utiliza un `switch` clásico;
+- una entrada no numérica vuelve a solicitarse;
+- una opción fuera de 0 a 10 vuelve a solicitarse;
 - las operaciones delegan en MediaHub;
-- los errores no terminan abruptamente la aplicación;
-- el flujo vuelve al menú.
+- los errores de negocio no terminan abruptamente la aplicación.
 
 ➡️ [Siguiente: integración final](./06-integracion-y-prueba-final.md)
