@@ -2,20 +2,21 @@
 
 **Periodo:** 21 al 26 de septiembre de 2026  
 **Sección:** DSY1102-012V  
-**Foco real:** integración de contenidos de EA1 y cierre de brechas antes de EP1.
+**Proyecto guía:** Biblioteca MediaHub
 
 ← [Volver al índice](../README.md)
 
 ## Propósito de la semana
 
-Esta semana se utiliza para **integrar y reforzar la Experiencia de Aprendizaje 1**. El objetivo no es memorizar sintaxis aislada, sino aprender a leer un requerimiento y decidir qué elementos de POO necesita la solución.
+Esta semana se utiliza para **integrar y reforzar la Experiencia de Aprendizaje 1** mediante un proyecto de consola completo.
+
+MediaHub administra recursos físicos y digitales de una biblioteca multimedia. El problema nos permite conectar, de forma natural:
 
 ```text
 requerimiento
 → entidades y responsabilidades
 → clases y objetos
 → encapsulamiento
-→ colaboración
 → herencia
 → clase abstracta
 → interfaz
@@ -25,27 +26,27 @@ requerimiento
 → prueba de la solución
 ```
 
-## Conceptos especiales de esta semana
+## Conceptos especiales
 
 ### Clase abstracta
-Representa una generalización válida del dominio que no tiene sentido instanciar directamente. Puede contener atributos, constructores, métodos implementados y métodos abstractos.
+`Recurso` representa cualquier material administrado por MediaHub, pero no tiene sentido registrar un “recurso genérico”. Por eso será abstracta.
 
 ### Método abstracto
-Declara un comportamiento que debe existir en los subtipos, pero cuya implementación depende del tipo concreto.
+Cada tipo de recurso posee una política de préstamo distinta. La clase base puede exigir el comportamiento sin decidir su implementación:
 
-### Interfaz
-Representa un **contrato o capacidad** que una clase puede cumplir.
-
-```text
-extends     → "es un"
-implements  → "puede hacer / cumple un contrato"
+```java
+public abstract int obtenerDiasPrestamo();
 ```
 
-## Clase especial · sábado 26 de septiembre
+### Interfaz
+Los recursos digitales pueden descargarse, mientras que los físicos no.
 
-La sesión se trabaja como **un proyecto guiado e incremental**. Partimos desde un requerimiento y hacemos evolucionar una aplicación de consola completa, con clases separadas, paquetes, lista de objetos, menú y manejo de errores.
+```text
+Ebook ES UN Recurso.
+Ebook PUEDE SER Descargable.
+```
 
-La guía se divide por contenido y cada parte cierra con un **avance consolidado esperado**:
+## Guía progresiva
 
 1. [Requerimiento y modelado inicial](./01-requerimiento-y-modelado.md)
 2. [Clases abstractas](./02-clases-abstractas.md)
@@ -54,32 +55,14 @@ La guía se divide por contenido y cada parte cierra con un **avance consolidado
 5. [Main, menú y excepciones](./05-main-menu-y-excepciones.md)
 6. [Integración y prueba final](./06-integracion-y-prueba-final.md)
 
-## Proyecto completo de referencia
+Cada parte termina con el **avance consolidado esperado**.
 
-La solución final está disponible como un proyecto Java real, con un archivo por clase y estructura desde `src/`.
+## Proyecto completo
 
-➡️ [Proyecto completo · Integración EA1](../../ejemplos/semana-07/proyecto-integracion-ea1/)
+➡️ [Biblioteca MediaHub · solución final](../../ejemplos/semana-07/proyecto-integracion-ea1/)
 
-> Durante la clase avanzamos por checkpoints conceptuales. La carpeta de ejemplos contiene solamente la solución final, para evitar mantener múltiples copias divergentes del mismo proyecto.
-
-## Resultado esperado
-
-Al finalizar la sesión deberías poder:
-
-- analizar un requerimiento antes de programar;
-- identificar entidades, atributos, comportamientos y responsabilidades;
-- decidir cuándo corresponde herencia;
-- reconocer cuándo una clase base debería ser abstracta;
-- declarar y sobrescribir métodos abstractos;
-- reconocer una capacidad transversal y representarla mediante una interfaz;
-- utilizar referencias del tipo padre de forma polimórfica;
-- almacenar subtipos en una `List` del tipo padre;
-- separar interacción por consola de lógica de dominio;
-- manejar entradas inválidas sin terminar abruptamente la aplicación;
-- probar la solución antes de considerarla terminada.
+La guía muestra cómo construirlo; la carpeta de ejemplos contiene el proyecto terminado.
 
 ## Fuera de alcance
 
 No incorporamos todavía `Set`, `Map`, Streams, lambdas, JavaFX, persistencia ni patrones adicionales.
-
-El objetivo es cerrar correctamente EA1, no abrir nuevos frentes.
