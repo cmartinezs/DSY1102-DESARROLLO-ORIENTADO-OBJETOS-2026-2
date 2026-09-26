@@ -1,57 +1,64 @@
 package cl.duoc.dsy1102.mediahub;
 
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        LecturaEntrada entrada = new LecturaEntrada();
         MediaHub mediaHub = new MediaHub();
         int opcion;
 
         do {
             mostrarMenu();
-            opcion = leerEntero(scanner, "Seleccione una opción: ");
+            opcion = entrada.leerEnteroEnRango(
+                    "Seleccione una opción: ",
+                    0,
+                    10
+            );
 
             try {
                 switch (opcion) {
                     case 1:
-                        registrarLibro(scanner, mediaHub);
+                        registrarLibro(entrada, mediaHub);
                         break;
                     case 2:
-                        registrarPelicula(scanner, mediaHub);
+                        registrarPelicula(entrada, mediaHub);
                         break;
                     case 3:
-                        registrarEbook(scanner, mediaHub);
+                        registrarEbook(entrada, mediaHub);
                         break;
                     case 4:
-                        registrarAudiolibro(scanner, mediaHub);
+                        registrarAudiolibro(entrada, mediaHub);
                         break;
                     case 5:
                         mediaHub.listarRecursos();
                         break;
                     case 6:
-                        buscarRecurso(scanner, mediaHub);
+                        buscarRecurso(entrada, mediaHub);
                         break;
                     case 7:
                         mediaHub.mostrarPoliticasPrestamo();
                         break;
                     case 8:
-                        mediaHub.prestarRecurso(leerTexto(scanner, "Código: "));
+                        mediaHub.prestarRecurso(
+                                entrada.leerTextoNoVacio("Código: ")
+                        );
                         System.out.println("Préstamo registrado.");
                         break;
                     case 9:
-                        mediaHub.devolverRecurso(leerTexto(scanner, "Código: "));
+                        mediaHub.devolverRecurso(
+                                entrada.leerTextoNoVacio("Código: ")
+                        );
                         System.out.println("Devolución registrada.");
                         break;
                     case 10:
-                        mediaHub.descargarRecurso(leerTexto(scanner, "Código: "));
+                        mediaHub.descargarRecurso(
+                                entrada.leerTextoNoVacio("Código: ")
+                        );
                         break;
                     case 0:
                         System.out.println("Hasta luego.");
                         break;
                     default:
-                        System.out.println("Opción no válida.");
                         break;
                 }
             } catch (IllegalArgumentException | IllegalStateException e) {
@@ -61,7 +68,7 @@ public class Main {
             System.out.println();
         } while (opcion != 0);
 
-        scanner.close();
+        entrada.cerrar();
     }
 
     private static void mostrarMenu() {
@@ -79,44 +86,59 @@ public class Main {
         System.out.println("0. Salir");
     }
 
-    private static void registrarLibro(Scanner scanner, MediaHub mediaHub) {
+    private static void registrarLibro(
+            LecturaEntrada entrada,
+            MediaHub mediaHub
+    ) {
         mediaHub.agregarRecurso(new LibroFisico(
-                leerTexto(scanner, "Código: "),
-                leerTexto(scanner, "Título: "),
-                leerTexto(scanner, "Autor: ")
+                entrada.leerTextoNoVacio("Código: "),
+                entrada.leerTextoNoVacio("Título: "),
+                entrada.leerTextoNoVacio("Autor: ")
         ));
         System.out.println("Libro registrado.");
     }
 
-    private static void registrarPelicula(Scanner scanner, MediaHub mediaHub) {
+    private static void registrarPelicula(
+            LecturaEntrada entrada,
+            MediaHub mediaHub
+    ) {
         mediaHub.agregarRecurso(new Pelicula(
-                leerTexto(scanner, "Código: "),
-                leerTexto(scanner, "Título: "),
-                leerTexto(scanner, "Director: ")
+                entrada.leerTextoNoVacio("Código: "),
+                entrada.leerTextoNoVacio("Título: "),
+                entrada.leerTextoNoVacio("Director: ")
         ));
         System.out.println("Película registrada.");
     }
 
-    private static void registrarEbook(Scanner scanner, MediaHub mediaHub) {
+    private static void registrarEbook(
+            LecturaEntrada entrada,
+            MediaHub mediaHub
+    ) {
         mediaHub.agregarRecurso(new Ebook(
-                leerTexto(scanner, "Código: "),
-                leerTexto(scanner, "Título: "),
-                leerTexto(scanner, "Autor: ")
+                entrada.leerTextoNoVacio("Código: "),
+                entrada.leerTextoNoVacio("Título: "),
+                entrada.leerTextoNoVacio("Autor: ")
         ));
         System.out.println("Ebook registrado.");
     }
 
-    private static void registrarAudiolibro(Scanner scanner, MediaHub mediaHub) {
+    private static void registrarAudiolibro(
+            LecturaEntrada entrada,
+            MediaHub mediaHub
+    ) {
         mediaHub.agregarRecurso(new Audiolibro(
-                leerTexto(scanner, "Código: "),
-                leerTexto(scanner, "Título: "),
-                leerTexto(scanner, "Autor o narrador: ")
+                entrada.leerTextoNoVacio("Código: "),
+                entrada.leerTextoNoVacio("Título: "),
+                entrada.leerTextoNoVacio("Autor o narrador: ")
         ));
         System.out.println("Audiolibro registrado.");
     }
 
-    private static void buscarRecurso(Scanner scanner, MediaHub mediaHub) {
-        String codigo = leerTexto(scanner, "Código: ");
+    private static void buscarRecurso(
+            LecturaEntrada entrada,
+            MediaHub mediaHub
+    ) {
+        String codigo = entrada.leerTextoNoVacio("Código: ");
         Recurso recurso = mediaHub.buscarPorCodigo(codigo);
 
         if (recurso == null) {
@@ -125,30 +147,8 @@ public class Main {
         }
 
         System.out.println(recurso.obtenerDescripcion());
-        System.out.println("Préstamo: " + recurso.obtenerDiasPrestamo() + " días");
-    }
-
-    private static String leerTexto(Scanner scanner, String mensaje) {
-        while (true) {
-            System.out.print(mensaje);
-            String valor = scanner.nextLine().trim();
-
-            if (!valor.isEmpty()) {
-                return valor;
-            }
-
-            System.out.println("El valor no puede estar vacío.");
-        }
-    }
-
-    private static int leerEntero(Scanner scanner, String mensaje) {
-        while (true) {
-            try {
-                System.out.print(mensaje);
-                return Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Debe ingresar un número entero.");
-            }
-        }
+        System.out.println(
+                "Préstamo: " + recurso.obtenerDiasPrestamo() + " días"
+        );
     }
 }
