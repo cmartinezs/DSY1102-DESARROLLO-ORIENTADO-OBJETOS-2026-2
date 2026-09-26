@@ -1,6 +1,12 @@
-# Proyecto integrador EA1 · Veterinaria Console
+# Proyecto integrador EA1 · Biblioteca MediaHub
 
 Proyecto Java de consola utilizado como referencia completa para la Semana 07.
+
+## Contexto
+
+MediaHub administra recursos físicos y digitales de una biblioteca multimedia.
+
+El proyecto integra una jerarquía de recursos, políticas de préstamo diferentes, una capacidad de descarga para recursos digitales, administración mediante `List<Recurso>` y manejo de errores desde una aplicación de consola.
 
 ## Estructura
 
@@ -9,28 +15,28 @@ src/
 └── cl/
     └── duoc/
         └── dsy1102/
-            └── integracion/
-                ├── Animal.java
-                ├── Vacunable.java
-                ├── Perro.java
-                ├── Gato.java
-                ├── Ave.java
-                ├── Veterinaria.java
+            └── mediahub/
+                ├── Recurso.java
+                ├── Descargable.java
+                ├── LibroFisico.java
+                ├── Pelicula.java
+                ├── Ebook.java
+                ├── Audiolibro.java
+                ├── MediaHub.java
                 └── Main.java
 ```
 
 ## Ejecutar
 
-1. Abrir la carpeta como proyecto Java en IntelliJ IDEA.
-2. Marcar `src` como *Sources Root* si el IDE no lo detecta automáticamente.
-3. Ejecutar:
+Ejecutar:
 
 ```text
-cl.duoc.dsy1102.integracion.Main
+cl.duoc.dsy1102.mediahub.Main
 ```
 
 ## Qué integra
 
+- clases y responsabilidades;
 - encapsulamiento;
 - constructores;
 - herencia;
@@ -40,11 +46,12 @@ cl.duoc.dsy1102.integracion.Main
 - `implements`;
 - sobrescritura;
 - polimorfismo;
-- `List<Animal>` / `ArrayList`;
-- búsqueda;
+- `List<Recurso>` / `ArrayList`;
+- búsqueda por código;
+- préstamo y devolución;
 - menú de consola;
-- validación;
+- validaciones;
 - `try/catch`;
 - flujo controlado ante errores.
 
-La guía de clase explica el orden recomendado de construcción. Esta carpeta contiene la solución final de referencia.
+La guía de Semana 07 explica el orden recomendado de construcción. Esta carpeta contiene la **solución final de referencia**.
