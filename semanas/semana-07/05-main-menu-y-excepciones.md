@@ -2,85 +2,63 @@
 
 ## Responsabilidad de Main
 
-Main se encarga de la interacción con el usuario:
+Main se encarga de la interacción:
 
-- mostrar el menú;
+- mostrar opciones;
 - leer datos;
 - convertir entradas;
 - capturar errores;
-- invocar operaciones de Veterinaria.
-
-No debería contener las reglas internas de cada animal ni administrar directamente la lista.
+- invocar operaciones de MediaHub.
 
 ## Menú objetivo
 
-~~~text
-=== VETERINARIA CONSOLE ===
-1. Registrar perro
-2. Registrar gato
-3. Registrar ave
-4. Listar animales
-5. Emitir sonidos
-6. Buscar animal
-7. Vacunar animal
+```text
+=== BIBLIOTECA MEDIAHUB ===
+1. Registrar libro físico
+2. Registrar película
+3. Registrar ebook
+4. Registrar audiolibro
+5. Listar recursos
+6. Buscar recurso
+7. Mostrar políticas de préstamo
+8. Prestar recurso
+9. Devolver recurso
+10. Descargar recurso
 0. Salir
-~~~
+```
 
-## Entradas inválidas
+## Errores que debemos controlar
 
-El flujo esperado es:
+- opción no numérica;
+- código vacío;
+- código duplicado;
+- recurso inexistente;
+- intento de prestar un recurso no disponible;
+- intento de devolver uno ya disponible;
+- intentar descargar un recurso físico.
 
-~~~text
-entrada
-→ conversión
-→ validación
-→ ejecución
-~~~
+## Polimorfismo e instanceof
 
-Debemos controlar situaciones como:
+No usamos `instanceof` para decidir los días de préstamo:
 
-- texto cuando se espera un número;
-- edad negativa;
-- animal inexistente;
-- intento de vacunar un animal que no cumple Vacunable.
+```java
+recurso.obtenerDiasPrestamo();
+```
 
-El programa debe informar el problema y continuar ejecutándose.
+Sí puede tener sentido consultar una capacidad opcional:
 
-## Polimorfismo vs instanceof
-
-No usamos instanceof Perro para decidir el sonido. Para eso usamos:
-
-~~~java
-animal.emitirSonido();
-~~~
-
-Pero sí puede ser válido preguntar si un objeto cumple una capacidad opcional:
-
-~~~java
-if (animal instanceof Vacunable) {
-    // cumple el contrato
+```java
+if (recurso instanceof Descargable) {
+    // cumple ese contrato
 }
-~~~
-
-## Conocimiento que debes adquirir
-
-Debes poder distinguir:
-
-- lógica de interacción;
-- lógica de dominio;
-- error de conversión;
-- validación de negocio;
-- comportamiento polimórfico;
-- comprobación de una capacidad opcional.
+```
 
 ## Avance consolidado esperado
 
-Al finalizar esta etapa:
+- existe `Main.java`;
+- el menú es funcional;
+- las operaciones delegan en MediaHub;
+- los errores no terminan abruptamente la aplicación;
+- el flujo vuelve al menú.
 
-- existe Main.java;
-- el menú funciona;
-- las opciones invocan métodos de Veterinaria;
-- una entrada inválida no termina abruptamente la aplicación;
-- el flujo vuelve al menú después de cada operación.
-
-➡️ [Siguiente: integración y prueba final](./06-integracion-y-prueba-final.md)
+➡️ [Siguiente: integración final](./06-integracion-y-prueba-final.md)
