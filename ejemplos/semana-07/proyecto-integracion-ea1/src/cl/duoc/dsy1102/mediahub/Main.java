@@ -4,9 +4,10 @@ import cl.duoc.dsy1102.mediahub.dominio.Recurso;
 
 public class Main {
 
+    private static final LecturaEntrada entrada = new LecturaEntrada();
+    private static final MediaHub mediaHub = new MediaHub();
+
     public static void main(String[] args) {
-        LecturaEntrada entrada = new LecturaEntrada();
-        MediaHub mediaHub = new MediaHub();
         int opcion;
 
         do {
@@ -20,22 +21,22 @@ public class Main {
             try {
                 switch (opcion) {
                     case 1:
-                        registrarLibro(entrada, mediaHub);
+                        registrarLibro();
                         break;
                     case 2:
-                        registrarPelicula(entrada, mediaHub);
+                        registrarPelicula();
                         break;
                     case 3:
-                        registrarEbook(entrada, mediaHub);
+                        registrarEbook();
                         break;
                     case 4:
-                        registrarAudiolibro(entrada, mediaHub);
+                        registrarAudiolibro();
                         break;
                     case 5:
                         mediaHub.listarRecursos();
                         break;
                     case 6:
-                        buscarRecurso(entrada, mediaHub);
+                        buscarRecurso();
                         break;
                     case 7:
                         mediaHub.mostrarPoliticasPrestamo();
@@ -88,10 +89,7 @@ public class Main {
         System.out.println("0. Salir");
     }
 
-    private static void registrarLibro(
-            LecturaEntrada entrada,
-            MediaHub mediaHub
-    ) {
+    private static void registrarLibro() {
         mediaHub.registrarLibroFisico(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
@@ -100,10 +98,7 @@ public class Main {
         System.out.println("Libro registrado.");
     }
 
-    private static void registrarPelicula(
-            LecturaEntrada entrada,
-            MediaHub mediaHub
-    ) {
+    private static void registrarPelicula() {
         mediaHub.registrarPelicula(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
@@ -112,10 +107,7 @@ public class Main {
         System.out.println("Película registrada.");
     }
 
-    private static void registrarEbook(
-            LecturaEntrada entrada,
-            MediaHub mediaHub
-    ) {
+    private static void registrarEbook() {
         mediaHub.registrarEbook(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
@@ -124,10 +116,7 @@ public class Main {
         System.out.println("Ebook registrado.");
     }
 
-    private static void registrarAudiolibro(
-            LecturaEntrada entrada,
-            MediaHub mediaHub
-    ) {
+    private static void registrarAudiolibro() {
         mediaHub.registrarAudiolibro(
                 entrada.leerTextoNoVacio("Código: "),
                 entrada.leerTextoNoVacio("Título: "),
@@ -136,10 +125,7 @@ public class Main {
         System.out.println("Audiolibro registrado.");
     }
 
-    private static void buscarRecurso(
-            LecturaEntrada entrada,
-            MediaHub mediaHub
-    ) {
+    private static void buscarRecurso() {
         String codigo = entrada.leerTextoNoVacio("Código: ");
         Recurso recurso = mediaHub.buscarPorCodigo(codigo);
 
