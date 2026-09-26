@@ -2,64 +2,52 @@
 
 ## Nuevo requisito
 
-Algunos animales pueden vacunarse.
+MediaHub ofrece descarga para sus recursos digitales.
 
-La primera pregunta no es sintáctica:
+Pregunta:
 
-> ¿Vacunable es un tipo de Animal?
+> ¿Descargable es otro tipo de Recurso?
 
-No.
+No. Es una **capacidad**.
 
-Vacunable representa una **capacidad** que ciertos tipos pueden cumplir.
-
-## Declarar el contrato
-
-~~~java
-public interface Vacunable {
-    void vacunar();
+```java
+public interface Descargable {
+    void descargar();
 }
-~~~
+```
 
-Una clase concreta puede implementar ese contrato:
+Los recursos digitales implementan el contrato:
 
-~~~java
-public class Perro extends Animal implements Vacunable
-~~~
+```text
+Ebook       extends Recurso implements Descargable
+Audiolibro  extends Recurso implements Descargable
+```
+
+Los recursos físicos siguen siendo Recursos, pero no son Descargables.
 
 ## Diferencia conceptual
 
-~~~text
-Perro es un Animal.
-Perro puede ser Vacunable.
+```text
+Ebook ES UN Recurso.
+Ebook PUEDE SER Descargable.
 
 extends     → generalización / especialización
 implements  → capacidad / contrato
-~~~
+```
 
 ## Conocimiento que debes adquirir
 
-Debes poder decidir cuándo:
+Debes poder decidir si un nuevo requisito representa:
 
-- una relación corresponde a herencia;
-- una característica corresponde a una capacidad;
-- una interfaz expresa mejor el requerimiento que una nueva clase padre.
+- una nueva especialización;
+- una capacidad transversal;
+- comportamiento común de la clase base.
 
 ## Avance consolidado esperado
 
-Al finalizar esta etapa:
-
-- existe Vacunable.java;
-- al menos un subtipo implementa la interfaz;
-- vacunar() está implementado en los tipos correspondientes;
-- puedes explicar por qué no todos los animales están obligados a ser Vacunable.
-
-La estructura debería verse aproximadamente así:
-
-~~~text
-Animal
-├── Perro implements Vacunable
-├── Gato implements Vacunable
-└── Ave
-~~~
+- existe `Descargable.java`;
+- Ebook y Audiolibro implementan la interfaz;
+- LibroFisico y Pelicula no la implementan;
+- puedes justificar la decisión sin hablar solamente de sintaxis.
 
 ➡️ [Siguiente: List y polimorfismo](./04-listas-y-polimorfismo.md)
