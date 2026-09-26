@@ -15,6 +15,15 @@ Esta clase se hace responsable de:
 
 ## Responsabilidad de Main
 
+Main mantiene una única instancia compartida de sus colaboradores de consola:
+
+```java
+private static final LecturaEntrada entrada = new LecturaEntrada();
+private static final MediaHub mediaHub = new MediaHub();
+```
+
+Esto evita pasarlos como parámetros entre los métodos auxiliares del menú. No estamos estudiando el patrón Singleton; simplemente utilizamos atributos estáticos compartidos dentro de `Main` para mantener la clase simple y legible.
+
 Main se concentra en:
 
 - mostrar opciones;
@@ -28,11 +37,13 @@ Main no utiliza `new LibroFisico(...)`, `new Pelicula(...)`, `new Ebook(...)` ni
 Ejemplo:
 
 ```java
-mediaHub.registrarPelicula(
-        entrada.leerTextoNoVacio("Código: "),
-        entrada.leerTextoNoVacio("Título: "),
-        entrada.leerTextoNoVacio("Director: ")
-);
+private static void registrarPelicula() {
+    mediaHub.registrarPelicula(
+            entrada.leerTextoNoVacio("Código: "),
+            entrada.leerTextoNoVacio("Título: "),
+            entrada.leerTextoNoVacio("Director: ")
+    );
+}
 ```
 
 ## Menú objetivo
@@ -75,6 +86,8 @@ Los detectan las clases responsables y Main los informa:
 - existe `LecturaEntrada.java`;
 - Scanner queda encapsulado;
 - Main usa un `switch` clásico;
+- `LecturaEntrada` y `MediaHub` son atributos `static final` de Main;
+- los métodos auxiliares no necesitan recibirlos como parámetros;
 - Main no instancia clases concretas del dominio;
 - las operaciones delegan en MediaHub;
 - los errores no terminan abruptamente la aplicación.
