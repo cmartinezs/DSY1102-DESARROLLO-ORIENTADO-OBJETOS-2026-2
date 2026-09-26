@@ -1,25 +1,24 @@
 # Ejemplos · Semana 07
 
-## 01 · Integración EA1
+## Proyecto integrador EA1
 
-[01-IntegracionEA1.java](./01-IntegracionEA1.java)
+➡️ [Abrir proyecto completo](./proyecto-integracion-ea1/)
 
-Ejemplo único para la clase especial de integración de EA1.
+Esta semana el ejemplo principal es un **proyecto Java completo**, no un archivo monolítico.
 
-Conecta:
+```text
+proyecto-integracion-ea1/
+└── src/
+    └── cl/duoc/dsy1102/integracion/
+        ├── Animal.java
+        ├── Vacunable.java
+        ├── Perro.java
+        ├── Gato.java
+        ├── Ave.java
+        ├── Veterinaria.java
+        └── Main.java
+```
 
-- clase abstracta;
-- método abstracto;
-- herencia;
-- `super(...)`;
-- interfaz;
-- `implements`;
-- sobrescritura;
-- polimorfismo;
-- `List<Animal>` / `ArrayList`;
-- recorrido;
-- entrada por consola;
-- `try/catch`;
-- validación de rango.
+La guía semanal construye la solución mediante checkpoints conceptuales. Esta carpeta conserva solamente la **solución final ejecutable** para evitar duplicación y divergencia entre versiones.
 
-El propósito es acompañar el razonamiento de la clase. No debe memorizarse como plantilla universal.
+➡️ [Guía de construcción por checkpoints](../../semanas/semana-07/01-clase-especial-integracion-ea1.md)
