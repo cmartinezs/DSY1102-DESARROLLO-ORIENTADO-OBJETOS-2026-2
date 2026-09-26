@@ -14,32 +14,45 @@ public class Main {
             opcion = leerEntero(scanner, "Seleccione una opción: ");
 
             try {
-                if (opcion == 1) {
-                    registrarLibro(scanner, mediaHub);
-                } else if (opcion == 2) {
-                    registrarPelicula(scanner, mediaHub);
-                } else if (opcion == 3) {
-                    registrarEbook(scanner, mediaHub);
-                } else if (opcion == 4) {
-                    registrarAudiolibro(scanner, mediaHub);
-                } else if (opcion == 5) {
-                    mediaHub.listarRecursos();
-                } else if (opcion == 6) {
-                    buscarRecurso(scanner, mediaHub);
-                } else if (opcion == 7) {
-                    mediaHub.mostrarPoliticasPrestamo();
-                } else if (opcion == 8) {
-                    mediaHub.prestarRecurso(leerTexto(scanner, "Código: "));
-                    System.out.println("Préstamo registrado.");
-                } else if (opcion == 9) {
-                    mediaHub.devolverRecurso(leerTexto(scanner, "Código: "));
-                    System.out.println("Devolución registrada.");
-                } else if (opcion == 10) {
-                    mediaHub.descargarRecurso(leerTexto(scanner, "Código: "));
-                } else if (opcion == 0) {
-                    System.out.println("Hasta luego.");
-                } else {
-                    System.out.println("Opción no válida.");
+                switch (opcion) {
+                    case 1:
+                        registrarLibro(scanner, mediaHub);
+                        break;
+                    case 2:
+                        registrarPelicula(scanner, mediaHub);
+                        break;
+                    case 3:
+                        registrarEbook(scanner, mediaHub);
+                        break;
+                    case 4:
+                        registrarAudiolibro(scanner, mediaHub);
+                        break;
+                    case 5:
+                        mediaHub.listarRecursos();
+                        break;
+                    case 6:
+                        buscarRecurso(scanner, mediaHub);
+                        break;
+                    case 7:
+                        mediaHub.mostrarPoliticasPrestamo();
+                        break;
+                    case 8:
+                        mediaHub.prestarRecurso(leerTexto(scanner, "Código: "));
+                        System.out.println("Préstamo registrado.");
+                        break;
+                    case 9:
+                        mediaHub.devolverRecurso(leerTexto(scanner, "Código: "));
+                        System.out.println("Devolución registrada.");
+                        break;
+                    case 10:
+                        mediaHub.descargarRecurso(leerTexto(scanner, "Código: "));
+                        break;
+                    case 0:
+                        System.out.println("Hasta luego.");
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                        break;
                 }
             } catch (IllegalArgumentException | IllegalStateException e) {
                 System.out.println("Error: " + e.getMessage());
