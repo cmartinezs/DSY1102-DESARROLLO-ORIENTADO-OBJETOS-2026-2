@@ -17,9 +17,10 @@ proyecto-integracion-ea1/
         ├── Ebook.java
         ├── Audiolibro.java
         ├── MediaHub.java
+        ├── LecturaEntrada.java
         └── Main.java
 ```
 
-La guía semanal construye la solución por contenido y avance consolidado. Esta carpeta conserva la **solución final ejecutable**.
+La guía semanal construye la solución por contenido y avance consolidado. La clase `LecturaEntrada` concentra el uso de `Scanner` y protege el flujo frente a entradas inválidas.
 
 ➡️ [Volver a Semana 07](../../semanas/semana-07/)
