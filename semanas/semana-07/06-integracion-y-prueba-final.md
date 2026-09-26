@@ -1,64 +1,44 @@
 # 06 · Integración y prueba final
 
-Llegamos al cierre del proyecto.
-
 ## Mapa completo
 
-~~~text
+```text
 requerimiento
-→ entidades
-→ responsabilidades
-→ clase abstracta
-→ métodos abstractos
-→ interfaz
-→ herencia
-→ sobrescritura
-→ List<Animal>
+→ Recurso abstracto
+→ subtipos
+→ método abstracto
+→ interfaz Descargable
+→ List<Recurso>
 → polimorfismo
 → menú
 → excepciones
 → prueba
-~~~
+```
 
-## Checklist de integración
+## Checklist
 
-Antes de considerar terminado el proyecto:
+- [ ] el proyecto compila;
+- [ ] todos los archivos usan el package correcto;
+- [ ] Recurso no puede instanciarse;
+- [ ] cada subtipo define sus días de préstamo;
+- [ ] Ebook y Audiolibro son Descargables;
+- [ ] todos los recursos caben en una misma List<Recurso>;
+- [ ] buscar por código funciona;
+- [ ] prestar y devolver respetan el estado;
+- [ ] descargar funciona solo donde corresponde;
+- [ ] los errores no terminan la aplicación;
+- [ ] Main no concentra la lógica del dominio.
 
-- [ ] compila;
-- [ ] el menú vuelve a mostrarse después de cada operación;
-- [ ] se pueden registrar distintos subtipos;
-- [ ] todos pueden almacenarse en List<Animal>;
-- [ ] emitirSonido() funciona polimórficamente;
-- [ ] la búsqueda funciona;
-- [ ] la vacunación funciona solo cuando corresponde;
-- [ ] una entrada inválida no termina la aplicación;
-- [ ] cada clase conserva una responsabilidad clara;
-- [ ] Main no concentra la lógica de negocio.
+## Qué deberías poder explicar
 
-## Qué deberías poder explicar sin mirar código
-
-- ¿por qué Animal es abstracta?
-- ¿por qué emitirSonido() es abstracto?
-- ¿por qué Vacunable es una interfaz?
-- ¿por qué la lista es List<Animal>?
-- ¿qué permite que el recorrido sea polimórfico?
-- ¿por qué Veterinaria administra la lista?
-- ¿qué errores se capturan en Main?
-- ¿qué diferencia hay entre comprobar un subtipo y comprobar una capacidad?
+- ¿por qué Recurso es abstracta?
+- ¿por qué obtenerDiasPrestamo() es abstracto?
+- ¿por qué Descargable es interfaz?
+- ¿por qué la lista usa Recurso?
+- ¿dónde aparece el polimorfismo?
+- ¿qué responsabilidad tiene MediaHub?
+- ¿qué responsabilidad tiene Main?
 
 ## Proyecto completo
 
-➡️ [Proyecto completo de referencia](../../ejemplos/semana-07/proyecto-integracion-ea1/)
-
-La carpeta de ejemplos contiene la solución final.
-
-~~~text
-leer
-→ comprender
-→ modelar
-→ implementar
-→ integrar
-→ probar
-~~~
-
-La POO no comienza con class. Comienza entendiendo el problema.
+➡️ [Biblioteca MediaHub · solución final](../../ejemplos/semana-07/proyecto-integracion-ea1/)
