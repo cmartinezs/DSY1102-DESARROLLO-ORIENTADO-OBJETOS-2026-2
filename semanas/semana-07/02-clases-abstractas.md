@@ -1,83 +1,58 @@
 # 02 · Clases abstractas y comportamiento obligatorio
 
-## Punto de partida
+## ¿Tiene sentido un Recurso genérico?
 
-Tenemos una jerarquía:
-
-~~~text
-Animal
-├── Perro
-├── Gato
-└── Ave
-~~~
-
-Los tipos concretos comparten nombre y edad.
-
-## La pregunta importante
-
-¿Tiene sentido crear directamente un Animal?
-
-~~~java
-new Animal(...)
-~~~
-
-En este dominio, no. Animal representa una categoría general, no un animal concreto.
+Todos los elementos de MediaHub son recursos, pero en la práctica siempre pertenecen a un tipo concreto.
 
 Por eso:
 
-~~~java
-public abstract class Animal
-~~~
+```java
+public abstract class Recurso
+```
 
-## Qué puede tener una clase abstracta
+`Recurso` concentra:
 
-Una clase abstracta puede contener:
-
-- atributos;
-- constructores;
-- getters y setters;
-- métodos implementados;
-- métodos abstractos.
-
-Lo que no puede hacerse es instanciarla directamente.
+- código;
+- título;
+- creador;
+- estado disponible/no disponible;
+- comportamiento común para prestar y devolver.
 
 ## Método abstracto
 
-Todos los animales deben emitir un sonido, pero Animal no puede definir uno válido para todos.
+La cantidad de días permitidos cambia según el tipo de recurso.
 
-~~~java
-public abstract void emitirSonido();
-~~~
+```java
+public abstract int obtenerDiasPrestamo();
+```
 
-Cada subtipo implementa su comportamiento mediante Override.
+Ejemplo conceptual:
+
+```text
+Libro físico → 14 días
+Película     → 5 días
+Ebook        → 21 días
+Audiolibro   → 14 días
+```
 
 ## Conocimiento que debes adquirir
 
-Debes poder distinguir:
+Debes poder explicar:
 
-- comportamiento común que puede implementarse una sola vez;
-- comportamiento obligatorio cuya implementación depende del subtipo;
-- clase generalizable versus clase concreta.
+- por qué Recurso es abstracta;
+- qué comportamiento sí puede implementarse una sola vez;
+- qué comportamiento debe quedar obligado para los subtipos;
+- cómo `super(...)` inicializa la parte heredada.
 
 ## Avance consolidado esperado
 
-Al finalizar esta etapa, el proyecto debería tener al menos:
+Al finalizar:
 
-~~~text
-Animal.java
-Perro.java
-Gato.java
-Ave.java
-~~~
-
-Y debe cumplirse:
-
-- Animal es abstracta;
+- existe `Recurso.java`;
 - contiene los atributos comunes;
-- posee constructor;
-- declara emitirSonido() como abstracto;
-- cada subtipo usa extends Animal;
-- cada subtipo sobrescribe emitirSonido();
-- los constructores de los subtipos utilizan super(...).
+- no puede instanciarse;
+- declara `obtenerDiasPrestamo()` como abstracto;
+- existen los cuatro subtipos;
+- cada subtipo implementa su política de préstamo.
 
-➡️ [Siguiente: interfaces y capacidades](./03-interfaces.md)
+➡️ [Siguiente: interfaces](./03-interfaces.md)
