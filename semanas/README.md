@@ -11,8 +11,8 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | **03** | 24–29 agosto 2026 | Métodos, clases, objetos y encapsulamiento | ✅ Consolidada | [Abrir Semana 03](semana-03/) |
 | **04** | 31 agosto–5 septiembre 2026 | Constructores, estado válido y composición introductoria | ✅ Consolidada | [Abrir Semana 04](semana-04/) |
 | **05** | 7–12 septiembre 2026 | Herencia, sobrescritura y polimorfismo · Veterinaria I | ✅ Consolidada | [Abrir Semana 05](semana-05/) |
-| **06** | 14–19 septiembre 2026 | Arrays, `List` / `ArrayList` y excepciones · Veterinaria II | 🔵 Semana actual | [Abrir Semana 06](semana-06/) |
-| 07 | 21–26 septiembre 2026 | Maven y JavaFX | 🔒 Próximamente | Próximamente |
+| **06** | 14–19 septiembre 2026 | Arrays, `List` / `ArrayList` y excepciones · Veterinaria II | ✅ Consolidada | [Abrir Semana 06](semana-06/) |
+| **07** | 21–26 septiembre 2026 | Integración EA1 · clases abstractas, interfaces y reforzamiento | 🔵 Semana actual | [Abrir Semana 07](semana-07/) |
 | 08 | 28 septiembre–3 octubre 2026 | Scene Builder, FXML, UI y eventos | 🔒 Próximamente | Próximamente |
 | 09 | 5–10 octubre 2026 | MVC, TableView, navegación y validación | 🔒 Próximamente | Próximamente |
 | 10 | 12–17 octubre 2026 | Persistencia JSON y capa DAO | 🔒 Próximamente | Próximamente |
@@ -24,4 +24,4 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | 16 | 23–28 noviembre 2026 | EP3 · Componente con BD relacional | 🔒 Próximamente | Próximamente |
 | 17–18 | 30 noviembre–12 diciembre 2026 | EFT · Defensa técnica | 🔒 Próximamente | Próximamente |
 
-> Checkpoint real actualizado al 15 de septiembre de 2026: Semana 05 consolidó herencia y polimorfismo; Semana 06 trabaja arrays, colecciones y excepciones. La planificación histórica que ubicaba EP1 como único foco de esta semana queda subordinada al avance real de aula.
+> Checkpoint real actualizado al 26 de septiembre de 2026: Semana 06 consolidó arrays, `List` / `ArrayList` y excepciones. Semana 07 se utiliza para integración y reforzamiento de EA1, incorporando formalmente clases abstractas e interfaces antes de EP1. El avance real de aula prevalece sobre la planificación histórica.
