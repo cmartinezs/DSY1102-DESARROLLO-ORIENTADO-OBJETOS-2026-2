@@ -1,5 +1,12 @@
 package cl.duoc.dsy1102.mediahub;
 
+import cl.duoc.dsy1102.mediahub.dominio.Audiolibro;
+import cl.duoc.dsy1102.mediahub.dominio.Descargable;
+import cl.duoc.dsy1102.mediahub.dominio.Ebook;
+import cl.duoc.dsy1102.mediahub.dominio.LibroFisico;
+import cl.duoc.dsy1102.mediahub.dominio.Pelicula;
+import cl.duoc.dsy1102.mediahub.dominio.Recurso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +16,22 @@ public class MediaHub {
 
     public MediaHub() {
         recursos = new ArrayList<>();
+    }
+
+    public void registrarLibroFisico(String codigo, String titulo, String autor) {
+        agregarRecurso(new LibroFisico(codigo, titulo, autor));
+    }
+
+    public void registrarPelicula(String codigo, String titulo, String director) {
+        agregarRecurso(new Pelicula(codigo, titulo, director));
+    }
+
+    public void registrarEbook(String codigo, String titulo, String autor) {
+        agregarRecurso(new Ebook(codigo, titulo, autor));
+    }
+
+    public void registrarAudiolibro(String codigo, String titulo, String creador) {
+        agregarRecurso(new Audiolibro(codigo, titulo, creador));
     }
 
     public void agregarRecurso(Recurso recurso) {
