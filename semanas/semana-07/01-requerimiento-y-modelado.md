@@ -1,66 +1,70 @@
 # 01 · Requerimiento y modelado inicial
 
-**Proyecto:** Veterinaria Console  
-**Objetivo:** comprender el problema antes de programar.
+**Proyecto:** Biblioteca MediaHub
 
 ## Requerimiento
 
-Una veterinaria necesita una aplicación de consola para registrar distintos tipos de animales.
+MediaHub es una biblioteca multimedia que administra distintos recursos para sus usuarios.
 
-Todos los animales poseen nombre y edad. Cada tipo emite un sonido diferente. Algunos animales pueden ser vacunados y otros no.
+Actualmente trabaja con:
+
+- libros físicos;
+- películas;
+- ebooks;
+- audiolibros.
+
+Todos poseen un código, título y creador. Cada tipo tiene una política de préstamo distinta. Los recursos digitales además pueden descargarse.
 
 La aplicación debe permitir:
 
-1. registrar animales;
-2. listar los registrados;
-3. hacer que todos emitan su sonido;
-4. buscar por nombre;
-5. vacunar cuando corresponda;
-6. controlar entradas inválidas;
-7. continuar funcionando hasta que el usuario decida salir.
+1. registrar recursos;
+2. listar todos los recursos;
+3. buscar por código;
+4. consultar los días de préstamo de cada recurso;
+5. prestar y devolver recursos;
+6. descargar un recurso cuando corresponda;
+7. controlar entradas inválidas;
+8. continuar funcionando hasta que el usuario decida salir.
 
-## Antes de escribir código
+## Antes de programar
 
 Responder:
 
-- ¿qué entidades existen?
-- ¿qué información comparten?
-- ¿qué comportamiento cambia según el subtipo?
-- ¿qué capacidad no representa una relación de herencia?
+- ¿qué información comparten todos los recursos?
+- ¿qué comportamiento cambia según el tipo?
+- ¿qué diferencia hay entre un recurso físico y uno digital?
+- ¿“Descargable” representa una familia o una capacidad?
 - ¿quién debería administrar la lista?
-- ¿qué responsabilidad debería quedar en Main?
+- ¿qué debería hacer Main y qué no?
+
+## Modelo inicial
+
+```text
+Recurso
+├── LibroFisico
+├── Pelicula
+├── Ebook
+└── Audiolibro
+```
 
 ## Estructura objetivo
 
-~~~text
+```text
 proyecto-integracion-ea1/
 └── src/
-    └── cl/duoc/dsy1102/integracion/
-        ├── Animal.java
-        ├── Vacunable.java
-        ├── Perro.java
-        ├── Gato.java
-        ├── Ave.java
-        ├── Veterinaria.java
+    └── cl/duoc/dsy1102/mediahub/
+        ├── Recurso.java
+        ├── Descargable.java
+        ├── LibroFisico.java
+        ├── Pelicula.java
+        ├── Ebook.java
+        ├── Audiolibro.java
+        ├── MediaHub.java
         └── Main.java
-~~~
-
-Todos los archivos utilizan el package:
-
-~~~java
-package cl.duoc.dsy1102.integracion;
-~~~
+```
 
 ## Avance consolidado esperado
 
-Al cerrar esta etapa debes tener claro el diseño general, sin necesidad de implementar todavía el menú completo.
+Debes poder justificar las entidades, sus responsabilidades y por qué la aplicación necesita una clase que administre el conjunto de recursos.
 
-Debes poder justificar:
-
-- qué clases existirán;
-- qué responsabilidad tendrá cada una;
-- qué información pertenece a Animal;
-- por qué Veterinaria administrará múltiples animales;
-- por qué Main será la capa de interacción.
-
-➡️ [Siguiente: clases abstractas y comportamiento obligatorio](./02-clases-abstractas.md)
+➡️ [Siguiente: clases abstractas](./02-clases-abstractas.md)
