@@ -6,81 +6,73 @@
 
 ← [Volver al índice](../README.md)
 
-## Propósito de esta semana
+## Propósito de la semana
 
-Esta semana no inicia JavaFX. Se utiliza para **integrar y reforzar la Experiencia de Aprendizaje 1**, respetando el avance real de la sección.
-
-La ruta de trabajo es:
+Esta semana se utiliza para **integrar y reforzar la Experiencia de Aprendizaje 1**. El objetivo no es memorizar sintaxis aislada, sino aprender a leer un requerimiento y decidir qué elementos de POO necesita la solución.
 
 ```text
-clases y objetos
+requerimiento
+→ entidades y responsabilidades
+→ clases y objetos
 → encapsulamiento
-→ colaboración entre objetos
+→ colaboración
 → herencia
-→ clases abstractas
-→ interfaces
+→ clase abstracta
+→ interfaz
 → polimorfismo
 → List / ArrayList
-→ manejo de excepciones
+→ excepciones
+→ prueba de la solución
 ```
 
-> Regla de la sesión: primero analizamos el problema, luego decidimos el diseño y recién después escribimos código.
+## Conceptos especiales de esta semana
+
+### Clase abstracta
+Representa una generalización válida del dominio que no tiene sentido instanciar directamente. Puede contener atributos, constructores, métodos implementados y métodos abstractos.
+
+### Método abstracto
+Declara un comportamiento que debe existir en los subtipos, pero cuya implementación depende del tipo concreto.
+
+### Interfaz
+Representa un **contrato o capacidad** que una clase puede cumplir.
+
+```text
+extends     → "es un"
+implements  → "puede hacer / cumple un contrato"
+```
 
 ## Clase especial · sábado 26 de septiembre
 
-Esta sesión incorpora dos conceptos que faltaban formalizar en la sección:
+La sesión se trabaja como **un proyecto guiado e incremental**. Partimos desde un requerimiento y hacemos evolucionar una aplicación de consola completa, con clases separadas, paquetes, lista de objetos, menú y manejo de errores.
 
-- clases y métodos abstractos;
-- interfaces.
+➡️ [Guía de clase · Proyecto integrador EA1](./01-clase-especial-integracion-ea1.md)
 
-Se introducen como una **evolución natural de herencia y polimorfismo**, no como temas aislados.
+## Proyecto completo de referencia
 
-➡️ [Clase especial · Abstractas, interfaces e integración EA1](./01-clase-especial-integracion-ea1.md)
+La solución final está disponible como un proyecto Java real, con un archivo por clase y estructura desde `src/`.
+
+➡️ [Proyecto completo · Integración EA1](../../ejemplos/semana-07/proyecto-integracion-ea1/)
+
+> Durante la clase avanzamos por checkpoints conceptuales. La carpeta de ejemplos contiene solamente la solución final, para evitar mantener múltiples copias divergentes del mismo proyecto.
 
 ## Resultado esperado
 
-Al finalizar la clase, el estudiante debería poder:
+Al finalizar la sesión deberías poder:
 
+- analizar un requerimiento antes de programar;
 - identificar entidades, atributos, comportamientos y responsabilidades;
-- decidir cuándo corresponde una relación de herencia;
-- reconocer cuándo una clase base no debería instanciarse directamente;
-- declarar una clase y métodos abstractos;
-- reconocer una capacidad o contrato transversal y modelarlo con una interfaz;
-- sobrescribir comportamiento especializado mediante `@Override`;
-- almacenar distintos subtipos en una `List` parametrizada con el tipo padre;
-- recorrer esa lista de forma polimórfica;
-- manejar entradas inválidas mediante `try/catch`;
-- explicar su diseño antes de implementarlo.
+- decidir cuándo corresponde herencia;
+- reconocer cuándo una clase base debería ser abstracta;
+- declarar y sobrescribir métodos abstractos;
+- reconocer una capacidad transversal y representarla mediante una interfaz;
+- utilizar referencias del tipo padre de forma polimórfica;
+- almacenar subtipos en una `List` del tipo padre;
+- separar interacción por consola de lógica de dominio;
+- manejar entradas inválidas sin terminar abruptamente la aplicación;
+- probar la solución antes de considerarla terminada.
 
-## Ejemplo ejecutable
+## Fuera de alcance
 
-➡️ [Ejemplo integrado EA1](../../ejemplos/semana-07/01-IntegracionEA1.java)
+No incorporamos todavía `Set`, `Map`, Streams, lambdas, JavaFX, persistencia ni patrones adicionales.
 
-El ejemplo está pensado para seguir la clase en orden. No representa una solución de prueba ni debe memorizarse: su objetivo es mostrar cómo los conceptos ya estudiados se conectan dentro de una misma solución.
-
-## Qué NO se incorpora hoy
-
-- `Set`;
-- `Map`;
-- Streams;
-- lambdas;
-- JavaFX;
-- Maven como contenido evaluable;
-- persistencia.
-
-El foco es cerrar correctamente EA1 antes de abrir una nueva etapa del curso.
-
-## Pregunta guía para toda solución
-
-Antes de programar, responder:
-
-1. ¿Qué entidades existen?
-2. ¿Qué datos pertenecen a cada entidad?
-3. ¿Qué comportamiento debería vivir dentro de cada clase?
-4. ¿Qué tienen en común varios tipos?
-5. ¿Qué comportamiento debe variar obligatoriamente según el subtipo?
-6. ¿Existe alguna capacidad que no represente una relación «es un»?
-7. ¿Cómo se almacenarán varios objetos?
-8. ¿Qué entradas o situaciones podrían fallar?
-9. ¿Quién detecta el problema y quién lo maneja?
-10. ¿La solución compila, ejecuta y cumple realmente el requerimiento?
+El objetivo es cerrar correctamente EA1, no abrir nuevos frentes.
