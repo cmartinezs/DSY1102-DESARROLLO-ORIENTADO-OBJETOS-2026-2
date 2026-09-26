@@ -35,19 +35,23 @@ Responder:
 - ¿qué diferencia hay entre un recurso físico y uno digital?
 - ¿“Descargable” representa una familia o una capacidad?
 - ¿quién debería administrar la lista?
-- ¿quién debería hacerse responsable de leer y validar la entrada del usuario?
+- ¿quién debería crear los objetos de dominio?
+- ¿quién debería hacerse responsable de leer y validar la entrada?
 - ¿qué debería hacer Main y qué no?
 
 ## Modelo inicial
 
 ```text
-Recurso
+dominio/
+├── Recurso
+├── Descargable
 ├── LibroFisico
 ├── Pelicula
 ├── Ebook
 └── Audiolibro
 
 MediaHub
+├── crea objetos de dominio
 └── administra List<Recurso>
 
 LecturaEntrada
@@ -63,12 +67,13 @@ Main
 proyecto-integracion-ea1/
 └── src/
     └── cl/duoc/dsy1102/mediahub/
-        ├── Recurso.java
-        ├── Descargable.java
-        ├── LibroFisico.java
-        ├── Pelicula.java
-        ├── Ebook.java
-        ├── Audiolibro.java
+        ├── dominio/
+        │   ├── Recurso.java
+        │   ├── Descargable.java
+        │   ├── LibroFisico.java
+        │   ├── Pelicula.java
+        │   ├── Ebook.java
+        │   └── Audiolibro.java
         ├── MediaHub.java
         ├── LecturaEntrada.java
         └── Main.java
@@ -76,13 +81,29 @@ proyecto-integracion-ea1/
 
 ## Responsabilidades
 
-- `Recurso` y sus subtipos: representar el dominio y su comportamiento.
-- `MediaHub`: administrar el conjunto de recursos.
-- `LecturaEntrada`: encapsular `Scanner`, leer datos y repetir la solicitud cuando la entrada no sea válida.
-- `Main`: mostrar el menú y coordinar las llamadas entre las demás clases.
+- `dominio`: contiene las entidades y contratos propios del problema.
+- `MediaHub`: crea objetos de dominio y administra el conjunto de recursos.
+- `LecturaEntrada`: encapsula `Scanner`, lee datos y repite la solicitud cuando la entrada no es válida.
+- `Main`: muestra el menú y coordina las llamadas entre las demás clases.
+
+## Idea de diseño importante
+
+Main no debería conocer cómo se construye un `LibroFisico`, `Pelicula`, `Ebook` o `Audiolibro`.
+
+En lugar de:
+
+```java
+new Pelicula(...)
+```
+
+Main delega:
+
+```java
+mediaHub.registrarPelicula(codigo, titulo, director);
+```
 
 ## Avance consolidado esperado
 
-Debes poder justificar las entidades, sus responsabilidades y por qué Scanner no debería quedar repartido por toda la aplicación.
+Debes poder justificar las entidades, los packages y las responsabilidades. La creación de objetos del dominio queda encapsulada en MediaHub.
 
 ➡️ [Siguiente: clases abstractas](./02-clases-abstractas.md)
