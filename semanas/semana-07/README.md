@@ -45,7 +45,14 @@ implements  → "puede hacer / cumple un contrato"
 
 La sesión se trabaja como **un proyecto guiado e incremental**. Partimos desde un requerimiento y hacemos evolucionar una aplicación de consola completa, con clases separadas, paquetes, lista de objetos, menú y manejo de errores.
 
-➡️ [Guía de clase · Proyecto integrador EA1](./01-clase-especial-integracion-ea1.md)
+La guía se divide por contenido y cada parte cierra con un **avance consolidado esperado**:
+
+1. [Requerimiento y modelado inicial](./01-requerimiento-y-modelado.md)
+2. [Clases abstractas](./02-clases-abstractas.md)
+3. [Interfaces](./03-interfaces.md)
+4. [List y polimorfismo](./04-listas-y-polimorfismo.md)
+5. [Main, menú y excepciones](./05-main-menu-y-excepciones.md)
+6. [Integración y prueba final](./06-integracion-y-prueba-final.md)
 
 ## Proyecto completo de referencia
 
