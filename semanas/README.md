@@ -12,8 +12,8 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | **04** | 31 agosto–5 septiembre 2026 | Constructores, estado válido y composición introductoria | ✅ Consolidada | [Abrir Semana 04](semana-04/) |
 | **05** | 7–12 septiembre 2026 | Herencia, sobrescritura y polimorfismo · Veterinaria I | ✅ Consolidada | [Abrir Semana 05](semana-05/) |
 | **06** | 14–19 septiembre 2026 | Arrays, `List` / `ArrayList` y excepciones · Veterinaria II | ✅ Consolidada | [Abrir Semana 06](semana-06/) |
-| **07** | 21–26 septiembre 2026 | Integración EA1 · clases abstractas, interfaces y reforzamiento | 🔵 Semana actual | [Abrir Semana 07](semana-07/) |
-| 08 | 28 septiembre–3 octubre 2026 | Scene Builder, FXML, UI y eventos | 🔒 Próximamente | Próximamente |
+| **07** | 21–26 septiembre 2026 | Integración EA1 · clases abstractas, interfaces y reforzamiento | ✅ Consolidada | [Abrir Semana 07](semana-07/) |
+| **08** | 28 septiembre–3 octubre 2026 | `Set`, `Map`, elección de colecciones y cierre EA1 / EP1 | 🔵 Semana actual | [Abrir Semana 08](semana-08/) |
 | 09 | 5–10 octubre 2026 | MVC, TableView, navegación y validación | 🔒 Próximamente | Próximamente |
 | 10 | 12–17 octubre 2026 | Persistencia JSON y capa DAO | 🔒 Próximamente | Próximamente |
 | 11 | 19–24 octubre 2026 | JavaFX MVC + persistencia · EF2 | 🔒 Próximamente | Próximamente |
@@ -24,4 +24,4 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | 16 | 23–28 noviembre 2026 | EP3 · Componente con BD relacional | 🔒 Próximamente | Próximamente |
 | 17–18 | 30 noviembre–12 diciembre 2026 | EFT · Defensa técnica | 🔒 Próximamente | Próximamente |
 
-> Checkpoint real actualizado al 26 de septiembre de 2026: Semana 06 consolidó arrays, `List` / `ArrayList` y excepciones. Semana 07 se utiliza para integración y reforzamiento de EA1, incorporando formalmente clases abstractas e interfaces antes de EP1. El avance real de aula prevalece sobre la planificación histórica.
+> Checkpoint real actualizado al 29 de septiembre de 2026: Semana 07 cerró la integración de EA1 con clases abstractas, interfaces, polimorfismo, `List` y excepciones. Semana 08 incorpora `Set` y `Map` como ampliación de colecciones y prepara el cierre de EA1 mediante EP1. La planificación posterior se ajustará cuando existan nuevas orientaciones institucionales.
