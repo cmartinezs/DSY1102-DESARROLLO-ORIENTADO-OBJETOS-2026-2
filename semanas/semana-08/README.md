@@ -24,9 +24,15 @@ Los ejemplos están en [`../../ejemplos/semana-08/`](../../ejemplos/semana-08/):
 - `Map` y búsqueda por clave;
 - caso integrado `List + Set + Map`.
 
-## Práctica breve
+## Idea central
 
-Los ejercicios de refuerzo están en [`../../ejercicios/semana-08/`](../../ejercicios/semana-08/).
+```text
+cantidad variable / recorrido → List
+unicidad                     → Set
+clave → valor                → Map
+```
+
+Las tres estructuras pueden coexistir en un mismo sistema cuando cada una resuelve una necesidad diferente.
 
 ## Criterio de salida
 
