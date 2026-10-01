@@ -39,6 +39,15 @@ clave → valor                → Map
 
 Las tres estructuras pueden coexistir en un mismo sistema cuando cada una resuelve una necesidad diferente.
 
+## Práctica integradora liberada
+
+El diseño que originalmente se preparó como EP1 queda disponible como **práctica integradora**. No corresponde a una evaluación vigente.
+
+- [Índice y tres versiones en GitHub](../../evaluaciones/ep1-liberada/)
+- [Versión web del curso](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/practice-ep1/)
+
+Puedes elegir EventPass, RepairDesk o CargoTrack y resolver la progresión completa. Si quieres simular la experiencia original, desarrolla una parte antes de leer la siguiente.
+
 ## Criterio de salida
 
 Al cerrar la semana, el estudiante debe poder:
