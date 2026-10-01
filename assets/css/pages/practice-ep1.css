@@ -1,0 +1,9 @@
+.practice-hero h1{margin:.45rem 0;font-size:clamp(2rem,5vw,3rem)}
+.practice-hero p{max-width:850px;color:#dbeafe}
+.practice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.practice-card{border:1px solid var(--color-line);border-radius:var(--radius-lg);padding:1rem;background:#fff}
+.practice-card h3{margin:.55rem 0}
+.practice-topics{display:flex;flex-wrap:wrap;gap:.5rem}
+.practice-topics span{background:#eef2ff;color:#3730a3;border-radius:999px;padding:.35rem .65rem;font-weight:700;font-size:.85rem}
+.practice-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+@media(max-width:850px){.practice-grid{grid-template-columns:1fr}}
