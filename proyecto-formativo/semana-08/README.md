@@ -26,12 +26,14 @@ Elegir e incorporar `Set` y/o `Map` cuando el requerimiento lo justifique, cerra
 
 ## Secuencia de trabajo
 
-1. identificar una necesidad real de unicidad o búsqueda por clave;
-2. [revisar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md);
-3. seleccionar la estructura mínima necesaria;
-4. probar caso válido y caso de duplicado/clave inexistente;
-5. revisar consistencia si existen varias estructuras;
-6. [cerrar con modelo y checkpoint](./MODELO-Y-CHECKPOINT.md).
+1. [Identificar la necesidad antes de elegir colección](./01-identificar-necesidad-coleccion.md)
+2. [Aplicar Set cuando existe unicidad](./02-set-unicidad.md)
+3. [Aplicar Map cuando existe búsqueda por clave](./03-map-clave-valor.md)
+4. [Definir igualdad lógica cuando corresponda](./04-equals-hashcode.md)
+5. [Integrar colecciones sin redundancia](./05-integracion-colecciones.md)
+6. [Verificar y cerrar EA1](./06-verificacion-cierre.md)
+7. [Consultar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md)
+8. [Revisar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md)
 
 ## Trabajo esperado
 

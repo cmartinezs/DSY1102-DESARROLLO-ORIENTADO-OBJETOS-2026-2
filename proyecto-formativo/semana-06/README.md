@@ -27,12 +27,14 @@ Transitar desde arrays hacia `List / ArrayList`, separar operaciones sobre conju
 
 ## Secuencia de trabajo
 
-1. observar la limitación de un array;
-2. [revisar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md);
-3. migrar a colección dinámica;
-4. extraer coordinación a un servicio si mejora responsabilidades;
-5. modelar una condición inválida;
-6. [verificar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md).
+1. [Revisar la jerarquía existente](./01-revisar-jerarquia.md)
+2. [Probar un array y observar sus limitaciones](./02-array-y-limitaciones.md)
+3. [Evolucionar a List / ArrayList](./03-list-arraylist.md)
+4. [Implementar búsqueda y eliminación](./04-busqueda-eliminacion.md)
+5. [Modelar situaciones inválidas con excepciones](./05-excepciones.md)
+6. [Verificar y cerrar](./06-verificacion-cierre.md)
+7. [Consultar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md)
+8. [Revisar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md)
 
 ## Trabajo esperado
 

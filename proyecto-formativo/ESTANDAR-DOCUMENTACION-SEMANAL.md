@@ -10,14 +10,34 @@ Cada semana contiene:
 
 ```text
 semana-XX/
-├── README.md
+├── 01-....md
+├── 02-....md
+├── ... pasos necesarios ...
+├── NN-verificacion-cierre.md
 ├── IMPLEMENTACION-DE-REFERENCIA.md
-└── MODELO-Y-CHECKPOINT.md
+├── MODELO-Y-CHECKPOINT.md
+└── README.md
 ```
 
-Pueden existir documentos adicionales cuando una semana necesite una guía más granular.
+La **ruta numerada es parte del estándar**, no un extra opcional. Cada archivo representa una etapa real del incremento y debe poder trabajarse de forma secuencial.
 
-## 1. README.md
+La cantidad de pasos puede variar según la complejidad semanal: no se fuerza el mismo número de archivos si el contenido no lo necesita.
+
+## 1. Ruta numerada
+
+La ruta `01-...`, `02-...`, etc. descompone el incremento en decisiones y acciones pequeñas.
+
+Cada paso debe incluir:
+
+- propósito concreto;
+- contexto mínimo;
+- código focalizado sólo cuando ayuda;
+- tarea que debe ejecutar el estudiante;
+- checkpoint verificable antes de continuar.
+
+El último paso debe ser siempre una verificación/cierre del incremento.
+
+## 2. README.md
 
 Funciona como índice y contrato del incremento.
 
@@ -37,7 +57,7 @@ Debe contener, en este orden:
 
 El README no debe convertirse en una clase teórica ni contener una solución completa.
 
-## 2. IMPLEMENTACION-DE-REFERENCIA.md
+## 3. IMPLEMENTACION-DE-REFERENCIA.md
 
 Muestra cómo puede evolucionar PetCare usando exclusivamente conceptos ya enseñados.
 
@@ -52,7 +72,7 @@ Debe incluir:
 
 El código debe ser suficiente para conectar teoría con implementación, pero incompleto a propósito cuando la decisión pertenece al estudiante.
 
-## 3. MODELO-Y-CHECKPOINT.md
+## 4. MODELO-Y-CHECKPOINT.md
 
 Representa el estado de salida de la semana.
 
