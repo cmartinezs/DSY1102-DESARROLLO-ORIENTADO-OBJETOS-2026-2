@@ -1,86 +1,72 @@
-# PetCare · Semana 04
+# PetCare · Semana 04 · Construcción y colaboración
 
-## Punto de entrada real
+**Periodo:** 31 de agosto al 5 de septiembre de 2026  
+**Sección:** DSY1102-012V
 
-La sección llegó a constructores el martes 1 de septiembre. Por lo tanto PetCare no debe saltar todavía a herencia, polimorfismo, colecciones ni excepciones.
+## Punto de entrada
+
+PetCare posee una clase `Mascota` con estado encapsulado y operaciones propias.
+
+## Problema que motiva el incremento
+
+Los objetos deben nacer en un estado coherente y comenzar a colaborar con otras entidades sin mezclar responsabilidades.
 
 ## Objetivo
 
-Convertir el modelo inicial de mascota en un objeto correctamente construido, encapsulado y responsable de su propio estado.
+Consolidar construcción válida, uso criterioso de accesores y colaboración simple entre objetos.
 
-## Modelo mínimo
+## Conceptos nuevos aplicados
 
-```java
-public class Mascota {
-    private String nombre;
-    private String especie;
-    private int edad;
-    private double peso;
+- constructores con parámetros;
+- `this`;
+- inicialización coherente;
+- getters/setters con criterio;
+- colaboración entre objetos;
+- composición/asociación introductoria.
 
-    public Mascota(String nombre, String especie, int edad, double peso) {
-        this.nombre = nombre;
-        this.especie = especie;
-        this.edad = Math.max(0, edad);
-        this.peso = Math.max(0, peso);
-    }
+## Secuencia de trabajo
 
-    public void cumplirAnio() {
-        edad++;
-    }
-
-    public void registrarPeso(double nuevoPeso) {
-        if (nuevoPeso > 0) {
-            peso = nuevoPeso;
-        }
-    }
-}
-```
-
-El código anterior es una referencia conceptual, no una solución que deba copiarse literalmente.
+1. revisar el checkpoint de Semana 03;
+2. [estudiar la implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md);
+3. ajustar construcción y responsabilidades;
+4. incorporar una segunda entidad sólo si aporta valor;
+5. [verificar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md).
 
 ## Trabajo esperado
 
-1. revisar la versión de `Mascota` realizada hasta ahora;
-2. incorporar un constructor con los datos necesarios;
-3. eliminar inicializaciones incoherentes mediante setters desde `main`;
-4. mantener atributos privados;
-5. identificar getters realmente necesarios;
-6. mover reglas simples al objeto;
-7. crear varias mascotas desde `App`;
-8. demostrar que cada objeto mantiene estado independiente.
+- evitar objetos incompletos construidos mediante cadenas de setters;
+- mantener atributos privados;
+- revisar qué datos son obligatorios;
+- incorporar `Tutor` u otra entidad si corresponde;
+- demostrar varias instancias independientes.
 
-## Extensión: composición simple
-
-Solo después del checkpoint anterior, introducir una segunda clase sencilla, por ejemplo `Tutor`:
-
-```text
-Mascota ───> Tutor
-```
-
-La intención es aprender colaboración entre objetos, no crear todavía una jerarquía de herencia.
-
-## Checkpoint de salida
-
-```text
-cli.App
-    ↓
-core.model.Mascota ───> core.model.Tutor (opcional al consolidar)
-```
-
-`App` crea objetos y coordina la demostración. `Mascota` protege sus reglas y mantiene su estado.
-
-## Evidencia
+## Evidencia esperada
 
 - constructor funcional;
 - al menos tres instancias;
-- operaciones que modifican estado con validación;
-- ausencia de modificación directa de atributos desde `App`;
-- DevLog explicando qué responsabilidad quedó dentro de `Mascota` y por qué.
+- operación que protege estado;
+- relación entre objetos si fue incorporada;
+- DevLog sobre responsabilidad y colaboración.
+
+## Commits sugeridos
+
+```text
+refactor: consolidar constructor de mascota
+refactor: limitar acceso al estado
+feat: agregar colaboracion con tutor
+```
 
 ## Fuera de alcance
 
-- `Perro extends Mascota` / `Gato extends Mascota`;
-- interfaces;
+- herencia;
+- polimorfismo;
 - listas;
+- interfaces;
 - excepciones personalizadas;
 - persistencia.
+
+## Checkpoint de salida
+
+PetCare posee objetos correctamente construidos y responsabilidades mejor distribuidas.
+
+➡️ [Ver checkpoint esperado](./MODELO-Y-CHECKPOINT.md)
