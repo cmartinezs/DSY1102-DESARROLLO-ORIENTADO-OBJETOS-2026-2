@@ -1,6 +1,4 @@
-# PetCare · Modelo y checkpoint de cierre · Semana 08
-
-Este documento no define una solución única. Es una referencia para revisar si el proyecto evolucionó de forma coherente durante EA1.
+# PetCare · Modelo y checkpoint · Semana 08
 
 ## Vista conceptual
 
@@ -10,128 +8,115 @@ classDiagram
         <<abstract>>
         -String id
         -String nombre
-        -int edad
         +obtenerDescripcionCuidados() String
     }
 
     class Perro
     class Gato
 
-    class Tutor {
-        -String nombre
-        -String contacto
-    }
-
     class PetCareService {
-        -List~Mascota~ mascotas
-        +registrar(Mascota mascota)
-        +buscarPorId(String id) Mascota
-        +eliminar(String id)
-        +listar() List~Mascota~
+        -Collection mascotas
+        +registrar(mascota)
+        +buscarPorId(id) Mascota
+        +eliminar(id)
+        +listar()
     }
 
     class Vacunable {
         <<interface>>
-        +registrarVacuna(String vacuna)
+        +registrarVacuna(vacuna)
     }
 
     Mascota <|-- Perro
     Mascota <|-- Gato
-    Mascota --> Tutor
-    PetCareService o-- Mascota
     Vacunable <|.. Perro
+    PetCareService o-- Mascota
 ```
 
-La interfaz `Vacunable`, los subtipos y las operaciones son ejemplos. Deben ajustarse a las decisiones reales del estudiante.
+El tipo concreto de colección dentro del servicio depende de la necesidad elegida.
 
-## Colecciones posibles
+## Decisión de colección
 
-### Colección principal
+| Necesidad | Estructura habitual | Pregunta que responde |
+|---|---|---|
+| recorrer y mantener múltiples elementos | `List` | ¿qué mascotas administra el sistema? |
+| impedir duplicados | `Set` | ¿este valor ya está registrado? |
+| buscar mediante identificador | `Map` | ¿qué mascota corresponde a esta clave? |
 
-```java
-private final List<Mascota> mascotas = new ArrayList<>();
-```
+No existe obligación de usar las tres.
 
-Útil cuando el caso requiere recorrer, filtrar y mantener una secuencia de elementos.
-
-### Unicidad
-
-```java
-private final Set<String> idsRegistrados = new HashSet<>();
-```
-
-Útil cuando un identificador no puede repetirse.
-
-### Índice por clave
-
-```java
-private final Map<String, Mascota> mascotasPorId = new HashMap<>();
-```
-
-Útil cuando la búsqueda directa por identificador es una operación central.
-
-## Atención: duplicar estructuras tiene costo
-
-Este diseño:
+## Estructura posible
 
 ```text
-List<Mascota>
-Set<String>
-Map<String, Mascota>
+petcare/
+└── src/
+    ├── cli/
+    ├── model/
+    ├── service/
+    └── exception/
 ```
 
-puede ser correcto, pero obliga a mantener tres estructuras consistentes.
-
-Para un proyecto formativo pequeño, muchas veces basta con una o dos.
-
-La elección correcta es la mínima que exprese bien el requerimiento.
+La arquitectura no necesita cambiar sólo porque cambia una colección interna.
 
 ## Checklist técnico
 
 ### Modelo
 
-- [ ] atributos privados;
-- [ ] constructor coherente;
-- [ ] estado protegido;
-- [ ] herencia justificada;
-- [ ] sobrescritura real;
-- [ ] abstracción justificada;
-- [ ] interfaces sólo para capacidades reales.
+- [ ] encapsulamiento preservado;
+- [ ] herencia y polimorfismo siguen justificados;
+- [ ] abstracción e interfaces no fueron agregadas artificialmente;
+- [ ] la identidad lógica está definida si se implementa `equals/hashCode`.
 
 ### Colecciones
 
-- [ ] `List` se usa por una necesidad de colección dinámica/recorrido;
+- [ ] `List` se usa sólo si resuelve secuencia/recorrido;
 - [ ] `Set` se usa sólo si existe unicidad;
 - [ ] `Map` se usa sólo si existe clave → valor;
 - [ ] no existen estructuras redundantes sin propósito;
-- [ ] `equals/hashCode` reflejan una identidad explícita cuando son necesarios.
+- [ ] si hay varias estructuras, las operaciones mantienen consistencia.
 
-### Servicio
+### Servicio y CLI
 
-- [ ] coordina operaciones sobre múltiples objetos;
-- [ ] no depende de `Scanner`;
-- [ ] no imprime como mecanismo principal de retorno;
-- [ ] lanza o propaga errores significativos cuando corresponde.
+- [ ] el servicio coordina reglas sobre múltiples objetos;
+- [ ] la CLI no conoce detalles internos de almacenamiento;
+- [ ] las excepciones siguen comunicándose en la capa apropiada.
 
-### CLI
+## Checklist de evidencia
 
-- [ ] lee opciones y datos;
-- [ ] invoca operaciones;
-- [ ] muestra resultados;
-- [ ] captura errores que puede comunicar al usuario;
-- [ ] no contiene todas las reglas del dominio.
+- [ ] requerimiento que motiva la colección nueva;
+- [ ] caso válido;
+- [ ] caso duplicado o clave inexistente;
+- [ ] comparación razonada con una alternativa;
+- [ ] DevLog con decisión y descarte;
+- [ ] aplicación completa compilable y ejecutable.
 
-## Checklist de defensa
+## Preguntas de defensa
 
-El estudiante puede explicar:
+1. ¿Por qué elegiste `List`, `Set` o `Map`?
+2. ¿Qué problema aparecería si usaras otra estructura?
+3. Si usas varias colecciones, ¿cómo mantienes consistencia?
+4. ¿Qué significa igualdad lógica en tu modelo?
+5. ¿Por qué el atributo usado en `hashCode()` debería ser estable?
+6. ¿Qué parte del sistema cambiaría si mañana cambia la colección interna?
+7. ¿Qué parte debería permanecer igual?
 
-1. por qué diseñó la jerarquía actual;
-2. qué comportamiento es polimórfico;
-3. por qué una clase es abstracta o por qué decidió no hacerla abstracta;
-4. qué aporta una interfaz concreta;
-5. por qué eligió cada colección;
-6. dónde ocurre una validación;
-7. dónde se lanza y captura una excepción;
-8. qué parte del código podría reutilizarse si mañana cambia la interfaz de usuario.
+## Cierre EA1
 
-Si puede responder esas preguntas mostrando su código, el checkpoint cumple el propósito formativo de EA1.
+El estudiante debe poder recorrer la historia completa de PetCare:
+
+```text
+métodos
+→ objetos
+→ encapsulamiento
+→ construcción
+→ colaboración
+→ herencia
+→ polimorfismo
+→ colecciones
+→ excepciones
+→ abstracción
+→ interfaces
+→ criterio List / Set / Map
+```
+
+El valor del proyecto no está en acumular técnicas, sino en poder explicar **por qué cada una apareció y qué problema resolvió**.
