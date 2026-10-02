@@ -1,131 +1,74 @@
-# PetCare · Incremento Semana 02
+# PetCare · Semana 02 · Inicio del proyecto
 
 **Periodo:** 17 al 22 de agosto de 2026  
 **Sección:** DSY1102-012V
 
-Esta carpeta pertenece exclusivamente al **proyecto formativo transversal PetCare**.
+## Punto de entrada
 
-No contiene la teoría, los ejemplos ni los ejercicios de Semana 02. Ese material vive en `semanas/semana-02/` y en las áreas generales de práctica del curso.
+PetCare comienza esta semana. El estudiante ya debe poder crear y ejecutar un proyecto Java básico.
 
-Aquí sólo se define qué debe avanzar individualmente cada estudiante en PetCare a partir de lo aprendido durante la semana.
+## Problema que motiva el incremento
 
----
+Hasta ahora los conceptos se han trabajado mediante ejemplos pequeños. Se necesita un contexto propio donde comenzar a aplicar lo aprendido de forma autónoma y acumulativa.
 
-# Objetivo del incremento
+## Objetivo
 
-Iniciar PetCare y aplicar de forma autónoma los conceptos de Semana 02 que hayan sido efectivamente trabajados.
+Crear la primera versión ejecutable de PetCare e incorporar métodos y, cuando el avance real lo permita, clases, objetos y una primera regla de encapsulamiento.
 
-➡️ [Inicio de PetCare](./00-inicio-petcare.md)
+## Conceptos nuevos aplicados
 
----
+- variables y flujo básico;
+- métodos;
+- parámetros, argumentos y retorno;
+- clases y objetos si ya fueron trabajados;
+- encapsulamiento si ya fue trabajado.
 
-# Consigna individual
+## Secuencia de trabajo
 
-## 1. Crear el proyecto
+1. [Inicio formal de PetCare](./00-inicio-petcare.md)
+2. [Implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md)
+3. [Modelo y checkpoint](./MODELO-Y-CHECKPOINT.md)
 
-Crear un proyecto Java ejecutable llamado `petcare` dentro del repositorio individual de la asignatura.
+## Trabajo esperado
 
-Debe existir una primera versión mínima, funcional y explicable por el estudiante.
+- crear `petcare` dentro del repositorio individual;
+- asegurar una primera ejecución funcional;
+- agregar al menos un método con propósito;
+- modelar `Mascota` si el contenido ya fue alcanzado;
+- proteger una regla simple si encapsulamiento ya fue trabajado;
+- mantener commits progresivos.
 
-## 2. Incorporar comportamiento mediante métodos
+## Evidencia esperada
 
-Agregar al menos un método útil al programa.
+- proyecto ejecutable;
+- método explicable;
+- al menos un caso de prueba manual;
+- objetos y encapsulamiento cuando corresponda;
+- DevLog actualizado.
 
-El estudiante debe poder explicar:
-
-- qué operación representa;
-- qué datos necesita recibir;
-- qué argumentos utiliza al llamarlo;
-- si retorna o no un valor;
-- por qué tomó esa decisión.
-
-## 3. Modelar `Mascota`
-
-Cuando clases y objetos ya hayan sido abordados en el contenido semanal:
-
-- crear una clase `Mascota`;
-- elegir los atributos que sean relevantes en esta primera versión;
-- crear al menos dos objetos con estados distintos.
-
-No se entrega una solución oficial para copiar.
-
-## 4. Proteger una regla de estado
-
-Si encapsulamiento ya fue trabajado:
-
-- identificar un dato que no debería aceptar cualquier valor;
-- impedir su modificación irrestricta;
-- crear una operación que controle el cambio;
-- demostrar al menos un caso válido y uno inválido.
-
-Ejemplo de problema para razonar:
-
-> un peso no debería aceptar valores negativos.
-
-El estudiante puede elegir otra regla si puede justificarla.
-
----
-
-# Evidencia esperada
-
-El repositorio individual debe mostrar:
-
-- PetCare ejecutable;
-- código propio y explicable;
-- al menos un método con propósito;
-- clase y objetos si ese contenido ya fue alcanzado;
-- encapsulamiento si ya fue alcanzado;
-- historial Git progresivo;
-- ausencia de una solución completa agregada de una sola vez al final.
-
----
-
-# Commits
-
-No existe una cuota de commits por clase.
-
-Los commits deben representar incrementos reales, por ejemplo:
+## Commits sugeridos
 
 ```text
 feat: iniciar petcare
 feat: agregar comportamiento inicial
 feat: modelar mascota
-feat: proteger regla de peso
+feat: proteger regla de estado
 ```
 
-Los mensajes son ejemplos, no una secuencia obligatoria.
+Son ejemplos, no una cuota obligatoria.
 
----
+## Fuera de alcance
 
-# No corresponde todavía
-
-No agregar por iniciativa propia:
-
+- herencia;
 - colecciones;
-- herencia `Perro` / `Gato`;
 - interfaces;
 - excepciones propias;
 - JavaFX;
-- JDBC;
 - persistencia;
-- frameworks.
+- JDBC.
 
----
+## Checkpoint de salida
 
-# Checkpoint Semana 02
+PetCare debe quedar pequeño, estable y explicable. Semana 03 continúa desde este mismo código.
 
-El checkpoint se determina por el contenido realmente alcanzado durante la semana.
-
-Como mínimo debe existir un PetCare iniciado y ejecutable.
-
-A medida que el estudiante haya aprendido los contenidos correspondientes, el proyecto debe evolucionar hacia:
-
-```text
-PetCare
-→ métodos
-→ Mascota
-→ objetos
-→ primera regla protegida
-```
-
-La siguiente semana continúa desde este checkpoint; PetCare no se reinicia.
+➡️ [Ver checkpoint esperado](./MODELO-Y-CHECKPOINT.md)
