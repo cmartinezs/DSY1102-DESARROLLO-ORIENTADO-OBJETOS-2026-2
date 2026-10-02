@@ -1,23 +1,16 @@
 # PetCare · Roadmap semanal del semestre
 
-Este roadmap alinea el proyecto formativo con el contenido de DSY1102 y fija qué debe evolucionar semana a semana.
+Este roadmap alinea el proyecto formativo con el contenido efectivamente trabajado en DSY1102.
 
-> El avance real de la sección manda. Si una clase avanza menos o más de lo previsto, la siguiente guía parte desde el checkpoint real. Las referencias históricas a evaluaciones no reemplazan el contenido efectivamente trabajado.
+> El avance real de la sección manda. Si una planificación previa contradice el material vigente del curso, se actualiza el roadmap y PetCare continúa desde el último checkpoint real.
 
 ---
 
 # Semana 01 · Paradigma OO y fundamentos del lenguaje
 
-## Contenido
-
-- panorama POO;
-- comparación general con programación estructurada;
-- estructura básica de Java;
-- variables, tipos, operadores y flujo básico según alcance real.
-
 ## PetCare
 
-Presentación del contexto y primeras variables sueltas cuando corresponda. No se introduce todavía una arquitectura formal.
+Presentación del contexto. Variables, flujo básico y primeras decisiones de modelado según el contenido alcanzado. No se introduce arquitectura formal.
 
 ---
 
@@ -25,25 +18,24 @@ Presentación del contexto y primeras variables sueltas cuando corresponda. No s
 
 ## PetCare
 
-Datos simples de una mascota en `main`, condicionales, ciclos y extracción gradual de lógica a métodos cuando el grupo esté preparado. No se fuerza todavía una arquitectura OO completa.
+Datos simples de una mascota en `main`, condicionales, ciclos y extracción gradual de comportamiento a métodos.
+
+Checkpoint mínimo: aplicación ejecutable y código explicable.
 
 ---
 
 # Semana 03 · De métodos a objetos y encapsulamiento
 
-## Evolución real
-
 ```text
 métodos
 → clase Mascota
 → atributos
-→ métodos operacionales
-→ accesores / mutadores con criterio
+→ comportamiento
 → encapsulamiento
-→ constructor al cierre / transición a Semana 04
+→ constructor como transición
 ```
 
-## Checkpoint
+Checkpoint:
 
 ```text
 cli.App
@@ -51,220 +43,153 @@ cli.App
 core.model.Mascota
 ```
 
-`Mascota` comienza a mantener su estado y reglas simples. No agregar herencia, listas ni excepciones todavía.
-
 ---
 
-# Semana 04 · Constructores, estado válido y composición introductoria
-
-## Punto de entrada real
-
-El martes 1 de septiembre la sección llegó a **constructores**.
-
-## Evolución
+# Semana 04 · Constructores, estado válido y colaboración simple
 
 - constructor con parámetros;
-- instancias completamente inicializadas;
-- diferencia entre constructor y método operacional;
-- `this` cuando corresponda;
-- encapsulamiento y estado válido;
+- `this`;
+- estado válido;
 - getters/setters con criterio;
-- responsabilidades;
+- operaciones de dominio;
 - colaboración simple entre objetos;
-- composición introductoria, por ejemplo `Mascota -> Tutor`;
-- entrada por consola y refactor de responsabilidades cuando corresponde.
+- `Tutor` como extensión posible.
 
-## Checkpoint
+Checkpoint:
 
 ```text
 cli.App
     ↓
-core.model.Mascota ───> core.model.Tutor
+Mascota ───> Tutor
 ```
-
-La CLI crea objetos y demuestra operaciones. El modelo protege su propio estado.
 
 ---
 
-# Semana 05 · Herencia y polimorfismo · Veterinaria I
+# Semana 05 · Herencia y polimorfismo
 
-## Evolución real
+## Necesidad
+
+PetCare comienza a distinguir tipos de mascota que comparten datos, pero poseen comportamiento especializado.
+
+## Evolución
 
 ```text
 generalización / especialización
 → herencia
-→ sobrescritura
+→ super(...)
+→ @Override
+→ referencia del tipo base
 → polimorfismo dinámico
 ```
 
-El laboratorio Veterinaria I consolida una jerarquía de animales y permite observar comportamiento polimórfico. Arrays, colecciones y excepciones se reservan para la siguiente progresión.
-
-## Checkpoint
-
-El estudiante debe poder construir una jerarquía sencilla, sobrescribir comportamiento y utilizar referencias del tipo base para trabajar con subtipos.
-
----
-
-# Semana 06 · Arrays, colecciones y excepciones · Veterinaria II
-
-## Entrada
-
-Se parte desde la jerarquía OO consolidada en Semana 05, pero los conceptos nuevos se enseñan primero mediante ejemplos mínimos e independientes.
-
-## Progresión
+Una evolución posible:
 
 ```text
-arrays
-→ arrays de objetos
-→ limitaciones de tamaño fijo
-→ List / ArrayList
-→ búsqueda y eliminación
-→ situaciones inválidas
-→ throw
-→ try/catch
-→ excepción específica cuando corresponda
+Mascota
+├── Perro
+└── Gato
 ```
 
-## Integración
-
-Veterinaria II evoluciona el mismo artefacto del estudiante para administrar múltiples animales y manejar situaciones inválidas de forma explícita.
-
-## Checkpoint
-
-Al cerrar la semana el estudiante debe poder administrar conjuntos de objetos, justificar array versus lista, y explicar quién detecta, lanza y captura una excepción.
-
-> La planificación histórica que ubicaba EP1 como única actividad de Semana 06 queda subordinada al avance real confirmado al 15 de septiembre de 2026.
+Checkpoint: el estudiante puede justificar la jerarquía, construir subtipos y demostrar comportamiento sobrescrito sin usar `if` por tipo para decidir cada acción.
 
 ---
 
-# Semana 07 · Maven y JavaFX
+# Semana 06 · Arrays, List / ArrayList y excepciones
 
-## Problema de entrada
+## Necesidad
 
-La aplicación funciona, pero toda interacción ocurre por consola.
+PetCare ya no administra una sola mascota: necesita trabajar con múltiples objetos y controlar operaciones inválidas.
 
 ## Evolución
 
-- incorporar Maven según contenido institucional;
-- crear aplicación JavaFX;
-- comprender ciclo de vida;
-- primera ventana;
-- reutilizar el mismo core.
-
 ```text
-CLI ────┐
-        ├──> core
-JavaFX ─┘
+array de objetos
+→ limitación de tamaño fijo
+→ List<Mascota>
+→ ArrayList<Mascota>
+→ registrar / recorrer / buscar / eliminar
+→ condición inválida
+→ throw
+→ try/catch
 ```
 
----
-
-# Semana 08 · Scene Builder, FXML, componentes y eventos
-
-- FXML;
-- Controller;
-- campos y botones;
-- eventos;
-- formularios;
-- reutilización del core.
+Checkpoint: colección dinámica funcional y manejo explícito de errores sin concentrar toda la lógica en `main`.
 
 ---
 
-# Semana 09 · MVC, TableView, navegación y validación
+# Semana 07 · Integración EA1, clases abstractas e interfaces
 
-- TableView;
-- formularios;
-- navegación;
-- Controllers organizados;
-- MVC;
-- validaciones de interfaz separadas de reglas del dominio.
+## Necesidad
 
----
+La jerarquía ya existe y se vuelve necesario expresar dos ideas diferentes:
 
-# Semana 10 · JSON + DAO/Repository + MVC completo
+1. una categoría base que no debería instanciarse directamente;
+2. capacidades que sólo algunos tipos poseen.
 
-- persistencia JSON;
-- contrato de persistencia cuando corresponda;
-- recuperación de datos al iniciar;
-- integración con JavaFX/MVC.
+## Evolución
 
 ```text
-FX → core/service → MascotaRepository
-                       ↑
-                 implementación JSON
+Mascota concreta
+→ Mascota abstracta (si el dominio lo justifica)
+→ método abstracto
+→ interfaz por capacidad
+→ List<Mascota>
+→ polimorfismo
+→ excepciones
+→ integración completa de consola
 ```
 
----
-
-# Semana 11 · JavaFX + MVC + persistencia / EF2
-
-Consolidación y refactor del flujo completo.
+Checkpoint: solución EA1 cohesionada, ejecutable y explicable.
 
 ---
 
-# Semana 12 · EP2
+# Semana 08 · Set, Map y criterio de elección
 
-PetCare se pausa cuando corresponda según calendario institucional vigente.
+## Necesidad
 
----
-
-# Semana 13 · JDBC, CRUD y PreparedStatement
-
-- conexión JDBC;
-- SELECT;
-- INSERT;
-- UPDATE;
-- DELETE;
-- `PreparedStatement`;
-- manejo de recursos y errores.
+No todas las colecciones resuelven el mismo problema.
 
 ```text
-MascotaRepository
-├── JsonMascotaRepository
-└── JdbcMascotaRepository
+recorrer / mantener secuencia → List
+evitar duplicados            → Set
+recuperar por clave          → Map
 ```
 
----
+## Evolución posible en PetCare
 
-# Semana 14 · DAO + integración BD
+- `List<Mascota>` como colección principal;
+- `Set<String>` para identificadores, chips, especies/categorías u otro valor que deba ser único;
+- `Map<String, Mascota>` para búsqueda directa por un identificador;
+- `equals()` y `hashCode()` sólo cuando objetos propios deban participar coherentemente en estructuras basadas en igualdad.
 
-Completar persistencia relacional e integración con JavaFX manteniendo responsabilidades separadas.
-
----
-
-# Semana 15 · BD y persistencia / EF3
-
-Consolidación de CRUD, JDBC, DAO/Repository, UI, core y manejo de errores.
+Checkpoint: el estudiante puede **justificar** qué colección usa y por qué. No se obliga a usar las tres si el dominio no lo necesita.
 
 ---
 
-# Semana 16 · EP3
+# Desde Semana 09
 
-PetCare se pausa cuando corresponda según calendario institucional vigente.
+La planificación de las unidades posteriores debe actualizarse cuando se publique o confirme el material vigente.
 
----
-
-# Semanas 17–18 · EFT / defensa técnica
-
-PetCare sirve como evidencia histórica del aprendizaje. El alumno debería poder explicar:
+La dirección arquitectónica esperada se mantiene:
 
 ```text
-qué cambió
-por qué cambió
-qué se reutilizó
-qué tecnología quedó aislada
+interfaz futura ──> core
+persistencia futura ──> contratos / servicios del core
 ```
+
+pero PetCare no debe adelantar JavaFX, JSON o JDBC antes de que esos contenidos sean trabajados.
 
 ---
 
 # Regla de preparación semanal
 
-Antes de escribir la siguiente guía:
+Antes de escribir el siguiente incremento:
 
-1. revisar contenido institucional;
-2. revisar avance real de la clase anterior;
-3. abrir checkpoint PetCare actual;
-4. identificar una necesidad concreta que permita aplicar lo nuevo;
-5. evitar adelantar conceptos futuros;
-6. definir qué queda en core y qué pertenece a interfaz/persistencia;
-7. definir checkpoint de salida de cada clase.
+1. revisar `semanas/semana-N/`;
+2. revisar el checkpoint PetCare anterior;
+3. identificar una necesidad real del dominio;
+4. elegir sólo los conceptos ya enseñados;
+5. mantener compatibilidad con lo anterior;
+6. evitar reescrituras completas;
+7. separar interacción de consola y reglas del dominio;
+8. definir evidencia y checkpoint de salida.
