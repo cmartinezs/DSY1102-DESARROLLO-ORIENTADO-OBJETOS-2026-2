@@ -1,33 +1,12 @@
 # PetCare · Arquitectura y continuidad docente
 
-Este documento fija la dirección técnica del proyecto para evitar que cada unidad obligue a rehacer el software.
+Este documento fija la dirección técnica del proyecto para evitar que cada semana convierta PetCare en un proyecto distinto.
 
-No todo lo descrito aquí se enseña desde el principio. La separación se revela gradualmente a medida que el contenido institucional entrega las herramientas necesarias.
+La arquitectura se **descubre progresivamente**. No se enseña como ceremonia ni se exige crear capas vacías antes de necesitarlas.
 
----
+## Estado arquitectónico al cierre de Semana 08
 
-# Objetivo técnico
-
-La Unidad 1 debe terminar con un **core Java reutilizable** y una CLI que lo invoque.
-
-Luego JavaFX y JDBC deben agregarse como nuevas formas de interacción/persistencia sin reescribir el negocio.
-
-Dirección general:
-
-```mermaid
-flowchart LR
-    CLI[CLI / Consola] --> CORE[Core Java]
-    FX[JavaFX] --> CORE
-    CORE --> PORT[Contrato persistencia]
-    PORT --> JSON[JSON]
-    PORT --> JDBC[JDBC]
-```
-
----
-
-# Unidad 1 · Java + POO
-
-Meta de salida conceptual:
+Una forma razonable de organizar el proyecto es:
 
 ```text
 cl.duoc.petcare
@@ -38,196 +17,138 @@ cl.duoc.petcare
 └── cli
 ```
 
-No es obligatorio crear todos estos packages desde Semana 02.
+No todos los proyectos de estudiantes deben tener exactamente esos packages. Lo importante es la separación de responsabilidades.
 
-La evolución debe ser progresiva.
+## Dependencias esperadas
 
-## Semana 02
+```mermaid
+flowchart LR
+    CLI[CLI / App] --> SERVICE[PetCareService]
+    SERVICE --> MODEL[Modelo]
+    SERVICE --> EX[Excepciones]
+```
 
-Al introducir clases:
+La CLI conoce al servicio y al modelo cuando necesita mostrar información. El modelo no conoce `Scanner`, menús ni impresión por consola.
+
+## Progresión
+
+### Semanas 02–04
 
 ```text
-core.model
-    Mascota
-
-cli
-    App
+App
+ ↓
+Mascota
+ └── Tutor (opcional)
 ```
 
-`App` puede imprimir y controlar el flujo de consola.
+El foco está en objeto, estado, constructor, encapsulamiento y colaboración.
 
-`Mascota` debe representar estado y comportamiento sin conocer la interfaz.
+### Semana 05
 
-## Semanas 03–05
-
-Cuando aparezcan más responsabilidades, se pueden extraer gradualmente:
+La especialización aparece sólo si evita duplicación y expresa una diferencia real:
 
 ```text
-core.model
-core.service
-core.exception
-cli
+Mascota
+├── Perro
+└── Gato
 ```
 
-Ejemplo:
+Evitar jerarquías creadas sólo para “demostrar herencia”.
 
-```java
-List<Mascota> buscarPorEspecie(String especie)
-```
+### Semana 06
 
-puede devolver datos.
-
-La CLI decide cómo imprimirlos.
-
-Evitar convertir reglas del dominio en métodos que solo hagan:
-
-```java
-System.out.println(...)
-```
-
-cuando el resultado pueda ser reutilizado por otra interfaz.
-
----
-
-# Unidad 2 · JavaFX
-
-La interfaz gráfica es otro consumidor del mismo core.
-
-Dirección:
+Cuando aparecen múltiples objetos, se justifica extraer coordinación desde `main`:
 
 ```text
-cl.duoc.petcare
-├── core
-│   ├── model
-│   ├── service
-│   └── exception
-├── cli
-└── fx
-    ├── controller
-    └── view/FXML
+App
+ ↓
+PetCareService
+ ↓
+List<Mascota>
 ```
 
-La CLI puede conservarse como evidencia histórica y como forma alternativa de ejecutar algunas operaciones.
+Las excepciones representan situaciones inválidas; la capa que puede resolver o comunicar el error decide dónde capturarlas.
 
-El objetivo pedagógico es demostrar:
+### Semana 07
+
+Si `Mascota` representa un concepto incompleto que no debería instanciarse directamente, puede transformarse en abstracta.
+
+Las interfaces modelan capacidades independientes de la jerarquía. Ejemplo conceptual:
 
 ```text
-cambia la interfaz
-≠
-reescribir las reglas
+Mascota (abstracta)
+├── Perro
+└── Gato
+
+Vacunable
 ```
 
-## Persistencia JSON
+Una interfaz debe responder a una capacidad real, no agregarse para cumplir una lista de conceptos.
 
-Cuando corresponda en la Unidad 2 aparecerá una capa de persistencia.
+### Semana 08
 
-Dirección posible:
+Las colecciones se eligen por intención:
 
 ```text
-core.repository
-    MascotaRepository   ← contrato
-
-data.json
-    JsonMascotaRepository ← implementación
+List<Mascota>          → colección principal / recorrido
+Set<String>            → unicidad
+Map<String, Mascota>   → búsqueda por clave
 ```
 
-La nomenclatura concreta puede ajustarse al material institucional.
+No mantener varias estructuras con los mismos datos si no existe una necesidad concreta. Si se usan simultáneamente, el estudiante debe comprender que mantenerlas sincronizadas introduce una responsabilidad adicional.
 
-Lo importante es la idea:
+## Regla para `equals()` y `hashCode()`
 
-```text
-qué necesita guardar/recuperar el sistema
-≠
-cómo JSON realiza ese trabajo
-```
+No generar estos métodos automáticamente “porque sí”.
 
----
+Primero definir qué significa identidad lógica para el dominio. Sólo entonces implementar `equals()` y `hashCode()` de forma coherente.
 
-# Unidad 3 · JDBC
+Si un atributo participa en la identidad de un objeto almacenado en `HashSet`, debe evitarse modificarlo mientras el objeto esté dentro del conjunto.
 
-JDBC debe reemplazar o complementar la persistencia sin obligar a rehacer JavaFX ni el modelo del dominio.
-
-Dirección:
-
-```text
-core.repository
-    MascotaRepository
-
- data.json
-    JsonMascotaRepository
-
- data.jdbc
-    JdbcMascotaRepository
-```
-
-Así puede compararse explícitamente:
-
-```text
-misma operación de negocio
-misma interfaz gráfica
-mismo modelo
-
-pero
-
-distinto mecanismo de persistencia
-```
-
----
-
-# Regla de dependencias
-
-Buscamos que las dependencias conceptualmente apunten hacia el core:
-
-```text
-CLI ──────┐
-JavaFX ───┼──> CORE
-JSON ─────┤
-JDBC ─────┘
-```
+## Separación CLI / negocio
 
 Evitar:
 
-```text
-core.model.Mascota
-    ↓
-JavaFX Button / TextField
-
-core.service
-    ↓
-Connection / PreparedStatement
+```java
+public void registrarMascota() {
+    Scanner sc = new Scanner(System.in);
+    // lee datos, valida, guarda e imprime todo aquí
+}
 ```
 
-El dominio no debería saber qué botón se presionó ni qué SQL se ejecutó.
-
----
-
-# Cómo enseñarlo sin adelantar arquitectura
-
-No partir diciendo:
-
-> “Hoy implementaremos arquitectura hexagonal/MVC/clean”.
-
-Partir desde problemas concretos:
+Preferir responsabilidades conceptualmente separadas:
 
 ```text
-"Mascota imprime directamente; ¿cómo la mostraríamos mañana en JavaFX?"
+CLI:
+- leer datos
+- invocar operación
+- presentar resultado
 
-"El Controller contiene todas las reglas; ¿cómo las probaríamos sin abrir la ventana?"
-
-"Todo usa JSON; ¿qué pasa cuando ahora nos piden JDBC?"
+Servicio/modelo:
+- validar reglas
+- crear/registrar/buscar
+- devolver datos o lanzar excepción
 ```
 
-Luego introducir la separación necesaria con el vocabulario que corresponda a la unidad.
+## Preparación para unidades futuras
 
----
+La dirección sigue siendo reutilizar el core:
 
-# Regla de reutilización
+```mermaid
+flowchart LR
+    CLI[CLI] --> CORE[Core Java]
+    UI[Interfaz futura] --> CORE
+    CORE --> PORT[Contrato de persistencia futuro]
+    PORT --> DATA[Implementación futura]
+```
 
-Antes de agregar una nueva tecnología preguntar:
+JavaFX, JSON y JDBC son futuras formas de interacción o persistencia. Cuando aparezcan, no deberían obligar a reescribir las reglas ya consolidadas en EA1.
 
-1. ¿Qué código del checkpoint anterior debería seguir funcionando?
-2. ¿Qué nueva responsabilidad aparece?
-3. ¿Qué paquete/capa debe conocer esa tecnología?
-4. ¿Qué parte del core no debería enterarse del cambio?
+## Preguntas de control antes de agregar algo
 
-La respuesta correcta no siempre requiere una clase nueva. La separación se agrega cuando resuelve una necesidad visible.
+1. ¿Qué problema concreto resuelve?
+2. ¿Ese concepto ya fue enseñado?
+3. ¿La responsabilidad pertenece al modelo, servicio o interfaz?
+4. ¿Estoy reutilizando el checkpoint anterior?
+5. ¿Estoy agregando complejidad sólo para mostrar una técnica?
+6. ¿El estudiante puede explicar la decisión sin recitar una definición?
