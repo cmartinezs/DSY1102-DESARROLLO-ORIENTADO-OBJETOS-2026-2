@@ -26,12 +26,13 @@ Consolidar EA1 incorporando abstracción e interfaces donde tengan sentido, sin 
 
 ## Secuencia de trabajo
 
-1. revisar si `Mascota` debe ser instanciable;
-2. [revisar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md);
-3. incorporar abstracción sólo si es justificable;
-4. modelar una capacidad mediante interfaz si corresponde;
-5. probar el flujo completo de consola;
-6. [verificar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md).
+1. [Revisar el diseño acumulado de EA1](./01-revisar-diseno-ea1.md)
+2. [Decidir si Mascota debe ser abstracta](./02-clase-abstracta.md)
+3. [Modelar una capacidad mediante interfaz](./03-interfaz-capacidad.md)
+4. [Integrar el flujo completo de consola](./04-integracion-consola.md)
+5. [Verificar y cerrar la integración](./05-verificacion-cierre.md)
+6. [Consultar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md)
+7. [Revisar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md)
 
 ## Trabajo esperado
 
