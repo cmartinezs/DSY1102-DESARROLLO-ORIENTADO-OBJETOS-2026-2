@@ -27,11 +27,12 @@ Introducir una jerarquía simple y demostrar comportamiento polimórfico sin dup
 
 ## Secuencia de trabajo
 
-1. identificar qué es realmente común;
-2. [revisar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md);
-3. crear al menos dos especializaciones justificadas;
-4. demostrar sobrescritura y polimorfismo;
-5. [verificar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md).
+1. [Identificar generalización y especialización](./01-identificar-generalizacion.md)
+2. [Construir subtipos y reutilizar estado común](./02-construir-subtipos.md)
+3. [Aplicar sobrescritura y polimorfismo](./03-sobrescritura-polimorfismo.md)
+4. [Verificar y cerrar](./04-verificacion-cierre.md)
+5. [Consultar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md)
+6. [Revisar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md)
 
 ## Trabajo esperado
 
