@@ -26,11 +26,12 @@ Consolidar construcción válida, uso criterioso de accesores y colaboración si
 
 ## Secuencia de trabajo
 
-1. revisar el checkpoint de Semana 03;
-2. [estudiar la implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md);
-3. ajustar construcción y responsabilidades;
-4. incorporar una segunda entidad sólo si aporta valor;
-5. [verificar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md).
+1. [Revisar checkpoint de Semana 03](./01-revisar-checkpoint.md)
+2. [Consolidar construcción válida](./02-construccion-valida.md)
+3. [Incorporar colaboración entre objetos](./03-colaboracion-objetos.md)
+4. [Verificar y cerrar](./04-verificacion-cierre.md)
+5. [Consultar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md)
+6. [Revisar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md)
 
 ## Trabajo esperado
 
