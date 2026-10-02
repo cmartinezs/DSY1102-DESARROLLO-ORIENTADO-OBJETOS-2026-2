@@ -109,6 +109,7 @@ No corresponde exigir todavía:
 
 ## Documentación transversal
 
+- [Estándar de documentación semanal](./ESTANDAR-DOCUMENTACION-SEMANAL.md)
 - [Roadmap semanal](./ROADMAP-SEMANAL.md)
 - [Arquitectura y continuidad](./ARQUITECTURA-Y-CONTINUIDAD.md)
 - [Modelo y checkpoint Semana 08](./semana-08/MODELO-Y-CHECKPOINT.md)
