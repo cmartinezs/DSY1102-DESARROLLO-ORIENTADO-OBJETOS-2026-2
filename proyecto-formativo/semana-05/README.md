@@ -5,98 +5,69 @@
 
 ## Punto de entrada
 
-PetCare llega desde Semana 04 con una clase `Mascota` correctamente construida, encapsulada y capaz de colaborar con otras entidades simples como `Tutor`.
+PetCare posee una clase `Mascota` correctamente construida y encapsulada.
 
-La semana no parte creando un proyecto nuevo.
+## Problema que motiva el incremento
 
-## Problema que aparece
-
-Hasta ahora todas las mascotas comparten exactamente el mismo tipo. Sin embargo, el dominio puede requerir comportamiento diferente según la especialización.
-
-Ejemplos posibles:
-
-- un perro puede tener una forma particular de emitir sonido;
-- un gato puede implementar otra;
-- ciertos datos o comportamientos pueden pertenecer sólo a un subtipo.
-
-La herencia sólo se incorpora si esa diferencia es real y justificable.
+Algunas mascotas comparten estado y comportamiento, pero ciertas operaciones necesitan especializarse según el tipo concreto.
 
 ## Objetivo
 
-Evolucionar el modelo para representar especializaciones de `Mascota` mediante herencia, constructores heredados, sobrescritura y polimorfismo.
+Introducir una jerarquía simple y demostrar comportamiento polimórfico sin duplicar el modelo común.
 
-## Evolución sugerida
+## Conceptos nuevos aplicados
 
-```text
-Mascota
-├── Perro
-└── Gato
-```
+- generalización/especialización;
+- `extends`;
+- `super(...)`;
+- `@Override`;
+- sobrescritura;
+- referencias del tipo base;
+- polimorfismo dinámico.
 
-No es obligatorio utilizar exactamente esos subtipos. El estudiante puede definir otros si pertenecen al dominio y puede justificar qué comparten y qué especializan.
+## Secuencia de trabajo
+
+1. identificar qué es realmente común;
+2. [revisar implementación de referencia](./IMPLEMENTACION-DE-REFERENCIA.md);
+3. crear al menos dos especializaciones justificadas;
+4. demostrar sobrescritura y polimorfismo;
+5. [verificar modelo y checkpoint](./MODELO-Y-CHECKPOINT.md).
 
 ## Trabajo esperado
 
-1. revisar la clase `Mascota` existente;
-2. identificar atributos y comportamientos realmente comunes;
-3. crear al menos dos subtipos;
-4. reutilizar el constructor de la clase base mediante `super(...)`;
-5. sobrescribir al menos un comportamiento con `@Override`;
-6. demostrar polimorfismo usando referencias del tipo `Mascota`;
-7. evitar decisiones del estilo `if (tipo.equals("perro"))` para ejecutar comportamiento especializado.
-
-## Ejemplo conceptual
-
-```java
-Mascota mascota1 = new Perro(...);
-Mascota mascota2 = new Gato(...);
-
-mascota1.emitirSonido();
-mascota2.emitirSonido();
-```
-
-La intención del ejemplo es demostrar despacho polimórfico, no entregar una solución para copiar.
-
-## Criterios de diseño
-
-### Sí corresponde
-
-- herencia cuando existe una relación **ES UN**;
-- `super(...)` para inicializar estado heredado;
-- `@Override` cuando un subtipo especializa comportamiento;
-- trabajar con el tipo base cuando el código no necesita conocer el subtipo concreto.
-
-### No corresponde
-
-- crear subclases sin ninguna diferencia relevante;
-- duplicar en cada subtipo todos los atributos de `Mascota`;
-- usar herencia sólo porque es el contenido de la semana;
-- agregar listas, interfaces o persistencia antes de necesitarlas.
-
-## Checkpoint de salida
-
-```text
-cli.App
-    ↓
-Mascota
-├── Perro
-└── Gato
-```
-
-El estudiante debe poder explicar:
-
-- por qué existe la clase base;
-- por qué cada subtipo hereda de ella;
-- qué ejecuta `super(...)`;
-- qué método fue sobrescrito;
-- por qué una referencia `Mascota` puede apuntar a distintos subtipos.
+- conservar `Mascota` como base;
+- crear subtipos con diferencias reales;
+- reutilizar construcción mediante `super(...)`;
+- sobrescribir al menos un comportamiento;
+- evitar `if/switch` por tipo para decidir comportamiento especializado.
 
 ## Evidencia esperada
 
-- mismo PetCare de la semana anterior;
-- al menos dos subtipos funcionales;
-- uso correcto de `super(...)`;
-- al menos un `@Override`;
+- jerarquía ejecutable;
+- dos subtipos;
+- comportamiento sobrescrito;
 - demostración polimórfica;
-- commits incrementales;
-- DevLog describiendo una decisión de generalización/especialización.
+- DevLog con decisión de herencia.
+
+## Commits sugeridos
+
+```text
+refactor: identificar estado comun de mascota
+feat: agregar especializaciones de mascota
+feat: demostrar comportamiento polimorfico
+```
+
+## Fuera de alcance
+
+- arrays como solución principal;
+- `List`;
+- excepciones propias;
+- clases abstractas;
+- interfaces;
+- persistencia.
+
+## Checkpoint de salida
+
+El sistema trabaja con distintos subtipos mediante el contrato de `Mascota`.
+
+➡️ [Ver checkpoint esperado](./MODELO-Y-CHECKPOINT.md)
