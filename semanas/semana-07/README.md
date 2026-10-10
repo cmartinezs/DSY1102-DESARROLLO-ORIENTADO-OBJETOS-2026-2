@@ -63,6 +63,10 @@ Cada parte termina con el **avance consolidado esperado**.
 
 La guía muestra cómo construirlo; la carpeta de ejemplos contiene el proyecto terminado.
 
+## Laboratorio complementario
+
+[Veterinaria III · abstraer y modelar capacidades sobre el mismo proyecto de Veterinaria II](../../labs/semana-07/). La enseñanza de MediaHub y el laboratorio de Veterinaria tienen propósitos distintos; PetCare mantiene su propia continuidad.
+
 ## Fuera de alcance
 
 No incorporamos todavía `Set`, `Map`, Streams, lambdas, JavaFX, persistencia ni patrones adicionales.
