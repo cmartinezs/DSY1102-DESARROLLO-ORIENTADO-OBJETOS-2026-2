@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veterinaria III · Semana 7 · DSY1102</title>
+<link rel="stylesheet" href="../../../assets/css/global.css">
+<link rel="stylesheet" href="../../../assets/css/pages/labs.css">
+<link rel="stylesheet" href="../../../assets/css/pages/veterinary-recovery.css"></head>
+<body>
+<nav class="site-nav"><div class="site-nav__inner"><a class="site-brand" href="../../home/">DSY1102 · Veterinaria III</a><a class="btn btn-secondary" href="../index/">Laboratorios</a></div></nav>
+<main class="site-shell stack" data-lab-recovery="vet-7">
+<section class="hero labs-hero"><span class="badge">Laboratorio de recuperación · Semana 7</span><h1>Veterinaria III · Abstracción e interfaces</h1><p>Consolida EA1 sin reconstruir tu proyecto: clase abstracta, capacidad transversal, polimorfismo y manejo de errores.</p></section>
+<section class="panel notice notice-info"><strong>Continuidad obligatoria.</strong> Usa el mismo código de Veterinaria I–II bajo <code>labs/lab-veterinaria-herencia-polimorfismo/</code>. No crees otro proyecto ni dupliques <code>src/</code>. Esta es una guía de recuperación publicada el 10-10-2026, no una bitácora de una clase ya realizada.</section>
+<section class="panel stack"><h2>Tu progreso local</h2><p>Marca los checkpoints que realmente verificaste en tu proyecto. La web guarda estas marcas solo en este navegador; no revisa ni califica automáticamente tu código.</p><div class="lab-progress-label"><strong id="lab-progress-label">0/14 verificaciones</strong><button class="btn btn-secondary" id="lab-progress-reset" type="button">Reiniciar marcas</button></div><div class="lab-recovery-progress" role="progressbar" aria-label="Checkpoints verificados" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="lab-progress-bar"></div></div></section>
+<section class="panel stack"><h2>Ruta por etapas</h2><ol class="lab-recovery-nav"><li><a href="#etapa-1">Verificar línea base</a></li><li><a href="#etapa-2">Elegir una abstracción</a></li><li><a href="#etapa-3">Definir capacidad con interfaz</a></li><li><a href="#etapa-4">Integración polimórfica</a></li><li><a href="#etapa-5">Validar y controlar errores</a></li><li><a href="#etapa-6">Pruebas integradas</a></li><li><a href="#etapa-7">Cierre y defensa</a></li></ol></section>
+
+      <section id="etapa-1" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 1 de 7</span><span class="lab-step-status" data-stage-status="0">Pendiente</span></div>
+        <h2>Verificar línea base</h2>
+        <p>Ejecuta tu Veterinaria II y documenta qué clases, listas, búsquedas y excepciones ya funcionan.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>evidencias/veterinaria-iii/01-arranque.txt</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="0-0"> <span>Ejecuté la solución anterior sin modificarla</span></label>
+<label><input type="checkbox" data-check="0-1"> <span>Registré la estructura existente y dos pruebas de arranque</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-07/01-linea-base.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-2" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 2 de 7</span><span class="lab-step-status" data-stage-status="1">Pendiente</span></div>
+        <h2>Elegir una abstracción</h2>
+        <p>Decide si Animal puede instanciarse directamente. Declárala abstracta solo si el dominio lo exige; conserva constructores y subtipos.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>docs/veterinaria-iii/02-abstraccion.md</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="1-0"> <span>Justifiqué la decisión de abstracción</span></label>
+<label><input type="checkbox" data-check="1-1"> <span>Compilé los subtipos y expliqué qué no puede instanciarse</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-07/02-abstraccion.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-3" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 3 de 7</span><span class="lab-step-status" data-stage-status="2">Pendiente</span></div>
+        <h2>Definir capacidad con interfaz</h2>
+        <p>Modela Vacunable u otra capacidad real para ciertos animales. Implementa el contrato en subtipos elegibles, no en toda la jerarquía.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>docs/veterinaria-iii/03-capacidad.md</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="2-0"> <span>La interfaz expresa una capacidad concreta</span></label>
+<label><input type="checkbox" data-check="2-1"> <span>Puedo identificar subtipos elegibles y no elegibles</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-07/03-interfaz-capacidad.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-4" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 4 de 7</span><span class="lab-step-status" data-stage-status="3">Pendiente</span></div>
+        <h2>Integración polimórfica</h2>
+        <p>Conserva List&lt;Animal&gt;. Invoca comportamiento sobrescrito y utiliza instanceof Vacunable antes de llamar a la capacidad.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>evidencia de polimorfismo</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="3-0"> <span>Pude recorrer varios tipos de Animal</span></label>
+<label><input type="checkbox" data-check="3-1"> <span>No creé una colección duplicada ni comparé nombres de clases</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-07/04-integracion-polimorfica.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-5" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 5 de 7</span><span class="lab-step-status" data-stage-status="4">Pendiente</span></div>
+        <h2>Validar y controlar errores</h2>
+        <p>Prueba chip duplicado, vacuna vacía, servicio no disponible y chip inexistente; comunica errores sin ocultarlos.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>evidencias/veterinaria-iii/02-casos-invalidos.txt</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="4-0"> <span>Probé entradas válidas e inválidas</span></label>
+<label><input type="checkbox" data-check="4-1"> <span>El estado se conserva tras un error controlado</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-07/05-validaciones-errores.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-6" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 6 de 7</span><span class="lab-step-status" data-stage-status="5">Pendiente</span></div>
+        <h2>Pruebas integradas</h2>
+        <p>Registra, lista, utiliza capacidades, busca y elimina animales; comprueba polimorfismo y rutas negativas.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>evidencias/veterinaria-iii/03-integracion.txt</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="5-0"> <span>Ejecuté el flujo completo de la guía</span></label>
+<label><input type="checkbox" data-check="5-1"> <span>Guardé esperado, observado y PASS/FAIL</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-07/06-pruebas-integracion.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-7" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 7 de 7</span><span class="lab-step-status" data-stage-status="6">Pendiente</span></div>
+        <h2>Cierre y defensa</h2>
+        <p>Entrega capturas o salida, commits, DevLog y una explicación de decisiones sin recurrir a materia futura.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>docs/veterinaria-iii/</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="6-0"> <span>Completé la evidencia y commits</span></label>
+<label><input type="checkbox" data-check="6-1"> <span>Puedo responder las preguntas de defensa</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-07/07-cierre-evidencias.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+<section class="panel stack"><h2>Cierre del laboratorio</h2><p>Conserva tu código, evidencia, commits y DevLog. Comprueba que el proyecto todavía funciona sin material posterior a semana 7.</p><a class="btn btn-primary" href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/tree/master/labs/semana-07/">Abrir guía completa en GitHub →</a><a href="https://docs.google.com/document/d/1f04rUvYiAL0kiGNf3yHoArMTxecqujDND-ilvJllDWw/edit">Ruta de recuperación en Google Drive →</a><a href="../veterinary-collections/">Volver al laboratorio anterior →</a><a href="../index/">Índice de laboratorios →</a></section>
+</main>
+<script type="module" src="../../../assets/js/pages/veterinary-recovery.js"></script>
+</body></html>

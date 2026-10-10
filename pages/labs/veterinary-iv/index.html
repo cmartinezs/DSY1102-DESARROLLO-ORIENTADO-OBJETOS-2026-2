@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veterinaria IV · Semana 8 · DSY1102</title>
+<link rel="stylesheet" href="../../../assets/css/global.css">
+<link rel="stylesheet" href="../../../assets/css/pages/labs.css">
+<link rel="stylesheet" href="../../../assets/css/pages/veterinary-recovery.css"></head>
+<body>
+<nav class="site-nav"><div class="site-nav__inner"><a class="site-brand" href="../../home/">DSY1102 · Veterinaria IV</a><a class="btn btn-secondary" href="../index/">Laboratorios</a></div></nav>
+<main class="site-shell stack" data-lab-recovery="vet-8">
+<section class="hero labs-hero"><span class="badge">Laboratorio de recuperación · Semana 8</span><h1>Veterinaria IV · List, Set y Map</h1><p>Justifica colecciones a partir de necesidades: unicidad, búsqueda por clave e integridad. No es obligatorio implementar las tres.</p></section>
+<section class="panel notice notice-info"><strong>Continuidad obligatoria.</strong> Usa el mismo código de Veterinaria I–II bajo <code>labs/lab-veterinaria-herencia-polimorfismo/</code>. No crees otro proyecto ni dupliques <code>src/</code>. Esta es una guía de recuperación publicada el 10-10-2026, no una bitácora de una clase ya realizada.</section>
+<section class="panel stack"><h2>Tu progreso local</h2><p>Marca los checkpoints que realmente verificaste en tu proyecto. La web guarda estas marcas solo en este navegador; no revisa ni califica automáticamente tu código.</p><div class="lab-progress-label"><strong id="lab-progress-label">0/14 verificaciones</strong><button class="btn btn-secondary" id="lab-progress-reset" type="button">Reiniciar marcas</button></div><div class="lab-recovery-progress" role="progressbar" aria-label="Checkpoints verificados" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="lab-progress-bar"></div></div></section>
+<section class="panel stack"><h2>Ruta por etapas</h2><ol class="lab-recovery-nav"><li><a href="#etapa-1">Necesidad antes que API</a></li><li><a href="#etapa-2">Elegir la colección</a></li><li><a href="#etapa-3">Ruta Set: unicidad</a></li><li><a href="#etapa-4">Ruta Map: búsqueda</a></li><li><a href="#etapa-5">Igualdad del dominio</a></li><li><a href="#etapa-6">Pruebas de consistencia</a></li><li><a href="#etapa-7">Cierre y defensa</a></li></ol></section>
+
+      <section id="etapa-1" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 1 de 7</span><span class="lab-step-status" data-stage-status="0">Pendiente</span></div>
+        <h2>Necesidad antes que API</h2>
+        <p>Ejecuta Veterinaria III y describe por qué necesitas unicidad de chip o búsqueda por clave.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>docs/veterinaria-iv/01-necesidad.md</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="0-0"> <span>La línea base compila</span></label>
+<label><input type="checkbox" data-check="0-1"> <span>Identifiqué una necesidad de negocio observable</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-08/01-necesidad.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-2" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 2 de 7</span><span class="lab-step-status" data-stage-status="1">Pendiente</span></div>
+        <h2>Elegir la colección</h2>
+        <p>Contrasta List para recorrido, Set para valores únicos y Map para búsqueda por clave. No es obligatorio usar las tres.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>docs/veterinaria-iv/02-decision-colecciones.md</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="1-0"> <span>Justifiqué la estructura elegida</span></label>
+<label><input type="checkbox" data-check="1-1"> <span>Documenté una alternativa descartada</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-08/02-eleccion.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-3" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 3 de 7</span><span class="lab-step-status" data-stage-status="2">Pendiente</span></div>
+        <h2>Ruta Set: unicidad</h2>
+        <p>Prueba add/contains/remove. Si necesitas unicidad, añade un Set de chips sin dejar índices huérfanos.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>pruebas de duplicados</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="2-0"> <span>Un chip duplicado se rechaza</span></label>
+<label><input type="checkbox" data-check="2-1"> <span>Alta y baja mantienen los datos consistentes</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-08/03-set-unicidad.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-4" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 4 de 7</span><span class="lab-step-status" data-stage-status="3">Pendiente</span></div>
+        <h2>Ruta Map: búsqueda</h2>
+        <p>Prueba put/get/containsKey/remove. Evita sobrescribir registros por utilizar put sin comprobar la clave.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>pruebas de búsqueda</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="3-0"> <span>Buscar chip existente devuelve el animal correcto</span></label>
+<label><input type="checkbox" data-check="3-1"> <span>Chip inexistente o duplicado recibe respuesta controlada</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-08/04-map-busqueda.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-5" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 5 de 7</span><span class="lab-step-status" data-stage-status="4">Pendiente</span></div>
+        <h2>Igualdad del dominio</h2>
+        <p>Decide cuándo un chip define identidad. equals/hashCode solo son necesarios si guardas Animal en colecciones basadas en su igualdad.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>docs/veterinaria-iv/03-integridad.md</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="4-0"> <span>Sé cuándo basta con igualdad de String</span></label>
+<label><input type="checkbox" data-check="4-1"> <span>No generé equals/hashCode por obligación</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-08/05-identidad.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-6" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 6 de 7</span><span class="lab-step-status" data-stage-status="5">Pendiente</span></div>
+        <h2>Pruebas de consistencia</h2>
+        <p>Comprueba registro, duplicado, búsqueda, eliminación y nueva alta. Si mantienes dos estructuras, ambas deben cambiar correctamente.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>evidencias/veterinaria-iv/pruebas.txt</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="5-0"> <span>Completé casos T1–T7</span></label>
+<label><input type="checkbox" data-check="5-1"> <span>No existen chips o animales fantasma</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-08/06-integracion-pruebas.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+
+      <section id="etapa-7" class="lab-recovery-step panel stack">
+        <div class="lab-recovery-step__header"><span class="lab-step-kicker">Etapa 7 de 7</span><span class="lab-step-status" data-stage-status="6">Pendiente</span></div>
+        <h2>Cierre y defensa</h2>
+        <p>Entrega decisión técnica, pruebas válidas e inválidas, commits y DevLog; prepara argumentos sobre la colección seleccionada.</p>
+        <p><strong>Entregable o evidencia:</strong> <code>docs/veterinaria-iv/</code>.</p>
+        <div class="lab-recovery-checks">
+           <label><input type="checkbox" data-check="6-0"> <span>La solución mantiene funciones anteriores</span></label>
+<label><input type="checkbox" data-check="6-1"> <span>Puedo justificar la estrategia y sus riesgos</span></label>
+        </div>
+        <p><a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/labs/semana-08/07-cierre-evidencias.md" target="_blank" rel="noopener noreferrer">Leer guía detallada, código de apoyo y checkpoint →</a></p>
+      </section>
+<section class="panel stack"><h2>Cierre del laboratorio</h2><p>Conserva tu código, evidencia, commits y DevLog. Comprueba que el proyecto todavía funciona sin material posterior a semana 8.</p><a class="btn btn-primary" href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/tree/master/labs/semana-08/">Abrir guía completa en GitHub →</a><a href="https://docs.google.com/document/d/1gG2g-t_ae8Ob4nqtxrG-k9lEPe-PjnsHLwYhc0aIVzM/edit">Ruta de recuperación en Google Drive →</a><a href="../veterinary-iii/">Volver al laboratorio anterior →</a><a href="../index/">Índice de laboratorios →</a></section>
+</main>
+<script type="module" src="../../../assets/js/pages/veterinary-recovery.js"></script>
+</body></html>
