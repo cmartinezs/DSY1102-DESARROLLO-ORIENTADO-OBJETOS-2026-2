@@ -10,7 +10,8 @@ Ejemplos de código **mínimos, concretos, independientes y organizados por sema
 | [Semana 04](./semana-04/) | constructores, sobrecarga, responsabilidades y colaboración entre objetos | ✅ Consolidada |
 | [Semana 06](./semana-06/) | arrays, `List` / `ArrayList` y excepciones | ✅ Consolidada |
 | [Semana 07](./semana-07/) | integración EA1 · abstractas, interfaces y polimorfismo | ✅ Consolidada |
-| [Semana 08](./semana-08/) | `Set`, `Map` y elección de colecciones | 🔵 Semana actual |
+| [Semana 08](./semana-08/) | `Set`, `Map` y elección de colecciones | ✅ Consolidada |
+| [Semana 09](./semana-09/) | Maven, JavaFX, FXML, Controller y eventos · demo ejecutable | ✅ Disponible |
 
 ## Regla canónica
 
