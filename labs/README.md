@@ -12,6 +12,8 @@ Laboratorios guiados e integradores, organizados por semana curricular y alinead
 | [Semana 04](./semana-04/) | Objetos que nacen bien y colaboran | ✅ Consolidado |
 | Semana 05 | Veterinaria I · Herencia y Polimorfismo | ✅ Consolidado en web guiada |
 | [Semana 06](./semana-06/) | Veterinaria II · Arrays, colecciones y excepciones | ✅ Consolidado |
+| [Semana 07](./semana-07/) | Veterinaria III · abstracción, interfaz e integración EA1 | ✅ Guía de recuperación disponible |
+| [Semana 08](./semana-08/) | Veterinaria IV · Set, Map, identidad y consistencia | ✅ Guía de recuperación disponible |
 | [Semana 09](./semana-09/) | Primera interfaz funcional JavaFX / FXML | ✅ Disponible |
 
 ## Regla canónica

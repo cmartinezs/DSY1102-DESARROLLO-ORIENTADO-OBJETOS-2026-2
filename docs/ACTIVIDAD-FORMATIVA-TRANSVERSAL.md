@@ -109,7 +109,7 @@ Arrays, arrays de objetos, `List` / `ArrayList`, búsqueda/eliminación y excepc
 
 ### Semanas 07–08
 
-Integración OO de EA1, clases abstractas, interfaces, `Set`, `Map` y criterio de colecciones.
+Integración OO de EA1, clases abstractas, interfaces, `Set`, `Map` y criterio de colecciones. Laboratorios complementarios de recuperación Veterinaria III y IV disponibles en `labs/semana-07` y `labs/semana-08`. PetCare se mantiene como proyecto independiente; las guías no son evidencia de una sesión presencial realizada.
 
 ### Semana 09 · ingreso a EA2 confirmado por coordinación
 

@@ -39,6 +39,10 @@ clave → valor                → Map
 
 Las tres estructuras pueden coexistir en un mismo sistema cuando cada una resuelve una necesidad diferente.
 
+## Laboratorio complementario
+
+[Veterinaria IV · elegir estructuras y verificar consistencia](../../labs/semana-08/). Continúa el mismo proyecto de Veterinaria II/III y no exige usar las tres colecciones simultáneamente.
+
 ## Práctica integradora liberada
 
 El diseño que originalmente se preparó como EP1 queda disponible como **práctica integradora**. No corresponde a una evaluación vigente.
