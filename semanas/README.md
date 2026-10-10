@@ -13,9 +13,9 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | **05** | 7–12 septiembre 2026 | Herencia, sobrescritura y polimorfismo · Veterinaria I | ✅ Consolidada | [Abrir Semana 05](semana-05/) |
 | **06** | 14–19 septiembre 2026 | Arrays, `List` / `ArrayList` y excepciones · Veterinaria II | ✅ Consolidada | [Abrir Semana 06](semana-06/) |
 | **07** | 21–26 septiembre 2026 | Integración EA1 · clases abstractas, interfaces y reforzamiento | ✅ Consolidada | [Abrir Semana 07](semana-07/) |
-| **08** | 28 septiembre–3 octubre 2026 | `Set`, `Map`, elección de colecciones y cierre EA1 / EP1 | 🔵 Semana actual | [Abrir Semana 08](semana-08/) |
-| 09 | 5–10 octubre 2026 | MVC, TableView, navegación y validación | 🔒 Próximamente | Próximamente |
-| 10 | 12–17 octubre 2026 | Persistencia JSON y capa DAO | 🔒 Próximamente | Próximamente |
+| **08** | 28 septiembre–3 octubre 2026 | `Set`, `Map`, elección de colecciones y cierre EA1 / EP1 | ✅ Consolidada | [Abrir Semana 08](semana-08/) |
+| **09** | 5–10 octubre 2026 | Maven, JavaFX, escenas, FXML, Controller, UI y eventos · EA2 | ✅ Disponible | [Abrir Semana 09](semana-09/) |
+| 10 | 12–17 octubre 2026 | Consolidación JavaFX/MVC; persistencia según avance y coordinación | 🔒 Próximamente | Próximamente |
 | 11 | 19–24 octubre 2026 | JavaFX MVC + persistencia · EF2 | 🔒 Próximamente | Próximamente |
 | 12 | 26–31 octubre 2026 | EP2 · JavaFX + MVC + DAO | 🔒 Próximamente | Próximamente |
 | 13 | 2–7 noviembre 2026 | JDBC, CRUD y sentencias parametrizadas | 🔒 Próximamente | Próximamente |
@@ -24,4 +24,4 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | 16 | 23–28 noviembre 2026 | EP3 · Componente con BD relacional | 🔒 Próximamente | Próximamente |
 | 17–18 | 30 noviembre–12 diciembre 2026 | EFT · Defensa técnica | 🔒 Próximamente | Próximamente |
 
-> Checkpoint real actualizado al 29 de septiembre de 2026: Semana 07 cerró la integración de EA1 con clases abstractas, interfaces, polimorfismo, `List` y excepciones. Semana 08 incorpora `Set` y `Map` como ampliación de colecciones y prepara el cierre de EA1 mediante EP1. La planificación posterior se ajustará cuando existan nuevas orientaciones institucionales.
+> Conciliación al 10 de octubre de 2026: EA1 se extendió. Semana 08 consolidó `Set`/`Map` y cierre EA1. Coordinación redefinió Semana 09 como entrada a Maven y JavaFX (escenas, ciclo de vida, Scene Builder, FXML, Controller y eventos). Las fechas de evaluaciones y el alcance de semanas 10–11 se sujetan al cronograma institucional vigente y al avance real de aula.

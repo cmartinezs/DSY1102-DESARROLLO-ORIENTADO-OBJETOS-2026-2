@@ -85,7 +85,7 @@ flowchart LR
 
 Esto no se enseña completo desde la primera semana. Se construye cuando el contenido lo permite.
 
-## Evolución resumida · checkpoint real al 15 de septiembre de 2026
+## Evolución resumida · conciliación al 10 de octubre de 2026
 
 ### Semana 02
 
@@ -107,13 +107,21 @@ Herencia, sobrescritura y polimorfismo dinámico. Veterinaria I funciona como la
 
 Arrays, arrays de objetos, `List` / `ArrayList`, búsqueda/eliminación y excepciones. Veterinaria II integra el conocimiento semanal sobre la solución OO de Semana 05.
 
-### Semanas 07–11
+### Semanas 07–08
 
-Maven → JavaFX → FXML/eventos → MVC/TableView → persistencia JSON → integración, sujeto al checkpoint real.
+Integración OO de EA1, clases abstractas, interfaces, `Set`, `Map` y criterio de colecciones.
+
+### Semana 09 · ingreso a EA2 confirmado por coordinación
+
+Maven → JavaFX → escenas/ciclo de vida → Scene Builder → FXML/Controller → controles/eventos. Demostración martes, práctica sábado y refuerzo autónomo.
+
+### Semanas 10–11
+
+Consolidar interfaz/controller y luego avanzar hacia MVC y persistencia en archivos según orientación vigente y checkpoint real. No exigir TableView avanzado en Semana 09.
 
 ### Semana 12
 
-EP2 según calendario institucional vigente.
+EP2 únicamente según confirmación institucional vigente; no asumir que el antiguo calendario es definitivo.
 
 ### Semanas 13–15
 

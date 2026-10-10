@@ -27,6 +27,9 @@ Construir una aplicación JavaFX ejecutable que conecte una vista con objetos Ja
 - [Laboratorio de integración](../../labs/semana-09/)
 - [PetCare: primer adaptador gráfico](../../proyecto-formativo/semana-09/)
 
+## Material público en Drive
+[Semana 09 · Ruta de aprendizaje y trabajo autónomo](https://docs.google.com/document/d/1Pdcgbtxt4A-6kYUqdqELpWFUwhrcRwMuIQ1TSk2VQg4/edit).
+
 ## Material de coordinación
 - **2.1:** Control de Versiones (autónomo), Introducción a Maven, Configuración JavaFX, Escenas/ciclo de vida, Guía 2.1.4 y Ejercicios 2.1.5.
 - **2.2:** Scene Builder/FXML, Vinculación FXML-Controller, Componentes UI, Eventos, Guía 2.2.5 y Ejercicios 2.2.6.

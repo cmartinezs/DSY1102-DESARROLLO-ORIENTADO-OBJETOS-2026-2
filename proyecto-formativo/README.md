@@ -4,9 +4,9 @@ PetCare es el proyecto incremental de DSY1102. No es el ejemplo principal de cla
 
 ## Estado actual
 
-**Semana 08 · Set, Map y cierre de EA1**
+**Semana 09 · Primera interfaz JavaFX y continuidad del core**
 
-Checkpoint vigente al **2 de octubre de 2026**: PetCare ya puede integrar los contenidos trabajados durante la Experiencia de Aprendizaje 1:
+Checkpoint de entrada (semana 08, 2 de octubre de 2026): PetCare integra los contenidos de la Experiencia de Aprendizaje 1:
 
 ```text
 clases y objetos
@@ -20,7 +20,7 @@ clases y objetos
 → Map / HashMap
 ```
 
-La regla sigue siendo la misma: **cada estructura o abstracción aparece porque resuelve una necesidad concreta del dominio, no porque “toque usarla”.**
+Durante semana 09 incorporamos una primera UI JavaFX que reutiliza el core existente. La regla sigue siendo la misma: **cada estructura o abstracción aparece porque resuelve una necesidad concreta del dominio, no porque “toque usarla”.**
 
 ## Incrementos semanales
 
@@ -31,6 +31,7 @@ La regla sigue siendo la misma: **cada estructura o abstracción aparece porque 
 - [Semana 06 · colecciones y excepciones](./semana-06/README.md)
 - [Semana 07 · abstracción, interfaces e integración EA1](./semana-07/README.md)
 - [Semana 08 · Set, Map y criterio de colecciones](./semana-08/README.md)
+- [Semana 09 · Maven, JavaFX, FXML y eventos](./semana-09/README.md)
 
 ## Regla de continuidad
 
@@ -94,7 +95,7 @@ Coordina operaciones sobre múltiples objetos: registrar, buscar, retirar, filtr
 
 Lee opciones, solicita datos, invoca operaciones y presenta resultados. No debe convertirse en el lugar donde viven todas las reglas.
 
-## Fuera de alcance hasta Semana 08
+## Fuera de alcance al cierre de Semana 08 (punto de partida)
 
 No corresponde exigir todavía:
 
@@ -114,4 +115,4 @@ No corresponde exigir todavía:
 - [Arquitectura y continuidad](./ARQUITECTURA-Y-CONTINUIDAD.md)
 - [Modelo y checkpoint Semana 08](./semana-08/MODELO-Y-CHECKPOINT.md)
 
-La documentación pública debe reflejar siempre el **avance real del curso**, no una planificación histórica que haya quedado desfasada.
+La documentación pública debe reflejar siempre el **avance real del curso**, no una planificación histórica que haya quedado desfasada. La Semana 09 inaugura la interfaz gráfica sin anticipar persistencia ni TableView.

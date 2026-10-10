@@ -166,9 +166,29 @@ Checkpoint: el estudiante puede **justificar** qué colección usa y por qué. N
 
 ---
 
-# Desde Semana 09
+# Semana 09 · Primer interfaz JavaFX
 
-La planificación de las unidades posteriores debe actualizarse cuando se publique o confirme el material vigente.
+## Necesidad
+
+PetCare requiere una primera interfaz gráfica sin reescribir la lógica OO de EA1.
+
+## Evolución
+
+```text
+core y PetCareService existentes
+→ proyecto Maven/JavaFX
+→ Application / Stage / Scene
+→ FXML / Scene Builder
+→ Controller y evento
+→ llamada a servicio existente
+→ prueba válida e inválida
+```
+
+Checkpoint: UI mínima ejecutable que reutiliza el core; CLI continúa funcionando. Trabajo martes de demostración y sábado de laboratorio, con ejercicios y mejora autónoma posterior.
+
+# Desde Semana 10
+
+El alcance detallado se reconciliará con nuevas orientaciones de coordinación y el avance real, evitando exigir persistencia antes de consolidar JavaFX y Controller.
 
 La dirección arquitectónica esperada se mantiene:
 

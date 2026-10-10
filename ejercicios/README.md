@@ -8,7 +8,8 @@ Práctica breve e independiente del proyecto formativo. Esta vertical sirve para
 | [02](./semana-02/) | Condicionales, ciclos y métodos | ✅ |
 | [03](./semana-03/) | Clases, atributos, métodos y encapsulamiento | ✅ |
 | [04](./semana-04/) | Constructores, estado válido y composición simple | ✅ |
-| [06](./semana-06/) | Arrays, `List` / `ArrayList` y excepciones | 🔵 Actual |
+| [06](./semana-06/) | Arrays, `List` / `ArrayList` y excepciones | ✅ |
+| [09](./semana-09/) | JavaFX, FXML, componentes y eventos | ✅ |
 
 ## Regla
 
