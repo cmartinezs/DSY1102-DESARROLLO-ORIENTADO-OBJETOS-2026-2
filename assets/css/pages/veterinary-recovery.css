@@ -1,0 +1,13 @@
+.lab-recovery-step { scroll-margin-top: 1.25rem; }
+.lab-recovery-step__header, .lab-progress-label { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.lab-step-kicker { font-size:.85rem; font-weight:700; color:#0f766e; }
+.lab-step-status { font-size:.82rem; font-weight:700; color:#475569; }
+.lab-step-status[data-done="true"] { color:#047857; }
+.lab-recovery-nav { columns:2; padding-left:1.75rem; margin:0; line-height:2.1; }
+.lab-recovery-checks { display:grid; gap:.65rem; }
+.lab-recovery-checks label { display:flex; align-items:flex-start; gap:.6rem; padding:.65rem .8rem; border:1px solid var(--color-line); border-radius:.5rem; cursor:pointer; }
+.lab-recovery-checks input { margin-top:.24rem; flex-shrink:0; width:1.1rem; height:1.1rem; }
+.lab-recovery-progress { width:100%; height:.75rem; border-radius:999px; background:#e2e8f0; overflow:hidden; }
+#lab-progress-bar { height:100%; width:0; background:#0f766e; transition:width .2s ease; }
+.lab-recovery-step code { overflow-wrap:anywhere; }
+@media(max-width:650px) { .lab-recovery-nav { columns:1; } }
