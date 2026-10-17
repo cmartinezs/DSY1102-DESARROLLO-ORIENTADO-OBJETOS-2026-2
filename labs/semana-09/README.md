@@ -9,9 +9,9 @@
 
 ## 1. La historia: ¿qué problema vamos a resolver?
 
-En una pequeña empresa de arriendo de autos se registran patentes de vehículos. Hasta ahora conoces clases, objetos y constructores, pero has usado principalmente la consola. Queremos una ventana donde la persona encargada escriba la patente de una vehículo, presione **Registrar** y vea una confirmación. Si deja la patente vacía, recibirá un aviso entendible en la propia ventana.
+En una pequeña empresa Rent-a-Car se registran vehículos disponibles mediante su patente. Hasta ahora conoces clases, objetos y constructores, pero has usado principalmente la consola. Queremos una ventana donde la persona encargada escriba la patente de un vehículo, presione **Registrar** y vea una confirmación. Si deja la patente vacía, recibirá un aviso entendible en la propia ventana.
 
-Construiremos tres piezas que colaboran: **vista FXML** (lo que se ve), **controlador** (qué ocurre al hacer clic) y **modelo Vehiculo** (regla de negocio: una vehículo debe tener patente). No necesitas implementar MVC formal, bases de datos, login ni persistencia.
+Construiremos tres piezas que colaboran: **vista FXML** (lo que se ve), **controlador** (qué ocurre al hacer clic) y **modelo Vehiculo** (regla de negocio: un vehículo debe tener una patente). No necesitas implementar MVC formal, bases de datos, login ni persistencia.
 
 ## 2. Al finalizar podrás
 
@@ -19,7 +19,7 @@ Construiremos tres piezas que colaboran: **vista FXML** (lo que se ve), **contro
 - Distinguir **Stage** (ventana), **Scene** (contenido) y **Application** (punto de inicio).
 - Crear una vista con Scene Builder y guardar un archivo **FXML** en recursos.
 - Conectar `fx:id`, `fx:controller` y `onAction` a una clase Java.
-- Construir una vehículo mediante su constructor y mostrar errores de entrada sin cerrar la aplicación.
+- Construir un vehículo mediante su constructor y mostrar errores de entrada sin cerrar la aplicación.
 - Probar entradas correctas e incorrectas, guardar evidencia y registrar tu aprendizaje.
 
 ## 3. Lo que necesitas antes de comenzar
@@ -42,19 +42,19 @@ Al abrir el programa verás aproximadamente:
 ```text
 ┌──────────────────────────────────────────────┐
 │               Registro de vehículo disponible            │
-│  [ Patente de la vehículo                   ]   │
+│  [ Patente de el vehículo                   ]   │
 │                 [ Registrar ]                 │
 │  Completa el formulario                       │
 └──────────────────────────────────────────────┘
 ```
 
-**Caso correcto:** escribes `ABCD12`, haces clic y aparece `Vehiculo: ABCD12`.  
+**Caso correcto:** escribes `ABCD12`, haces clic y aparece `Vehículo disponible: ABCD12`.  
 **Caso incorrecto:** dejas el campo vacío, haces clic y aparece `La patente no puede estar vacía`.  
 La aplicación **no se cierra** cuando el dato es inválido.
 
 ### Archivos que vas a tocar
 
-Usaremos exactamente estos patentes de ejemplo. Si tu proyecto ya existe, **respeta su paquete y rutas reales**, y adapta todas las referencias en conjunto; no dupliques un proyecto que ya te funciona.
+Usaremos exactamente estos nombres de archivo y rutas. Si tu proyecto ya existe, **respeta su paquete y rutas reales**, y adapta todas las referencias en conjunto; no dupliques un proyecto que ya te funciona.
 
 ```text
 mi-primer-javafx/
@@ -78,7 +78,7 @@ mi-primer-javafx/
 |---|---|---|
 | 1 | [Entorno y primera ventana](01-entorno-y-arranque.md) | La ventana abre desde Maven |
 | 2 | [Diseñar el formulario FXML](02-vista-fxml.md) | Aparecen campo, botón y mensaje |
-| 3 | [Conectar el clic al objeto](03-controller-eventos.md) | Se registra una vehículo y se valida la patente |
+| 3 | [Conectar el clic al objeto](03-controller-eventos.md) | Se registra un vehículo y se valida la patente |
 | 4 | [Probar, entregar y ampliar](04-verificacion-y-tarea.md) | Casos comprobados, evidencia y DevLog |
 
 **Cómo estudiar:** completa todos los pasos de una etapa, haz su **checkpoint** y guarda el commit indicado. Si algo falla, lee **Si algo no funciona** de esa etapa antes de avanzar.
@@ -87,7 +87,7 @@ mi-primer-javafx/
 
 - [ ] El comando `mvn clean javafx:run` abre el proyecto sin error.
 - [ ] La interfaz se carga desde `MainView.fxml`.
-- [ ] El botón lee el `TextField`, crea una `Vehiculo` y actualiza el `Label`.
+- [ ] El botón lee el `TextField`, crea un `Vehiculo` y actualiza el `Label`.
 - [ ] El constructor rechaza la patente vacía, incluso si se usa fuera de JavaFX.
 - [ ] Hay evidencia de un caso válido y un caso inválido.
 - [ ] Tu repositorio contiene los commits y el DevLog.
@@ -97,6 +97,6 @@ mi-primer-javafx/
 
 ## 7. Si te quedas atrás
 
-No borres archivos ni crees proyectos nuevos para ocultar un error. **Identifica el último checkpoint que sí pasó** y vuelve a ese paso. Compara tus rutas, patentes e imports con la [referencia ejecutable](../../ejemplos/semana-09/proyecto-demo/), anota el mensaje de error completo y pide ayuda indicando: «Estoy en la etapa X, paso Y; esperaba Z, pero obtuve W».
+No borres archivos ni crees proyectos nuevos para ocultar un error. **Identifica el último checkpoint que sí pasó** y vuelve a ese paso. Compara tus rutas, rutas e imports con la [referencia ejecutable](../../ejemplos/semana-09/proyecto-demo/), anota el mensaje de error completo y pide ayuda indicando: «Estoy en la etapa X, paso Y; esperaba Z, pero obtuve W».
 
 **Material complementario:** [conceptos semana 09](../../semanas/semana-09/), [ejercicios semana 09](../../ejercicios/semana-09/) y [guía general de laboratorios](../README.md).
