@@ -1,25 +1,102 @@
-# Laboratorio semana 09 · Primera interfaz funcional
+# Laboratorio · Semana 09 — Mi primera interfaz JavaFX con FXML
 
-**Duración presencial:** sábado 10 de octubre (2 HP). **Trabajo autónomo:** preparar entorno antes de venir y completar las variantes después.
+**Asignatura:** DSY1102 · Desarrollo Orientado a Objetos  
+**Modalidad:** práctica guiada en clase (2 HP) + ampliación autónoma  
+**Contexto:** veterinaria; aplicación pequeña e independiente para practicar una primera interfaz. **No reemplaza ni modifica PetCare.**  
+**Nivel:** inicial. Sigue las etapas en orden, sin saltarte comprobaciones.
 
-## Propósito
-Construir un formulario FXML que permita crear y mostrar una instancia de una clase Java propia. El laboratorio integra lo visto el martes sin exigir MVC formal ni persistencia.
+> **¡Puedes hacerlo!** No necesitas saber construir pantallas todavía. Cada sección te indica **qué vas a hacer, dónde debes hacerlo, por qué lo haces, qué deberías ver y cómo recuperarte si algo falla**. Ejecuta un paso, verifica y recién entonces continúa.
 
-## Prerrequisitos
-- JDK, Maven, IDE y JavaFX configurados; primera ventana funcionando.
-- Clases, objetos, constructores, encapsulamiento y excepciones de EA1.
-- Lectura previa de [Maven/JavaFX](../../semanas/semana-09/01-maven-y-javafx.md) y [FXML](../../semanas/semana-09/03-scene-builder-y-fxml.md).
+## 1. La historia: ¿qué problema vamos a resolver?
 
-## Ruta secuencial
-1. [Entorno y arranque](./01-entorno-y-arranque.md)
-2. [Vista FXML con Scene Builder](./02-vista-fxml.md)
-3. [Controller y eventos](./03-controller-eventos.md)
-4. [Pruebas, entrega y tarea autónoma](./04-verificacion-y-tarea.md)
+En una pequeña veterinaria se registran nombres de mascotas. Hasta ahora conoces clases, objetos y constructores, pero has usado principalmente la consola. Queremos una ventana donde la persona encargada escriba el nombre de una mascota, presione **Registrar** y vea una confirmación. Si deja el nombre vacío, recibirá un aviso entendible en la propia ventana.
 
-Cada etapa aporta un checkpoint y un commit sugerido. Se puede usar el ejemplo técnico de la semana como referencia, pero debes construir **tu propia solución** en tu repositorio.
+Construiremos tres piezas que colaboran: **vista FXML** (lo que se ve), **controlador** (qué ocurre al hacer clic) y **modelo Mascota** (regla de negocio: una mascota debe tener nombre). No necesitas implementar MVC formal, bases de datos, login ni persistencia.
 
-## Resultado esperado
-Una ventana con al menos TextField, Button y Label: ingresa datos, utiliza un constructor de dominio en respuesta al clic, muestra resultado y responde correctamente a una entrada inválida.
+## 2. Al finalizar podrás
 
-## Evidencia
-Proyecto ejecutable; capturas de ruta válida/inválida; commits; respuesta breve: «¿qué responsabilidades pertenecen a FXML, Controller y modelo?». No enviar datos personales.
+- Comprobar Java 21 y Maven, abrir y ejecutar una aplicación JavaFX.
+- Distinguir **Stage** (ventana), **Scene** (contenido) y **Application** (punto de inicio).
+- Crear una vista con Scene Builder y guardar un archivo **FXML** en recursos.
+- Conectar `fx:id`, `fx:controller` y `onAction` a una clase Java.
+- Construir una mascota mediante su constructor y mostrar errores de entrada sin cerrar la aplicación.
+- Probar entradas correctas e incorrectas, guardar evidencia y registrar tu aprendizaje.
+
+## 3. Lo que necesitas antes de comenzar
+
+1. **JDK 21** instalado (no basta con tener únicamente un JRE).
+2. **Maven** disponible, o Maven integrado en tu IDE.
+3. **IDE** para Java (por ejemplo IntelliJ IDEA, Eclipse o VS Code con extensiones Java).
+4. **Scene Builder** instalado para diseñar el formulario visualmente.
+5. Internet para la primera descarga de dependencias de Maven.
+6. Tu repositorio del curso, donde guardarás el trabajo y los commits.
+
+**¿No tienes listo uno de ellos?** Entra a [01 · Entorno y arranque](01-entorno-y-arranque.md): hay comandos para revisar tu instalación y una alternativa reproducible si todavía no tienes un proyecto JavaFX funcionando.
+
+**Conocimientos previos:** clases, constructores, atributos privados, getters, excepciones y manejo básico del IDE. Si alguno te cuesta, sigue los fragmentos explicados y consulta [material de la semana](../../semanas/semana-09/).
+
+## 4. Qué construiremos (resultado observable)
+
+Al abrir el programa verás aproximadamente:
+
+```text
+┌──────────────────────────────────────────────┐
+│               Registro de mascota            │
+│  [ Nombre de la mascota                   ]   │
+│                 [ Registrar ]                 │
+│  Completa el formulario                       │
+└──────────────────────────────────────────────┘
+```
+
+**Caso correcto:** escribes `Luna`, haces clic y aparece `Mascota: Luna`.  
+**Caso incorrecto:** dejas el campo vacío, haces clic y aparece `El nombre no puede estar vacío`.  
+La aplicación **no se cierra** cuando el dato es inválido.
+
+### Archivos que vas a tocar
+
+Usaremos exactamente estos nombres de ejemplo. Si tu proyecto ya existe, **respeta su paquete y rutas reales**, y adapta todas las referencias en conjunto; no dupliques un proyecto que ya te funciona.
+
+```text
+mi-primer-javafx/
+├── pom.xml
+└── src/
+    └── main/
+        ├── java/
+        │   └── cl/duoc/dsy1102/w09/demo/
+        │       ├── MainApp.java
+        │       ├── model/Mascota.java
+        │       └── ui/MainController.java
+        └── resources/
+            └── cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
+```
+
+> **Referencia técnica completa:** [proyecto-demo de la semana](../../ejemplos/semana-09/proyecto-demo/). Es una ayuda para comparar rutas y resolver bloqueos; el trabajo y la evidencia deben quedar en **tu propio repositorio**. Para evitar duplicación, cada etapa enlaza los archivos completos de esa referencia.
+
+## 5. Ruta recomendada — no saltes etapas
+
+| Orden | Etapa | Lo que comprobarás |
+|---|---|---|
+| 1 | [Entorno y primera ventana](01-entorno-y-arranque.md) | La ventana abre desde Maven |
+| 2 | [Diseñar el formulario FXML](02-vista-fxml.md) | Aparecen campo, botón y mensaje |
+| 3 | [Conectar el clic al objeto](03-controller-eventos.md) | Se registra una mascota y se valida el nombre |
+| 4 | [Probar, entregar y ampliar](04-verificacion-y-tarea.md) | Casos comprobados, evidencia y DevLog |
+
+**Cómo estudiar:** completa todos los pasos de una etapa, haz su **checkpoint** y guarda el commit indicado. Si algo falla, lee **Si algo no funciona** de esa etapa antes de avanzar.
+
+## 6. Criterios para considerar terminado el trabajo
+
+- [ ] El comando `mvn clean javafx:run` abre el proyecto sin error.
+- [ ] La interfaz se carga desde `MainView.fxml`.
+- [ ] El botón lee el `TextField`, crea una `Mascota` y actualiza el `Label`.
+- [ ] El constructor rechaza el nombre vacío, incluso si se usa fuera de JavaFX.
+- [ ] Hay evidencia de un caso válido y un caso inválido.
+- [ ] Tu repositorio contiene los commits y el DevLog.
+- [ ] Puedes explicar con tus palabras qué hace cada archivo.
+
+**Importante:** la segunda entrada y el botón Limpiar son una **ampliación autónoma posterior**, no un bloqueo para completar el funcionamiento mínimo de clase.
+
+## 7. Si te quedas atrás
+
+No borres archivos ni crees proyectos nuevos para ocultar un error. **Identifica el último checkpoint que sí pasó** y vuelve a ese paso. Compara tus rutas, nombres e imports con la [referencia ejecutable](../../ejemplos/semana-09/proyecto-demo/), anota el mensaje de error completo y pide ayuda indicando: «Estoy en la etapa X, paso Y; esperaba Z, pero obtuve W».
+
+**Material complementario:** [conceptos semana 09](../../semanas/semana-09/), [ejercicios semana 09](../../ejercicios/semana-09/) y [guía general de laboratorios](../README.md).
