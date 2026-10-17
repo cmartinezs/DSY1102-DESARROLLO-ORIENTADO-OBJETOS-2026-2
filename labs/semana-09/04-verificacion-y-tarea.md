@@ -66,6 +66,8 @@ git commit -m "test: verificar formulario JavaFX de semana 09"
 git push
 ```
 
+**¿No configuraste Git o no tienes repositorio remoto?** No ejecutes `git push` todavía: en IntelliJ puedes comenzar desde **VCS → Enable Version Control Integration → Git**, crear el primer commit desde **Git → Commit** y posteriormente publicar en GitHub cuando tengas el repositorio remoto. No necesitas tener un repositorio preexistente para completar la aplicación.
+
 **Antes de ejecutar `git add .`:** revisa `git status` y confirma que no haya contraseñas, carpetas `target/`, binarios generados o archivos ajenos al trabajo. Si los hay, exclúyelos con `.gitignore` o agrega solo las rutas relevantes. **Si `git push` solicita autenticación**, sigue el flujo autorizado por tu repositorio; no compartas tokens en capturas.
 
 ## Parte B. Tarea autónoma (cuando ya funciona el mínimo)
