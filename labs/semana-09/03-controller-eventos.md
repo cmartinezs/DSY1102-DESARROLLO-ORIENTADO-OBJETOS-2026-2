@@ -33,7 +33,7 @@ public final class Vehiculo {
 }
 ```
 
-**Entiende cada decisión:** `private` evita modificar libremente la patente; `final` la conserva una vez creado; el constructor rechaza nulos o cadenas en blanco y `trim` quita espacios alrededor; `getPatente` permite consultar sin exponer el atributo.
+**Entiende cada decisión:** `private` evita modificar libremente la patente; `final` la conserva una vez creado; el constructor rechaza nulos o cadenas en blanco `trim()` quita espacios alrededor y `toUpperCase()` estandariza la patente; `getPatente` permite consultar sin exponer el atributo.
 
 **Pregunta rápida:** ¿por qué validar aquí y no únicamente en la pantalla? Porque otra interfaz —o una prueba Java— también podría crear un `Vehiculo` y debe respetar la misma regla.
 
@@ -105,7 +105,7 @@ En el botón:
 
 **No borres** los atributos `fx:id` de TextField y Label.
 
-Si quieres comparar el **archivo final completo**, consulta [MainView.fxml del ejemplo](../../ejemplos/semana-09/proyecto-demo/src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml). Los patentes y rutas usados aquí coinciden con ese ejemplo.
+Si quieres comparar el **archivo final completo**, consulta [MainView.fxml del ejemplo](../../ejemplos/semana-09/proyecto-demo/src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml). Los identificadores y rutas usados aquí coinciden con ese ejemplo.
 
 ### Paso 4. Ejecuta y prueba el caso correcto
 
