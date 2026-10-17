@@ -10,7 +10,7 @@ Una aplicación funcional debe comportarse bien tanto con datos correctos como i
 
 ### Paso 1. Prepara la ejecución
 
-1. Guarda `pom.xml`, `MainApp.java`, `Mascota.java`, `MainController.java` y `MainView.fxml`.
+1. Guarda `pom.xml`, `MainApp.java`, `Vehiculo.java`, `MainController.java` y `MainView.fxml`.
 2. Cierra cualquier ventana JavaFX anterior que pudiera estar abierta.
 3. En la terminal, entra al directorio donde está `pom.xml`.
 4. Ejecuta:
@@ -19,17 +19,17 @@ Una aplicación funcional debe comportarse bien tanto con datos correctos como i
 mvn clean javafx:run
 ```
 
-**Deberías ver:** el formulario «Registro de mascota». Si no abre, **vuelve al checkpoint de la etapa 02**.
+**Deberías ver:** el formulario «Registro de vehículo disponible». Si no abre, **vuelve al checkpoint de la etapa 02**.
 
 ### Paso 2. Sigue esta tabla, caso por caso
 
 | Caso | Qué escribes | Qué haces | Qué debe mostrarse |
 |---|---|---|---|
-| 1 · válido | `Luna` | Clic en Registrar | `Mascota: Luna` |
-| 2 · vacío | Nada | Clic en Registrar | `El nombre no puede estar vacío` |
-| 3 · espacios | Tres espacios | Clic en Registrar | `El nombre no puede estar vacío` |
-| 4 · recorte | `  Max  ` | Clic en Registrar | `Mascota: Max` |
-| 5 · recuperación | Después del caso 2, escribe `Nina` | Clic en Registrar | `Mascota: Nina` |
+| 1 · válido | `ABCD12` | Clic en Registrar | `Vehiculo: ABCD12` |
+| 2 · vacío | Nada | Clic en Registrar | `La patente no puede estar vacía` |
+| 3 · espacios | Tres espacios | Clic en Registrar | `La patente no puede estar vacía` |
+| 4 · recorte | `  WXYZ99  ` | Clic en Registrar | `Vehiculo: WXYZ99` |
+| 5 · recuperación | Después del caso 2, escribe `JKLP34` | Clic en Registrar | `Vehiculo: JKLP34` |
 
 **Importante:** después de un error **no cierres ni reinicies** la aplicación para el caso 5. Debe recuperarse desde la misma ventana.
 
@@ -46,13 +46,13 @@ mvn clean javafx:run
 1. Crea, si todavía no existe, una carpeta de evidencias asociada a este lab en tu repositorio del curso. Ejemplo: `evidencias/semana-09/`.
 2. Guarda una captura con un registro correcto (`registro-valido.png`).
 3. Guarda otra captura con un error de campo vacío (`registro-invalido.png`).
-4. No uses datos personales reales; nombres de mascota ficticios son suficientes.
+4. No uses datos personales reales; patentes ficticias son suficientes.
 5. Guarda un breve archivo `pruebas.md` en la misma carpeta con los cinco casos y su resultado. Puedes usar esta plantilla:
 
 ```markdown
 # Pruebas — Semana 09
 
-- Caso 1 · Luna: OK / pendiente — observación:
+- Caso 1 · ABCD12: OK / pendiente — observación:
 - Caso 2 · Campo vacío: OK / pendiente — observación:
 - Caso 3 · Solo espacios: OK / pendiente — observación:
 - Caso 4 · Espacios alrededor: OK / pendiente — observación:
@@ -76,23 +76,23 @@ git push
 
 **Objetivo:** mejorar tu formulario sin rehacer lo que ya funciona.
 
-### Desafío 1. Agrega la especie
+### Desafío 1. Agrega la marca
 
 1. En Scene Builder abre `MainView.fxml`.
-2. Dentro de VBox agrega un nuevo TextField **entre el nombre y el botón**.
-3. En **Prompt Text** escribe `Especie (por ejemplo gato o perro)`.
-4. En **fx:id** escribe `especieField`.
+2. Dentro de VBox agrega un nuevo TextField **entre la patente y el botón**.
+3. En **Prompt Text** escribe `Marca (por ejemplo Toyota o Kia)`.
+4. En **fx:id** escribe `marcaField`.
 5. Guarda y comprueba que la nueva entrada aparece.
-6. En `Mascota.java`, agrega el atributo `private final String especie;`.
-7. Cambia el constructor a `Mascota(String nombre, String especie)` y valida que **ambos** textos no sean nulos ni blancos. Mantén `trim()` en ambos.
-8. Agrega `getEspecie()`.
-9. En `MainController`, declara `@FXML private TextField especieField;`.
-10. Cambia `new Mascota(nombreField.getText())` por `new Mascota(nombreField.getText(), especieField.getText())`.
-11. Cambia el resultado a un texto que incluya **nombre y especie**.
-12. Ejecuta `mvn clean javafx:run` y prueba: ambos llenos, especie vacía y espacios solamente.
-13. **Checkpoint:** sin especie no hay registro; con `Luna` y `Gato` se muestran ambos datos.
+6. En `Vehiculo.java`, agrega el atributo `private final String marca;`.
+7. Cambia el constructor a `Vehiculo(String patente, String marca)` y valida que **ambos** textos no sean nulos ni blancos. Mantén `trim()` en ambos.
+8. Agrega `getMarca()`.
+9. En `MainController`, declara `@FXML private TextField marcaField;`.
+10. Cambia `new Vehiculo(patenteField.getText())` por `new Vehiculo(patenteField.getText(), marcaField.getText())`.
+11. Cambia el resultado a un texto que incluya **patente y marca**.
+12. Ejecuta `mvn clean javafx:run` y prueba: ambos llenos, marca vacía y espacios solamente.
+13. **Checkpoint:** sin marca no hay registro; con `ABCD12` y `Toyota` se muestran ambos datos.
 
-**¿Te aparece un error de compilación por constructor?** Busca todas las llamadas a `new Mascota(...)`: ahora el constructor necesita **dos argumentos**. No elimines la validación para «hacerlo funcionar».
+**¿Te aparece un error de compilación por constructor?** Busca todas las llamadas a `new Vehiculo(...)`: ahora el constructor necesita **dos argumentos**. No elimines la validación para «hacerlo funcionar».
 
 ### Desafío 2. Agrega un botón «Limpiar»
 
@@ -105,13 +105,13 @@ git push
 ```java
 @FXML
 private void limpiar() {
-    nombreField.clear();
-    especieField.clear();
+    patenteField.clear();
+    marcaField.clear();
     resultadoLabel.setText("Completa el formulario");
 }
 ```
 
-**Nota:** este fragmento corresponde a la **variante con especie** que acabas de construir. Si decidiste no hacer el desafío 1, **quita** la línea `especieField.clear()` porque ese campo aún no existe.
+**Nota:** este fragmento corresponde a la **variante con marca** que acabas de construir. Si decidiste no hacer el desafío 1, **quita** la línea `marcaField.clear()` porque ese campo aún no existe.
 
 6. Ejecuta el proyecto, escribe información, presiona Limpiar.
 7. **Checkpoint:** los TextField quedan vacíos y el mensaje vuelve a `Completa el formulario`.
@@ -120,7 +120,7 @@ private void limpiar() {
 
 1. Resuelve **dos ejercicios** de [semana 09](../../ejercicios/semana-09/).
 2. En tu DevLog de semana 09 (o créalo en `docs/devlog/semana-09.md` si todavía no existe), escribe cuatro apartados breves: **qué logré, qué me bloqueó, qué aprendí y qué haré después**.
-3. Responde con tus palabras: **¿qué parte de este programa seguiría funcionando si quitáramos JavaFX y por qué?** Pista: examina si `Mascota.java` importa algo de `javafx`.
+3. Responde con tus palabras: **¿qué parte de este programa seguiría funcionando si quitáramos JavaFX y por qué?** Pista: examina si `Vehiculo.java` importa algo de `javafx`.
 4. Haz commit y push de tu ampliación.
 
 ## ✅ Lista final de entrega
@@ -128,7 +128,7 @@ private void limpiar() {
 **Mínimo de clase:**
 - [ ] Se ejecuta con `mvn clean javafx:run`.
 - [ ] La pantalla carga desde FXML y el botón invoca Controller.
-- [ ] Hay construcción de un objeto `Mascota` y validación en su constructor.
+- [ ] Hay construcción de un objeto `Vehiculo` y validación en su constructor.
 - [ ] Las pruebas válidas e inválidas están registradas.
 - [ ] Hay evidencia, commits y explicación de responsabilidades.
 
@@ -140,6 +140,6 @@ private void limpiar() {
 
 ### Cómo explicar tu aplicación en 30 segundos
 
-«FXML define los controles visibles. MainApp abre la ventana y carga ese archivo. MainController reacciona al clic, lee lo escrito y muestra una respuesta. Mascota contiene la regla de negocio y rechaza nombres inválidos. Por eso el modelo podría utilizarse sin JavaFX».
+«FXML define los controles visibles. MainApp abre la ventana y carga ese archivo. MainController reacciona al clic, lee lo escrito y muestra una respuesta. Vehiculo contiene la regla de negocio y rechaza patentes inválidos. Por eso el modelo podría utilizarse sin JavaFX».
 
 ¡Terminaste! Si alguno de los cinco casos de prueba no funciona, vuelve a la etapa donde se construyó esa parte antes de considerar cerrada la entrega.
