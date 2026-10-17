@@ -6,7 +6,7 @@
 - [pom.xml](./proyecto-demo/pom.xml)
 - [MainApp.java](./proyecto-demo/src/main/java/cl/duoc/dsy1102/w09/demo/MainApp.java)
 - [MainController.java](./proyecto-demo/src/main/java/cl/duoc/dsy1102/w09/demo/ui/MainController.java)
-- [Mascota.java](./proyecto-demo/src/main/java/cl/duoc/dsy1102/w09/demo/model/Mascota.java)
+- [Vehiculo.java](./proyecto-demo/src/main/java/cl/duoc/dsy1102/w09/demo/model/Vehiculo.java)
 - [MainView.fxml](./proyecto-demo/src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml)
 
 ```bash
