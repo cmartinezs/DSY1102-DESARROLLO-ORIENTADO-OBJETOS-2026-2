@@ -1,21 +1,28 @@
-# 03 · Dar vida al botón: Controller, objeto y validación
+# 03 · Dar vida al formulario: controlador, modelo y evento
 
 [← 02 · Vista FXML](02-vista-fxml.md) · [Índice](README.md) · [04 · Pruebas →](04-verificacion-y-tarea.md)
 
-## ¿Qué haremos ahora?
+## Cómo funciona lo que construirás
 
-Ya tenemos una ventana que **se ve**, pero el botón aún no hace nada. Crearemos una clase **Vehiculo** (modelo) que protege el dato, y un **MainController** que toma lo escrito y le pide al modelo crear un vehículo.
+Al hacer clic en Registrar: **vista FXML → controlador → constructor de Vehiculo → mensaje en la vista**. El constructor es responsable de rechazar patentes vacías, aunque no se use JavaFX.
 
-**Flujo completo:** escribes patente → clic en Registrar → Controller lee TextField → constructor de Vehiculo verifica patente → Controller muestra resultado o error.
+### Paso 1 · Identifica el paquete generado
 
-### Paso 1. Crea el modelo `Vehiculo.java`
+1. Abre `HelloController.java` en IntelliJ.
+2. Copia el nombre del paquete que aparece en la primera línea `package ...;`. Usaremos **ese mismo paquete** para `Vehiculo` y el controlador.
+3. En el ejemplo del laboratorio se muestra `cl.duoc.dsy1102.w09.demo`. **Si IntelliJ creó otro nombre, cambia la línea package de los ejemplos y el atributo fx:controller por el paquete real**.
 
-1. En el panel **Project** de IntelliJ, expande `src/main/java` y ubica el paquete `cl.duoc.dsy1102.w09.demo`. Haz clic derecho sobre el paquete → **New → Package** → escribe `model` (debe quedar `cl.duoc.dsy1102.w09.demo.model`).
-2. Clic derecho sobre el paquete `model` → **New → Java Class** → escribe `Vehiculo` y confirma. IntelliJ creará `Vehiculo.java`.
-3. Escribe:
+> Mantendremos el modelo en el mismo paquete del controlador para no introducir configuración modular extra. Es una simplificación didáctica de esta primera clase JavaFX.
+
+### Paso 2 · Crea la clase Vehiculo
+
+1. En el panel **Project**, busca el paquete donde existe `HelloController.java`.
+2. Haz clic derecho sobre ese paquete → **New → Java Class**.
+3. Escribe `Vehiculo` y presiona Enter.
+4. Sustituye el contenido de `Vehiculo.java` por el siguiente código. **Conserva el package real de tu proyecto**:
 
 ```java
-package cl.duoc.dsy1102.w09.demo.model;
+package cl.duoc.dsy1102.w09.demo;
 
 public final class Vehiculo {
     private final String patente;
@@ -33,27 +40,23 @@ public final class Vehiculo {
 }
 ```
 
-**Entiende cada decisión:** `private` evita modificar libremente la patente; `final` la conserva una vez creado; el constructor rechaza nulos o cadenas en blanco; `trim()` quita espacios alrededor y `toUpperCase()` estandariza la patente; `getPatente` permite consultar sin exponer el atributo.
+**Entiende lo que acabas de hacer:** `private` protege el dato, `final` impide reasignarlo, el constructor evita nombres vacíos y `trim().toUpperCase()` quita espacios exteriores y transforma la patente a mayúsculas. `getPatente()` permite consultar el resultado.
 
-**Pregunta rápida:** ¿por qué validar aquí y no únicamente en la pantalla? Porque otra interfaz —o una prueba Java— también podría crear un `Vehiculo` y debe respetar la misma regla.
+**Checkpoint pequeño:** IntelliJ no marca `Vehiculo.java` con errores de compilación.
 
-**Comprueba:** el nombre del archivo es `Vehiculo.java` y la primera línea coincide con la carpeta `model`. Si ves errores, revisa las llaves y el paquete.
+### Paso 3 · Modifica el HelloController generado
 
-### Paso 2. Crea el controlador `MainController.java`
-
-1. En IntelliJ, clic derecho en el paquete `cl.duoc.dsy1102.w09.demo` → **New → Package** → escribe `ui`.
-2. Clic derecho en el nuevo paquete `ui` → **New → Java Class** → escribe `MainController`.
-3. Copia lo siguiente:
+1. Abre el **HelloController.java** que creó IntelliJ. **No crees otro Controller en paralelo**.
+2. Selecciona su contenido y reemplázalo por el siguiente. Conserva el mismo paquete real del paso 1:
 
 ```java
-package cl.duoc.dsy1102.w09.demo.ui;
+package cl.duoc.dsy1102.w09.demo;
 
-import cl.duoc.dsy1102.w09.demo.model.Vehiculo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class MainController {
+public class HelloController {
     @FXML private TextField patenteField;
     @FXML private Label resultadoLabel;
 
@@ -69,91 +72,55 @@ public class MainController {
 }
 ```
 
-**Línea por línea, sin misterio:**
+**¿Qué significa?** `@FXML` conecta atributos y métodos del controlador con FXML; `getText()` lee la patente; `new Vehiculo(...)` valida; `setText()` muestra el resultado. Si la patente está vacía, el bloque `catch` presenta un aviso en vez de detener la aplicación.
 
-- `@FXML` permite que JavaFX conecte el controlador con componentes y métodos declarados en el FXML.
-- `patenteField` recibirá la referencia al TextField con el mismo `fx:id`.
-- `resultadoLabel` recibirá el Label donde mostramos el mensaje.
-- `registrar()` será invocado por el clic.
-- `patenteField.getText()` obtiene lo escrito por la persona.
-- `new Vehiculo(...)` ejecuta **el constructor y su validación**.
-- `setText` cambia lo que se ve.
-- `catch` evita que una entrada inválida termine en un error sin explicar al usuario.
+### Paso 4 · Conecta el FXML con ese Controller
 
-**Comprueba:** `MainController` debe ser `public` y los identificadores son sensibles a mayúsculas: `patenteField` es distinto de `patentefield`.
-
-### Paso 3. Conecta FXML con el controlador
-
-1. Abre `MainView.fxml` en Scene Builder.
-2. Selecciona **VBox** y asigna **Controller class** = `cl.duoc.dsy1102.w09.demo.ui.MainController`.
-3. Selecciona **TextField** y verifica `fx:id = patenteField`.
-4. Selecciona el **último Label** y verifica `fx:id = resultadoLabel`.
-5. Selecciona el botón y establece **On Action** = `#registrar`.
-6. Guarda el FXML.
-
-**¿Qué líneas nuevas deberían aparecer?** En la etiqueta inicial de `VBox`:
+1. En IntelliJ abre **hello-view.fxml**.
+2. Busca la etiqueta inicial `<VBox ...>`.
+3. Agrégale el atributo `fx:controller` **con el paquete que viste en HelloController.java**, por ejemplo:
 
 ```xml
-fx:controller="cl.duoc.dsy1102.w09.demo.ui.MainController"
+fx:controller="cl.duoc.dsy1102.w09.demo.HelloController"
 ```
 
-En el botón:
+4. Busca el botón Registrar y agrega el atributo `onAction="#registrar"`, de manera que quede:
 
 ```xml
 <Button text="Registrar" onAction="#registrar"/>
 ```
 
-**No borres** los atributos `fx:id` de TextField y Label.
+5. Comprueba que el TextField tenga `fx:id="patenteField"` y el Label de resultado tenga `fx:id="resultadoLabel"`.
+6. Guarda todos los archivos.
 
-Si quieres comparar el **archivo final completo**, consulta [MainView.fxml del ejemplo](../../ejemplos/semana-09/proyecto-demo/src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml). Los identificadores y rutas usados aquí coinciden con ese ejemplo.
+**Si usas Scene Builder:** selecciona la raíz VBox y escribe la clase del controlador en **Controller class**; luego selecciona el botón y escribe `#registrar` en **On Action**. Guarda.
 
-### Paso 4. Ejecuta y prueba el caso correcto
+**No escribas** un nombre de controlador distinto al de la clase Java: ambos deben coincidir.
 
-1. Guarda todos los archivos.
-2. En el panel **Maven** de IntelliJ, ejecuta **Plugins → javafx → javafx:run** (o **Execute Maven Goal** → `clean javafx:run`).
+### Paso 5 · Ejecuta y comprueba
 
-3. En el campo escribe `ABCD12`.
-4. Haz clic **Registrar** una sola vez.
-5. **Debes observar:** `Vehículo disponible: ABCD12`.
+1. Abre `HelloApplication.java`.
+2. Haz clic en el ícono verde junto a `main` → **Run**.
+3. Escribe `ABCD12` y pulsa **Registrar**.
+4. **Resultado esperado:** `Vehículo disponible: ABCD12`.
+5. Borra el campo y pulsa **Registrar**.
+6. **Resultado esperado:** `La patente no puede estar vacía`. La ventana sigue abierta.
+7. Escribe `  abcd12  ` y confirma que la pantalla muestra `ABCD12`.
 
-**¿Qué pasó?** JavaFX detectó el evento, invocó `registrar()`, el constructor aceptó la patente y `resultadoLabel` cambió.
+### Si algo falla
 
-### Paso 5. Prueba el caso inválido (es parte del requisito, no opcional)
-
-1. Borra el contenido del TextField.
-2. Haz clic **Registrar**.
-3. **Debes observar:** `La patente no puede estar vacía`.
-4. Verifica que **la ventana siga abierta**.
-5. Escribe únicamente tres espacios e intenta registrar otra vez: debe mostrar el mismo error.
-6. Escribe `  ABCD12  ` (con espacios alrededor), registra y comprueba `Vehículo disponible: ABCD12`.
-
-El modelo acepta patentes útiles, rechaza las entradas vacías y normaliza espacios exteriores.
-
-### Si algo no funciona
-
-**`javafx.fxml.LoadException: ... Controller`:** compara carácter por carácter `fx:controller` con el `package` más el nombre de `MainController`. La clase debe existir bajo `src/main/java`.
-
-**`Error resolving onAction='#registrar'`:** revisa que exista el método `@FXML private void registrar()` y que el botón tenga `onAction="#registrar"` exactamente.
-
-**`NullPointerException` al hacer clic:** algún `fx:id` no coincide con el campo Java; revisa `patenteField` y `resultadoLabel`, y que uses **fx:id**, no la propiedad ordinaria `id`.
-
-**El clic no cambia el Label:** verifica el botón, el método, los identificadores y que se haya guardado el FXML. Luego detén y reinicia desde Maven.
-
-**El modelo aparece con error de importación:** verifica `package cl.duoc.dsy1102.w09.demo.model;` en Vehiculo y el `import` correspondiente en Controller.
-
-**Los errores no aparecen en el Label:** verifica que el `catch` sea de `IllegalArgumentException` y que se capture la excepción lanzada por el constructor.
-
-> **Regla:** no soluciones un problema borrando la validación del constructor. Si el dato es incorrecto, el programa **debe** indicarlo.
+- **`LoadException` por controlador:** copia literalmente el valor de `package` de `HelloController.java` y añade `.HelloController` en `fx:controller`.
+- **Error con `module-info.java` o acceso reflectivo:** si el proyecto tiene `module-info.java`, revisa que el paquete del Controller figure en una directiva `opens ... to javafx.fxml;`. Si está en el mismo paquete generado, normalmente IntelliJ ya lo dejó configurado; **no borres ese archivo**.
+- **`NullPointerException` tras hacer clic:** revisa que `patenteField` y `resultadoLabel` coincidan letra por letra en Java y `fx:id` de FXML.
+- **Error `onAction='#registrar'`:** comprueba que el método se llama `registrar` y está anotado con `@FXML`.
+- **Sigue saliendo Hello!:** tal vez ejecutas otro proyecto o no guardaste `hello-view.fxml`. Vuelve al checkpoint anterior.
 
 ## ✅ Checkpoint de la etapa 03
 
-- [ ] `Vehiculo` compila y valida su patente.
-- [ ] El Controller conecta ambos campos y el método del botón.
-- [ ] `ABCD12` muestra `Vehículo disponible: ABCD12`.
-- [ ] Vacío y solo espacios muestran el error.
-- [ ] La ventana continúa funcionando después de un error.
-- [ ] El modelo **no importa JavaFX**.
+- [ ] No creé otro proyecto ni otra clase Application.
+- [ ] Reutilicé `HelloController.java` y `hello-view.fxml` generados.
+- [ ] Creé la clase simple `Vehiculo`.
+- [ ] La patente válida se registra y la vacía muestra error.
+- [ ] El modelo no importa JavaFX.
 
-**Commit sugerido (si habilitaste Git):** `feat: vincular formulario a objeto Vehiculo y validar entrada`.
-
-**Siguiente:** [04 · Verificar, entregar y ampliar](04-verificacion-y-tarea.md).
+**Siguiente:** [04 · Verificar y ampliar](04-verificacion-y-tarea.md).
