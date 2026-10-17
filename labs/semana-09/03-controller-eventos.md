@@ -10,8 +10,8 @@ Ya tenemos una ventana que **se ve**, pero el botón aún no hace nada. Crearemo
 
 ### Paso 1. Crea el modelo `Vehiculo.java`
 
-1. En `src/main/java/cl/duoc/dsy1102/w09/demo`, crea el paquete `model` si no existe.
-2. Dentro, crea **Vehiculo.java**.
+1. En el panel **Project** de IntelliJ, expande `src/main/java` y ubica el paquete `cl.duoc.dsy1102.w09.demo`. Haz clic derecho sobre el paquete → **New → Package** → escribe `model` (debe quedar `cl.duoc.dsy1102.w09.demo.model`).
+2. Clic derecho sobre el paquete `model` → **New → Java Class** → escribe `Vehiculo` y confirma. IntelliJ creará `Vehiculo.java`.
 3. Escribe:
 
 ```java
@@ -33,7 +33,7 @@ public final class Vehiculo {
 }
 ```
 
-**Entiende cada decisión:** `private` evita modificar libremente la patente; `final` la conserva una vez creado; el constructor rechaza nulos o cadenas en blanco `trim()` quita espacios alrededor y `toUpperCase()` estandariza la patente; `getPatente` permite consultar sin exponer el atributo.
+**Entiende cada decisión:** `private` evita modificar libremente la patente; `final` la conserva una vez creado; el constructor rechaza nulos o cadenas en blanco; `trim()` quita espacios alrededor y `toUpperCase()` estandariza la patente; `getPatente` permite consultar sin exponer el atributo.
 
 **Pregunta rápida:** ¿por qué validar aquí y no únicamente en la pantalla? Porque otra interfaz —o una prueba Java— también podría crear un `Vehiculo` y debe respetar la misma regla.
 
@@ -41,8 +41,8 @@ public final class Vehiculo {
 
 ### Paso 2. Crea el controlador `MainController.java`
 
-1. En `src/main/java/cl/duoc/dsy1102/w09/demo`, crea el paquete `ui`.
-2. Dentro, crea **MainController.java**.
+1. En IntelliJ, clic derecho en el paquete `cl.duoc.dsy1102.w09.demo` → **New → Package** → escribe `ui`.
+2. Clic derecho en el nuevo paquete `ui` → **New → Java Class** → escribe `MainController`.
 3. Copia lo siguiente:
 
 ```java
@@ -110,11 +110,7 @@ Si quieres comparar el **archivo final completo**, consulta [MainView.fxml del e
 ### Paso 4. Ejecuta y prueba el caso correcto
 
 1. Guarda todos los archivos.
-2. En la terminal, desde la carpeta con `pom.xml`, ejecuta:
-
-```bash
-mvn clean javafx:run
-```
+2. En el panel **Maven** de IntelliJ, ejecuta **Plugins → javafx → javafx:run** (o **Execute Maven Goal** → `clean javafx:run`).
 
 3. En el campo escribe `ABCD12`.
 4. Haz clic **Registrar** una sola vez.
@@ -158,6 +154,6 @@ El modelo acepta patentes útiles, rechaza las entradas vacías y normaliza espa
 - [ ] La ventana continúa funcionando después de un error.
 - [ ] El modelo **no importa JavaFX**.
 
-**Commit sugerido:** `feat: vincular formulario a objeto Vehiculo y validar entrada`.
+**Commit sugerido (si habilitaste Git):** `feat: vincular formulario a objeto Vehiculo y validar entrada`.
 
 **Siguiente:** [04 · Verificar, entregar y ampliar](04-verificacion-y-tarea.md).

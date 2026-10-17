@@ -12,12 +12,8 @@ Una aplicación funcional debe comportarse bien tanto con datos correctos como i
 
 1. Guarda `pom.xml`, `MainApp.java`, `Vehiculo.java`, `MainController.java` y `MainView.fxml`.
 2. Cierra cualquier ventana JavaFX anterior que pudiera estar abierta.
-3. En la terminal, entra al directorio donde está `pom.xml`.
-4. Ejecuta:
-
-```bash
-mvn clean javafx:run
-```
+3. En IntelliJ, abre **View → Tool Windows → Maven**.
+4. Ejecuta **Plugins → javafx → javafx:run** (o **Execute Maven Goal** → `clean javafx:run`).
 
 **Deberías ver:** el formulario «Registro de vehículo disponible». Si no abre, **vuelve al checkpoint de la etapa 02**.
 
@@ -61,7 +57,7 @@ mvn clean javafx:run
 
 ### Paso 5. Registra un commit
 
-Desde la raíz de tu repositorio Git (no necesariamente la misma carpeta donde está `pom.xml`):
+**Si ya configuraste Git y el repositorio remoto:** desde la raíz de tu repositorio Git (puedes abrir **View → Tool Windows → Terminal** en IntelliJ):
 
 ```bash
 git status
@@ -69,6 +65,8 @@ git add .
 git commit -m "test: verificar formulario JavaFX de semana 09"
 git push
 ```
+
+**¿No configuraste Git o no tienes repositorio remoto?** No ejecutes `git push` todavía: en IntelliJ puedes comenzar desde **VCS → Enable Version Control Integration → Git**, crear el primer commit desde **Git → Commit** y posteriormente publicar en GitHub cuando tengas el repositorio remoto. No necesitas tener un repositorio preexistente para completar la aplicación.
 
 **Antes de ejecutar `git add .`:** revisa `git status` y confirma que no haya contraseñas, carpetas `target/`, binarios generados o archivos ajenos al trabajo. Si los hay, exclúyelos con `.gitignore` o agrega solo las rutas relevantes. **Si `git push` solicita autenticación**, sigue el flujo autorizado por tu repositorio; no compartas tokens en capturas.
 
@@ -89,7 +87,7 @@ git push
 9. En `MainController`, declara `@FXML private TextField marcaField;`.
 10. Cambia `new Vehiculo(patenteField.getText())` por `new Vehiculo(patenteField.getText(), marcaField.getText())`.
 11. Cambia el resultado a un texto que incluya **patente y marca**.
-12. Ejecuta `mvn clean javafx:run` y prueba: ambos llenos, marca vacía y espacios solamente.
+12. En IntelliJ, vuelve a ejecutar **javafx:run** desde el panel Maven y prueba: ambos llenos, marca vacía y espacios solamente.
 13. **Checkpoint:** sin marca no hay registro; con `ABCD12` y `Toyota` se muestran ambos datos.
 
 **¿Te aparece un error de compilación por constructor?** Busca todas las llamadas a `new Vehiculo(...)`: ahora el constructor necesita **dos argumentos**. No elimines la validación para «hacerlo funcionar».
@@ -126,7 +124,7 @@ private void limpiar() {
 ## ✅ Lista final de entrega
 
 **Mínimo de clase:**
-- [ ] Se ejecuta con `mvn clean javafx:run`.
+- [ ] Se ejecuta desde IntelliJ IDEA con el objetivo Maven `javafx:run`.
 - [ ] La pantalla carga desde FXML y el botón invoca Controller.
 - [ ] Hay construcción de un objeto `Vehiculo` y validación en su constructor.
 - [ ] Las pruebas válidas e inválidas están registradas.

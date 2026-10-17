@@ -10,11 +10,11 @@ Ya sabes abrir una ventana. Ahora queremos crear el formulario **sin dibujar cad
 
 ### Paso 1. Crea la carpeta de recursos correcta
 
-1. Abre el explorador de archivos del proyecto.
+1. En **IntelliJ IDEA**, abre el panel **Project** (habitualmente `Alt+1`).
 2. Ubica `src/main`.
-3. Si no existe `resources`, créala dentro de `main` (al lado de `java`, **no dentro**).
-4. Dentro crea las carpetas `cl/duoc/dsy1102/w09/demo/ui`.
-5. Ahí crea el archivo **MainView.fxml**.
+3. La carpeta `resources` debió quedar creada en la etapa 01. Si falta, clic derecho sobre `main` → **New → Directory** → `resources`, y luego clic derecho sobre ella → **Mark Directory as → Resources Root** si aún no tiene ese rol.
+4. Haz clic derecho en **resources → New → Directory** y crea la ruta `cl/duoc/dsy1102/w09/demo/ui` (si tu IntelliJ no admite rutas con `/` de una vez, crea una carpeta dentro de la anterior).
+5. Haz clic derecho en la carpeta final `ui` → **New → File**, escribe **MainView.fxml** y confirma. No elijas «Java Class»: FXML es un archivo de texto XML.
 
 La ruta completa es:
 
@@ -27,7 +27,7 @@ src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
 ### Paso 2. Abre el archivo en Scene Builder
 
 1. Inicia Scene Builder.
-2. Usa **File → Open** y selecciona tu `MainView.fxml`.
+2. En Scene Builder usa **File → Open** y busca el archivo `MainView.fxml` dentro de la carpeta del proyecto creada en IntelliJ.
 3. Si está completamente vacío y Scene Builder no lo abre, crea una nueva vista en Scene Builder con **File → New**, elige **VBox** como raíz y guárdala **en esa misma ruta**, con el mismo nombre.
 4. Debes visualizar el área de diseño, el árbol **Hierarchy** y el panel **Inspector**.
 
@@ -38,26 +38,20 @@ src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
 1. En **Library**, busca `VBox`. Si aún no es el contenedor principal, colócalo como raíz.
 2. Selecciona VBox. En **Layout**, configura `Spacing = 12` y una separación interna (**Padding**) de `16` en los cuatro lados; centra el contenido con `Alignment = CENTER`.
 3. Arrastra un **Label** dentro de VBox. En **Properties → Text**, escribe `Registro de vehículo disponible`.
-4. Debajo agrega un **TextField**. En **Properties → Prompt Text**, escribe `Patente de el vehículo`.
+4. Debajo agrega un **TextField**. En **Properties → Prompt Text**, escribe `Patente del vehículo`.
 5. Debajo agrega un **Button**. En **Properties → Text**, escribe `Registrar`.
 6. Debajo agrega un segundo **Label**. En **Properties → Text**, escribe `Completa el formulario`.
 7. En **Hierarchy**, comprueba el orden: `Label → TextField → Button → Label`. Si un control quedó fuera de VBox, muévelo al interior.
 
 **¿Por qué estos cuatro elementos?** El primer Label explica la pantalla, TextField recoge texto, Button representa la acción y el último Label mostrará resultados o errores.
 
-### Paso 4. Asigna los identificadores y el controlador
+### Paso 4. Asigna solo los identificadores (el controlador vendrá después)
 
 1. Selecciona **TextField**.
 2. En **Inspector → Code → fx:id**, escribe exactamente `patenteField` (sin `#`).
 3. Selecciona el **segundo Label** y en **fx:id** escribe `resultadoLabel`.
-4. Selecciona el **Button** y en **On Action** escribe `#registrar` (con `#`).
-5. Selecciona el elemento raíz **VBox**. En **Controller → Controller class** (la ubicación puede variar), escribe:
-
-```text
-cl.duoc.dsy1102.w09.demo.ui.MainController
-```
-
-**¡Ojo!** El archivo `MainController.java` todavía no existe; lo crearás al inicio de la etapa 03. Para **ejecutar ahora** sin ese archivo, omite temporalmente **Controller class** y **On Action**, guarda y pasa al paso 6. Al comenzar la etapa 03 los volverás a agregar. Esto evita el error «Controller class not found».
+4. **Deja vacío** el campo **On Action** del botón.
+5. **No asignes aún** una **Controller class** al elemento raíz VBox: la clase `MainController.java` todavía no existe. Ambos atributos se crearán en la etapa 03. Así evitamos un error de carga de FXML.
 
 ### Paso 5. Comprueba el FXML como texto
 
@@ -77,7 +71,7 @@ Guarda (`Ctrl+S`) y abre el archivo desde el IDE. Tu resultado debe ser equivale
         <Insets top="16" right="16" bottom="16" left="16"/>
     </padding>
     <Label text="Registro de vehículo disponible"/>
-    <TextField fx:id="patenteField" promptText="Patente de el vehículo"/>
+    <TextField fx:id="patenteField" promptText="Patente del vehículo"/>
     <Button text="Registrar"/>
     <Label fx:id="resultadoLabel" text="Completa el formulario"/>
 </VBox>
@@ -90,7 +84,7 @@ Guarda (`Ctrl+S`) y abre el archivo desde el IDE. Tu resultado debe ser equivale
 ### Paso 6. Haz que MainApp cargue el FXML
 
 1. Abre `src/main/java/cl/duoc/dsy1102/w09/demo/MainApp.java`.
-2. Reemplaza la implementación temporal por esta. **Si usas otro paquete, adapta el package y la ruta del recurso en conjunto.**
+2. Selecciona todo el contenido (`Ctrl+A`) y reemplaza la implementación temporal por el código siguiente. **No cambies el nombre del paquete ni la ruta del recurso**: ambos ya quedaron establecidos en la etapa 01.
 
 ```java
 package cl.duoc.dsy1102.w09.demo;
@@ -123,11 +117,7 @@ public class MainApp extends Application {
 **¿Qué cambió?** Antes construíamos el Label desde Java. Ahora `FXMLLoader` **lee** `MainView.fxml` desde `resources`. El `/` inicial de la ruta significa «desde la raíz de recursos».
 
 3. Guarda Java y FXML.
-4. Desde la carpeta de `pom.xml`, ejecuta:
-
-```bash
-mvn clean javafx:run
-```
+4. En IntelliJ abre **View → Tool Windows → Maven**, expande **Plugins → javafx** y ejecuta **javafx:run**. Si no aparece, usa **Execute Maven Goal** y escribe `clean javafx:run`.
 
 **Deberías observar:** una ventana con título, campo de texto, botón **Registrar** y mensaje **Completa el formulario**. El botón **todavía no hace nada**, y eso es normal **en este punto**.
 
@@ -147,6 +137,6 @@ mvn clean javafx:run
 - [ ] La ejecución funciona aunque el botón todavía no tenga comportamiento.
 - [ ] Sé explicar dónde se guarda FXML y por qué no es una clase Java.
 
-**Commit sugerido:** `feat: crear formulario inicial con FXML`.
+**Commit sugerido (cuando hayas habilitado Git):** `feat: crear formulario inicial con FXML`.
 
 **Siguiente:** [03 · Conectar Controller, evento y modelo](03-controller-eventos.md). **Aquí sí agregaremos el controlador.**
