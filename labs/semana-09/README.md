@@ -15,7 +15,7 @@ Construiremos tres piezas que colaboran: **vista FXML** (lo que se ve), **contro
 
 ## 2. Al finalizar podrás
 
-- Comprobar Java 21 y Maven, abrir y ejecutar una aplicación JavaFX.
+- Crear desde cero un proyecto Java + Maven en **IntelliJ IDEA** con JDK 21, y ejecutar una aplicación JavaFX desde su panel Maven.
 - Distinguir **Stage** (ventana), **Scene** (contenido) y **Application** (punto de inicio).
 - Crear una vista con Scene Builder y guardar un archivo **FXML** en recursos.
 - Conectar `fx:id`, `fx:controller` y `onAction` a una clase Java.
@@ -24,16 +24,16 @@ Construiremos tres piezas que colaboran: **vista FXML** (lo que se ve), **contro
 
 ## 3. Lo que necesitas antes de comenzar
 
-1. **JDK 21** instalado (no basta con tener únicamente un JRE).
-2. **Maven** disponible, o Maven integrado en tu IDE.
-3. **IDE** para Java (por ejemplo IntelliJ IDEA, Eclipse o VS Code con extensiones Java).
+1. **IntelliJ IDEA** instalado; partiremos desde la ventana **New Project**, sin proyecto previo.
+2. **IntelliJ IDEA** instalado y abierto (utilizaremos su integración con Maven; no necesitas instalar Maven externamente).
+3. **JDK 21** seleccionable o descargable desde la pantalla de creación de proyectos de IntelliJ (puedes instalarlo desde el propio IDE).
 4. **Scene Builder** instalado para diseñar el formulario visualmente.
 5. Internet para la primera descarga de dependencias de Maven.
 6. Tu repositorio del curso, donde guardarás el trabajo y los commits.
 
-**¿No tienes listo uno de ellos?** Entra a [01 · Entorno y arranque](01-entorno-y-arranque.md): hay comandos para revisar tu instalación y una alternativa reproducible si todavía no tienes un proyecto JavaFX funcionando.
+**¿Nunca has creado un proyecto Maven?** Perfecto: [01 · Crear el proyecto desde cero en IntelliJ IDEA](01-entorno-y-arranque.md) incluye los clics desde **New Project**, elección de JDK, dependencias y ejecución.
 
-**Conocimientos previos:** clases, constructores, atributos privados, getters, excepciones y manejo básico del IDE. Si alguno te cuesta, sigue los fragmentos explicados y consulta [material de la semana](../../semanas/semana-09/).
+**Conocimientos previos:** clases, constructores, atributos privados, getters y excepciones. Se explica también cómo crear paquetes y archivos dentro de IntelliJ IDEA. Si alguno te cuesta, sigue los fragmentos explicados y consulta [material de la semana](../../semanas/semana-09/).
 
 ## 4. Qué construiremos (resultado observable)
 
@@ -41,8 +41,8 @@ Al abrir el programa verás aproximadamente:
 
 ```text
 ┌──────────────────────────────────────────────┐
-│               Registro de vehículo disponible            │
-│  [ Patente de el vehículo                   ]   │
+│          Registro de vehículo disponible         │
+│  [ Patente del vehículo                   ]     │
 │                 [ Registrar ]                 │
 │  Completa el formulario                       │
 └──────────────────────────────────────────────┘
@@ -54,10 +54,10 @@ La aplicación **no se cierra** cuando el dato es inválido.
 
 ### Archivos que vas a tocar
 
-Usaremos exactamente estos nombres de archivo y rutas. Si tu proyecto ya existe, **respeta su paquete y rutas reales**, y adapta todas las referencias en conjunto; no dupliques un proyecto que ya te funciona.
+**No reutilices otro proyecto:** en el paso 01 crearás **RentACarJavaFX** en IntelliJ IDEA. Utiliza exactamente las rutas y nombres indicados para poder seguir el tutorial sin adaptar nada.
 
 ```text
-mi-primer-javafx/
+RentACarJavaFX/
 ├── pom.xml
 └── src/
     └── main/
@@ -76,7 +76,7 @@ mi-primer-javafx/
 
 | Orden | Etapa | Lo que comprobarás |
 |---|---|---|
-| 1 | [Entorno y primera ventana](01-entorno-y-arranque.md) | La ventana abre desde Maven |
+| 1 | [Entorno y primera ventana](01-entorno-y-arranque.md) | El proyecto nuevo se crea y la ventana abre desde el panel Maven de IntelliJ |
 | 2 | [Diseñar el formulario FXML](02-vista-fxml.md) | Aparecen campo, botón y mensaje |
 | 3 | [Conectar el clic al objeto](03-controller-eventos.md) | Se registra un vehículo y se valida la patente |
 | 4 | [Probar, entregar y ampliar](04-verificacion-y-tarea.md) | Casos comprobados, evidencia y DevLog |
@@ -85,7 +85,7 @@ mi-primer-javafx/
 
 ## 6. Criterios para considerar terminado el trabajo
 
-- [ ] El comando `mvn clean javafx:run` abre el proyecto sin error.
+- [ ] El objetivo **javafx:run** se ejecuta desde el panel Maven de IntelliJ y abre una ventana sin error.
 - [ ] La interfaz se carga desde `MainView.fxml`.
 - [ ] El botón lee el `TextField`, crea un `Vehiculo` y actualiza el `Label`.
 - [ ] El constructor rechaza la patente vacía, incluso si se usa fuera de JavaFX.
@@ -97,6 +97,6 @@ mi-primer-javafx/
 
 ## 7. Si te quedas atrás
 
-No borres archivos ni crees proyectos nuevos para ocultar un error. **Identifica el último checkpoint que sí pasó** y vuelve a ese paso. Compara tus rutas, rutas e imports con la [referencia ejecutable](../../ejemplos/semana-09/proyecto-demo/), anota el mensaje de error completo y pide ayuda indicando: «Estoy en la etapa X, paso Y; esperaba Z, pero obtuve W».
+No borres archivos ni crees proyectos nuevos para ocultar un error. **Identifica el último checkpoint que sí pasó** y vuelve a ese paso. Compara tus carpetas, rutas e imports con la [referencia ejecutable](../../ejemplos/semana-09/proyecto-demo/), anota el mensaje de error completo y pide ayuda indicando: «Estoy en la etapa X, paso Y; esperaba Z, pero obtuve W».
 
 **Material complementario:** [conceptos semana 09](../../semanas/semana-09/), [ejercicios semana 09](../../ejercicios/semana-09/) y [guía general de laboratorios](../README.md).
