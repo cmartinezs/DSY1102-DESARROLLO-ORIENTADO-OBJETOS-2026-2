@@ -1,104 +1,68 @@
-# 04 · Verificación final, evidencia y trabajo autónomo
+# 04 · Comprobar el laboratorio, guardar evidencia y ampliar
 
-[← 03 · Controller y eventos](03-controller-eventos.md) · [Índice](README.md)
+[← 03 · Controlador](03-controller-eventos.md) · [Índice](README.md)
 
-## ¿Por qué no terminamos solamente cuando «abre la ventana»?
+## Parte A · Cierre del ejercicio guiado
 
-Una aplicación funcional debe comportarse bien tanto con datos correctos como incorrectos. En esta etapa comprobarás el recorrido completo, guardarás evidencia y explicarás lo aprendido. **Primero cerramos el mínimo de clase; después viene un desafío autónomo.**
+### Paso 1 · Ejecuta desde IntelliJ
 
-## Parte A. Pruebas guiadas del trabajo de clase
+1. Guarda `Vehiculo.java`, `HelloController.java` y `hello-view.fxml`.
+2. Abre la clase `HelloApplication.java` que generó IntelliJ.
+3. Haz clic en el icono verde del método `main` → **Run**.
+4. Comprueba que aparezca el formulario Rent-a-Car.
 
-### Paso 1. Prepara la ejecución
+### Paso 2 · Comprueba estos cinco casos, uno por uno
 
-1. Guarda `pom.xml`, `MainApp.java`, `Vehiculo.java`, `MainController.java` y `MainView.fxml`.
-2. Cierra cualquier ventana JavaFX anterior que pudiera estar abierta.
-3. En IntelliJ, abre **View → Tool Windows → Maven**.
-4. Ejecuta **Plugins → javafx → javafx:run** (o **Execute Maven Goal** → `clean javafx:run`).
+| Caso | Dato de entrada | Resultado esperado |
+|---|---|---|
+| 1 | `ABCD12` | `Vehículo disponible: ABCD12` |
+| 2 | Campo vacío | `La patente no puede estar vacía` |
+| 3 | Tres espacios | `La patente no puede estar vacía` |
+| 4 | `  abcd12  ` | `Vehículo disponible: ABCD12` |
+| 5 | Tras un error, ingresa `JKLP34` **sin reiniciar** | `Vehículo disponible: JKLP34` |
 
-**Deberías ver:** el formulario «Registro de vehículo disponible». Si no abre, **vuelve al checkpoint de la etapa 02**.
+Si falla un caso, vuelve a la etapa 03 y revisa una causa a la vez. **No elimines la validación** para ocultar el error.
 
-### Paso 2. Sigue esta tabla, caso por caso
+### Paso 3 · Guarda las evidencias
 
-| Caso | Qué escribes | Qué haces | Qué debe mostrarse |
-|---|---|---|---|
-| 1 · válido | `ABCD12` | Clic en Registrar | `Vehículo disponible: ABCD12` |
-| 2 · vacío | Nada | Clic en Registrar | `La patente no puede estar vacía` |
-| 3 · espacios | Tres espacios | Clic en Registrar | `La patente no puede estar vacía` |
-| 4 · recorte | `  WXYZ99  ` | Clic en Registrar | `Vehículo disponible: WXYZ99` |
-| 5 · recuperación | Después del caso 2, escribe `JKLP34` | Clic en Registrar | `Vehículo disponible: JKLP34` |
+1. En la carpeta del proyecto, crea `evidencias/semana-09` desde el panel Project de IntelliJ (**New → Directory**).
+2. Guarda una captura con un registro correcto como `registro-valido.png`.
+3. Guarda otra con el campo vacío y el mensaje de error como `registro-invalido.png`.
+4. Dentro de `evidencias/semana-09`, crea `pruebas.md` con los cinco casos y marca OK o pendiente, explicando cualquier diferencia.
+5. Utiliza patentes ficticias, no datos personales reales.
 
-**Importante:** después de un error **no cierres ni reinicies** la aplicación para el caso 5. Debe recuperarse desde la misma ventana.
+### Paso 4 · Explica lo aprendido
 
-### Paso 3. Si un caso falla
+En tus palabras, responde: ¿qué hace `hello-view.fxml`?, ¿qué hace `HelloController`? y ¿qué seguiría funcionando si quitáramos JavaFX? Una respuesta breve y razonada es suficiente.
 
-1. Anota qué escribiste.
-2. Anota qué esperabas ver y qué apareció realmente.
-3. Busca el error en la consola de Maven si hay una excepción.
-4. Vuelve al último paso de la [etapa 03](03-controller-eventos.md): revisa los `fx:id`, la conexión `onAction` y el constructor.
-5. Corrige **una causa a la vez** y repite todos los casos que dependan de ella.
+**Git y DevLog:** si estás usando un repositorio Git para el curso, guarda los cambios y actualiza el DevLog de la semana 09. Como este lab comienza **desde un proyecto nuevo**, no damos por supuesto que ya tienes un repositorio remoto o commits anteriores.
 
-### Paso 4. Guarda evidencia en tu repositorio
+## Parte B · Desafío autónomo (después de completar el mínimo)
 
-1. Crea, si todavía no existe, una carpeta de evidencias asociada a este lab en tu repositorio del curso. Ejemplo: `evidencias/semana-09/`.
-2. Guarda una captura con un registro correcto (`registro-valido.png`).
-3. Guarda otra captura con un error de campo vacío (`registro-invalido.png`).
-4. No uses datos personales reales; patentes ficticias son suficientes.
-5. Guarda un breve archivo `pruebas.md` en la misma carpeta con los cinco casos y su resultado. Puedes usar esta plantilla:
+### Agrega la marca del vehículo
 
-```markdown
-# Pruebas — Semana 09
+1. Abre `hello-view.fxml`.
+2. Bajo el `TextField` de patente, agrega un segundo `TextField` con `fx:id="marcaField"` y `promptText="Marca del vehículo"`.
+3. Guarda y ejecuta: ya deberías ver los dos campos.
+4. En `Vehiculo.java`, agrega `private final String marca;`.
+5. Cambia el constructor para recibir `(String patente, String marca)`; valida que ninguno esté vacío, guarda `marca.trim()` y crea `getMarca()`.
+6. En `HelloController.java`, agrega `@FXML private TextField marcaField;`.
+7. Cambia la creación por `new Vehiculo(patenteField.getText(), marcaField.getText())`.
+8. Ajusta `resultadoLabel.setText(...)` para mostrar patente y marca.
+9. Ejecuta el programa y verifica el caso correcto, la marca vacía y la patente vacía.
+10. **Checkpoint:** muestra ambos datos solo cuando los dos campos son válidos.
 
-- Caso 1 · ABCD12: OK / pendiente — observación:
-- Caso 2 · Campo vacío: OK / pendiente — observación:
-- Caso 3 · Solo espacios: OK / pendiente — observación:
-- Caso 4 · Espacios alrededor: OK / pendiente — observación:
-- Caso 5 · Recuperación después de error: OK / pendiente — observación:
+**Si IntelliJ muestra error de argumentos:** es normal después de cambiar la firma del constructor. Busca `new Vehiculo(...)` y asegúrate de pasar **dos** argumentos.
+
+### Agrega un botón Limpiar
+
+1. En `hello-view.fxml`, debajo del botón Registrar agrega:
+
+```xml
+<Button text="Limpiar" onAction="#limpiar"/>
 ```
 
-### Paso 5. Registra un commit
-
-**Si ya configuraste Git y el repositorio remoto:** desde la raíz de tu repositorio Git (puedes abrir **View → Tool Windows → Terminal** en IntelliJ):
-
-```bash
-git status
-git add .
-git commit -m "test: verificar formulario JavaFX de semana 09"
-git push
-```
-
-**¿No configuraste Git o no tienes repositorio remoto?** No ejecutes `git push` todavía: en IntelliJ puedes comenzar desde **VCS → Enable Version Control Integration → Git**, crear el primer commit desde **Git → Commit** y posteriormente publicar en GitHub cuando tengas el repositorio remoto. No necesitas tener un repositorio preexistente para completar la aplicación.
-
-**Antes de ejecutar `git add .`:** revisa `git status` y confirma que no haya contraseñas, carpetas `target/`, binarios generados o archivos ajenos al trabajo. Si los hay, exclúyelos con `.gitignore` o agrega solo las rutas relevantes. **Si `git push` solicita autenticación**, sigue el flujo autorizado por tu repositorio; no compartas tokens en capturas.
-
-## Parte B. Tarea autónoma (cuando ya funciona el mínimo)
-
-**Objetivo:** mejorar tu formulario sin rehacer lo que ya funciona.
-
-### Desafío 1. Agrega la marca
-
-1. En Scene Builder abre `MainView.fxml`.
-2. Dentro de VBox agrega un nuevo TextField **entre la patente y el botón**.
-3. En **Prompt Text** escribe `Marca (por ejemplo Toyota o Kia)`.
-4. En **fx:id** escribe `marcaField`.
-5. Guarda y comprueba que la nueva entrada aparece.
-6. En `Vehiculo.java`, agrega el atributo `private final String marca;`.
-7. Cambia el constructor a `Vehiculo(String patente, String marca)` y valida que **ambos** textos no sean nulos ni blancos. Mantén `trim()` en ambos.
-8. Agrega `getMarca()`.
-9. En `MainController`, declara `@FXML private TextField marcaField;`.
-10. Cambia `new Vehiculo(patenteField.getText())` por `new Vehiculo(patenteField.getText(), marcaField.getText())`.
-11. Cambia el resultado a un texto que incluya **patente y marca**.
-12. En IntelliJ, vuelve a ejecutar **javafx:run** desde el panel Maven y prueba: ambos llenos, marca vacía y espacios solamente.
-13. **Checkpoint:** sin marca no hay registro; con `ABCD12` y `Toyota` se muestran ambos datos.
-
-**¿Te aparece un error de compilación por constructor?** Busca todas las llamadas a `new Vehiculo(...)`: ahora el constructor necesita **dos argumentos**. No elimines la validación para «hacerlo funcionar».
-
-### Desafío 2. Agrega un botón «Limpiar»
-
-1. En Scene Builder arrastra un segundo **Button** debajo de Registrar.
-2. En **Text**, escribe `Limpiar`.
-3. En **On Action**, escribe `#limpiar`.
-4. Guarda.
-5. Dentro de `MainController`, agrega el método:
+2. En `HelloController.java`, agrega el método:
 
 ```java
 @FXML
@@ -109,35 +73,20 @@ private void limpiar() {
 }
 ```
 
-**Nota:** este fragmento corresponde a la **variante con marca** que acabas de construir. Si decidiste no hacer el desafío 1, **quita** la línea `marcaField.clear()` porque ese campo aún no existe.
+3. Ejecuta y prueba: escribe patente y marca, pulsa **Limpiar** y confirma que ambos campos quedan vacíos.
+4. **Importante:** este fragmento supone que completaste el desafío de marca. Si todavía no añadiste `marcaField`, elimina esa línea del método.
 
-6. Ejecuta el proyecto, escribe información, presiona Limpiar.
-7. **Checkpoint:** los TextField quedan vacíos y el mensaje vuelve a `Completa el formulario`.
+### Cierra tu aprendizaje
 
-### Desafío 3. Refuerzo y reflexión
+Resuelve dos [ejercicios de refuerzo de la semana 09](../../ejercicios/semana-09/) y registra: **qué lograste, qué error resolviste, qué aprendiste y qué harías después**.
 
-1. Resuelve **dos ejercicios** de [semana 09](../../ejercicios/semana-09/).
-2. En tu DevLog de semana 09 (o créalo en `docs/devlog/semana-09.md` si todavía no existe), escribe cuatro apartados breves: **qué logré, qué me bloqueó, qué aprendí y qué haré después**.
-3. Responde con tus palabras: **¿qué parte de este programa seguiría funcionando si quitáramos JavaFX y por qué?** Pista: examina si `Vehiculo.java` importa algo de `javafx`.
-4. Haz commit y push de tu ampliación.
+## ✅ Definición de terminado
 
-## ✅ Lista final de entrega
+- [ ] Proyecto creado desde JavaFX en IntelliJ, no copiado de otro.
+- [ ] Ejemplo original de IntelliJ ejecutado antes de editar.
+- [ ] Vista FXML actualizada a Rent-a-Car.
+- [ ] Modelo `Vehiculo` con validación.
+- [ ] Cinco pruebas mínimas verificadas.
+- [ ] Evidencias y explicación de responsabilidades.
 
-**Mínimo de clase:**
-- [ ] Se ejecuta desde IntelliJ IDEA con el objetivo Maven `javafx:run`.
-- [ ] La pantalla carga desde FXML y el botón invoca Controller.
-- [ ] Hay construcción de un objeto `Vehiculo` y validación en su constructor.
-- [ ] Las pruebas válidas e inválidas están registradas.
-- [ ] Hay evidencia, commits y explicación de responsabilidades.
-
-**Autónomo (ampliación):**
-- [ ] Segundo campo con validación y resultado visible.
-- [ ] Botón Limpiar funcional.
-- [ ] Dos ejercicios de refuerzo.
-- [ ] DevLog de semana 09 actualizado.
-
-### Cómo explicar tu aplicación en 30 segundos
-
-«FXML define los controles visibles. MainApp abre la ventana y carga ese archivo. MainController reacciona al clic, lee lo escrito y muestra una respuesta. Vehiculo contiene la regla de negocio y rechaza patentes inválidas. Por eso el modelo podría utilizarse sin JavaFX».
-
-¡Terminaste! Si alguno de los cinco casos de prueba no funciona, vuelve a la etapa donde se construyó esa parte antes de considerar cerrada la entrega.
+**El desafío de marca y Limpiar es una ampliación posterior, no una condición para que la parte de clase esté terminada.**
