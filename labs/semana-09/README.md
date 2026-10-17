@@ -13,7 +13,7 @@ El objetivo de esta semana **no** es desarrollar todo un sistema de arriendo ni 
 ## Qué aprenderás
 
 - Crear un proyecto **JavaFX directamente desde New Project → JavaFX** en IntelliJ.
-- Elegir **Java, Maven y JDK 21**, habilitar FXML y ejecutar el ejemplo generado.
+- Elegir **Java, Maven y JDK 21**, dejar **Additional libraries** sin selecciones y ejecutar el ejemplo JavaFX/FXML generado.
 - Reconocer la estructura real creada por IntelliJ (incluido `module-info.java` cuando aparece), sin reemplazar su configuración a ciegas.
 - Crear un formulario, conectar el botón con su controlador y construir un `Vehiculo`.
 - Probar registros correctos e incorrectos, guardar evidencia y realizar un desafío autónomo.
@@ -22,7 +22,7 @@ El objetivo de esta semana **no** es desarrollar todo un sistema de arriendo ni 
 
 - IntelliJ IDEA instalado, con el complemento **JavaFX** habilitado (Settings → Plugins → Installed → JavaFX).
 - Conexión a internet en la primera ejecución, para descargar Maven y las bibliotecas necesarias.
-- **No** necesitas crear manualmente un `pom.xml`, instalar Maven por separado ni preparar un proyecto previo.
+- **No** necesitas crear manualmente un `pom.xml`, instalar Maven por separado ni preparar un proyecto previo. En la pantalla **Additional libraries**, deja **todas las casillas desmarcadas**; FXML no se habilita escogiendo FormsFX.
 - Scene Builder es útil para diseñar visualmente; también puedes editar directamente el archivo FXML en IntelliJ. La [etapa 02](02-vista-fxml.md) explica ambas opciones.
 
 ## Ruta de aprendizaje (en este orden)

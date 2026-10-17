@@ -53,12 +53,19 @@ Usa estos valores. En algunas versiones el asistente coloca valores de ejemplo q
 
 **¿El botón Next no aparece?** Comprueba que seleccionaste **JavaFX** en Generators, no Java. Algunas pantallas requieren desplazarse hasta el pie del diálogo.
 
-### Paso 4 · Selecciona las bibliotecas
+### Paso 4 · Pantalla «Additional libraries» (no marques ninguna)
 
-1. En la pantalla de características/bibliotecas, busca **FXML** y asegúrate de incluirlo, si el asistente lo presenta como opción.
-2. Mantén los componentes JavaFX básicos seleccionados por defecto, incluyendo **Controls** cuando aparezca.
-3. No necesitas elegir tecnologías adicionales para este laboratorio.
-4. Haz clic en **Create**.
+Después de presionar **Next**, IntelliJ muestra la pantalla **Additional libraries**. Aquí verás casillas como **BootstrapFX**, **ControlsFX**, **FormsFX**, **FXGL**, **Ikonli**, **TilesFX** y **ValidatorFX**.
+
+1. **Deja todas las casillas desmarcadas**, tal como aparecen inicialmente. No selecciones FormsFX aunque nuestro trabajo incluya un formulario.
+2. Comprueba que abajo se indique **No dependencies added**. Es lo esperado, **no es un error**.
+3. **No busques FXML en esta lista**: FXML forma parte de la plantilla JavaFX que estamos creando. Estas opciones son bibliotecas adicionales, no los controles básicos ni un requisito para usar FXML.
+4. Haz clic en **CREATE**.
+5. Espera mientras IntelliJ crea el proyecto e importa las dependencias Maven.
+
+**Resultado esperado:** se abre el proyecto `RentACarJavaFX` con su aplicación JavaFX inicial. No necesitas volver atrás para marcar una biblioteca.
+
+**Si marcaste alguna por error:** antes de pulsar CREATE, desmárcala y comprueba que vuelva a aparecer **No dependencies added**.
 5. Si IntelliJ pregunta dónde abrirlo, elige abrirlo en una nueva ventana cuando quieras mantener separado un proyecto anterior.
 6. Espera a que termine la importación **Maven**. La primera apertura puede descargar dependencias y demorar un poco.
 
@@ -82,7 +89,7 @@ package cl.duoc.dsy1102.w09.demo;
 
 **¡Muy importante!** No reemplaces `pom.xml`, no agregues otra clase `Application`, no cambies `module-info.java` y no descargues un proyecto de ejemplo externo: IntelliJ ya generó una aplicación configurada.
 
-**¿El asistente creó otros nombres?** Usa los nombres reales que aparecen en tu proyecto y ubica las tres funciones equivalentes: clase que extiende `Application`, clase controller y archivo FXML. Si falta controller o FXML, vuelve al paso 4 y confirma que elegiste soporte FXML.
+**¿El asistente creó otros nombres?** Usa los nombres reales que aparecen en tu proyecto y ubica las tres funciones equivalentes: clase que extiende `Application`, clase controller y archivo FXML. Si no encuentras controller o FXML, revisa la estructura del proyecto generado y solicita ayuda indicando qué archivos aparecen; **no selecciones FormsFX ni otra biblioteca adicional como solución**.
 
 ### Paso 6 · Ejecuta el proyecto generado SIN modificarlo
 
@@ -105,14 +112,14 @@ package cl.duoc.dsy1102.w09.demo;
 - **Maven está descargando bibliotecas:** espera; no cierres IntelliJ.
 - **Cannot resolve symbol javafx:** espera la importación, abre el panel **Maven** y haz clic en **Reload All Maven Projects**.
 - **release version 21 not supported:** entra a **File → Project Structure → Project**, selecciona SDK 21 y confirma en Maven Runner que también se utilice JDK 21.
-- **No existe HelloController o hello-view.fxml:** confirma que en el paso 4 se eligió **FXML**. Si el asistente ofreció una plantilla diferente, consulta al docente antes de continuar.
+- **No existe HelloController o hello-view.fxml:** busca en `src/main` y comprueba los nombres reales creados por la plantilla. Si no aparecen, muestra al docente la estructura del proyecto. **La pantalla Additional libraries no sirve para habilitar FXML**.
 - **Error de JavaFX runtime:** utiliza la configuración Run generada por IntelliJ o el objetivo Maven `javafx:run`; no intentes resolverlo agregando VM options sin comprender la configuración existente.
 
 ## ✅ Checkpoint obligatorio
 
 - [ ] Abrí **Generators → JavaFX** en IntelliJ.
 - [ ] Creé un proyecto **nuevo** con Java, Maven y JDK 21.
-- [ ] Seleccioné FXML si se ofrecía en el asistente.
+- [ ] En **Additional libraries** dejé todas las casillas desmarcadas y pulsé **CREATE**.
 - [ ] Encontré `pom.xml`, el archivo `Application` y la vista FXML generada.
 - [ ] Ejecuté **Run 'HelloApplication.main()'**.
 - [ ] Vi la ventana inicial del ejemplo y pude cerrarla.
