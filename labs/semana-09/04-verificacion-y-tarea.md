@@ -25,11 +25,11 @@ mvn clean javafx:run
 
 | Caso | Qué escribes | Qué haces | Qué debe mostrarse |
 |---|---|---|---|
-| 1 · válido | `ABCD12` | Clic en Registrar | `Vehiculo: ABCD12` |
+| 1 · válido | `ABCD12` | Clic en Registrar | `Vehículo disponible: ABCD12` |
 | 2 · vacío | Nada | Clic en Registrar | `La patente no puede estar vacía` |
 | 3 · espacios | Tres espacios | Clic en Registrar | `La patente no puede estar vacía` |
-| 4 · recorte | `  WXYZ99  ` | Clic en Registrar | `Vehiculo: WXYZ99` |
-| 5 · recuperación | Después del caso 2, escribe `JKLP34` | Clic en Registrar | `Vehiculo: JKLP34` |
+| 4 · recorte | `  WXYZ99  ` | Clic en Registrar | `Vehículo disponible: WXYZ99` |
+| 5 · recuperación | Después del caso 2, escribe `JKLP34` | Clic en Registrar | `Vehículo disponible: JKLP34` |
 
 **Importante:** después de un error **no cierres ni reinicies** la aplicación para el caso 5. Debe recuperarse desde la misma ventana.
 
@@ -140,6 +140,6 @@ private void limpiar() {
 
 ### Cómo explicar tu aplicación en 30 segundos
 
-«FXML define los controles visibles. MainApp abre la ventana y carga ese archivo. MainController reacciona al clic, lee lo escrito y muestra una respuesta. Vehiculo contiene la regla de negocio y rechaza patentes inválidos. Por eso el modelo podría utilizarse sin JavaFX».
+«FXML define los controles visibles. MainApp abre la ventana y carga ese archivo. MainController reacciona al clic, lee lo escrito y muestra una respuesta. Vehiculo contiene la regla de negocio y rechaza patentes inválidas. Por eso el modelo podría utilizarse sin JavaFX».
 
 ¡Terminaste! Si alguno de los cinco casos de prueba no funciona, vuelve a la etapa donde se construyó esa parte antes de considerar cerrada la entrega.
