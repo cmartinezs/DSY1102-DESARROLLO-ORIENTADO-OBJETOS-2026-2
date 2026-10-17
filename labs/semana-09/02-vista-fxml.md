@@ -4,7 +4,7 @@
 
 ## ¿Qué haremos y por qué?
 
-Ya sabes abrir una ventana. Ahora queremos crear el formulario **sin dibujar cada control manualmente en Java**. El archivo **FXML** describe qué elementos aparecen. **Scene Builder** permite colocarlos visualmente. El botón todavía no registrará mascotas: eso viene en la etapa 03.
+Ya sabes abrir una ventana. Ahora queremos crear el formulario **sin dibujar cada control manualmente en Java**. El archivo **FXML** describe qué elementos aparecen. **Scene Builder** permite colocarlos visualmente. El botón todavía no registrará vehículos: eso viene en la etapa 03.
 
 **Antes de continuar:** confirma que superaste el checkpoint de la etapa 01.
 
@@ -28,7 +28,7 @@ src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
 
 1. Inicia Scene Builder.
 2. Usa **File → Open** y selecciona tu `MainView.fxml`.
-3. Si está completamente vacío y Scene Builder no lo abre, crea una nueva vista en Scene Builder con **File → New**, elige **VBox** como raíz y guárdala **en esa misma ruta**, con el mismo nombre.
+3. Si está completamente vacío y Scene Builder no lo abre, crea una nueva vista en Scene Builder con **File → New**, elige **VBox** como raíz y guárdala **en esa misma ruta**, con el mismo patente.
 4. Debes visualizar el área de diseño, el árbol **Hierarchy** y el panel **Inspector**.
 
 **Si Scene Builder no está instalado o el archivo no abre:** puedes pegar el FXML mínimo del paso 5 desde tu IDE, guardarlo y reabrirlo en Scene Builder. No bloquees todo el laboratorio por el editor visual.
@@ -37,8 +37,8 @@ src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
 
 1. En **Library**, busca `VBox`. Si aún no es el contenedor principal, colócalo como raíz.
 2. Selecciona VBox. En **Layout**, configura `Spacing = 12` y una separación interna (**Padding**) de `16` en los cuatro lados; centra el contenido con `Alignment = CENTER`.
-3. Arrastra un **Label** dentro de VBox. En **Properties → Text**, escribe `Registro de mascota`.
-4. Debajo agrega un **TextField**. En **Properties → Prompt Text**, escribe `Nombre de la mascota`.
+3. Arrastra un **Label** dentro de VBox. En **Properties → Text**, escribe `Registro de vehículo disponible`.
+4. Debajo agrega un **TextField**. En **Properties → Prompt Text**, escribe `Patente de la vehículo`.
 5. Debajo agrega un **Button**. En **Properties → Text**, escribe `Registrar`.
 6. Debajo agrega un segundo **Label**. En **Properties → Text**, escribe `Completa el formulario`.
 7. En **Hierarchy**, comprueba el orden: `Label → TextField → Button → Label`. Si un control quedó fuera de VBox, muévelo al interior.
@@ -48,7 +48,7 @@ src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
 ### Paso 4. Asigna los identificadores y el controlador
 
 1. Selecciona **TextField**.
-2. En **Inspector → Code → fx:id**, escribe exactamente `nombreField` (sin `#`).
+2. En **Inspector → Code → fx:id**, escribe exactamente `patenteField` (sin `#`).
 3. Selecciona el **segundo Label** y en **fx:id** escribe `resultadoLabel`.
 4. Selecciona el **Button** y en **On Action** escribe `#registrar` (con `#`).
 5. Selecciona el elemento raíz **VBox**. En **Controller → Controller class** (la ubicación puede variar), escribe:
@@ -76,8 +76,8 @@ Guarda (`Ctrl+S`) y abre el archivo desde el IDE. Tu resultado debe ser equivale
     <padding>
         <Insets top="16" right="16" bottom="16" left="16"/>
     </padding>
-    <Label text="Registro de mascota"/>
-    <TextField fx:id="nombreField" promptText="Nombre de la mascota"/>
+    <Label text="Registro de vehículo disponible"/>
+    <TextField fx:id="patenteField" promptText="Patente de la vehículo"/>
     <Button text="Registrar"/>
     <Label fx:id="resultadoLabel" text="Completa el formulario"/>
 </VBox>
@@ -85,7 +85,7 @@ Guarda (`Ctrl+S`) y abre el archivo desde el IDE. Tu resultado debe ser equivale
 
 **Importante para este checkpoint:** todavía **no** hay `fx:controller` ni `onAction` en el fragmento ejecutable de la etapa 02. En la etapa 03 los agregaremos **juntos** con la clase Java. Si Scene Builder ya insertó esos atributos, retíralos provisionalmente para probar esta etapa.
 
-**Comprueba:** `nombreField` y `resultadoLabel` son distintos; no inventes mayúsculas ni tildes en esos identificadores.
+**Comprueba:** `patenteField` y `resultadoLabel` son distintos; no inventes mayúsculas ni tildes en esos identificadores.
 
 ### Paso 6. Haz que MainApp cargue el FXML
 
@@ -109,7 +109,7 @@ public class MainApp extends Application {
             MainApp.class.getResource("/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml")
         );
         Scene scene = new Scene(loader.load(), 440, 240);
-        stage.setTitle("Veterinaria - Semana 09");
+        stage.setTitle("Rent-a-Car - Semana 09");
         stage.setScene(scene);
         stage.show();
     }
