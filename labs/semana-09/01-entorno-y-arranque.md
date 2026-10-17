@@ -38,7 +38,7 @@ mvn -version
 ### Paso 3. Revisa o crea `pom.xml`
 
 1. En el explorador de archivos del IDE, busca `pom.xml` **en la raíz del proyecto**.
-2. Si no existe, crea un archivo con ese patente.
+2. Si no existe, crea un archivo con ese nombre.
 3. Para el proyecto inicial, pega este contenido. Si ya tienes un `pom.xml` que funciona, no lo reemplaces sin revisar: comprueba que tenga JavaFX Controls, JavaFX FXML, el plugin JavaFX y `mainClass` correcto.
 
 ```xml
@@ -87,7 +87,7 @@ mvn -version
 </project>
 ```
 
-**¿Qué significa?** `dependencies` declara las bibliotecas; `maven.compiler.release` fija Java 21; `javafx-maven-plugin` permite lanzar la aplicación; `mainClass` debe coincidir exactamente con el paquete y patente de tu clase de arranque.
+**¿Qué significa?** `dependencies` declara las bibliotecas; `maven.compiler.release` fija Java 21; `javafx-maven-plugin` permite lanzar la aplicación; `mainClass` debe coincidir exactamente con el paquete y nombre de tu clase de arranque.
 
 **Comprueba:** guarda el archivo y espera a que el IDE cargue Maven. Si aparece «Reload Maven», haz clic.
 
