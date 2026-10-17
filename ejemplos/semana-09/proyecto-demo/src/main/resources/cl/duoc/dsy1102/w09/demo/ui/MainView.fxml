@@ -9,8 +9,8 @@
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="cl.duoc.dsy1102.w09.demo.ui.MainController">
     <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-    <Label text="Registro de mascota"/>
-    <TextField fx:id="nombreField" promptText="Nombre de la mascota"/>
+    <Label text="Registro de vehículo disponible"/>
+    <TextField fx:id="patenteField" promptText="Patente del vehículo"/>
     <Button text="Registrar" onAction="#registrar"/>
     <Label fx:id="resultadoLabel" text="Completa el formulario"/>
 </VBox>

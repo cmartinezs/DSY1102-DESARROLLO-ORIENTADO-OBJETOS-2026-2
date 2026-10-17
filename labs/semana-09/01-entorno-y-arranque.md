@@ -154,7 +154,7 @@ mvn clean javafx:run
 
 ### Paso 6. Haz un cambio pequeño y verifica
 
-1. En `MainApp.java`, cambia el título a `Veterinaria - Semana 09`.
+1. En `MainApp.java`, cambia el título a `Rent-a-Car - Semana 09`.
 2. Guarda.
 3. Ejecuta nuevamente `mvn javafx:run`.
 4. Comprueba que la ventana tenga el **nuevo título**.
