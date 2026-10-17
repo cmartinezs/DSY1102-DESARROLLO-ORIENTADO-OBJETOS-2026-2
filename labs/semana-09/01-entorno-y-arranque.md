@@ -38,7 +38,7 @@ mvn -version
 ### Paso 3. Revisa o crea `pom.xml`
 
 1. En el explorador de archivos del IDE, busca `pom.xml` **en la raíz del proyecto**.
-2. Si no existe, crea un archivo con ese nombre.
+2. Si no existe, crea un archivo con ese patente.
 3. Para el proyecto inicial, pega este contenido. Si ya tienes un `pom.xml` que funciona, no lo reemplaces sin revisar: comprueba que tenga JavaFX Controls, JavaFX FXML, el plugin JavaFX y `mainClass` correcto.
 
 ```xml
@@ -87,7 +87,7 @@ mvn -version
 </project>
 ```
 
-**¿Qué significa?** `dependencies` declara las bibliotecas; `maven.compiler.release` fija Java 21; `javafx-maven-plugin` permite lanzar la aplicación; `mainClass` debe coincidir exactamente con el paquete y nombre de tu clase de arranque.
+**¿Qué significa?** `dependencies` declara las bibliotecas; `maven.compiler.release` fija Java 21; `javafx-maven-plugin` permite lanzar la aplicación; `mainClass` debe coincidir exactamente con el paquete y patente de tu clase de arranque.
 
 **Comprueba:** guarda el archivo y espera a que el IDE cargue Maven. Si aparece «Reload Maven», haz clic.
 
@@ -154,7 +154,7 @@ mvn clean javafx:run
 
 ### Paso 6. Haz un cambio pequeño y verifica
 
-1. En `MainApp.java`, cambia el título a `Veterinaria - Semana 09`.
+1. En `MainApp.java`, cambia el título a `Rent-a-Car - Semana 09`.
 2. Guarda.
 3. Ejecuta nuevamente `mvn javafx:run`.
 4. Comprueba que la ventana tenga el **nuevo título**.
