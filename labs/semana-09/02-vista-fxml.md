@@ -28,7 +28,7 @@ src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
 
 1. Inicia Scene Builder.
 2. Usa **File → Open** y selecciona tu `MainView.fxml`.
-3. Si está completamente vacío y Scene Builder no lo abre, crea una nueva vista en Scene Builder con **File → New**, elige **VBox** como raíz y guárdala **en esa misma ruta**, con el mismo patente.
+3. Si está completamente vacío y Scene Builder no lo abre, crea una nueva vista en Scene Builder con **File → New**, elige **VBox** como raíz y guárdala **en esa misma ruta**, con el mismo nombre.
 4. Debes visualizar el área de diseño, el árbol **Hierarchy** y el panel **Inspector**.
 
 **Si Scene Builder no está instalado o el archivo no abre:** puedes pegar el FXML mínimo del paso 5 desde tu IDE, guardarlo y reabrirlo en Scene Builder. No bloquees todo el laboratorio por el editor visual.
@@ -38,7 +38,7 @@ src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml
 1. En **Library**, busca `VBox`. Si aún no es el contenedor principal, colócalo como raíz.
 2. Selecciona VBox. En **Layout**, configura `Spacing = 12` y una separación interna (**Padding**) de `16` en los cuatro lados; centra el contenido con `Alignment = CENTER`.
 3. Arrastra un **Label** dentro de VBox. En **Properties → Text**, escribe `Registro de vehículo disponible`.
-4. Debajo agrega un **TextField**. En **Properties → Prompt Text**, escribe `Patente de la vehículo`.
+4. Debajo agrega un **TextField**. En **Properties → Prompt Text**, escribe `Patente de el vehículo`.
 5. Debajo agrega un **Button**. En **Properties → Text**, escribe `Registrar`.
 6. Debajo agrega un segundo **Label**. En **Properties → Text**, escribe `Completa el formulario`.
 7. En **Hierarchy**, comprueba el orden: `Label → TextField → Button → Label`. Si un control quedó fuera de VBox, muévelo al interior.
@@ -77,7 +77,7 @@ Guarda (`Ctrl+S`) y abre el archivo desde el IDE. Tu resultado debe ser equivale
         <Insets top="16" right="16" bottom="16" left="16"/>
     </padding>
     <Label text="Registro de vehículo disponible"/>
-    <TextField fx:id="patenteField" promptText="Patente de la vehículo"/>
+    <TextField fx:id="patenteField" promptText="Patente de el vehículo"/>
     <Button text="Registrar"/>
     <Label fx:id="resultadoLabel" text="Completa el formulario"/>
 </VBox>
