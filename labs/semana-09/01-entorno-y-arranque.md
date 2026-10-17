@@ -1,206 +1,124 @@
-# 01 · Crear el proyecto Rent-a-Car desde cero con IntelliJ IDEA
+# 01 · Crear Rent-a-Car desde cero con el generador JavaFX de IntelliJ
 
-[← Volver al índice](README.md) · [Siguiente: diseñar FXML →](02-vista-fxml.md)
+[← Índice](README.md) · [02 · Diseñar el formulario →](02-vista-fxml.md)
 
-## Nuestro punto de partida
+## Punto de partida
 
-**Hoy no existe ningún proyecto.** Vas a abrir **IntelliJ IDEA** y crear **RentACarJavaFX** desde cero. No debes descargar, copiar ni reutilizar otro proyecto del curso. Vamos a aprender a crear una aplicación JavaFX con Maven desde su primera carpeta.
+**No tienes un proyecto todavía.** IntelliJ IDEA está instalado. Hoy vamos a crear una aplicación JavaFX desde **New Project**, comprobar que funciona y recién después modificarla.
 
-**Meta de esta etapa:** crear el proyecto, configurarlo y abrir una ventana que diga «¡JavaFX funciona!». Si aparece un error, no continúes al siguiente paso sin resolverlo.
+**Por qué importa:** el asistente JavaFX de IntelliJ prepara las bibliotecas y un proyecto demostrativo ejecutable. No tiene sentido construir manualmente todo eso si el IDE ya sabe hacerlo.
 
-## Paso 1 · Abre IntelliJ IDEA
+### Paso 1 · Comprueba el complemento JavaFX
 
 1. Abre **IntelliJ IDEA**.
-2. Si aparece la pantalla de bienvenida, haz clic en **New Project**.
-3. Si se abrió un proyecto anterior, selecciona **File → New → Project…**. **No** uses «New Module» dentro del proyecto anterior.
-4. En la ventana **New Project**, selecciona **Java** (para crear un proyecto Java normal; agregaremos JavaFX por Maven).
-5. En el campo **Name**, escribe exactamente `RentACarJavaFX`.
-6. En **Location**, elige una carpeta de trabajo propia donde puedas encontrar después el proyecto (por ejemplo, `Documentos/DSY1102`). IntelliJ creará la carpeta del proyecto dentro de esa ubicación según la vista de tu versión. **Comprueba la ruta final antes de crear**.
-7. En **Build system**, selecciona **Maven** (no IntelliJ, Gradle ni Ant).
-8. En **JDK**, elige **Java 21**. Si no aparece, utiliza **Download JDK**, selecciona la versión **21**, elige un proveedor disponible y confirma la descarga. Vuelve al diálogo y comprueba que ahora se vea JDK 21.
-9. Si IntelliJ muestra casillas para generar código de ejemplo, puedes dejarlas desmarcadas; crearemos nuestra propia clase.
-10. Haz clic en **Create**.
+2. Si estás en un proyecto abierto, entra a **File → Settings** (en macOS, **IntelliJ IDEA → Settings**). También puedes usar `Ctrl+Alt+S` en Windows.
+3. En el menú izquierdo, haz clic en **Plugins**.
+4. Abre la pestaña **Installed**.
+5. Busca **JavaFX** y comprueba que esté **Enabled**.
+6. Si aparece deshabilitado, habilítalo y reinicia IntelliJ cuando te lo solicite.
 
-**Deberías ver:** una nueva ventana de IntelliJ cuyo proyecto se llama **RentACarJavaFX**, con `pom.xml` en la raíz y la carpeta `src` (o con el proyecto Maven recién creado listo para agregarla).
+**¿Qué deberías comprobar?** Al crear un proyecto aparece la opción **JavaFX** bajo **Generators**. Si ya la ves, el complemento está disponible.
 
-**Si no encuentras Build system:** revisa que hayas seleccionado la plantilla **Java**, no «Empty Project». Los nombres o la distribución visual pueden cambiar entre versiones de IntelliJ; lo fundamental es **Java + Maven + JDK 21**.
+### Paso 2 · Abre el asistente correcto
 
-## Paso 2 · Reconoce tu proyecto antes de programar
+1. Si estás en la pantalla de bienvenida, presiona **New Project**.
+2. Si tienes otro proyecto abierto, usa **File → New → Project…**.
+3. En la columna izquierda, **NO selecciones Java**.
+4. Baja a la sección **Generators** y haz clic en **JavaFX** (el elemento con su propio ícono).
 
-1. A la izquierda abre el panel **Project** (atajo habitual: `Alt+1` en Windows).
-2. En el selector de vista del panel, utiliza **Project** para ver las carpetas reales.
-3. Expande `RentACarJavaFX`.
-4. Identifica `pom.xml`: es el archivo que configura Maven y las bibliotecas.
-5. Identifica `src/main/java`: aquí vivirá nuestro código Java.
-6. Identifica `src/main/resources`: aquí guardaremos FXML en la etapa 02.
-7. Si no aparecen esas carpetas, créalas desde la raíz del proyecto con clic derecho **New → Directory** siguiendo el orden `src`, `main`, `java` y `resources`. En IntelliJ, `java` debe quedar marcado como **Sources Root** y `resources` como **Resources Root**; si no lo están, usa clic derecho sobre la carpeta → **Mark Directory as** → opción correspondiente.
+**Checkpoint:** en el formulario de la derecha ves campos como **Name**, **Location**, **Language**, **Build system**, **Group**, **Artifact** y **JDK**.
 
-```text
-RentACarJavaFX/
-├── pom.xml
-└── src/
-    └── main/
-        ├── java/
-        └── resources/
-```
+### Paso 3 · Completa cada campo
 
-**Checkpoint corto:** tienes un proyecto **nuevo**, no anidado dentro de otro, y sabes dónde está `pom.xml`.
+Usa estos valores. En algunas versiones el asistente coloca valores de ejemplo que debes reemplazar.
 
-## Paso 3 · Configura Maven y JavaFX
+| Campo de IntelliJ | Valor para este laboratorio |
+|---|---|
+| **Name** | `RentACarJavaFX` |
+| **Location** | Una carpeta de tu elección donde guardarás el proyecto (verifica la ruta final debajo del campo) |
+| **Language** | **Java** |
+| **Build system** | **Maven** |
+| **Group** | `cl.duoc.dsy1102.w09.demo` |
+| **Artifact** | `rentacar-javafx` |
+| **JDK** | **21** |
 
-1. En el panel **Project**, haz doble clic en `pom.xml`.
-2. Selecciona todo el contenido con `Ctrl+A` y reemplázalo por **este archivo completo**:
+1. Escribe `RentACarJavaFX` en **Name**.
+2. Elige la carpeta de destino en **Location**. Debajo de ese campo IntelliJ indica dónde quedará guardado; verifica que corresponda.
+3. Selecciona **Java** en **Language**.
+4. Selecciona **Maven** en **Build system**.
+5. Escribe el **Group** y **Artifact** de la tabla.
+6. En **JDK** selecciona una instalación de **Java 21**. Si únicamente ves 17, 27 u otra versión, abre el desplegable y utiliza **Download JDK** → versión **21**; confirma la descarga. No uses JDK 27 solo porque venga seleccionado automáticamente.
+7. Puedes activar **Create Git repository** si ya quieres registrar cambios; **no es obligatorio** para ejecutar el laboratorio.
+8. Presiona **Next**, no **Create**, cuando el asistente ofrezca un siguiente paso.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+**¿El botón Next no aparece?** Comprueba que seleccionaste **JavaFX** en Generators, no Java. Algunas pantallas requieren desplazarse hasta el pie del diálogo.
 
-    <groupId>cl.duoc.dsy1102</groupId>
-    <artifactId>rentacar-javafx</artifactId>
-    <version>1.0.0</version>
+### Paso 4 · Selecciona las bibliotecas
 
-    <properties>
-        <maven.compiler.release>21</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <javafx.version>21.0.8</javafx.version>
-    </properties>
+1. En la pantalla de características/bibliotecas, busca **FXML** y asegúrate de incluirlo, si el asistente lo presenta como opción.
+2. Mantén los componentes JavaFX básicos seleccionados por defecto, incluyendo **Controls** cuando aparezca.
+3. No necesitas elegir tecnologías adicionales para este laboratorio.
+4. Haz clic en **Create**.
+5. Si IntelliJ pregunta dónde abrirlo, elige abrirlo en una nueva ventana cuando quieras mantener separado un proyecto anterior.
+6. Espera a que termine la importación **Maven**. La primera apertura puede descargar dependencias y demorar un poco.
 
-    <dependencies>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-    </dependencies>
+**Checkpoint:** a la izquierda se ve el proyecto **RentACarJavaFX**. Si no aparece el panel, abre **View → Tool Windows → Project** (en Windows suele ser `Alt+1`).
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version>
-                <configuration>
-                    <mainClass>cl.duoc.dsy1102.w09.demo.MainApp</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
+### Paso 5 · Reconoce lo que creó IntelliJ
 
-3. Guarda con `Ctrl+S`.
-4. IntelliJ puede mostrar **Load Maven Changes** o un ícono para sincronizar Maven: haz clic. Si no aparece, abre el panel **Maven** de la derecha y pulsa **Reload All Maven Projects**.
-5. Espera a que termine la sincronización y las descargas. La primera vez necesitas internet.
-
-**¿Por qué hacemos esto?** Maven descargará JavaFX por ti. **No debes instalar JavaFX SDK manualmente ni configurar VM options** para este laboratorio. En IntelliJ puedes utilizar su Maven integrado: **no hace falta instalar el comando `mvn` por separado**.
-
-**Si ves las dependencias en rojo:** comprueba internet y que Maven haya completado el proceso; vuelve a sincronizar. **Si sale «invalid target release: 21»:** entra a **File → Project Structure → Project** y confirma SDK 21; luego revisa **Settings → Build, Execution, Deployment → Build Tools → Maven → Runner**, seleccionando JDK 21 para Maven.
-
-## Paso 4 · Crea el paquete Java
-
-1. En el panel **Project**, ubica `src/main/java`.
-2. Haz **clic derecho en `java` → New → Package**.
-3. Escribe exactamente:
-
-```text
-cl.duoc.dsy1102.w09.demo
-```
-
-4. Presiona Enter. IntelliJ mostrará el paquete, a veces como un solo nombre con puntos y otras como carpetas anidadas. Ambas vistas son normales.
-5. Haz clic derecho sobre ese paquete → **New → Java Class**.
-6. Escribe `MainApp` (sin `.java`) y presiona Enter.
-7. Confirma que IntelliJ haya creado `MainApp.java` **dentro** del paquete elegido.
-
-## Paso 5 · Escribe tu primera ventana
-
-Reemplaza el contenido de `MainApp.java` por lo siguiente:
+1. En el panel **Project**, expande `src/main/java`.
+2. Busca la clase de arranque, habitualmente **HelloApplication.java**.
+3. Busca **HelloController.java** junto a esa clase (o en su paquete).
+4. Expande `src/main/resources` y busca **hello-view.fxml** en el paquete de recursos.
+5. En la raíz comprueba la existencia de `pom.xml`.
+6. Puede existir **module-info.java** bajo `src/main/java`: **no lo borres**.
+7. Abre `HelloApplication.java` y mira su primera línea, por ejemplo:
 
 ```java
 package cl.duoc.dsy1102.w09.demo;
-
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
-public class MainApp extends Application {
-    @Override
-    public void start(Stage stage) {
-        VBox contenido = new VBox(new Label("¡JavaFX funciona!"));
-        Scene scene = new Scene(contenido, 440, 240);
-        stage.setTitle("Mi primera ventana Rent-a-Car");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-}
 ```
 
-**Observa:** `MainApp` es el punto de inicio. `Stage` es la ventana, `Scene` su contenido, `VBox` organiza controles y `Label` muestra texto. Aún no usamos FXML: primero confirmamos que JavaFX abre.
+**Guarda ese nombre de paquete:** es el que usaremos en la etapa 03. Si tu asistente creó otro paquete, **usa el que realmente aparece en tu archivo**, no inventes otro.
 
-**Comprueba:** los imports `javafx...` ya no aparecen en rojo; si aparecen, revisa el paso 3 y la sincronización Maven.
+**¡Muy importante!** No reemplaces `pom.xml`, no agregues otra clase `Application`, no cambies `module-info.java` y no descargues un proyecto de ejemplo externo: IntelliJ ya generó una aplicación configurada.
 
-## Paso 6 · Ejecuta desde IntelliJ, sin depender de una terminal externa
+**¿El asistente creó otros nombres?** Usa los nombres reales que aparecen en tu proyecto y ubica las tres funciones equivalentes: clase que extiende `Application`, clase controller y archivo FXML. Si falta controller o FXML, vuelve al paso 4 y confirma que elegiste soporte FXML.
 
-1. Abre el panel **Maven** de IntelliJ: normalmente está en el borde derecho, o desde **View → Tool Windows → Maven**.
-2. Expande tu proyecto `RentACarJavaFX`.
-3. Busca **Plugins**. Expándelo.
-4. Busca `javafx` (o `javafx-maven-plugin`) y ejecuta el objetivo **javafx:run** con doble clic. Si no aparece ese objetivo, haz clic en **Execute Maven Goal** (ícono habitual de Maven con comando) y escribe:
+### Paso 6 · Ejecuta el proyecto generado SIN modificarlo
 
-```text
-clean javafx:run
-```
+1. Haz doble clic en `HelloApplication.java`.
+2. Busca el ícono de ejecución **verde** a la izquierda del método `main` (o junto a la clase).
+3. Haz clic en el ícono y selecciona **Run 'HelloApplication.main()'**.
+4. Espera la compilación y la descarga inicial de bibliotecas.
+5. **Resultado esperado:** aparece una ventana del ejemplo JavaFX generado por IntelliJ. Generalmente muestra un botón **Hello!**.
+6. Haz clic en el botón y verifica que el ejemplo reacciona según el código generado.
+7. Cierra la ventana.
 
-5. Ejecuta el objetivo. Deberías ver el registro de Maven en el panel de ejecución.
-6. **Resultado esperado:** se abre una ventana titulada «Mi primera ventana Rent-a-Car» con el texto **¡JavaFX funciona!**.
+**¡Bien!** Ya tienes una aplicación JavaFX funcionando, **antes de escribir nuestro formulario**.
 
-**Importante:** no uses por ahora el botón verde de ejecutar el método `main`; el objetivo de Maven configura automáticamente el lanzamiento JavaFX y evita errores de runtime.
+**¿No aparece el ícono verde?** Comprueba que importó Maven y que IntelliJ reconoce JDK 21. También puedes ejecutar el objetivo **javafx:run** en **View → Tool Windows → Maven → Plugins → javafx** si el proyecto generado lo ofrece.
 
-### Si no funciona
+### Paso 7 · Solución de bloqueos frecuentes
 
-- **«No goals have been specified» / no aparece el plugin:** verifica que `pom.xml` tenga el bloque `javafx-maven-plugin` y recarga Maven.
-- **«Cannot resolve symbol javafx»:** faltó sincronizar dependencias. Vuelve al paso 3.
-- **«release version 21 not supported»:** revisa Project SDK y Maven Runner JDK 21.
-- **«Could not resolve dependencies»:** verifica tu conexión y que Maven terminó de descargar.
-- **La ventana no abre y hay otro error:** lee desde la primera línea relevante de error en la salida de Maven; anota el mensaje exacto antes de cambiar el código.
-
-## Paso 7 · Comprueba que modificas tu propio proyecto
-
-1. Cambia en `MainApp.java` el título a `Rent-a-Car - Semana 09`.
-2. Guarda.
-3. Cierra la ventana anterior si continúa abierta.
-4. Ejecuta nuevamente **javafx:run** desde el panel Maven.
-5. **Debes ver el título nuevo**.
+- **No aparece JavaFX en Generators:** verifica **Settings → Plugins → Installed → JavaFX** y habilita el complemento.
+- **Solo aparece JDK 27 en la lista:** selecciona **Download JDK → 21** en el desplegable.
+- **Maven está descargando bibliotecas:** espera; no cierres IntelliJ.
+- **Cannot resolve symbol javafx:** espera la importación, abre el panel **Maven** y haz clic en **Reload All Maven Projects**.
+- **release version 21 not supported:** entra a **File → Project Structure → Project**, selecciona SDK 21 y confirma en Maven Runner que también se utilice JDK 21.
+- **No existe HelloController o hello-view.fxml:** confirma que en el paso 4 se eligió **FXML**. Si el asistente ofreció una plantilla diferente, consulta al docente antes de continuar.
+- **Error de JavaFX runtime:** utiliza la configuración Run generada por IntelliJ o el objetivo Maven `javafx:run`; no intentes resolverlo agregando VM options sin comprender la configuración existente.
 
 ## ✅ Checkpoint obligatorio
 
-- [ ] Creé **RentACarJavaFX** desde cero con **IntelliJ IDEA**.
-- [ ] Seleccioné **Maven** y **JDK 21**.
-- [ ] Veo `pom.xml`, `src/main/java` y `src/main/resources`.
-- [ ] Creé el paquete `cl.duoc.dsy1102.w09.demo` desde IntelliJ.
-- [ ] Creé `MainApp.java` dentro del paquete.
-- [ ] Ejecuté el objetivo Maven **javafx:run** desde IntelliJ.
-- [ ] Abrí una ventana JavaFX y comprobé que cambió su título.
+- [ ] Abrí **Generators → JavaFX** en IntelliJ.
+- [ ] Creé un proyecto **nuevo** con Java, Maven y JDK 21.
+- [ ] Seleccioné FXML si se ofrecía en el asistente.
+- [ ] Encontré `pom.xml`, el archivo `Application` y la vista FXML generada.
+- [ ] Ejecuté **Run 'HelloApplication.main()'**.
+- [ ] Vi la ventana inicial del ejemplo y pude cerrarla.
 
-**¿No se cumple algún punto?** Repite solo el paso correspondiente. No avances aún al FXML.
+**No avances a la etapa 02 si no puedes ejecutar primero el ejemplo generado.**
 
-**Nota sobre Git:** si trabajas con Git, puedes activar el versionado desde **VCS → Enable Version Control Integration → Git**, cuando esa opción esté disponible, o mediante `git init` en la raíz del proyecto. Antes de compartir, configura `.gitignore` para excluir `.idea/` y `target/`. Los commits se abordarán al cerrar las etapas; Git no es requisito para abrir la primera ventana.
+**Siguiente:** [02 · Convertir el formulario a Rent-a-Car](02-vista-fxml.md).
 
-**Siguiente:** [02 · Crear el formulario FXML](02-vista-fxml.md).
+**Referencia consultada:** [Documentación oficial IntelliJ IDEA: Crear un proyecto JavaFX](https://www.jetbrains.com/help/idea/javafx.html).
