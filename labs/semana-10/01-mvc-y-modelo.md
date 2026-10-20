@@ -1,80 +1,64 @@
-# 01 · Reorganizar Rent-a-Car con MVC
+# Etapa 01 · Proyecto nuevo, modelo y repositorio MVC
 
-> **Punto de partida obligatorio:** completa [semana 09](../semana-09/README.md). Trabaja sobre **ese proyecto** en IntelliJ IDEA, no sobre otro ejemplo. Conserva el `pom.xml`, paquete base y `module-info.java` (si existe) que generó tu asistente JavaFX.
+## 1. Crear desde cero
+1. Abre **IntelliJ IDEA → New Project → JavaFX** (habilita el plugin JavaFX si no aparece).
+2. Nombre: **ReservaRecintosFX**; lenguaje **Java**; build system **Maven**; **JDK 21**. No selecciones bibliotecas extra (FormsFX no es FXML).
+3. Crea el proyecto, espera Maven y ejecuta **HelloApplication** sin modificar archivos.
+4. En el explorador **Project**, identifica `src/main/java`, `src/main/resources`, `pom.xml` y `module-info.java` (si existe).
 
-## Paso 1. Comprobar la versión funcional
-1. En IntelliJ, abre el proyecto Rent-a-Car de la semana anterior.
-2. Desde la ventana **Project**, localiza `src/main/java` y `src/main/resources`.
-3. Ejecuta la aplicación con el botón Run, igual que en semana 09.
-4. Prueba `ABCD12` y la patente vacía: registra qué sucede.
-5. Haz un commit de checkpoint antes de reestructurar: `git add . && git commit -m "checkpoint: semana 09 funcional"`.
+**Checkpoint A:** la ventana de ejemplo abre. No avances si falla.
 
-**Checkpoint:** la aplicación abre y ejecuta antes de editar. Si falla, termina primero las pruebas de semana 09.
+## 2. Establecer paquetes
+En esta guía se usa `cl.duoc.recintos` como package de ejemplo. El asistente puede crear otro; usa tu package **real** de manera consistente, sin duplicar Application. Dentro de `src/main/java/<paquete-base>` crea los paquetes `model`, `repository` y `controller`. Los archivos FXML quedarán junto al `hello-view.fxml` generado dentro de resources.
 
-## Paso 2. Identificar piezas MVC
-En el explorador del proyecto, señala:
-- **Modelo:** `Vehiculo`, que representa patente (y luego marca), sin usar controles JavaFX.
-- **Vista:** archivo FXML con etiquetas, campos y botones.
-- **Controlador:** la clase con los métodos `@FXML`, responsable de reaccionar a eventos de usuario.
-- **Repositorio:** objeto único que administra la colección en memoria. No se trata de una base de datos.
-
-En tu cuaderno, justifica por qué `Vehiculo` no debe abrir ventanas ni mostrar `Alert`.
-
-## Paso 3. Completar el modelo
-Abre la clase `Vehiculo` existente (o créala si el ejercicio anterior no la tenía) y agrega `marca`. Mantén el mismo package que ya estás usando; el ejemplo siguiente omite `package`:
+## 3. Modelo
+Crea `model/Reserva.java`:
 
 ```java
-public class Vehiculo {
-    private final String patente;
-    private final String marca;
+package cl.duoc.recintos.model;
 
-    public Vehiculo(String patente, String marca) {
-        this.patente = patente;
-        this.marca = marca;
+public final class Reserva {
+    private final String responsable;
+    private final String recinto;
+    private final String hora;
+
+    public Reserva(String responsable, String recinto, String hora) {
+        this.responsable = responsable;
+        this.recinto = recinto;
+        this.hora = hora;
     }
-    public String getPatente() { return patente; }
-    public String getMarca() { return marca; }
+
+    public String getResponsable() { return responsable; }
+    public String getRecinto() { return recinto; }
+    public String getHora() { return hora; }
 }
 ```
 
-Ajusta referencias anteriores al constructor: ahora recibe dos parámetros.
-
-**Checkpoint:** IntelliJ resuelve `Vehiculo` y sus getters sin errores. No borres importaciones ni clases generadas automáticamente si todavía son necesarias.
-
-## Paso 4. Crear repositorio compartido
-1. Haz clic derecho sobre tu package base > **New > Package** > `repository` (si ya existe, reutilízalo).
-2. Crea la clase `VehiculoRepository` dentro de él.
-3. Copia el contrato mostrado a continuación y añade el `import` de tu clase `Vehiculo` según el paquete real:
+## 4. Repositorio en memoria
+Crea `repository/ReservaRepository.java`:
 
 ```java
+package cl.duoc.recintos.repository;
+
+import cl.duoc.recintos.model.Reserva;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public final class VehiculoRepository {
-    private final ObservableList<Vehiculo> vehiculos =
-            FXCollections.observableArrayList();
+public final class ReservaRepository {
+    private final ObservableList<Reserva> reservas = FXCollections.observableArrayList();
 
-    public ObservableList<Vehiculo> obtenerTodos() { return vehiculos; }
+    public ObservableList<Reserva> obtenerTodas() { return reservas; }
 
-    public boolean existePatente(String patente) {
-        String buscada = patente.trim();
-        return vehiculos.stream().anyMatch(
-                v -> v.getPatente().equalsIgnoreCase(buscada));
+    public boolean estaOcupado(String recinto, String hora) {
+        return reservas.stream().anyMatch(r ->
+                r.getRecinto().equalsIgnoreCase(recinto.trim())
+                && r.getHora().equals(hora));
     }
 
-    public void registrar(Vehiculo vehiculo) { vehiculos.add(vehiculo); }
+    public void registrar(Reserva reserva) { reservas.add(reserva); }
 }
 ```
 
-**Checkpoint:** compila y puedes razonar por qué `new VehiculoRepository()` en **ambos** controladores crearía dos listas distintas.
+**Checkpoint B:** ambos archivos compilan. Explica: `Reserva` representa datos; `ReservaRepository` administra una colección observable; ninguno debe abrir ventanas. No instancies repositorios distintos por controlador.
 
-## Paso 5. Dibujar el flujo antes de implementar
-```text
-Formulario FXML -> FormController -> valida -> VehiculoRepository
-                                                |
-Listado FXML    <- ListaController <- ObservableList<Vehiculo>
-```
-
-Responde: ¿Dónde ocurre la interacción? ¿Quién es dueño de la lista? ¿Quién comprueba duplicados?
-
-[Continuar: TableView](02-tableview-observablelist.md)
+[Continuar a etapa 02](02-tableview-observablelist.md)
