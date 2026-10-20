@@ -10,7 +10,7 @@
 | 2.3.4 | campos requeridos, filtros, listeners/bindings, feedback | Mínimo: validar antes de guardar y mostrar error; validación reactiva como extensión |
 | 2.3.5 | guía **paso a paso** GestorEstudiantesFX, Maven/IntelliJ | Recurso institucional complementario, no sustituto del contexto Reserva de recintos deportivos |
 | 2.3.6 | **ejercicios no resueltos**, análisis/diseño de GestorEstudiantesFX | Trabajo autónomo / consolidación |
-| Semana 09 GitHub | proyecto desde cero con generador JavaFX de IntelliJ, Reserva de recintos deportivos, Reserva | Antecedentes conceptuales, sin dependencia de artefactos |
+| Semana 09 GitHub | Laboratorio Rent-a-Car independiente con generador JavaFX de IntelliJ | Antecedentes conceptuales, NO se reutilizan artefactos |
 
 ## Discrepancias conocidas
 - 2.3.5 y 2.3.6 muestran **2.2.7** y **2.2.8** respectivamente en la tabla interna; referenciar por código de portada y catálogo, sin adulterar el original.
@@ -20,7 +20,7 @@
 
 ## Publicación y trazabilidad
 Drive Material publico: conservar originales y resumen + enlace al repositorio.
-Repositorio: índices, materiales del curso y continuidad técnica.
+Repositorio: índices y materiales del curso; laboratorios independientes, PetCare longitudinal.
 Web canónica: enlazar los enunciados prácticos desde el portal cuando estén incorporados. **No afirmar que la web ya está sincronizada sin comprobarlo**.
 Privado sección: planificación, revisión de formas y bitácora efectiva.
 
