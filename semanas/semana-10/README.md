@@ -24,6 +24,8 @@ Semana 09: generador JavaFX de IntelliJ, FXML, controladores y eventos mediante 
 
 **Nota de conciliación:** las portadas dicen 2.3.5 y 2.3.6, pero dentro de las tablas aparecen 2.2.7 y 2.2.8. Para indexación se conserva la numeración oficial 2.3.5/2.3.6; los archivos fuente permanecen sin modificar. La guía institucional usa estudiantes y el laboratorio propio usa vehículos para dar continuidad a semana 09.
 
+**Originales preservados:** [carpeta pública de Drive (seis recursos institucionales)](https://drive.google.com/drive/folders/1wH867aYEBITf8xpVf9kSTZOFSuWTajeq). Los documentos propios del curso son complementarios; las discrepancias de números interiores de las guías se consignan en la conciliación.
+
 ## Material del curso
 - [Laboratorio integrador](../../labs/semana-10/README.md)
 - [Actividades de aplicación y verificación](../../labs/semana-10/02-actividades-y-pruebas.md)
