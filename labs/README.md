@@ -15,6 +15,7 @@ Laboratorios guiados e integradores, organizados por semana curricular y alinead
 | [Semana 07](./semana-07/) | Veterinaria III · abstracción, interfaz e integración EA1 | ✅ Guía de recuperación disponible |
 | [Semana 08](./semana-08/) | Veterinaria IV · Set, Map, identidad y consistencia | ✅ Guía de recuperación disponible |
 | [Semana 09](./semana-09/) | Primera interfaz funcional JavaFX / FXML | ✅ Disponible |
+| [Semana 10](./semana-10/) | Rent-a-Car MVC · tabla, navegación y validación | ✅ Documentado |
 
 ## Regla canónica
 
