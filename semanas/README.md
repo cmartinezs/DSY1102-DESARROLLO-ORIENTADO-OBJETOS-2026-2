@@ -15,7 +15,7 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | **07** | 21–26 septiembre 2026 | Integración EA1 · clases abstractas, interfaces y reforzamiento | ✅ Consolidada | [Abrir Semana 07](semana-07/) |
 | **08** | 28 septiembre–3 octubre 2026 | `Set`, `Map`, elección de colecciones y cierre EA1 / EP1 | ✅ Consolidada | [Abrir Semana 08](semana-08/) |
 | **09** | 5–10 octubre 2026 | Maven, JavaFX, escenas, FXML, Controller, UI y eventos · EA2 | ✅ Disponible | [Abrir Semana 09](semana-09/) |
-| 10 | 12–17 octubre 2026 | Consolidación JavaFX/MVC; persistencia según avance y coordinación | 🔒 Próximamente | Próximamente |
+| **10** | 12–17 octubre 2026 | MVC, TableView/ObservableList, navegación y validación · EA2 | ✅ Documentada | [Abrir Semana 10](semana-10/) |
 | 11 | 19–24 octubre 2026 | JavaFX MVC + persistencia · EF2 | 🔒 Próximamente | Próximamente |
 | 12 | 26–31 octubre 2026 | EP2 · JavaFX + MVC + DAO | 🔒 Próximamente | Próximamente |
 | 13 | 2–7 noviembre 2026 | JDBC, CRUD y sentencias parametrizadas | 🔒 Próximamente | Próximamente |
@@ -24,4 +24,6 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | 16 | 23–28 noviembre 2026 | EP3 · Componente con BD relacional | 🔒 Próximamente | Próximamente |
 | 17–18 | 30 noviembre–12 diciembre 2026 | EFT · Defensa técnica | 🔒 Próximamente | Próximamente |
 
-> Conciliación al 10 de octubre de 2026: EA1 se extendió. Semana 08 consolidó `Set`/`Map` y cierre EA1. Coordinación redefinió Semana 09 como entrada a Maven y JavaFX (escenas, ciclo de vida, Scene Builder, FXML, Controller y eventos). Las fechas de evaluaciones y el alcance de semanas 10–11 se sujetan al cronograma institucional vigente y al avance real de aula.
+> Conciliación original al 10 de octubre de 2026: EA1 se extendió. Semana 08 consolidó `Set`/`Map` y cierre EA1. Coordinación redefinió Semana 09 como entrada a Maven y JavaFX (escenas, ciclo de vida, Scene Builder, FXML, Controller y eventos). Las fechas de evaluaciones y el alcance de semanas 10–11 se sujetan al cronograma institucional vigente y al avance real de aula.
+
+> Actualización al 20 de octubre de 2026: semana 10 ajustada según orientaciones de coordinación (12–17 octubre): MVC, TableView, ObservableList, navegación y validación. Persistencia en archivo **no** se introduce como obligación adicional de esta semana.
