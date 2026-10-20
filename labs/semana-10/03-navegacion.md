@@ -1,19 +1,20 @@
-# 03 · Navegar entre listado y formulario
+# Etapa 03 · Formulario y navegación entre vistas
 
-## Paso 1. Preparar el formulario
-En `src/main/resources`, crea `form-view.fxml`. Reutiliza la vista de semana 09 adaptando los campos y el botón si lo prefieres, pero mantiene identificadores **exactamente iguales** a los del controlador:
+## 1. Crear `form-view.fxml`
+Guárdalo junto a `lista-view.fxml`, corrigiendo el paquete del controlador si es distinto:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="tu.paquete.controller.FormController"
-      spacing="12" prefWidth="500" prefHeight="320">
+      fx:controller="cl.duoc.recintos.controller.FormController"
+      spacing="12" prefWidth="480" prefHeight="340">
     <children>
-        <Label text="Registrar vehículo"/>
-        <TextField fx:id="campoPatente" promptText="Patente"/>
-        <TextField fx:id="campoMarca" promptText="Marca"/>
+        <Label text="Nueva reserva deportiva"/>
+        <TextField fx:id="campoResponsable" promptText="Responsable"/>
+        <ComboBox fx:id="selectorRecinto" promptText="Selecciona recinto"/>
+        <ComboBox fx:id="selectorHora" promptText="Selecciona horario"/>
         <Label fx:id="mensajeError" text=""/>
         <HBox spacing="8">
             <children>
@@ -25,40 +26,56 @@ En `src/main/resources`, crea `form-view.fxml`. Reutiliza la vista de semana 09 
 </VBox>
 ```
 
-**Checkpoint:** cada `fx:id` coincide con un campo `@FXML` y cada `onAction` con un método del controlador.
-
-## Paso 2. Crear FormController
-Crea `FormController` en el paquete de controladores y agrega los imports/clases de tu paquete:
-
+## 2. Crear `controller/FormController.java`
 ```java
+package cl.duoc.recintos.controller;
+
+import cl.duoc.recintos.model.Reserva;
+import cl.duoc.recintos.repository.ReservaRepository;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class FormController {
-    @FXML private TextField campoPatente;
-    @FXML private TextField campoMarca;
+    @FXML private TextField campoResponsable;
+    @FXML private ComboBox<String> selectorRecinto;
+    @FXML private ComboBox<String> selectorHora;
     @FXML private Label mensajeError;
-    private VehiculoRepository repository;
+    private ReservaRepository repositorio;
     private Runnable volverAlListado;
 
-    public void configurar(VehiculoRepository repository, Runnable volverAlListado) {
-        this.repository = repository;
+    @FXML private void initialize() {
+        selectorRecinto.getItems().addAll(
+                "Cancha fútbol 1", "Cancha fútbol 2", "Gimnasio");
+        for (int h = 8; h < 22; h++) {
+            selectorHora.getItems().add(String.format("%02d:00", h));
+        }
+    }
+
+    public void configurar(ReservaRepository repositorio, Runnable volverAlListado) {
+        this.repositorio = repositorio;
         this.volverAlListado = volverAlListado;
     }
 
     @FXML private void guardar() {
-        String patente = campoPatente.getText().trim();
-        String marca = campoMarca.getText().trim();
+        String responsable = campoResponsable.getText().trim();
+        String recinto = selectorRecinto.getValue();
+        String hora = selectorHora.getValue();
 
-        if (patente.isBlank()) { mensajeError.setText("Ingresa una patente"); return; }
-        if (marca.isBlank()) { mensajeError.setText("Ingresa una marca"); return; }
-        if (repository.existePatente(patente)) {
-            mensajeError.setText("La patente ya está registrada");
+        if (responsable.isBlank()) {
+            mensajeError.setText("Ingresa un responsable");
             return;
         }
-
-        repository.registrar(new Vehiculo(patente, marca));
+        if (recinto == null || hora == null) {
+            mensajeError.setText("Selecciona recinto y horario");
+            return;
+        }
+        if (repositorio.estaOcupado(recinto, hora)) {
+            mensajeError.setText("El recinto ya está reservado a esa hora");
+            return;
+        }
+        repositorio.registrar(new Reserva(responsable, recinto, hora));
         volverAlListado.run();
     }
 
@@ -66,52 +83,74 @@ public class FormController {
 }
 ```
 
-**Checkpoint:** los errores se muestran sin guardar ni cerrar el formulario. Guarda solo datos validados.
-
-## Paso 3. Implementar navegación en la clase Application
-En la clase `Application` **ya generada en semana 09**, conserva el `main` y adapta `start(Stage stage)` para crear **un único** `VehiculoRepository` y compartirlo.
-
-La clase principal necesita campos y métodos como estos, ajustando los recursos a tu ubicación real:
+## 3. Adaptar la clase Application generada
+Reemplaza la **clase HelloApplication existente** por este código, no crees una segunda Application. Ajusta `package` según IntelliJ y comprueba que los FXML estén en el mismo path de resources que `hello-view.fxml`:
 
 ```java
-private final VehiculoRepository repository = new VehiculoRepository();
-private Stage stage;
+package cl.duoc.recintos;
 
-@Override
-public void start(Stage stage) throws Exception {
-    this.stage = stage;
-    mostrarListado();
-    stage.setTitle("Rent-a-Car");
-    stage.show();
-}
+import cl.duoc.recintos.controller.FormController;
+import cl.duoc.recintos.controller.ListaController;
+import cl.duoc.recintos.repository.ReservaRepository;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
-private void mostrarListado() {
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("lista-view.fxml"));
+public class HelloApplication extends Application {
+    private final ReservaRepository repositorio = new ReservaRepository();
+    private Stage stage;
+
+    @Override public void start(Stage stage) throws IOException {
+        this.stage = stage;
+        stage.setTitle("Arriendo de recintos deportivos");
+        mostrarListado();
+        stage.show();
+    }
+
+    private void mostrarListado() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                HelloApplication.class.getResource("lista-view.fxml"));
         Parent root = loader.load();
         ListaController controller = loader.getController();
-        controller.configurar(repository, this::mostrarFormulario);
+        controller.configurar(repositorio, this::irAFormulario);
         stage.setScene(new Scene(root));
-    } catch (IOException ex) {
-        throw new IllegalStateException("No se pudo cargar lista-view.fxml", ex);
     }
-}
 
-private void mostrarFormulario() {
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("form-view.fxml"));
+    private void mostrarFormulario() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                HelloApplication.class.getResource("form-view.fxml"));
         Parent root = loader.load();
         FormController controller = loader.getController();
-        controller.configurar(repository, this::mostrarListado);
+        controller.configurar(repositorio, this::irAListado);
         stage.setScene(new Scene(root));
-    } catch (IOException ex) {
-        throw new IllegalStateException("No se pudo cargar form-view.fxml", ex);
     }
+
+    private void irAFormulario() {
+        try { mostrarFormulario(); }
+        catch (IOException e) { throw new IllegalStateException("Carga formulario", e); }
+    }
+
+    private void irAListado() {
+        try { mostrarListado(); }
+        catch (IOException e) { throw new IllegalStateException("Carga listado", e); }
+    }
+
+    public static void main(String[] args) { launch(args); }
 }
 ```
 
-Imports: `java.io.IOException`, `javafx.fxml.FXMLLoader`, `javafx.scene.Parent`, `javafx.scene.Scene`, `javafx.stage.Stage` y los controladores/repositorio propios. **Crítico:** `getClass().getResource("lista-view.fxml")` es relativo al paquete de la clase Application: si guardaste las vistas en otra carpeta, usa **ruta absoluta de classpath**, por ejemplo `getResource("/tu/paquete/lista-view.fxml")`. Debe existir en `src/main/resources`.
+## 4. Revisar módulo y rutas
+En proyectos **modulares**, si `module-info.java` existe, conserva sus declaraciones generadas y asegúrate de incluir (ajusta el package):
 
-**Checkpoint:** abrir listado → Nuevo vehículo → Volver → Nuevo vehículo, sin excepción y sin perder objetos registrados. Si no funciona, revisa el stacktrace de la causa raíz (`LoadException`, `NullPointerException` o `InaccessibleObjectException`).
+```java
+opens cl.duoc.recintos.controller to javafx.fxml;
+```
 
-[Continuar: pruebas y evidencia](04-verificacion-y-entrega.md)
+Conserva `requires javafx.controls;`, `requires javafx.fxml;` y la apertura/exportación de la clase Application según el generador. Si IntelliJ creó `module-info.java`, **no crees otro**. `getResource("lista-view.fxml")` es relativo al package de `HelloApplication`; cambia a ruta absoluta de classpath si el FXML está en otra carpeta.
+
+**Checkpoint:** abre listado, entra al formulario, guarda una reserva y vuelve. El mismo repositorio conserva filas; al volver sin guardar no se crea nada.
+
+[Continuar a etapa 04](04-verificacion-y-entrega.md)
