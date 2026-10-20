@@ -6,6 +6,15 @@ Partimos del laboratorio [semana 09](../semana-09/README.md) que ya registra pat
 ## Problema
 La empresa necesita registrar **vehículos disponibles** y consultarlos desde una tabla. Habrá dos pantallas: **Listado** y **Registrar**. Debe impedirse crear patentes vacías o duplicadas.
 
+## Ruta guiada por etapas (en este orden)
+
+1. [01 · MVC y modelo: refactorizar Rent-a-Car](01-mvc-y-modelo.md)
+2. [02 · TableView y ObservableList: construir el listado](02-tableview-observablelist.md)
+3. [03 · Navegación y formulario: conectar ambas vistas](03-navegacion.md)
+4. [04 · Verificar, documentar y entregar evidencias](04-verificacion-y-entrega.md)
+
+Cada etapa incluye pasos concretos en IntelliJ, fragmentos de código para adaptar al package generado y checkpoints verificables. El ejemplo de código es orientativo: no reemplaces a ciegas la configuración creada en semana 09.
+
 ## Etapas (comprobar cada una antes de continuar)
 1. **Modelo y responsabilidades.** Conserva `Vehiculo` en `model`; agrega `marca`. Crea `VehiculoRepository` que mantenga una sola `ObservableList<Vehiculo>`. Define cómo accederá a él cada controlador (inyección explícita desde la aplicación o contexto simple). Evita variables globales sueltas.
 2. **Listado.** Agrega `lista-view.fxml` con `TableView<Vehiculo>`, columnas patente y marca, y botón *Nuevo*. Crea `ListaController`. Declara `fx:id` coherentes y usa `PropertyValueFactory` o fábricas de celda explícitas. Asocia **una vez** `tableView.setItems(repository.obtenerTodos())`.
