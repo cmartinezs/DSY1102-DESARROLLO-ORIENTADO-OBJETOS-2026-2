@@ -19,11 +19,14 @@ Una pequeña sala de ensayo administra sus instrumentos. Necesita registrar un *
 
 Lee las etapas **en orden**, desde el generador IntelliJ hasta la prueba de reinicio. Cada etapa explica qué archivo crear, dónde ubicarlo, qué código escribir, cuál debe ser el resultado y cómo diagnosticar fallos habituales. Puedes ejecutar y comprobar antes de pasar a la siguiente. Se usa el paquete de ejemplo `cl.duoc.inventario`; si IntelliJ creó otro, adapta paquetes y `fx:controller` de modo consistente.
 
-## Itinerario
-1. [01 · Nuevo proyecto y separación de responsabilidades](01-proyecto-y-arquitectura.md)
-2. [02 · DAO JSON y carga/guardado](02-dao-json.md)
-3. [03 · Interfaz JavaFX, navegación y persistencia](03-javafx-mvc.md)
-4. [04 · Verificación y trabajo autónomo](04-pruebas.md)
+## Mapa de incrementos — determinados por resultados distintos
+1. [01 · Proyecto inicial y modelo](01-proyecto-y-arquitectura.md) — resultado: JavaFX arranca y el modelo compila.
+2. [02 · DAO JSON](02-dao-json.md) — resultado: leer y guardar sin interfaz, con prueba aislada.
+3. [03 · Service y reglas](03-servicio-y-reglas.md) — resultado: registro válido, duplicado rechazado, persistencia coordinada sin controladores.
+4. [04 · Interfaz MVC y navegación](04-interfaz-y-navegacion.md) — resultado: la tabla, formulario y navegación muestran los cambios.
+5. [05 · Pruebas de reinicio y recuperación](05-pruebas-persistencia.md) — resultado: JSON recuperado después de cerrar, validaciones y falla de archivo controlada.
+
+**Por qué cinco y no cuatro:** validación de negocio en Service y conexión de JavaFX son dos resultados distintos; se prueban por separado antes de la prueba final de persistencia. Cada incremento contiene los pasos que realmente necesita, sin cuota fija.
 
 **Los ejemplos de este lab son elaboración propia del curso**, basados en las orientaciones del coordinador; las guías institucionales 2.4.1–2.4.4 aún no se han recibido.
 
