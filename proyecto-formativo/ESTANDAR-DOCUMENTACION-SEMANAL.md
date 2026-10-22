@@ -21,7 +21,7 @@ semana-XX/
 
 La **ruta numerada es parte del estándar**, no un extra opcional. Cada archivo representa una etapa real del incremento y debe poder trabajarse de forma secuencial.
 
-La cantidad de pasos puede variar según la complejidad semanal: no se fuerza el mismo número de archivos si el contenido no lo necesita.
+La cantidad de **incrementos funcionales** y los **pasos internos** varían según la complejidad semanal: no se fuerza el mismo número de archivos ni de clics. Cada incremento se justifica por un cambio observable en PetCare; dentro de él el acompañamiento puede ser más o menos detallado según la habilidad ya adquirida. Véase [estándar pedagógico DSY1102](../docs/ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md).
 
 ## 1. Ruta numerada
 
@@ -33,7 +33,8 @@ Cada paso debe incluir:
 - contexto mínimo;
 - código focalizado sólo cuando ayuda;
 - tarea que debe ejecutar el estudiante;
-- checkpoint verificable antes de continuar.
+- checkpoint verificable antes de continuar;
+- requisitos/resultado esperado y acciones suficientes para llegar a él sin omitir instrucciones decisivas.
 
 El último paso debe ser siempre una verificación/cierre del incremento.
 
