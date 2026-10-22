@@ -41,7 +41,7 @@ Las tres estructuras pueden coexistir en un mismo sistema cuando cada una resuel
 
 ## Laboratorio complementario
 
-[Veterinaria IV · elegir estructuras y verificar consistencia](../../labs/semana-08/). Continúa el mismo proyecto de Veterinaria II/III y no exige usar las tres colecciones simultáneamente.
+**[Laboratorio autónomo: Control de acceso a feria](../../labs/semana-08/independiente/README.md)**. Proyecto nuevo, con selección justificada de `List`, `Set` o `Map`. **[Veterinaria IV histórica](../../labs/semana-08/HISTORICO-VETERINARIA.md)** queda disponible como alternativa opcional, y solo esa ruta reutiliza Veterinaria II/III.
 
 ## Práctica integradora liberada
 
