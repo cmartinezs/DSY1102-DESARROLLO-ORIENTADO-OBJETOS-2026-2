@@ -2,6 +2,8 @@
 
 Este directorio organiza el contenido de la asignatura semana a semana. El material se libera según la semana curricular vigente; el avance real de aula manda sobre cualquier planificación teórica.
 
+Para diseñar la **práctica de cada semana** se utiliza el [estándar incremental DSY1102](../docs/ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md): primero requerimientos y resultados observables, luego incrementos de cantidad variable, pasos proporcionales a la dificultad y checkpoints verificables. Los laboratorios oficiales no dependen del proyecto de otras semanas; PetCare sí conserva su continuidad.
+
 ## Índice de semanas
 
 | Semana | Periodo | Actividad / contenido | Estado | Contenido consolidado |
