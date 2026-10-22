@@ -1,41 +1,30 @@
-# Lab 04 · Objetos que nacen bien y colaboran
+# Semana 04 · Laboratorio independiente: Pedidos de cafetería
 
-## Propósito
-
-Consolidar constructores, encapsulamiento y responsabilidad de clases mediante un problema integrado de dificultad controlada.
+**DSY1102 · Constructores, estado válido y colaboración entre objetos · Java 21**
 
 ## Caso
+Una pequeña cafetería registra pedidos de sus clientes. Cada `Pedido` tiene código, un `Cliente` y un total; admite aumentar el monto y aplicar descuentos válidos. Un pedido no debe terminar con total negativo. **Sin herencia, interfaces, colecciones, excepciones ni persistencia**: eso corresponde a contenidos futuros.
 
-Construir un sistema simple de pedidos con `Cliente` y `Pedido`.
+## Proyecto autónomo
+Abre un proyecto Java **nuevo**, `PedidosCafeteriaS04`. No reutilices CuentaSimpleS02, CuentaSeguraS03, Veterinaria ni PetCare.
 
-## Objetivos
-
-Al finalizar, el estudiante debe poder:
-
-- crear clases con atributos privados;
-- inicializar objetos mediante constructores;
-- diferenciar constructor de método operacional;
-- proteger estado válido;
-- hacer que un objeto utilice otro objeto;
-- mantener `main` como orquestador simple.
-
-## Etapas
-
-1. [Checkpoint 1 · Cliente](./01-cliente.md)
-2. [Checkpoint 2 · Pedido y colaboración](./02-pedido.md)
-
-## Restricciones
-
-No usar herencia, interfaces, colecciones, excepciones ni persistencia.
-
-## Resultado esperado
-
+## Archivos finales
 ```text
-App
- ├─ crea Cliente
- ├─ crea Pedido usando Cliente
- ├─ solicita operaciones a Pedido
- └─ imprime resultados
-
-Pedido ───> Cliente
+PedidosCafeteriaS04/src/
+  Main.java
+  Cliente.java
+  Pedido.java
 ```
+
+## Ruta con checkpoints
+1. [01 · Proyecto y Cliente](01-cliente.md)
+2. [02 · Pedido con colaboración](02-pedido.md)
+3. [03 · Integrar desde Main](03-integracion.md)
+4. [04 · Casos de prueba y entrega](04-pruebas.md)
+
+## Listo cuando
+- [ ] Un Cliente nace con todos sus datos.
+- [ ] Pedido recibe un Cliente ya construido, sin copiar sus atributos.
+- [ ] `agregarMonto` y `aplicarDescuento` respetan reglas de negocio.
+- [ ] Un descuento inválido no altera el total.
+- [ ] La consola muestra operaciones reproducibles.
