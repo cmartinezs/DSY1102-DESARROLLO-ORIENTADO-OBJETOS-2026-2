@@ -19,21 +19,11 @@ Consolidar el modelado orientado a objetos mediante jerarquías de clases, reuti
 5. Implementar y ejecutar incrementalmente.
 6. Probar el comportamiento polimórfico.
 
-## Laboratorio principal
-**Veterinaria · Herencia y Polimorfismo**
+## Laboratorio oficial autónomo
+**[Despachos urbanos · herencia y polimorfismo](../../labs/semana-05/README.md)**. Proyecto nuevo: no requiere trabajo de semanas anteriores; desarrolla `extends`, `super()`, `@Override` y polimorfismo en cuatro etapas guiadas.
 
-El laboratorio propone una veterinaria que atiende distintos tipos de animales. Los estudiantes construyen progresivamente una jerarquía que permite representar mascotas y animales salvajes, con especializaciones como perro, gato, tigre y león.
-
-La actividad está disponible en GitHub Pages desde la sección **Laboratorios** y registra avance por etapas.
-
-Ruta esperada en el repositorio del estudiante:
-
-```text
-labs/lab-veterinaria-herencia-polimorfismo/
-```
+## Ruta histórica opcional
+[Veterinaria I interactiva](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/labs/veterinary-inheritance/) se conserva para consulta o práctica adicional; su continuidad con Veterinaria II–IV **no se exige** a los estudiantes de los laboratorios semanales.
 
 ## Resultado esperado
-Al finalizar, el estudiante debe ser capaz de explicar por qué existe la jerarquía propuesta, cómo se ejecutan los constructores, qué aporta `super()` y cómo una referencia del tipo padre puede ejecutar comportamiento especializado de distintas subclases.
-
-## Continuidad
-La siguiente etapa extiende el mismo caso para resolver una necesidad natural del sistema: almacenar, recorrer, buscar y administrar múltiples animales, incorporando primero arrays y luego colecciones, junto con manejo de excepciones.
+Explicar herencia, constructores de la subclase y comportamiento especializado de distintos objetos referenciados como la clase padre.
