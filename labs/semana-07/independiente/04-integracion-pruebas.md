@@ -1,46 +1,45 @@
-# 04 · Integrar y verificar polimorfismo
+# 04 · Polimorfismo y pruebas finales
 
 [← 03 · Interfaz](03-interfaz.md) · [Índice](README.md)
 
-## Paso 1 · Reemplazar Main para una prueba conjunta
-Abre `src/Main.java`, Ctrl+A, pega:
+## Paso 1 · Integrar ambas clases en Main
+Abre `src/Main.java`, reemplaza:
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        Material[] materiales = {
-            new Libro("Introducción a Java", "Equipo docente"),
-            new Audiolibro("Java para escuchar", 45),
-            new Libro("Historias del cine", "L. Soto")
+        Equipo[] equipos = {
+            new Impresora("IMP01", "Láser"),
+            new Computador("PC01", 16),
+            new Impresora("IMP02", "Inyección")
         };
 
-        for (Material material : materiales) {
-            System.out.println(material.descripcion());
-
-            if (material instanceof Reproducible reproducible) {
-                System.out.println("  " + reproducible.reproducir());
+        for (Equipo equipo : equipos) {
+            System.out.println(equipo.descripcion());
+            if (equipo instanceof Actualizable actualizable) {
+                System.out.println("  " + actualizable.actualizarSoftware());
             } else {
-                System.out.println("  Sin reproducción de audio");
+                System.out.println("  No requiere actualización de software");
             }
         }
     }
 }
 ```
 
-Presiona Run.
+Pulsa **Run**.
 
-**Checkpoint A:** se imprimen tres descripciones; solo el objeto `Audiolibro` produce el mensaje de reproducción. El `instanceof` comprueba **capacidad** sin pedir que `Material` implemente la interfaz.
+**Checkpoint A:** se imprimen tres descripciones y una sola actualización, asociada al computador.
 
-## Paso 2 · Matriz de prueba
-| Prueba | Qué haces | Resultado esperado |
+## Paso 2 · Comprobar casos
+| Prueba | Acción | Esperado |
 |---|---|---|
-| T01 | Crear `Libro` | Se muestra autor |
-| T02 | Crear `Audiolibro` | Se muestra duración |
-| T03 | Recorrer `Material[]` | Ambos tipos responden con descripción |
-| T04 | Comprobar `Reproducible` | Solo Audiolibro reproduce |
-| T05 | Añadir segundo Libro | Se describe sin invocar reproducir |
+| T01 | Instanciar Impresora | Descripción con tecnología |
+| T02 | Instanciar Computador | Descripción con RAM |
+| T03 | Recorrer `Equipo[]` | Ambos tipos actúan como Equipo |
+| T04 | Verificar `instanceof Actualizable` | Solo Computador responde |
+| T05 | Agregar segunda Impresora | No exige `actualizarSoftware()` |
 
-## Paso 3 · Evidencia
-Guarda una captura de la consola, los cinco archivos Java y dos párrafos cortos: qué exige una clase abstracta y qué permite una interfaz. Responde: «¿Por qué sería incorrecto poner `reproducir()` en todos los `Material`?».
+## Paso 3 · Explicar y entregar
+Guarda cinco archivos Java, captura de consola y respuestas breves: diferencia entre clase abstracta e interfaz; uso de `super()`; por qué `Equipo` no debe implementar `Actualizable` en este caso.
 
-**Checkpoint final:** todo compila desde el nuevo proyecto; no existe importación ni referencia a Veterinaria o PetCare.
+**Checkpoint final:** compila desde cero, sin reutilizar MediaHub, Veterinaria o PetCare. Esta práctica no añade requisitos de persistencia ni JavaFX.
