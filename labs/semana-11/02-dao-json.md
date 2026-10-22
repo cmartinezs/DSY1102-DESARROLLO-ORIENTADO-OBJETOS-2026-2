@@ -1,6 +1,6 @@
 # 02 · Conectar Maven con Jackson y construir el DAO JSON
 
-[← Etapa 01](01-proyecto-y-arquitectura.md) · [Índice](README.md) · [Etapa 03 →](03-javafx-mvc.md)
+[← Etapa 01](01-proyecto-y-arquitectura.md) · [Índice](README.md) · [Etapa 03 →](03-servicio-y-reglas.md)
 
 ## ¿Qué vamos a conseguir?
 Que una clase Java pueda escribir una lista de instrumentos en `data/instrumentos.json` y volver a leerla. Todavía no programaremos los botones.
@@ -141,4 +141,4 @@ public class PruebaDao {
 
 **Advertencia para este laboratorio:** escribir directamente sobre el archivo puede dejarlo incompleto si se interrumpe la operación. No simules fallos apagando el equipo. El ejercicio sobre errores de lectura se realizará con una copia de seguridad; mejorar la escritura atómica es una extensión posterior, no un requisito oculto.
 
-[Continuar con etapa 03 →](03-javafx-mvc.md)
+[Continuar a Service y reglas →](03-servicio-y-reglas.md)
