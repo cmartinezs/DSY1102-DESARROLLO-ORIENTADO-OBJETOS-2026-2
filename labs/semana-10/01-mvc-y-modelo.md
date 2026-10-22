@@ -1,5 +1,21 @@
 # Etapa 01 · Proyecto nuevo, modelo y repositorio MVC
 
+[← Índice](README.md) · [02 · Tabla observable →](02-tableview-observablelist.md)
+
+## Antes de comenzar: comprueba el generador
+1. Abre **File → Settings → Plugins → Installed** y busca **JavaFX**.
+2. Si JavaFX está deshabilitado, actívalo y reinicia IntelliJ cuando lo pida.
+3. Vuelve a la pantalla de inicio y elige **New Project → Generators → JavaFX** (no el generador genérico «Java»).
+4. Indica **Name = ReservaRecintosFX**, **Language = Java**, **Build system = Maven**, **JDK = 21** y selecciona **Controls** y **FXML** si el asistente muestra los módulos.
+5. Pulsa Create, acepta el proyecto de confianza cuando corresponda y espera la carga Maven.
+6. En la ventana lateral **Project**, busca `HelloApplication.java`; pulsa el triángulo verde para ejecutar.
+
+**Checkpoint 0:** se abre la ventana de muestra sin errores. Si no ocurre, revisa la ventana **Run**, la versión de JDK y la sincronización Maven; no avances.
+
+## Cómo trabajar con los ejemplos
+Usamos como paquete de referencia `cl.duoc.recintos`. Si el IDE genera un paquete distinto, adopta este mediante **Refactor → Rename** o adapta todas las líneas `package`, `import`, `fx:controller` y las rutas de recursos de forma coherente. No crees otro `HelloApplication` ni edites `pom.xml` a ciegas.
+
+
 ## 1. Crear desde cero
 1. Abre **IntelliJ IDEA → New Project → JavaFX** (habilita el plugin JavaFX si no aparece).
 2. Nombre: **ReservaRecintosFX**; lenguaje **Java**; build system **Maven**; **JDK 21**. No selecciones bibliotecas extra (FormsFX no es FXML).
