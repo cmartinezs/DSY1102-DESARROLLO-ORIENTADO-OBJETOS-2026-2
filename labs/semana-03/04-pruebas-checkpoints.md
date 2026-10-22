@@ -1,33 +1,29 @@
-# 04 · Pruebas y cierre
+# 04 · Casos reproducibles y evidencia
 
-Crea una secuencia de ejecución clara en `Main` que permita observar cómo cambia el estado de cada cuenta.
+[← 03 · Estado protegido](03-proteger-estado.md) · [Índice](README.md)
 
-Ejemplo de orden de prueba:
+## Paso 1 · Ejecuta sin cambiar la lógica
+Usa `Main` de la etapa 03 y comprueba sus salidas. Luego inserta pruebas adicionales antes del cierre de `main`:
 
-1. mostrar saldo inicial;
-2. depositar un monto válido;
-3. intentar depósito inválido;
-4. retirar un monto válido;
-5. intentar retiro imposible;
-6. mostrar saldo final.
-
-Repite al menos una operación sobre una segunda cuenta para demostrar que cada objeto conserva su propio estado.
-
-## Checkpoint funcional
-
-El laboratorio está terminado cuando:
-
-- [ ] compila desde cero;
-- [ ] las reglas válidas modifican el saldo;
-- [ ] las reglas inválidas no modifican el saldo;
-- [ ] dos objetos mantienen estados independientes;
-- [ ] puedes explicar por qué `saldo` es privado;
-- [ ] puedes explicar qué responsabilidad tiene `Cuenta` y qué responsabilidad tiene `Main`.
-
-## Evidencia sugerida
-
-Realiza un commit final, por ejemplo:
-
-```text
-feat: completar lab cuenta segura semana 03
+```java
+System.out.println("Depósito cero: " + cuentaAna.depositar(0));
+System.out.println("Retiro válido Pedro: " + cuentaPedro.retirar(1000));
+System.out.println("Saldo final Pedro: " + cuentaPedro.getSaldo());
 ```
+
+La consola debería indicar `false`, `true` y `4000.0`.
+
+## Paso 2 · Matriz de aceptación
+| ID | Operación | Esperado |
+|---|---|---|
+| T01 | Ana saldo 10000, deposita 2000 | 12000; true |
+| T02 | Pedro saldo 5000, retira 9000 | 5000; false |
+| T03 | Ana intenta depositar 0 | No cambia; false |
+| T04 | Pedro retira 1000 | 4000; true |
+| T05 | Dos objetos con distintos titulares | Saldos independientes |
+| T06 | Código externo intenta cambiar `saldo` | No permitido por `private` |
+
+**Checkpoint final:** no hay errores de compilación y puedes explicar cómo las reglas mantienen el saldo válido.
+
+## Paso 3 · Evidencia
+Entrega `Cuenta.java`, `Main.java`, captura de la consola y respuestas: ¿por qué `private`? ¿Por qué el retorno boolean? ¿Por qué el constructor rechaza un saldo negativo? Para evitar mezclar laboratorios, **no uses archivos de semana 02**.
