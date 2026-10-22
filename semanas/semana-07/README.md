@@ -65,7 +65,7 @@ La guía muestra cómo construirlo; la carpeta de ejemplos contiene el proyecto 
 
 ## Laboratorio complementario
 
-**[Laboratorio autónomo: Biblioteca multimedia](../../labs/semana-07/independiente/README.md)**. Se crea desde cero y no requiere un proyecto anterior. **[Veterinaria III histórica](../../labs/semana-07/HISTORICO-VETERINARIA.md)** continúa siendo optativa; requiere la Veterinaria previa únicamente para esa ruta alternativa. PetCare mantiene su propia continuidad.
+**[Laboratorio autónomo: Centro de soporte técnico](../../labs/semana-07/independiente/README.md)**. Se crea desde cero y no requiere un proyecto anterior. **[Veterinaria III histórica](../../labs/semana-07/HISTORICO-VETERINARIA.md)** continúa siendo optativa; requiere la Veterinaria previa únicamente para esa ruta alternativa. PetCare mantiene su propia continuidad.
 
 ## Fuera de alcance
 
