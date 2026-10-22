@@ -8,11 +8,12 @@ Repositorio docente de apoyo para **DSY1102 Desarrollo Orientado a Objetos**.
 - [Semanas](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/semanas.html)
 - [Laboratorios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html)
 - [Proyecto formativo](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html)
-- [Desafíos y ejercicios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)\n- [Práctica integradora liberada · diseño original EP1](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/practice-ep1/)
+- [Desafíos y ejercicios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html )
+- [Práctica integradora liberada · diseño original EP1](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/practice-ep1/)
 
 ## Estructura canónica
 
-El material de aprendizaje se organiza en **cuatro verticales independientes**:
+El material de aprendizaje distingue **cinco verticales pedagógicas**, más documentación transversal y datos operativos:
 
 ```text
 /
@@ -31,7 +32,9 @@ Cada semana tiene un `README.md` que funciona como índice y resumen. Cada mater
 
 ### 2. `labs/` — practicar guiado
 
-Existe como máximo un laboratorio principal por semana. Debe ser reproducible, explícito y paso a paso. Cada paso incluye un **checkpoint verificable**. Los laboratorios son independientes salvo que una dependencia anterior sea técnicamente imprescindible; en ese caso debe declararse de forma explícita.
+Existe como máximo un laboratorio principal por semana. Debe ser reproducible, explícito y paso a paso. Cada incremento incluye un **checkpoint verificable**. Los laboratorios oficiales son **autónomos entre semanas**: cada uno crea su proyecto, sin reutilizar entregas anteriores. Dentro del mismo laboratorio, el código evoluciona en **tantos incrementos funcionales como requiera el problema**, con pasos guiados y checkpoints.
+
+El [estándar de diseño pedagógico incremental](docs/ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md) y su [matriz de laboratorios](docs/MATRIZ-INCREMENTOS-LABS-DSY1102-2026-2.md) explican cómo graduar las «rueditas» según la novedad del aprendizaje y por qué las etapas **no** tienen un número fijo.
 
 ### 3. `ejemplos/` — demostrar
 
