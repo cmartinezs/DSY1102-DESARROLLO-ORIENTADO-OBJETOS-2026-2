@@ -1,23 +1,22 @@
-# Semana 07 · Laboratorio autónomo: Biblioteca multimedia
+# Semana 07 · Laboratorio independiente: Centro de soporte técnico
 
-**DSY1102 · Clases abstractas, interfaces y polimorfismo · Java 21**
+**DSY1102 · Clase abstracta, interfaz y polimorfismo · Java 21**
 
-## Caso y alcance
-Una biblioteca presta libros y audiolibros. Todos poseen título, pero **solo algunos pueden reproducirse**. Crearás un proyecto nuevo `BibliotecaMultimedia` con una clase abstracta `Material`, clases concretas `Libro` y `Audiolibro` e interfaz `Reproducible`.
+## Caso
+Un centro de soporte registra equipos electrónicos: computadores e impresoras. Todos son **Equipo** y deben describirse, pero solamente los computadores permiten realizar una **actualización de software** dentro de este ejercicio.
 
-**Independencia:** no necesitas código de Veterinaria I–III ni de semanas previas. Sí conviene reconocer clases, herencia y arreglos como conceptos del curso. PetCare continúa en su propia vertical.
+## Autonomía y alcance
+Crea un proyecto nuevo `SoporteTecnicoS07`. No uses las clases MediaHub de las materias de esta semana, ni Veterinaria, ni PetCare. Este lab es un caso **distinto** al ejemplo curricular; recupera conceptos previamente aprendidos, no artefactos entregados.
 
-## Etapas
-1. [01 · Proyecto independiente y escenario](01-preparacion.md)
-2. [02 · Clase abstracta y subclases](02-abstraccion.md)
-3. [03 · Interfaz y capacidades](03-interfaz.md)
-4. [04 · Integración y pruebas](04-integracion-pruebas.md)
+## Ruta paso a paso
+1. [01 · Crear proyecto y distinguir tipos/capacidades](01-preparacion.md)
+2. [02 · Clase abstracta Equipo y subtipos](02-abstraccion.md)
+3. [03 · Interfaz Actualizable](03-interfaz.md)
+4. [04 · Integrar y verificar](04-integracion-pruebas.md)
 
-## Definición de terminado
-- [ ] `Material` es abstracta y no se instancia directamente.
-- [ ] `Libro` y `Audiolibro` implementan `descripcion()`.
-- [ ] Solo `Audiolibro` implementa `Reproducible`.
-- [ ] Puedes recorrer tipos distintos como `Material` y verificar la capacidad con `instanceof`.
-- [ ] Cuentas con evidencia de consola y explicación de las decisiones.
+## Archivos finales
+`Main.java`, `Equipo.java`, `Computador.java`, `Impresora.java`, `Actualizable.java`.
 
-**Práctica histórica opcional:** [Veterinaria III](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/labs/veterinary-iii/) mantiene continuidad con Veterinaria II, pero **no es una dependencia** de Biblioteca multimedia.
+**Checkpoint global:** `Equipo` no puede instanciarse, ambos subtipos tienen descripción propia y solo `Computador` implementa `Actualizable`. No se necesita una aplicación gráfica.
+
+**Ruta histórica opcional:** [Veterinaria III interactiva](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/labs/veterinary-iii/) conserva su requisito de Veterinaria II, pero no forma parte de este laboratorio oficial.
