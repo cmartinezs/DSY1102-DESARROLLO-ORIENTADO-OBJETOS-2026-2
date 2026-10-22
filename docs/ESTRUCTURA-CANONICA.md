@@ -27,9 +27,11 @@ El material de aprendizaje se divide en cuatro verticales independientes:
 - `labs/README.md` mantiene el índice y resumen de laboratorios.
 - Existe un laboratorio principal por semana cuando corresponde.
 - Cada `labs/semana-XX/README.md` debe indicar propósito, objetivos, resultado esperado, contenidos relacionados de la semana, conocimientos previos y dependencias.
-- Un laboratorio se divide en varios `.md` secuenciales; evitar un único archivo excesivamente largo.
-- Cada paso debe ser explícito, incluso si parece obvio.
-- Cada paso incluye un **checkpoint** que indica qué debe verificar el estudiante antes de continuar.
+- Cada laboratorio se divide en **incrementos de resultados observables**, con cantidad variable de `.md` según la complejidad, no por plantilla fija.
+- Dentro de cada incremento, usar **tantos pasos explícitos como demande el aprendizaje** y el nivel de ayuda requerido; los pasos no son necesariamente incrementos distintos.
+- Cada incremento incluye un **checkpoint ejecutable/verificable** que indique qué debe observar el estudiante antes de continuar.
+- El detalle del acompañamiento es adaptativo: más guía ante herramientas/conceptos nuevos y mayor autonomía cuando el alumno ya los domina, conservando requisitos y criterios de aceptación claros.
+- Véase [Estándar incremental DSY1102](ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md) como norma local compatible con el canon transversal.
 - Los laboratorios semanales oficiales son **autónomos entre semanas**: no exigen proyectos, código ni entregas de otro lab. Las etapas de un mismo laboratorio sí forman una secuencia. La única vertical longitudinal obligatoria es `proyecto-formativo/` (PetCare). Las antiguas Veterinaria I–IV se conservan como prácticas históricas opcionales, separadas de la ruta oficial.
 - Se prioriza implementación local, scaffolding reproducible y servicios gratuitos cuando aporten al contenido.
 
