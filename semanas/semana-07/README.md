@@ -65,7 +65,7 @@ La guía muestra cómo construirlo; la carpeta de ejemplos contiene el proyecto 
 
 ## Laboratorio complementario
 
-[Veterinaria III · abstraer y modelar capacidades sobre el mismo proyecto de Veterinaria II](../../labs/semana-07/). La enseñanza de MediaHub y el laboratorio de Veterinaria tienen propósitos distintos; PetCare mantiene su propia continuidad.
+**[Laboratorio autónomo: Biblioteca multimedia](../../labs/semana-07/independiente/README.md)**. Se crea desde cero y no requiere un proyecto anterior. **[Veterinaria III histórica](../../labs/semana-07/HISTORICO-VETERINARIA.md)** continúa siendo optativa; requiere la Veterinaria previa únicamente para esa ruta alternativa. PetCare mantiene su propia continuidad.
 
 ## Fuera de alcance
 
