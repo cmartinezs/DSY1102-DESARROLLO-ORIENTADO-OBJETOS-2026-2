@@ -15,7 +15,7 @@ El correo de coordinación establece: serialización y deserialización JSON, co
 **Los laboratorios semanales son autónomos:** Semana 11 propone `InventarioInstrumentosFX`, proyecto nuevo desde cero. **PetCare** es la vertical longitudinal y puede incorporar persistencia sin copiar el laboratorio. La sugerencia de coordinación de continuar proyectos anteriores se respeta como una *opción pedagógica* para ejercicios/proyecto formativo, nunca como dependencia obligatoria del lab.
 
 ## Material del curso
-- [Laboratorio independiente: inventario de instrumentos musicales](../../labs/semana-11/README.md)
+- [Laboratorio independiente: inventario de instrumentos musicales (5 incrementos funcionales)](../../labs/semana-11/README.md)
 - [Matriz de trazabilidad y conciliación](CONCILIACION.md)
 - [Índice de laboratorios](../../labs/README.md)
 
