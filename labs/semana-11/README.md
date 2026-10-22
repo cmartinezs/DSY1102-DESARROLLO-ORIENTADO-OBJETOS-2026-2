@@ -12,8 +12,12 @@ Una pequeña sala de ensayo administra sus instrumentos. Necesita registrar un *
 - Modelo `Instrumento` con constructor vacío/accesores para el mapeador JSON, sin referencias a JavaFX.
 - Contrato `InstrumentoDao` que expone lectura y escritura; `JsonInstrumentoDao` lo implementa con Jackson.
 - Servicio/repositorio en memoria que carga al iniciar, valida alta y **persiste**; el controlador sólo invoca operaciones de alto nivel y muestra errores.
-- Manejo de JSON inexistente (arrancar vacío) y lectura inválida (mostrar error, **no sobrescribir** archivo corrupto).
+- Manejo de JSON inexistente (arrancar vacío) y lectura inválida (mostrar error, **no sobrescribir** archivo corrupto). En esta versión didáctica la escritura es directa; no se afirma seguridad ante cortes de energía.
 - Verificar archivo JSON y recuperación tras reiniciar.
+
+## Cómo usar la guía
+
+Lee las etapas **en orden**, desde el generador IntelliJ hasta la prueba de reinicio. Cada etapa explica qué archivo crear, dónde ubicarlo, qué código escribir, cuál debe ser el resultado y cómo diagnosticar fallos habituales. Puedes ejecutar y comprobar antes de pasar a la siguiente. Se usa el paquete de ejemplo `cl.duoc.inventario`; si IntelliJ creó otro, adapta paquetes y `fx:controller` de modo consistente.
 
 ## Itinerario
 1. [01 · Nuevo proyecto y separación de responsabilidades](01-proyecto-y-arquitectura.md)
