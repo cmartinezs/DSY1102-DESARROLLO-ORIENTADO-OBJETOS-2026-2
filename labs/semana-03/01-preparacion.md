@@ -1,6 +1,6 @@
 # 01 · Crear BateriaDronS03 desde cero
 
-[← Índice](README.md) · [02 · Batería →](02-modelar-cuenta.md)
+[← Índice](README.md) · [02 · Batería →](02-modelar-bateria.md)
 
 ## Paso 1 · Nuevo proyecto
 1. Abre IntelliJ IDEA y presiona **New Project** o **File → New → Project**.
@@ -27,4 +27,4 @@ Clic derecho sobre `src` → **New → Java Class** → `Bateria`. La siguiente 
 
 **Checkpoint B:** tienes dos archivos Java en un proyecto nuevo; no has abierto el proyecto Cuenta simple de semana 02.
 
-[Continuar →](02-modelar-cuenta.md)
+[Continuar →](02-modelar-bateria.md)
