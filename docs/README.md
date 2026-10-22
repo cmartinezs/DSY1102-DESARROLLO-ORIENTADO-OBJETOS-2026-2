@@ -4,6 +4,9 @@ Este directorio reúne contenidos reutilizables a lo largo del semestre que no p
 
 ## Estándares y operación
 
+- [**Diseño pedagógico incremental de DSY1102**](./ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md) — autonomía de labs, incrementos variables, pasos adaptativos, checkpoints y transferencia del método EP1.
+- [**Matriz de incrementos por laboratorio, semanas 02–11**](./MATRIZ-INCREMENTOS-LABS-DSY1102-2026-2.md) — decisiones pedagógicas justificadas y límites de validación.
+
 - [**Canon transversal de repositorios docentes**](./CANON-REPOSITORIO-DOCENTE.md) — estructura común, fuente canónica y reconciliación semanal.
 - [**Estándares transversales consumidos**](./ESTANDARES-TRANSVERSALES.md) — referencias normativas externas aplicadas por la asignatura, incluido `STD-ENG-DIAG-001` para diagramación.
 - [**Checklist operativo semanal**](./CHECKLIST-OPERACION-SEMANAL.md) — ciclo para preparar, ejecutar y cerrar cada semana.
