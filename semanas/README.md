@@ -16,7 +16,7 @@ Este directorio organiza el contenido de la asignatura semana a semana. El mater
 | **08** | 28 septiembre–3 octubre 2026 | `Set`, `Map`, elección de colecciones y cierre EA1 / EP1 | ✅ Consolidada | [Abrir Semana 08](semana-08/) |
 | **09** | 5–10 octubre 2026 | Maven, JavaFX, escenas, FXML, Controller, UI y eventos · EA2 | ✅ Disponible | [Abrir Semana 09](semana-09/) |
 | **10** | 12–17 octubre 2026 | MVC, TableView/ObservableList, navegación y validación · EA2 | ✅ Documentada | [Abrir Semana 10](semana-10/) |
-| 11 | 19–24 octubre 2026 | JavaFX MVC + persistencia · EF2 | 🔒 Próximamente | Próximamente |
+| **11** | 19–24 octubre 2026 | Persistencia JSON, Repository/DAO y JavaFX MVC · EA2 | ✅ Contenido disponible | [Abrir Semana 11](semana-11/) |
 | 12 | 26–31 octubre 2026 | EP2 · JavaFX + MVC + DAO | 🔒 Próximamente | Próximamente |
 | 13 | 2–7 noviembre 2026 | JDBC, CRUD y sentencias parametrizadas | 🔒 Próximamente | Próximamente |
 | 14 | 9–14 noviembre 2026 | Refactorización DAO e integración BD | 🔒 Próximamente | Próximamente |
