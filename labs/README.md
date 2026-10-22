@@ -9,7 +9,7 @@ Laboratorios guiados e integradores, organizados por semana curricular y alinead
 | Semana 01 | Sin laboratorio formal | Referencia histórica |
 | [Semana 02](./semana-02/) | Cuenta simple · de lógica a objeto | ✅ Disponible |
 | [Semana 03](./semana-03/) | Batería de un dron · objetos y encapsulamiento (autónomo) | ✅ Guía completa |
-| [Semana 04](./semana-04/) | Objetos que nacen bien y colaboran | ✅ Consolidado |
+| [Semana 04](./semana-04/) | Pedidos de cafetería · constructores y colaboración (autónomo) | ✅ Guía disponible |
 | [Semana 05](./semana-05/) | Despachos urbanos · herencia y polimorfismo (autónomo) | ✅ Guía completa |
 | [Semana 06](./semana-06/) | Inscripciones a talleres · arrays, List y excepciones (autónomo) | ✅ Guía completa |
 | [Semana 07](./semana-07/) | Centro de soporte técnico · clase abstracta e interfaz (autónomo) | ✅ Guía completa |
