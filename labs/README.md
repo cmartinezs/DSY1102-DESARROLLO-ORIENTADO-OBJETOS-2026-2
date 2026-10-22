@@ -10,10 +10,10 @@ Laboratorios guiados e integradores, organizados por semana curricular y alinead
 | [Semana 02](./semana-02/) | Cuenta simple · de lógica a objeto | ✅ Disponible |
 | [Semana 03](./semana-03/) | Cuenta segura · objetos y encapsulamiento | ✅ Consolidado |
 | [Semana 04](./semana-04/) | Objetos que nacen bien y colaboran | ✅ Consolidado |
-| Semana 05 | Veterinaria I · Herencia y Polimorfismo | ✅ Consolidado en web guiada |
-| [Semana 06](./semana-06/) | Veterinaria II · Arrays, colecciones y excepciones | ✅ Consolidado |
-| [Semana 07](./semana-07/) | Veterinaria III · abstracción, interfaz e integración EA1 | ✅ Guía de recuperación disponible |
-| [Semana 08](./semana-08/) | Veterinaria IV · Set, Map, identidad y consistencia | ✅ Guía de recuperación disponible |
+| [Semana 05](./semana-05/) | Despachos urbanos · herencia y polimorfismo (autónomo) | ✅ Guía completa |
+| [Semana 06](./semana-06/) | Inscripciones a talleres · arrays, List y excepciones (autónomo) | ✅ Guía completa |
+| [Semana 07](./semana-07/) | Centro de soporte técnico · clase abstracta e interfaz (autónomo) | ✅ Guía completa |
+| [Semana 08](./semana-08/) | Control de acceso a feria · List, Set y Map (autónomo) | ✅ Guía completa |
 | [Semana 09](./semana-09/) | Primera interfaz funcional JavaFX / FXML | ✅ Disponible |
 | [Semana 10](./semana-10/) | Reservas de recintos deportivos · MVC, tabla, navegación y validación (desde cero) | ✅ Disponible |
 | [Semana 11](./semana-11/) | Inventario de instrumentos musicales · JSON y DAO (desde cero) | ✅ Guía disponible |
@@ -51,14 +51,10 @@ Cada lab debe:
 
 **Cada laboratorio semanal se inicia como proyecto autónomo.** No se exige reutilizar código ni archivos de laboratorios anteriores. La implementación incremental longitudinal corresponde a **PetCare**, en `proyecto-formativo/`.
 
-## Referencias históricas de laboratorios evolutivos
+## Archivo histórico opcional: Veterinaria I–IV
 
-Cuando un laboratorio extiende uno anterior, no se crea artificialmente un proyecto paralelo. La nueva actividad debe evolucionar el mismo artefacto y separar sólo la documentación/evidencia propia de la nueva fase.
+Las experiencias interactivas de Veterinaria I–IV (semanas 05–08) se conservan como **archivo de práctica opcional**, con su continuidad histórica interna. **No son prerrequisitos de los laboratorios oficiales autónomos**. Los README de las semanas 06–08 apuntan primero a `independiente/` y después al material histórico.
 
-Veterinaria II aplica esta regla sobre:
-
-```text
-labs/lab-veterinaria-herencia-polimorfismo/
-```
+En cada semana, las etapas 01–04 del laboratorio autónomo se encuentran en el índice correspondiente. No se debe exigir al alumno crear otra solución por arrastre de una actividad anterior.
 
 Los labs no reemplazan ejercicios ni PetCare. Los ejercicios viven en [`../ejercicios/`](../ejercicios/) y el proyecto longitudinal en [`../proyecto-formativo/`](../proyecto-formativo/).
