@@ -1,57 +1,57 @@
-# 03 · Crear interfaz Reproducible
+# 03 · Una capacidad: interfaz Actualizable
 
-[← 02 · Abstracción](02-abstraccion.md) · [Índice](README.md) · [04 · Integración →](04-integracion-pruebas.md)
+[← 02 · Clase base](02-abstraccion.md) · [Índice](README.md) · [04 · Integración →](04-integracion-pruebas.md)
 
-## Paso 1 · Contrato de capacidad
-En `src`, clic derecho → **New → Java Class** → selecciona tipo **Interface** o escribe el archivo `Reproducible.java`:
+## Paso 1 · Crear la interfaz
+En `src`, clic derecho → **New → Java Class** y selecciona el tipo **Interface**; nómbrala `Actualizable`. Pega:
 
 ```java
-public interface Reproducible {
-    String reproducir();
+public interface Actualizable {
+    String actualizarSoftware();
 }
 ```
 
-**Checkpoint A:** la interfaz define lo que puede hacerse, sin representar el tipo general de biblioteca.
+**Checkpoint A:** expresa una capacidad. No contiene atributos de equipo ni una jerarquía.
 
-## Paso 2 · Crear Audiolibro
-Clic derecho en `src` → **New → Java Class** → `Audiolibro`. Pega:
+## Paso 2 · Crear Computador.java
+Sobre `src`, clic derecho → **New → Java Class** → `Computador`. Pega:
 
 ```java
-public class Audiolibro extends Material implements Reproducible {
-    private final int minutos;
+public class Computador extends Equipo implements Actualizable {
+    private final int ramGb;
 
-    public Audiolibro(String titulo, int minutos) {
-        super(titulo);
-        this.minutos = minutos;
+    public Computador(String codigo, int ramGb) {
+        super(codigo);
+        this.ramGb = ramGb;
     }
 
     @Override public String descripcion() {
-        return getTitulo() + " (audiolibro, " + minutos + " min)";
+        return "Computador " + getCodigo() + " / RAM " + ramGb + " GB";
     }
 
-    @Override public String reproducir() {
-        return "Reproduciendo " + getTitulo();
+    @Override public String actualizarSoftware() {
+        return "Actualización preparada para " + getCodigo();
     }
 }
 ```
 
-**Checkpoint B:** `Audiolibro` **extiende** una clase e **implementa** una interfaz. `Libro` no implementa `Reproducible`, porque en este caso no emite audio.
+**Checkpoint B:** `Computador` usa `extends Equipo` e `implements Actualizable`. El `@Override` de `descripcion` responde al método abstracto; el de `actualizarSoftware` responde a la interfaz.
 
-## Paso 3 · Probar la capacidad
-Reemplaza `Main.java` temporalmente:
+## Paso 3 · Ejecutar
+En `Main.java`, escribe:
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        Audiolibro audio = new Audiolibro("Java para escuchar", 45);
-        System.out.println(audio.descripcion());
-        System.out.println(audio.reproducir());
+        Computador pc = new Computador("PC01", 16);
+        System.out.println(pc.descripcion());
+        System.out.println(pc.actualizarSoftware());
     }
 }
 ```
 
-Ejecuta. Deben aparecer descripción y texto `Reproduciendo Java para escuchar`.
+Ejecuta. Aparecen `Computador PC01 / RAM 16 GB` y `Actualización preparada para PC01`.
 
-**Checkpoint C:** explica por qué `reproducir()` no pertenece obligatoriamente a `Material`.
+**Checkpoint C:** `Impresora` sigue compilando sin implementar `Actualizable`: la interfaz **no** es una exigencia para todos los `Equipo`.
 
 [Continuar →](04-integracion-pruebas.md)
