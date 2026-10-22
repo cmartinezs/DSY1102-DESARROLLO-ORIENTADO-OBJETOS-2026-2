@@ -1,50 +1,31 @@
-# Lab Semana 03 · Cuenta segura
+# Semana 03 · Laboratorio autónomo: Cuenta segura
 
-## Propósito
+**DSY1102 · clases, constructores, objetos y encapsulamiento · Java 21**
 
-Aplicar métodos, clases, objetos, constructores y encapsulamiento en un problema pequeño e independiente de PetCare.
+## Regla de independencia
+Crea un proyecto **nuevo** llamado `CuentaSeguraS03`. Aunque el dominio es una cuenta, **NO debes copiar ni completar CuentaSimpleS02**. Esta vez hay reglas de validación del saldo, depósitos y retiros.
 
-## Resultado esperado
+## Aprenderás
+- a crear objetos válidos mediante constructor;
+- a proteger `saldo` con `private`;
+- a modelar depósitos y retiros con retorno `boolean` sin adelantar manejo de excepciones;
+- a ejecutar pruebas de situaciones válidas e inválidas.
 
-Una aplicación de consola que modele una cuenta con saldo protegido, permita depósitos y retiros válidos, rechace operaciones inválidas y muestre evidencia verificable de cada regla.
+## Archivos de entrega
+```text
+CuentaSeguraS03/src/
+  Main.java
+  Cuenta.java
+```
 
-## Contenidos relacionados
+## Ruta guiada
+1. [01 · Preparar el entorno](01-preparacion.md)
+2. [02 · Modelar Cuenta con constructor](02-modelar-cuenta.md)
+3. [03 · Proteger el saldo](03-proteger-estado.md)
+4. [04 · Casos de prueba y evidencias](04-pruebas-checkpoints.md)
 
-- `semanas/semana-03/01-metodos.md`
-- `semanas/semana-03/02-clases-objetos.md`
-- `semanas/semana-03/03-encapsulamiento.md`
-
-## Conocimientos previos
-
-- variables y tipos;
-- `if`;
-- ciclos básicos;
-- ejecución de programas Java.
-
-## Dependencias
-
-Este laboratorio es **independiente**. No requiere haber completado el Lab de Semana 02.
-
-## Secuencia
-
-1. [Preparar el proyecto](01-preparacion.md)
-2. [Modelar la cuenta](02-modelar-cuenta.md)
-3. [Proteger el estado](03-proteger-estado.md)
-4. [Probar y cerrar](04-pruebas-checkpoints.md)
-
-## Checklist inicial
-
-- [ ] Java funciona en el equipo.
-- [ ] Puedo crear y ejecutar una clase `Main`.
-- [ ] Comprendo qué es un método y un parámetro.
-- [ ] Comprendo la diferencia básica entre clase y objeto.
-
-## Checklist final
-
-- [ ] El saldo es privado.
-- [ ] La cuenta se crea con constructor.
-- [ ] Existen al menos dos objetos distintos.
-- [ ] Depósitos inválidos son rechazados.
-- [ ] Retiros sin saldo suficiente son rechazados.
-- [ ] El programa compila y ejecuta desde cero.
-- [ ] Puedo explicar cada decisión sin leer una solución externa.
+## Checkpoint final
+- [ ] Dos instancias independientes.
+- [ ] Saldo no puede modificarse directamente desde Main.
+- [ ] Depósitos/retiros incorrectos se rechazan sin dañar saldo.
+- [ ] Se observan resultados en consola y se explica cada responsabilidad.
