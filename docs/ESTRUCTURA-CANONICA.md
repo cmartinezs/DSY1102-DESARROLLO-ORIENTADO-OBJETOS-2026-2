@@ -30,7 +30,7 @@ El material de aprendizaje se divide en cuatro verticales independientes:
 - Un laboratorio se divide en varios `.md` secuenciales; evitar un único archivo excesivamente largo.
 - Cada paso debe ser explícito, incluso si parece obvio.
 - Cada paso incluye un **checkpoint** que indica qué debe verificar el estudiante antes de continuar.
-- Por defecto los labs son independientes. Una dependencia de un laboratorio previo sólo se acepta cuando sea excluyente y debe declararse explícitamente.
+- Los laboratorios semanales oficiales son **autónomos entre semanas**: no exigen proyectos, código ni entregas de otro lab. Las etapas de un mismo laboratorio sí forman una secuencia. La única vertical longitudinal obligatoria es `proyecto-formativo/` (PetCare). Las antiguas Veterinaria I–IV se conservan como prácticas históricas opcionales, separadas de la ruta oficial.
 - Se prioriza implementación local, scaffolding reproducible y servicios gratuitos cuando aporten al contenido.
 
 ## `ejemplos/`
@@ -68,8 +68,8 @@ Por política de bypass financiero, el portal no se despliega mediante GitHub Ac
 Modelo vigente:
 
 ```text
-master/page/        fuente editable del portal
-gh-pages/(root)     contenido estático publicado
+master/semanas/, master/labs/, master/ejemplos/, master/proyecto-formativo/  fuentes canónicas didácticas
+gh-pages/(root)     superficie estática derivada de lectura/navegación
 ```
 
 Configuración esperada en GitHub:
@@ -83,6 +83,6 @@ Settings
         └── Folder: / (root)
 ```
 
-La rama `gh-pages` contiene exclusivamente el artefacto estático necesario para publicar el portal. La fuente canónica se modifica en `master/page/` y luego se sincroniza a `gh-pages`.
+La rama `gh-pages` contiene la superficie estática de navegación y lectura publicada. El contenido didáctico normativo se mantiene en las verticales Markdown de `master` y se **enlaza** desde `gh-pages`. No se crea `master/page/` como fuente paralela ni se duplican en HTML los enunciados canónicos. Antes de publicar, revisar que las páginas correspondan a los contenidos de `master`.
 
 No deben existir workflows de GitHub Actions cuya función sea desplegar Pages.
