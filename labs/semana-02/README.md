@@ -1,27 +1,32 @@
-# Laboratorios · Semana 02
+# Semana 02 · Laboratorio independiente: Cuenta simple
 
-Durante la Semana 02 está disponible el laboratorio integrador **Cuenta simple · de lógica a objeto**.
+**DSY1102 · Del cálculo en main a métodos y objetos · Java**
 
-🌐 Enunciado canónico:
+## Contexto
+Una persona necesita calcular y consultar el saldo de una cuenta sencilla. Primero resolverás el cálculo desde `main`, luego con un método y finalmente mediante una clase `Cuenta`. La intención es descubrir **por qué distribuir responsabilidades**, no construir una aplicación bancaria real.
 
-https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html
+## Autonomía
+Empieza desde cero con un proyecto Java nuevo `CuentaSimpleS02`. No requiere ningún laboratorio anterior ni PetCare.
 
-Referencia semanal:
-
-- [`semanas/semana-02/laboratorio-cuenta/README.md`](../../semanas/semana-02/laboratorio-cuenta/README.md)
-
-## Propósito
-
-El laboratorio integra progresivamente:
-
+## Archivos finales esperados
 ```text
-lógica en main
-→ métodos static
-→ parámetros y retorno
-→ clase Cuenta
-→ objeto
-→ encapsulamiento
-→ reglas que protegen el saldo
+CuentaSimpleS02/
+  src/
+    Main.java
+    Cuenta.java
 ```
 
-Esta carpeta existe como índice semanal de laboratorios. Los enunciados completos se mantienen en la web para evitar duplicación.
+## Ruta de aprendizaje
+1. [01 · Crear el proyecto y primer cálculo](01-entorno-y-main.md)
+2. [02 · Extraer un método con parámetros y retorno](02-metodos.md)
+3. [03 · Crear Cuenta y trabajar con objetos](03-clases-objetos.md)
+4. [04 · Probar resultados y explicar](04-verificacion.md)
+
+## Checklist final
+- [ ] El programa se ejecuta en IntelliJ.
+- [ ] Puedes explicar qué hace un método y qué recibe como argumento.
+- [ ] La clase `Cuenta` almacena datos propios.
+- [ ] Dos cuentas conservan saldos independientes.
+- [ ] Los números que imprime el programa coinciden con lo esperado.
+
+Este índice sustituye la referencia histórica a un archivo inexistente en `semanas/semana-02/laboratorio-cuenta/`; el contenido canónico está ahora en esta carpeta.
