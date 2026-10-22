@@ -1,60 +1,60 @@
-# 02 · Crear una clase abstracta y sus subtipos
+# 02 · Crear una clase abstracta y subtipos concretos
 
 [← 01 · Preparación](01-preparacion.md) · [Índice](README.md) · [03 · Interfaz →](03-interfaz.md)
 
-## Paso 1 · Material.java
-En `src`, clic derecho → **New → Java Class** → `Material`. Reemplaza todo:
+## Paso 1 · Crear Equipo.java
+En `src`, clic derecho → **New → Java Class** → `Equipo`. Reemplaza el contenido:
 
 ```java
-public abstract class Material {
-    private final String titulo;
+public abstract class Equipo {
+    private final String codigo;
 
-    public Material(String titulo) {
-        this.titulo = titulo;
+    public Equipo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public String getTitulo() { return titulo; }
+    public String getCodigo() { return codigo; }
 
     public abstract String descripcion();
 }
 ```
 
-**Checkpoint A:** `abstract class` marca una clase base que **no puede instanciarse directamente**. El método `descripcion()` obliga a las clases concretas a decidir cómo describirse.
+**Checkpoint A:** `Equipo` es abstracta y declara un método sin implementación. Por ello, `new Equipo("E01")` no está permitido. No agregues esa línea inválida al programa final.
 
-## Paso 2 · Libro.java
-Clic derecho en `src` → **New → Java Class** → `Libro`. Pega:
+## Paso 2 · Crear Impresora.java
+Clic derecho en `src` → **New → Java Class** → `Impresora`. Copia:
 
 ```java
-public class Libro extends Material {
-    private final String autor;
+public class Impresora extends Equipo {
+    private final String tecnologia;
 
-    public Libro(String titulo, String autor) {
-        super(titulo);
-        this.autor = autor;
+    public Impresora(String codigo, String tecnologia) {
+        super(codigo);
+        this.tecnologia = tecnologia;
     }
 
     @Override public String descripcion() {
-        return getTitulo() + " (libro de " + autor + ")";
+        return "Impresora " + getCodigo() + " / " + tecnologia;
     }
 }
 ```
 
-**Checkpoint B:** identifica `extends`, `super(titulo)` y `@Override`.
+**Checkpoint B:** identifica `extends`, `super(codigo)` y `@Override`.
 
-## Paso 3 · Primera comprobación
-Reemplaza `Main.java`:
+## Paso 3 · Probar el primer subtipo
+Reemplaza temporalmente `Main.java`:
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        Material ejemplo = new Libro("Introducción a Java", "Equipo docente");
-        System.out.println(ejemplo.descripcion());
+        Equipo equipo = new Impresora("IMP01", "Láser");
+        System.out.println(equipo.descripcion());
     }
 }
 ```
 
-Ejecuta. Debe imprimir `Introducción a Java (libro de Equipo docente)`.
+Ejecuta. Debe mostrar `Impresora IMP01 / Láser`.
 
-**Comprobación conceptual sin cambiar el archivo:** intentar `new Material("Algo")` daría error de compilación, porque `Material` es abstracta. No es necesario introducir una línea inválida.
+**Checkpoint C:** una variable de tipo `Equipo` puede apuntar a una `Impresora` concreta.
 
 [Continuar →](03-interfaz.md)
