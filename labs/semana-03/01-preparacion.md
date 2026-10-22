@@ -1,23 +1,29 @@
-# 01 · Preparación
+# 01 · Crear CuentaSeguraS03 desde cero
 
-Crea un proyecto Java simple llamado `lab-semana-03-cuenta-segura`.
+[← Índice](README.md) · [02 · Clase Cuenta →](02-modelar-cuenta.md)
 
-Estructura mínima:
+## Paso 1 · Nuevo proyecto
+1. Abre IntelliJ IDEA → **New Project**.
+2. Selecciona **Java**, nombre **CuentaSeguraS03**, **JDK 21**, Build system **IntelliJ**.
+3. Pulsa **Create** y abre el panel **Project**.
+4. Localiza `src`; si no existe, créala y márcala como **Sources Root**.
+5. Clic derecho en `src` → **New → Java Class** → `Main`.
 
-```text
-lab-semana-03-cuenta-segura/
-└── src/
-    ├── Main.java
-    └── Cuenta.java
+Pega:
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Cuenta segura: proyecto iniciado");
+    }
+}
 ```
+Ejecuta con el triángulo verde junto a `main`.
 
-En `Main.java` deja inicialmente un programa que muestre `Lab Semana 03`.
+**Checkpoint A:** aparece el texto en consola. Si falla, revisa que exista JDK en **File → Project Structure → Project** y que `Main.java` esté en `src`.
 
-## Checkpoint
+## Paso 2 · Preparar el segundo archivo
+Sobre `src`, clic derecho → **New → Java Class** → `Cuenta`. Todavía no implementes su contenido: en la próxima etapa reemplazarás su clase vacía.
 
-Antes de continuar:
+**Checkpoint B:** existen `Main.java` y `Cuenta.java`, ambos en el mismo proyecto **nuevo**.
 
-- [ ] el proyecto compila;
-- [ ] `Main` ejecuta sin errores;
-- [ ] existen `Main.java` y `Cuenta.java`;
-- [ ] puedes explicar cuál será la responsabilidad de cada archivo.
+[Continuar →](02-modelar-cuenta.md)
