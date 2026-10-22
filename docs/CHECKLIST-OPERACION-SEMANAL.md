@@ -13,7 +13,9 @@ No reemplaza la planificación institucional. Su objetivo es evitar desalineacio
 - [ ] Liberar el contenido que corresponde por semana curricular, aunque aún no se haya alcanzado completamente en clase.
 - [ ] Preparar ejemplos en `ejemplos/semana-XX/` cuando corresponda.
 - [ ] Preparar práctica breve, refuerzo o desafíos en `ejercicios/semana-XX/` cuando corresponda.
-- [ ] Preparar laboratorio en `labs/semana-XX/` cuando exista una actividad integradora.
+- [ ] Diseñar laboratorio en `labs/semana-XX/` a partir de requisitos funcionales/técnicos, pruebas y **mapa de incrementos variables** (no una cantidad predeterminada de etapas), según [estándar pedagógico](ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md).
+- [ ] Ajustar los pasos y el andamiaje a la novedad de cada concepto (rueditas donde corresponde), con checkpoint por incremento.
+- [ ] Declarar explícitamente el proyecto nuevo y la independencia de otros laboratorios; PetCare mantiene su propia progresión.
 - [ ] Definir el incremento/checkpoint de PetCare sin adelantar contenidos futuros.
 - [ ] Actualizar desafíos destacados y desbloqueos cuando corresponda, manteniendo su fuente canónica en el repositorio.
 - [ ] Verificar enlaces entre repo, portal y Material Público.
@@ -45,7 +47,8 @@ La página principal debe responder, sin necesidad de explorar el repo:
 - [ ] Confirmar qué ejercicios/desafíos quedan disponibles para estudio autónomo.
 - [ ] Reconciliar `semanas/`, `ejemplos/`, `ejercicios/`, `labs/` y `proyecto-formativo/`.
 - [ ] Comprobar que no existan dos fuentes activas del mismo artefacto.
-- [ ] Revisar que todos los enlaces públicos funcionen.
+- [ ] Revisar que todos los enlaces públicos funcionen y que el número/títulos de incrementos coincidan entre índice, Markdown y portal.
+- [ ] Comprobar los casos de aceptación de cada incremento; si no se ejecutaron de punta a punta, registrar la limitación.
 - [ ] Registrar deuda pedagógica o técnica que deba retomarse la semana siguiente.
 - [ ] Actualizar `data/weekly/semana-XX.yml` con plan vs avance real, evidencias, DevLog agregado, PetCare, bloqueos y foco siguiente.
 - [ ] Mantener en `null` cualquier métrica sin evidencia confiable; no estimar ni completar datos personales.
