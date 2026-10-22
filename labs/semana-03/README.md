@@ -19,7 +19,7 @@ Crear un objeto mediante constructor; mantener campos privados; ofrecer getters 
 
 ## Ruta guiada
 1. [01 · Preparación y primera ejecución](01-preparacion.md)
-2. [02 · Modelar una batería](02-modelar-cuenta.md)
+2. [02 · Modelar una batería](02-modelar-bateria.md)
 3. [03 · Proteger el porcentaje](03-proteger-estado.md)
 4. [04 · Pruebas y evidencias](04-pruebas-checkpoints.md)
 
