@@ -1,34 +1,53 @@
-# Checkpoint 2 · Pedido y colaboración
+# 02 · Crear Pedido y su colaboración con Cliente
 
-Crear una clase `Pedido` con:
+[← 01 · Cliente](01-cliente.md) · [Índice](README.md) · [03 · Integrar →](03-integracion.md)
 
-- `codigo`;
-- `Cliente cliente`;
-- `double total`;
-- constructor;
-- método `agregarMonto(double monto)`;
-- método `aplicarDescuento(double porcentaje)`;
-- método `resumen()`.
+## Paso 1 · Crear Pedido.java
+1. Clic derecho en `src` → **New → Java Class** → `Pedido`.
+2. Pega el archivo:
 
-## Reglas
+```java
+public class Pedido {
+    private final String codigo;
+    private final Cliente cliente;
+    private double total;
 
-- `total` no puede quedar negativo;
-- el porcentaje debe estar entre 0 y 100;
-- `Pedido` recibe un `Cliente` ya construido;
-- `main` no debe alterar directamente el total;
-- `resumen()` debe incluir el nombre del cliente.
+    public Pedido(String codigo, Cliente cliente) {
+        this.codigo = codigo;
+        this.cliente = cliente;
+        this.total = 0;
+    }
 
-## Checkpoint
+    public boolean agregarMonto(double monto) {
+        if (monto <= 0) return false;
+        total += monto;
+        return true;
+    }
 
-Desde `main`:
+    public boolean aplicarDescuento(double porcentaje) {
+        if (porcentaje < 0 || porcentaje > 100) return false;
+        total = total * (1 - porcentaje / 100);
+        return true;
+    }
 
-1. crear un `Cliente`;
-2. crear un `Pedido` asociado a ese cliente;
-3. agregar montos;
-4. aplicar un descuento válido;
-5. intentar un descuento inválido;
-6. mostrar el resumen final.
+    public double getTotal() { return total; }
 
-## Pregunta final
+    public String resumen() {
+        return "Pedido " + codigo + " / " + cliente.getNombre()
+                + " / total $" + total;
+    }
+}
+```
 
-¿Por qué `Pedido` contiene un `Cliente` en vez de copiar `rut`, `nombre` y `correo` como atributos propios?
+**Checkpoint A:** la línea `private final Cliente cliente;` demuestra colaboración: `Pedido` conoce a un `Cliente` sin duplicar su rut, nombre y correo.
+
+## Paso 2 · Entender las reglas
+En la clase, identifica:
+- El constructor inicializa `total` en cero.
+- `agregarMonto` rechaza cero o negativos mediante `false`.
+- `aplicarDescuento` admite porcentajes **0 a 100**.
+- `resumen` utiliza el getter de `Cliente`, no accede directamente al atributo privado de esa clase.
+
+**Checkpoint B:** la clase compila. Calcula a mano: añadir $8.000 y descontar 25% debe dejar $6.000.
+
+[Continuar →](03-integracion.md)
