@@ -17,7 +17,7 @@ Aprender a administrar conjuntos de datos y objetos con arrays y colecciones, y 
 
 ## Ruta de aprendizaje
 
-Semana 6 no parte directamente desde Veterinaria. Primero se aprende cada herramienta con código pequeño y sin contexto complejo; después se practica de forma individual; finalmente se integra sobre la solución de Semana 05.
+Semana 6 no parte directamente desde Veterinaria. Primero se aprende cada herramienta con código pequeño y sin contexto complejo; después se practica de forma individual; finalmente se integra en un **laboratorio autónomo** de inscripciones a talleres. La cadena Veterinaria queda como alternativa histórica opcional.
 
 ```text
 concepto mínimo
@@ -28,7 +28,7 @@ ejercicio breve
     ↓
 variación / práctica
     ↓
-integración en Veterinaria II
+laboratorio independiente Inscripciones a talleres
 ```
 
 ## Material de enseñanza
@@ -44,36 +44,10 @@ Los ejemplos ejecutables viven en [`../../ejemplos/semana-06/`](../../ejemplos/s
 El banco de [`../../ejercicios/semana-06/`](../../ejercicios/semana-06/) contiene ejercicios pequeños de 5–15 minutos. Los primeros bloques aíslan arrays, listas y excepciones; sólo al final aparecen ejercicios puente con `Animal`.
 
 ## Laboratorio integrador
+**[Inscripciones a talleres · guía autónoma](../../labs/semana-06/independiente/README.md)**. Se crea un proyecto nuevo y autónomo; dentro de él se compara `Inscripcion[]` con `List<Inscripcion>`, se agregan búsquedas y se practican excepciones.
 
-**Veterinaria II · Arrays, colecciones y excepciones**
+**[Veterinaria II · guía histórica opcional](../../labs/semana-06/HISTORICO-VETERINARIA.md)**: conserva su continuidad con Veterinaria I, pero **no es prerrequisito ni entrega obligatoria** del laboratorio semanal.
 
-Veterinaria II continúa el artefacto creado por el estudiante durante Veterinaria I. No crea otro proyecto.
-
-Ruta esperada en el repositorio del estudiante:
-
-```text
-labs/lab-veterinaria-herencia-polimorfismo/
-```
-
-La guía canónica está en [`../../labs/semana-06/`](../../labs/semana-06/) y conduce paso a paso por:
-
-```text
-solución existente
-    ↓
-Animal[]
-    ↓
-limitaciones observables
-    ↓
-List<Animal> / ArrayList<Animal>
-    ↓
-buscar y eliminar
-    ↓
-modelar situaciones inválidas
-    ↓
-throw + try/catch
-    ↓
-integración final
-```
 
 ## Separación de capas
 
@@ -93,4 +67,4 @@ Al cerrar la semana, el estudiante debe poder:
 - usar `List` / `ArrayList` y sus operaciones esenciales;
 - administrar objetos dentro de una colección;
 - distinguir quién detecta una condición inválida, quién lanza una excepción y quién debe capturarla;
-- aplicar todo lo anterior a una solución OO ya existente sin concentrar responsabilidades en `main`.
+- integrar estos conceptos en una solución OO creada durante **este mismo laboratorio**, sin concentrar responsabilidades en `main`.
