@@ -1,6 +1,6 @@
 # 03 · Proteger el estado: cargar y consumir
 
-[← 02 · Modelo](02-modelar-cuenta.md) · [Índice](README.md) · [04 · Pruebas →](04-pruebas-checkpoints.md)
+[← 02 · Modelo](02-modelar-bateria.md) · [Índice](README.md) · [04 · Pruebas →](04-pruebas-checkpoints.md)
 
 ## Paso 1 · Agregar métodos dentro de Bateria
 Abre `src/Bateria.java`. **No borres el constructor ni los getters**. Inserta estos dos métodos **antes** de la última llave `}` de la clase:
