@@ -1,47 +1,47 @@
-# 02 · Crear una cuenta que nazca válida
+# 02 · Modelar una batería con constructor
 
-[← 01 · Preparación](01-preparacion.md) · [Índice](README.md) · [03 · Validaciones →](03-proteger-estado.md)
+[← 01 · Preparación](01-preparacion.md) · [Índice](README.md) · [03 · Validación →](03-proteger-estado.md)
 
-## Paso 1 · Completar Cuenta.java
-Abre `src/Cuenta.java`. Selecciona el contenido y pega:
+## Paso 1 · Implementar Bateria.java
+Abre `src/Bateria.java`. Reemplaza su contenido:
 
 ```java
-public class Cuenta {
-    private final String titular;
-    private double saldo;
+public class Bateria {
+    private final String dispositivo;
+    private int porcentaje;
 
-    public Cuenta(String titular, double saldoInicial) {
-        this.titular = titular;
-        this.saldo = saldoInicial;
+    public Bateria(String dispositivo) {
+        this.dispositivo = dispositivo;
+        this.porcentaje = 0; // Batería nueva: descargada
     }
 
-    public String getTitular() { return titular; }
-    public double getSaldo() { return saldo; }
+    public String getDispositivo() { return dispositivo; }
+    public int getPorcentaje() { return porcentaje; }
 }
 ```
 
-**Checkpoint A:** identifica dos campos privados. `titular` es `final` porque no cambia después de crear la cuenta. Todavía validaremos saldo inicial en la etapa siguiente.
+**Checkpoint A:** identifica dos atributos privados, un constructor y getters. No hay un setter que permita `porcentaje = 300`.
 
-## Paso 2 · Crear dos instancias distintas
-Reemplaza `Main.java` por:
+## Paso 2 · Crear dos objetos
+En `Main.java`, reemplaza por:
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        Cuenta cuentaAna = new Cuenta("Ana", 10000);
-        Cuenta cuentaPedro = new Cuenta("Pedro", 5000);
+        Bateria dron = new Bateria("Dron");
+        Bateria camara = new Bateria("Cámara");
 
-        System.out.println(cuentaAna.getTitular() + ": " + cuentaAna.getSaldo());
-        System.out.println(cuentaPedro.getTitular() + ": " + cuentaPedro.getSaldo());
+        System.out.println(dron.getDispositivo() + ": " + dron.getPorcentaje() + "%");
+        System.out.println(camara.getDispositivo() + ": " + camara.getPorcentaje() + "%");
     }
 }
 ```
 
-Pulsa **Run**.
+Ejecuta. La consola muestra dos baterías distintas al **0%**.
 
-**Checkpoint B:** muestra `Ana: 10000.0` y `Pedro: 5000.0`. Aunque ambos son instancias de la misma clase, poseen estado diferente.
+**Checkpoint B:** cada objeto mantiene estado propio. El constructor establece un valor inicial válido sin recibir un porcentaje arbitrario.
 
-## Paso 3 · Reconocer el riesgo
-¿Podría existir `new Cuenta("Ana", -500)`? Por ahora sí; la siguiente etapa impedirá este caso desde el constructor.
+## Paso 3 · ¿Dónde debería cambiar el porcentaje?
+No cambies `dron.porcentaje` desde `Main`: es privado. La propia clase `Bateria` debe decidir si una operación es válida. La etapa siguiente añade métodos con esas reglas.
 
 [Continuar →](03-proteger-estado.md)
