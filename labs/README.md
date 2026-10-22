@@ -16,6 +16,7 @@ Laboratorios guiados e integradores, organizados por semana curricular y alinead
 | [Semana 08](./semana-08/) | Veterinaria IV · Set, Map, identidad y consistencia | ✅ Guía de recuperación disponible |
 | [Semana 09](./semana-09/) | Primera interfaz funcional JavaFX / FXML | ✅ Disponible |
 | [Semana 10](./semana-10/) | Reservas de recintos deportivos · MVC, tabla, navegación y validación (desde cero) | ✅ Disponible |
+| [Semana 11](./semana-11/) | Inventario de instrumentos musicales · JSON y DAO (desde cero) | ✅ Guía disponible |
 
 ## Regla canónica
 
@@ -30,7 +31,11 @@ Cada lab debe:
 - evitar exigir conceptos que aún no han sido trabajados en aula;
 - mantener correspondencia entre contenido canónico del repositorio y experiencia guiada publicada en GitHub Pages.
 
-## Regla de continuidad para laboratorios evolutivos
+## Política de independencia
+
+**Cada laboratorio semanal se inicia como proyecto autónomo.** No se exige reutilizar código ni archivos de laboratorios anteriores. La implementación incremental longitudinal corresponde a **PetCare**, en `proyecto-formativo/`.
+
+## Referencias históricas de laboratorios evolutivos
 
 Cuando un laboratorio extiende uno anterior, no se crea artificialmente un proyecto paralelo. La nueva actividad debe evolucionar el mismo artefacto y separar sólo la documentación/evidencia propia de la nueva fase.
 
