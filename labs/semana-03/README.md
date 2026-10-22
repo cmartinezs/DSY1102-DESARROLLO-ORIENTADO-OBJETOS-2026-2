@@ -1,31 +1,26 @@
-# Semana 03 · Laboratorio autónomo: Cuenta segura
+# Semana 03 · Laboratorio autónomo: Batería de un dron
 
-**DSY1102 · clases, constructores, objetos y encapsulamiento · Java 21**
+**DSY1102 · Clases, objetos, constructores y encapsulamiento · Java 21**
 
-## Regla de independencia
-Crea un proyecto **nuevo** llamado `CuentaSeguraS03`. Aunque el dominio es una cuenta, **NO debes copiar ni completar CuentaSimpleS02**. Esta vez hay reglas de validación del saldo, depósitos y retiros.
+## Caso independiente
+Una empresa utiliza dispositivos electrónicos. Cada dispositivo tiene una batería con porcentaje entre **0 y 100**. Se pueden **cargar** o **consumir** puntos de batería, pero no se permite superar 100 ni bajar de 0.
 
-## Aprenderás
-- a crear objetos válidos mediante constructor;
-- a proteger `saldo` con `private`;
-- a modelar depósitos y retiros con retorno `boolean` sin adelantar manejo de excepciones;
-- a ejecutar pruebas de situaciones válidas e inválidas.
+Crea desde cero `BateriaDronS03`. **No reutiliza la Cuenta simple de semana 02**: el dominio, las clases y la entrega son nuevos.
 
-## Archivos de entrega
+## Archivos esperados
 ```text
-CuentaSeguraS03/src/
+BateriaDronS03/src/
   Main.java
-  Cuenta.java
+  Bateria.java
 ```
 
-## Ruta guiada
-1. [01 · Preparar el entorno](01-preparacion.md)
-2. [02 · Modelar Cuenta con constructor](02-modelar-cuenta.md)
-3. [03 · Proteger el saldo](03-proteger-estado.md)
-4. [04 · Casos de prueba y evidencias](04-pruebas-checkpoints.md)
+## Lo que aprenderás
+Crear un objeto mediante constructor; mantener campos privados; ofrecer getters sin setters indiscriminados; implementar métodos con retorno `boolean` para aceptar/rechazar operaciones; probar estados independientes.
 
-## Checkpoint final
-- [ ] Dos instancias independientes.
-- [ ] Saldo no puede modificarse directamente desde Main.
-- [ ] Depósitos/retiros incorrectos se rechazan sin dañar saldo.
-- [ ] Se observan resultados en consola y se explica cada responsabilidad.
+## Ruta guiada
+1. [01 · Preparación y primera ejecución](01-preparacion.md)
+2. [02 · Modelar una batería](02-modelar-cuenta.md)
+3. [03 · Proteger el porcentaje](03-proteger-estado.md)
+4. [04 · Pruebas y evidencias](04-pruebas-checkpoints.md)
+
+**Checkpoint final:** una batería nunca sale del rango 0–100; dos dispositivos conservan estados propios; un dato inválido no modifica el porcentaje. No necesitas colecciones, JavaFX, excepciones ni laboratorios anteriores.
