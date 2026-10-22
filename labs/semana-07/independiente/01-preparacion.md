@@ -1,34 +1,32 @@
-# 01 · Crear BibliotecaMultimedia desde cero
+# 01 · Nuevo proyecto SoporteTecnicoS07
 
 [← Índice](README.md) · [02 · Abstracción →](02-abstraccion.md)
 
-## Paso 1 · Nuevo proyecto
-1. Abre IntelliJ IDEA → **File → New → Project**.
-2. Selecciona **Java**, escribe `BibliotecaMultimedia`, marca **JDK 21** y **Build system: IntelliJ**.
-3. Pulsa **Create** y espera la preparación.
-4. Abre el panel **Project**, ubica `src`, clic derecho → **New → Java Class** → `Main`.
+## Paso 1 · Crear el entorno desde cero
+1. Abre **IntelliJ IDEA → File → New → Project**.
+2. Selecciona **Java**, nombre `SoporteTecnicoS07`, JDK **21** y Build system **IntelliJ**.
+3. Pulsa **Create**, espera el indexado y abre el panel **Project**.
+4. Sobre la carpeta `src`, clic derecho → **New → Java Class** → `Main`.
 5. Pega:
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Biblioteca multimedia: proyecto listo");
+        System.out.println("Centro de soporte iniciado");
     }
 }
 ```
 
-6. Ejecuta con el triángulo verde junto a `main`.
+6. Pulsa el triángulo verde junto a `main`.
 
-**Checkpoint A:** aparece el texto en Run. Si no puedes ejecutar, revisa que `src` sea Sources Root y que Project SDK sea 21.
+**Checkpoint A:** consola muestra `Centro de soporte iniciado`. Si falla, comprueba el JDK del proyecto y marca `src` como Sources Root.
 
-## Paso 2 · Distinguir identidad y capacidad
-En el cuaderno dibuja estas ideas antes de escribir clases:
+## Paso 2 · Pensar antes de programar
+Anota los objetos del caso: **Computador** e **Impresora**. Ambos comparten el **código** y la necesidad de describirse; solo el computador puede recibir una actualización de software.
 
-- **Material:** tiene título; cada subclase explica de qué trata.
-- **Libro:** contiene nombre del autor.
-- **Audiolibro:** contiene duración; además **se puede reproducir**.
-- **Reproducible:** expresa una capacidad, no una clase padre de todos los materiales.
+- «ES UN Equipo» se modela por herencia.
+- «PUEDE actualizar software» se modela mediante una interfaz.
 
-**Checkpoint B:** reconoce por qué no todos los materiales deben implementar el método reproducir.
+**Checkpoint B:** puedes explicar por qué no obligaremos a la impresora a implementar la actualización de software del computador.
 
 [Continuar →](02-abstraccion.md)
