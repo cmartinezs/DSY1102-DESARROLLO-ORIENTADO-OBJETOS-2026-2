@@ -18,28 +18,28 @@ Laboratorios guiados e integradores, organizados por semana curricular y alinead
 | [Semana 10](./semana-10/) | Reservas de recintos deportivos · MVC, tabla, navegación y validación (desde cero) | ✅ Disponible |
 | [Semana 11](./semana-11/) | Inventario de instrumentos musicales · JSON y DAO (desde cero) | ✅ Guía disponible |
 
-## Estándar de acompañamiento: «bicicleta con rueditas»
+## Estándar de diseño pedagógico incremental
 
-Usar **semana 09 como referencia de profundidad**: no basta con indicar «crea un FXML» o «configura un DAO». Cada etapa debe ayudar a un alumno que todavía no sabe dónde hacer clic.
+La [norma didáctica específica de DSY1102](../docs/ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md) define cómo se diseñan los laboratorios desde ahora.
 
-**Estructura recomendada, flexible según complejidad:**
-- `README.md`: independencia del caso, objetivo, requisitos, mapa de archivos, enlaces a etapas, resultado esperado.
-- `01-*.md`: preparación y creación del proyecto, con pasos reales de IntelliJ y primera ejecución correcta.
-- `02-*.md`: primera funcionalidad, archivos exactos y código completo/adaptable.
-- `03-*.md`: integración, interfaces, eventos, errores y comprobaciones.
-- `04-*.md`: pruebas manuales reproducibles, evidencia, diagnóstico y cierre.
-- Archivos adicionales (pruebas, ejercicios) sólo cuando aporten claridad; nombres únicos y enlazados.
+**La estructura se estandariza; la cantidad de incrementos no.** Se usa la experiencia de EP1: contexto y requisitos claros; cambios funcionales progresivos; comprobación antes de avanzar; ayuda técnica abundante al introducir un concepto, luego decreciente según lo aprendido y recuperable ante dificultades.
 
-**Cada documento** abre con navegación, punto de partida, pasos numerados, rutas o archivos concretos, capturas esperadas descritas en texto, fragmentos completos cuando son necesarios, **checkpoint antes de avanzar** y errores frecuentes con acciones concretas. No presupongas comandos, rutas, menús o conocimientos nuevos sin introducirlos. No se exige copiar una solución preconstruida: se acompaña la comprensión y la ejecución.
+- **README:** problema, límites, requisitos funcionales/técnicos, independencia, mapa de incrementos **variable** y pruebas de aceptación.
+- **Incrementos:** un archivo o unidad didáctica por resultado de aprendizaje diferenciable, con tantos pasos como requiera el caso. No existe un mínimo/máximo fijo de cuatro partes.
+- **Cada paso:** indica exactamente qué hacer cuando el alumno aún no sabe cómo; archivo, lugar, ejecución, salida esperada, diagnóstico. En contenidos ya dominados puede ofrecer mayor autonomía, sin ocultar el resultado exigido.
+- **Cada incremento:** conserva el proyecto dentro del mismo lab, agrega capacidad nueva, comprueba su resultado y marca el siguiente desafío.
+- **Evidencia y cierre:** pruebas positivas/negativas pertinentes, explicaciones y formato de entrega. Pueden estar en el último incremento o en documento dedicado.
 
-**Progresión:** cada lab es autónomo entre semanas. Sólo el proyecto formativo **PetCare** requiere continuidad longitudinal. La continuidad *dentro del mismo laboratorio* entre etapas sí es obligatoria. El número de etapas puede variar si la pedagogía lo justifica; consistencia de experiencia es más importante que identidad rígida de nombres.
+La autonomía es **entre laboratorios**. Dentro de un mismo laboratorio, los incrementos comparten su propio proyecto. **PetCare** es la continuidad longitudinal entre semanas. Las experiencias históricas Veterinaria I–IV no condicionan los labs oficiales.
+
+No crear cuatro ficheros por comodidad de plantilla; tampoco fusionar cambios diferentes si eso dificulta encontrar el error. La [matriz de revisión retroactiva](../docs/MATRIZ-INCREMENTOS-LABS-DSY1102-2026-2.md) distingue estructura actual y posibles ajustes pedagógicos.
 
 ## Regla canónica
 
-Cada lab debe:
+Cada laboratorio guiado debe:
 
 - tener `README.md` propio con propósito, objetivos, resultado esperado, contenidos relacionados, conocimientos previos y dependencias;
-- estar dividido en varios `.md` secuenciales;
+- separar incrementos por cambios o aprendizajes verificables, en tantos `.md` como el caso justifique;
 - indicar cada paso de forma explícita;
 - incluir un checkpoint verificable en cada etapa;
 - declarar de forma explícita cualquier dependencia con un laboratorio anterior;
@@ -55,6 +55,6 @@ Cada lab debe:
 
 Las experiencias interactivas de Veterinaria I–IV (semanas 05–08) se conservan como **archivo de práctica opcional**, con su continuidad histórica interna. **No son prerrequisitos de los laboratorios oficiales autónomos**. Los README de las semanas 06–08 apuntan primero a `independiente/` y después al material histórico.
 
-En cada semana, las etapas 01–04 del laboratorio autónomo se encuentran en el índice correspondiente. No se debe exigir al alumno crear otra solución por arrastre de una actividad anterior.
+Las etapas del laboratorio autónomo se encuentran en el índice correspondiente y su cantidad responde al diseño del caso, **no** al número cuatro. No se debe exigir al alumno crear otra solución por arrastre de una actividad anterior.
 
 Los labs no reemplazan ejercicios ni PetCare. Los ejercicios viven en [`../ejercicios/`](../ejercicios/) y el proyecto longitudinal en [`../proyecto-formativo/`](../proyecto-formativo/).
