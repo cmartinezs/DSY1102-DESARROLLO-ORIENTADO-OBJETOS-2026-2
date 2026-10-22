@@ -10,6 +10,10 @@ Este directorio publica el material que originalmente se preparó como **Evaluac
 
 Las tres versiones trabajan la misma progresión pedagógica mediante dominios distintos: análisis inicial, Java elemental, responsabilidades y SRP, herencia/abstracción/interfaces/polimorfismo, colecciones (`List`, `Set`, `Map`) y manejo de excepciones.
 
+## Aprendizaje metodológico reutilizable
+
+El diseño progresivo de EP1 inspira el [estándar pedagógico incremental de DSY1102](../../docs/ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md): contexto y requisitos funcionales/técnicos claros, incremento comprobable, verificaciones antes de avanzar y acompañamiento de implementación que se reduce conforme se domina la habilidad. **No se traslada una cantidad fija de partes, ni se modifican instrumentos evaluativos históricos u oficiales**.
+
 ## Cómo usar este material
 
 Puedes escoger cualquiera de las tres versiones y desarrollarla de principio a fin. Si quieres simular la experiencia original, resuelve una parte antes de leer la siguiente.
