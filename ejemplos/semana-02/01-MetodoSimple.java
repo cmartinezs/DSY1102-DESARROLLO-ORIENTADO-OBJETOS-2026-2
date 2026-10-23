@@ -1,4 +1,5 @@
-public class MetodoSimple {
+// Archivo historico. Ejemplo canonico: MetodoSimple.java
+class MetodoSimpleLegacy {
 
     public static void main(String[] args) {
         System.out.println("Antes de llamar al método");
