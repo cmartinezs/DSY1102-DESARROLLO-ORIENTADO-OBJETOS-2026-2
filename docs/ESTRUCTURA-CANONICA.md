@@ -4,12 +4,13 @@ Este documento define la organización vigente del repositorio docente y prevale
 
 ## Verticales principales
 
-El material de aprendizaje se divide en cuatro verticales independientes:
+El material de aprendizaje se divide en **cinco verticales pedagógicas**:
 
 1. `semanas/`
 2. `labs/`
 3. `ejemplos/`
-4. `proyecto-formativo/`
+4. `ejercicios/`
+5. `proyecto-formativo/`
 
 `practica/` y `desafios/` no existen como verticales raíz.
 
@@ -43,6 +44,16 @@ El material de aprendizaje se divide en cuatro verticales independientes:
 - Deben ser cortos, concretos, ejecutables e independientes.
 - No se utiliza el proyecto formativo como ejemplo genérico salvo que el objetivo sea explicar explícitamente una parte del proyecto.
 
+## `ejercicios/`
+
+- `ejercicios/semana-XX/README.md` es el **enunciado canónico** del banco mínimo semanal.
+- Un ejercicio demuestra **una habilidad focal** en el problema más pequeño que exija decisión, implementación y prueba observable; **mínimo no equivale a trivial**.
+- Cada ejercicio comunica contexto, comportamiento, datos de prueba/resultado esperado, límite, restricción curricular y pista proporcional; no exige de forma automática varias clases, evidencias extensas o proyecto nuevo.
+- El número de ejercicios semanal es variable y se justifica por la cobertura de conceptos; no existe una cuota.
+- Los talleres de varias etapas y el código integrador se conservan claramente reclasificados sin confundirse con el ejercicio mínimo.
+- El portal sirve como índice hacia el `README` canónico, no mantiene otra versión editorial activa.
+- Véase el [estándar de ejercicios mínimos](ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md).
+
 ## `proyecto-formativo/`
 
 - `proyecto-formativo/README.md` documenta el proyecto longitudinal y su roadmap.
@@ -57,8 +68,8 @@ El material de aprendizaje se divide en cuatro verticales independientes:
 La práctica se clasifica por intención pedagógica:
 
 - demostración mínima → `ejemplos/`;
-- ejercicio directamente asociado a una materia → dentro de la semana correspondiente;
-- actividad guiada sustancial → `labs/`;
+- ejercicio directamente asociado a una materia → `ejercicios/semana-XX/`, con enlace desde la semana curricular;
+- actividad guiada sustancial → `labs/` (o taller histórico señalizado como complementario);
 - integración acumulativa → `proyecto-formativo/`.
 
 Los desafíos pueden vivir en el portal web del curso. No deben duplicarse mecánicamente en el repositorio. Las semanas pueden enlazarlos como práctica autónoma complementaria.
@@ -70,7 +81,7 @@ Por política de bypass financiero, el portal no se despliega mediante GitHub Ac
 Modelo vigente:
 
 ```text
-master/semanas/, master/labs/, master/ejemplos/, master/proyecto-formativo/  fuentes canónicas didácticas
+master/semanas/, master/labs/, master/ejemplos/, master/ejercicios/, master/proyecto-formativo/  fuentes canónicas didácticas
 gh-pages/(root)     superficie estática derivada de lectura/navegación
 ```
 
