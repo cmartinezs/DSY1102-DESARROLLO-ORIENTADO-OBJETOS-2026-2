@@ -12,6 +12,7 @@ class ListSetMapIntegrado {
         biblioteca.registrar(new Libro("ISBN-001", "Java Inicial", "Ana Soto"));
         biblioteca.registrar(new Libro("ISBN-002", "POO Aplicada", "Luis Perez"));
         biblioteca.registrar(new Libro("ISBN-003", "Colecciones Java", "Ana Soto"));
+        biblioteca.registrar(new Libro("ISBN-002", "Duplicado de prueba", "Otra persona")); // rechazado: índices consistentes
 
         System.out.println("Catalogo:");
         biblioteca.listar();
@@ -29,6 +30,10 @@ class ListSetMapIntegrado {
         private final Map<String, Libro> librosPorIsbn = new HashMap<>();
 
         public void registrar(Libro libro) {
+            if (libro == null || libro.getIsbn() == null || librosPorIsbn.containsKey(libro.getIsbn())) {
+                System.out.println("Registro rechazado: ISBN inexistente o repetido.");
+                return;
+            }
             catalogo.add(libro);
             autores.add(libro.getAutor());
             librosPorIsbn.put(libro.getIsbn(), libro);
