@@ -40,7 +40,11 @@ El [estándar de diseño pedagógico incremental](docs/ESTANDAR-DISENO-PEDAGOGIC
 
 Los ejemplos son ejecuciones individuales, breves e independientes. Cada ejemplo debe demostrar un concepto concreto sin arrastrar accidentalmente la arquitectura del proyecto formativo.
 
-### 4. `proyecto-formativo/` — integrar incrementalmente
+### 4. `ejercicios/` — aplicar una habilidad mínima significativa
+
+Cada `ejercicios/semana-XX/README.md` plantea problemas focalizados con restricciones y pruebas reproducibles. La cantidad depende de la cobertura de la semana, **no** de una cuota; no son mini-laboratorios. Véase el [estándar de ejercicios](docs/ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md).
+
+### 5. `proyecto-formativo/` — integrar incrementalmente
 
 Es un proyecto longitudinal. Cada semana depende de la anterior y contiene checklist de inicio, implementación secuencial por materia y checklist de finalización.
 
@@ -49,7 +53,8 @@ Es un proyecto longitudinal. Cada semana depende de la anterior y contiene check
 `practica/` y `desafios/` **no son verticales raíz**.
 
 - práctica mínima o demostrativa → `ejemplos/` o material de la semana;
-- práctica breve, refuerzo o desafío → `ejercicios/`;
+- práctica breve de aplicación → `ejercicios/`;
+- desafío de mayor autonomía → portal de desafíos, sin duplicar el banco canónico;
 - práctica guiada sustancial → `labs/`;
 - desafíos destacados → pueden exponerse además en el portal web y deben enlazar a su fuente mantenida cuando corresponda.
 
