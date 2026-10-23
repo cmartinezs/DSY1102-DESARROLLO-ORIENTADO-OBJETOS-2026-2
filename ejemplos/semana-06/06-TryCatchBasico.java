@@ -1,4 +1,5 @@
-public class TryCatchBasico {
+// Ejemplo legado: utilizar TryCatchBasico.java (sin prefijo) como fuente canonica.
+class TryCatchBasicoLegacy {
     public static void main(String[] args) {
         String entrada = "abc";
 
