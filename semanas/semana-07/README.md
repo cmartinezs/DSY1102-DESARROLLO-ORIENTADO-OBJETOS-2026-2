@@ -6,6 +6,11 @@
 
 ← [Volver al índice](../README.md)
 
+
+## Ejercicios mínimos significativos · Semana 7
+
+**[Abrir banco canónico de ejercicios de la semana](../../ejercicios/semana-07/README.md).** Cada actividad trabaja una habilidad focal mediante una necesidad concreta y una prueba reproducible. No es un segundo laboratorio ni requiere reutilizar PetCare. Las prácticas antiguas del portal, si existen, se conservan como **históricas** y no reemplazan estos enunciados.
+
 ## Propósito de la semana
 
 Esta semana se utiliza para **integrar y reforzar la Experiencia de Aprendizaje 1** mediante un proyecto de consola completo.
