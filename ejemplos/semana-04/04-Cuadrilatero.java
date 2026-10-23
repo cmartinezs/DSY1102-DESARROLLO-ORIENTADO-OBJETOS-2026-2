@@ -1,8 +1,9 @@
-class Punto {
+// Demo autocontenida: clases auxiliares con nombres propios para compilar toda la semana.
+class PuntoCuadrilatero {
     private int x;
     private int y;
 
-    public Punto(int x, int y) {
+    public PuntoCuadrilatero(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -15,7 +16,7 @@ class Punto {
         return y;
     }
 
-    public double calcularDistancia(Punto otroPunto) {
+    public double calcularDistancia(PuntoCuadrilatero otroPunto) {
         int diferenciaX = otroPunto.getX() - x;
         int diferenciaY = otroPunto.getY() - y;
 
@@ -30,16 +31,16 @@ class Punto {
 }
 
 class Cuadrilatero {
-    private Punto vertice1;
-    private Punto vertice2;
-    private Punto vertice3;
-    private Punto vertice4;
+    private PuntoCuadrilatero vertice1;
+    private PuntoCuadrilatero vertice2;
+    private PuntoCuadrilatero vertice3;
+    private PuntoCuadrilatero vertice4;
 
     public Cuadrilatero(
-        Punto vertice1,
-        Punto vertice2,
-        Punto vertice3,
-        Punto vertice4
+        PuntoCuadrilatero vertice1,
+        PuntoCuadrilatero vertice2,
+        PuntoCuadrilatero vertice3,
+        PuntoCuadrilatero vertice4
     ) {
         this.vertice1 = vertice1;
         this.vertice2 = vertice2;
@@ -69,10 +70,10 @@ class Cuadrilatero {
 
 class CuadrilateroApp {
     public static void main(String[] args) {
-        Punto a = new Punto(0, 0);
-        Punto b = new Punto(4, 0);
-        Punto c = new Punto(4, 3);
-        Punto d = new Punto(0, 3);
+        PuntoCuadrilatero a = new PuntoCuadrilatero(0, 0);
+        PuntoCuadrilatero b = new PuntoCuadrilatero(4, 0);
+        PuntoCuadrilatero c = new PuntoCuadrilatero(4, 3);
+        PuntoCuadrilatero d = new PuntoCuadrilatero(0, 3);
 
         Cuadrilatero figura = new Cuadrilatero(a, b, c, d);
         figura.mostrarVertices();
