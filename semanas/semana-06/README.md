@@ -1,5 +1,10 @@
 # Semana 06 · Arrays, colecciones y excepciones
 
+
+## Ejercicios mínimos significativos · Semana 6
+
+**[Abrir banco canónico de ejercicios de la semana](../../ejercicios/semana-06/README.md).** Cada actividad trabaja una habilidad focal mediante una necesidad concreta y una prueba reproducible. No es un segundo laboratorio ni requiere reutilizar PetCare. Las prácticas antiguas del portal, si existen, se conservan como **históricas** y no reemplazan estos enunciados.
+
 ## Propósito
 
 Aprender a administrar conjuntos de datos y objetos con arrays y colecciones, y controlar situaciones inválidas mediante excepciones, separando claramente **enseñanza del concepto**, **práctica breve** e **integración guiada**.
