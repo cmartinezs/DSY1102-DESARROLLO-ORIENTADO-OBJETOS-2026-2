@@ -1,5 +1,10 @@
 # Semana 08 · Set, Map y cierre de EA1
 
+
+## Ejercicios mínimos significativos · Semana 8
+
+**[Abrir banco canónico de ejercicios de la semana](../../ejercicios/semana-08/README.md).** Cada actividad trabaja una habilidad focal mediante una necesidad concreta y una prueba reproducible. No es un segundo laboratorio ni requiere reutilizar PetCare. Las prácticas antiguas del portal, si existen, se conservan como **históricas** y no reemplazan estos enunciados.
+
 ## Propósito
 
 Extender el trabajo con colecciones incorporando `Set` y `Map`, comprender **qué problema resuelve cada estructura** y cerrar la Experiencia de Aprendizaje 1 con preparación para la Evaluación Parcial 1.
