@@ -9,8 +9,8 @@
 ## E02 · Dos formas de crear el mismo objeto
 **Foco:** sobrecarga de constructores y `this(...)`. Crea `Reloj` con hora y minuto; permite `Reloj()` (00:00) y `Reloj(int hora, int minuto)`. No es necesario controlar segundos.
 - **Pruebas:** constructor vacío → «00:00»; `Reloj(9,5)` → «09:05».
-- **Caso inválido:** hora 25 o minuto 75 → rechazar en el constructor (puedes usar `IllegalArgumentException` como precondición técnica si ya se explicó, sin exigir `try/catch`).
-- **Pregunta:** ¿qué evita que un constructor use `this(...)` para delegar valores por defecto?
+- **Caso límite:** muestra también `Reloj(0,0)` → «00:00». Por ahora se asume que las horas/minutos entregados al constructor son válidos; el rechazo mediante excepciones se practica en semana 06.
+- **Pregunta:** ¿qué duplicación evita un constructor al usar `this(...)` para delegar los valores por defecto?
 
 ## E03 · Cliente y credencial (dos objetos que colaboran)
 **Foco:** una clase recibe otra como dato. `Persona` tiene nombre; `Credencial` recibe `Persona` y código en constructor; `Credencial.resumen()` debe mostrar ambos sin duplicar el nombre en un segundo atributo.
@@ -21,7 +21,7 @@
 ## E04 · Leer una decisión, no mezclar reglas
 **Foco:** `Scanner` para entrada y `main` como coordinador. Lee el nombre de un participante y un número entero de intentos; instancia un objeto mínimo `Participante` con esos datos y muestra su resumen.
 - **Pruebas:** «Ana», 3 → «Ana: 3 intentos»; 0 intentos → «Cantidad inválida» antes de construir el objeto.
-- **Pista:** `nextLine()` y `Integer.parseInt()` permiten razonar sobre formato, pero si todavía no se han enseñado excepciones, usa entradas válidas para la lectura y realiza la regla de negocio explícitamente.
+- **Pista:** `nextLine()` permite leer el nombre y `nextInt()` el número. Trabaja con entrada numérica bien formada; semana 06 abordará conversión inválida y excepciones. Rechaza explícitamente cero o negativos antes de crear el objeto.
 - **Pregunta:** ¿qué parte corresponde a interacción y cuál al modelo?
 - **No hacer:** crear una clase `LectorConsola`, lectores sobrecargados o un menú de aplicación.
 
