@@ -1,45 +1,16 @@
-# Ejemplos · Semana 03
+# Ejemplos · Semana 03 · Objetos y estado encapsulado
 
-Ejemplos mínimos e independientes para métodos, objetos y encapsulamiento.
+**Corte real documentado de aula (29-08-2026):** en esta etapa se enseñaron clases, objetos, campos, accesores, mutadores y operaciones. **Todavía no se había enseñado a declarar constructores propios.** Los siguientes ejemplos canónicos respetan ese corte y utilizan el constructor sin parámetros que Java proporciona implícitamente.
 
-1. [`01-MetodoRetorno.java`](01-MetodoRetorno.java) — parámetro + retorno.
-2. [`02-ObjetoSimple.java`](02-ObjetoSimple.java) — clase, constructor e instancia.
-3. [`03-EstadoEncapsulado.java`](03-EstadoEncapsulado.java) — estado privado y operación controlada.
-4. [`04-DosInstancias.java`](04-DosInstancias.java) — independencia entre objetos.
-5. [`05-CuentaBasica.java`](05-CuentaBasica.java) — solución desarrollada en clase: atributos, accesores, mutadores y operaciones sobre el estado, todavía sin constructor explícito.
+1. [MetodoRetorno.java](MetodoRetorno.java) — repaso de método y retorno; salida `Total: $3600.0`.
+2. [ObjetoSimple.java](ObjetoSimple.java) — crear un objeto y asignar atributos; salida `Cuaderno · stock: 12`.
+3. [EstadoEncapsulado.java](EstadoEncapsulado.java) — estado privado y operación que rechaza un monto negativo; salidas `Carga negativa: false`, `Saldo: $7000`.
+4. [DosInstancias.java](DosInstancias.java) — dos objetos, dos estados; salidas `A=2` y `B=1`.
+5. [CuentaBasica.java](CuentaBasica.java) — caso desarrollado en clases: getters, setters y operaciones `depositarMonto` y `girarMonto` sin constructor explícito; saldo final `$95000`.
 
-## Corte real de clase · 29-08-2026
+## Cómo ejecutar
+Crea un proyecto **Java JDK 21** nuevo en IntelliJ, copia estos cinco archivos a `src` y ejecuta cada `main`. Cada clase pública coincide con su nombre de archivo; sus auxiliares tienen nombres distintos. Los cinco pueden convivir sin definiciones duplicadas.
 
-En la sesión se trabajó principalmente en comprender y aplicar:
+Las rutas numeradas originales `01-` a `05-` permanecen como **variantes históricas**, y algunas muestran constructores explícitos **que corresponden a semana 04**. No las presentes como ruta principal de este corte.
 
-- clases y creación de objetos;
-- atributos y estado de un objeto;
-- métodos o funciones operacionales;
-- accesores (`get...`) y mutadores (`set...`);
-- diferencia entre consultar, modificar y operar sobre el estado;
-- validaciones dentro de la propia clase, evitando trasladar reglas de la cuenta al `main`;
-- nomenclatura Java: `PascalCase` para clases y `camelCase` para atributos, variables y métodos;
-- buenas prácticas básicas de responsabilidad y encapsulamiento.
-
-El ejercicio de `Cuenta` quedó implementado hasta:
-
-- crear una cuenta mediante `new Cuenta()`;
-- establecer sus datos mediante mutadores;
-- establecer saldo;
-- `depositarMonto(...)`;
-- `girarMonto(...)`;
-- `mostrarDatos()`;
-- consultar estado mediante accesores.
-
-### Fuera del alcance de este corte
-
-Todavía **no se ha enseñado constructor explícito**. La solución no debe adelantarse pedagógicamente incorporándolo como mecanismo obligatorio de inicialización.
-
-La continuación prevista parte desde este mismo ejercicio para introducir progresivamente:
-
-1. constructores;
-2. composición;
-3. herencia;
-4. polimorfismo.
-
-Cada archivo puede estudiarse por separado. No dependen de PetCare ni del lab semanal.
+**Pregunta de observación:** ¿qué pertenece a la clase? ¿Qué pertenece a cada instancia? ¿Qué controla el estado cuando un dato es inválido? Los [ejercicios](../../ejercicios/semana-03/) transforman estas observaciones en problemas focales.
