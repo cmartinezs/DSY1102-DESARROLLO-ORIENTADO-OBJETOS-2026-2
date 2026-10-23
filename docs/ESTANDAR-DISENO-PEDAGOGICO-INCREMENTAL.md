@@ -33,7 +33,7 @@ La EP1 constituye una **referencia metodológica**, no una norma sobre cantidad 
 - **Labs:** un proyecto nuevo y autocontenido por laboratorio semanal; ningún lab oficial exige artefactos o entregas de semanas anteriores. Los pasos e incrementos de **ese mismo lab** sí evolucionan el mismo proyecto.
 - **PetCare:** única secuencia longitudinal de producto entre semanas; no reiniciar ni duplicar la solución.
 - **Ejemplos:** independientes y breves, muestran una idea puntual; no se exige dividirlos artificialmente.
-- **Ejercicios:** práctica enfocada, menos dirigida que el lab cuando corresponda.
+- **Ejercicios:** unidad mínima de aplicación significativa de una habilidad focal; exige una decisión y prueba observable, **no un minilaboratorio**. Su norma específica es [Estándar de ejercicios mínimos](ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md).
 - **Evaluaciones:** se someten a sus reglas institucionales, instrumentos y condiciones de integridad; una evolución interna del proyecto evaluado no convierte los labs en dependientes.
 - **Veterinaria I–IV:** patrimonio histórico opcional con sus dependencias originales internas; no prerrequisito de los labs oficiales.
 
@@ -113,6 +113,8 @@ Auditar labs 02–11 **por razón pedagógica de cada incremento**, no por conte
 - [ ] Ejecución práctica comprobada o limitación declarada explícitamente.
 
 ## 11. Fuentes internas
+
+- [Estándar de ejercicios mínimos DSY1102](ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md) — delimita ejercicios frente a ejemplos, laboratorios, talleres y desafíos; propone entradas/salidas y pruebas concretas.
 
 - Diseño de EP1 con partes progresivas: `evaluaciones/ep1-liberada/version-a-eventpass.md` y formas docentes de EP1 consultadas como **referencia de método**, sin republicarlas ni alterar condiciones institucionales.
 - `docs/ESTRUCTURA-CANONICA.md` — responsabilidades de verticales.
