@@ -16,6 +16,10 @@ En esta etapa se ha trabajado en:
 - colaboración entre objetos y composición en sentido introductorio;
 - uso de objetos como atributos y como parámetros de métodos.
 
+## Ejecución y dependencias intencionales
+
+Crea un proyecto Java 21 en IntelliJ y copia los siete archivos a `src` **juntos**. Los primeros cuatro son demostraciones aisladas, pero los archivos `05-CuentaScanner.java` → `06-LectorConsola.java` → `07-CuentaConLectorConsola.java` son una **secuencia de refactorización**, no tres ejemplos mínimos autónomos. El séptimo requiere la clase `LectorConsola` declarada en el sexto. Sus clases auxiliares tienen ahora nombres distintos para evitar conflictos al compilar todos los archivos. Ejecuta `MainCuentaScanner`, `DemoLectorConsola` y `MainCuentaConLector`, respectivamente. Se utilizan entradas interactivas válidas de prueba.
+
 ## Ejemplos
 
 1. [`01-CuentaConstructores.java`](01-CuentaConstructores.java) — continuidad directa de `CuentaBasica`: constructor vacío explícito y constructores sobrecargados.
