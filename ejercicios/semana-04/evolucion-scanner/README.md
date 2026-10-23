@@ -1,5 +1,8 @@
 # Ejercicio evolutivo · De Scanner directo a LectorConsola
 
+> **Clasificación 2026-10-22: taller histórico de profundización, opcional.** Esta actividad evolutiva de varias etapas **no** es un ejercicio mínimo obligatorio de la semana. El [banco vigente](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/ejercicios/semana-04/README.md) ofrece problemas pequeños, independientes y verificables. Se conserva íntegro el enfoque de refactorización histórica.
+
+
 ## Objetivo
 
 Comprender por experiencia por qué conviene encapsular la lectura y validación de datos de consola en una clase especializada, manteniendo separadas las responsabilidades de interacción, coordinación y negocio.
