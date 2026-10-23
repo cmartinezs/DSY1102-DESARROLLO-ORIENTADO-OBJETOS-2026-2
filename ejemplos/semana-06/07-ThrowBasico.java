@@ -1,4 +1,5 @@
-public class ThrowBasico {
+// Ejemplo legado: utilizar ThrowBasico.java (sin prefijo) como fuente canonica.
+class ThrowBasicoLegacy {
     static void validarEdad(int edad) {
         if (edad < 0) {
             throw new IllegalArgumentException("La edad no puede ser negativa");
