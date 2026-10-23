@@ -1,5 +1,10 @@
 # Semana 05 · Herencia y polimorfismo
 
+
+## Ejercicios mínimos significativos · Semana 5
+
+**[Abrir banco canónico de ejercicios de la semana](../../ejercicios/semana-05/README.md).** Cada actividad trabaja una habilidad focal mediante una necesidad concreta y una prueba reproducible. No es un segundo laboratorio ni requiere reutilizar PetCare. Las prácticas antiguas del portal, si existen, se conservan como **históricas** y no reemplazan estos enunciados.
+
 ## Propósito
 Consolidar el modelado orientado a objetos mediante jerarquías de clases, reutilización de atributos y comportamiento, constructores heredados y polimorfismo.
 
