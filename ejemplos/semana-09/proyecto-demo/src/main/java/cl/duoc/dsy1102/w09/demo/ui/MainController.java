@@ -13,7 +13,7 @@ public class MainController {
     private void registrar() {
         try {
             Vehiculo vehiculo = new Vehiculo(patenteField.getText());
-            resultadoLabel.setText("Vehículo disponible: " + vehiculo.getPatente());
+            resultadoLabel.setText("Patente válida: " + vehiculo.getPatente());
         } catch (IllegalArgumentException exception) {
             resultadoLabel.setText(exception.getMessage());
         }
