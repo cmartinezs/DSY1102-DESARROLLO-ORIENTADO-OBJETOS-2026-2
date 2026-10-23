@@ -1,4 +1,5 @@
-public class MetodosParametrosRetorno {
+// Archivo historico. Ejemplo canonico: MetodosParametrosRetorno.java
+class MetodosParametrosRetornoLegacy {
 
     public static void main(String[] args) {
         mostrarNombre("Ana");
