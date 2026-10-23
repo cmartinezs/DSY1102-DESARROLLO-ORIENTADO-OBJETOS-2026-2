@@ -2,6 +2,11 @@
 
 **Periodo:** 5 al 10 de octubre de 2026 · **Sección:** DSY1102-012V
 
+
+## Ejercicios mínimos significativos · Semana 9
+
+**[Abrir banco canónico de ejercicios de la semana](../../ejercicios/semana-09/README.md).** Cada actividad trabaja una habilidad focal mediante una necesidad concreta y una prueba reproducible. No es un segundo laboratorio ni requiere reutilizar PetCare. Las prácticas antiguas del portal, si existen, se conservan como **históricas** y no reemplazan estos enunciados.
+
 ## Alcance vigente de coordinación
 El ajuste de EA1 desplaza a esta semana el comienzo de JavaFX: **Maven, configuración JavaFX, escenas y ciclo de vida; Scene Builder, FXML, vinculación al Controller, componentes UI y eventos**. Sustituye la antigua planificación que asignaba MVC avanzado, `TableView` y navegación a la semana 09.
 
