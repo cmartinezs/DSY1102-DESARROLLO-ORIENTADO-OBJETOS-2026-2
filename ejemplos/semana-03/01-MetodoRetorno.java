@@ -1,4 +1,5 @@
-public class MetodoRetorno {
+// Variante previa conservada: usa MetodoRetorno.java como ejemplo canonico de semana 03.
+class MetodoRetornoLegacy {
     static double calcularTotal(double precio, int cantidad) {
         return precio * cantidad;
     }
