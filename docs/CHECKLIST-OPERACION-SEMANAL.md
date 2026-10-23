@@ -12,7 +12,9 @@ No reemplaza la planificación institucional. Su objetivo es evitar desalineacio
 - [ ] Crear o reconciliar `semanas/semana-XX/`.
 - [ ] Liberar el contenido que corresponde por semana curricular, aunque aún no se haya alcanzado completamente en clase.
 - [ ] Preparar ejemplos en `ejemplos/semana-XX/` cuando corresponda.
-- [ ] Preparar práctica breve, refuerzo o desafíos en `ejercicios/semana-XX/` cuando corresponda.
+- [ ] Preparar el **banco de ejercicios mínimos significativos** en `ejercicios/semana-XX/README.md`, alineando habilidad focal → problema → comportamiento → datos de prueba → resultado esperado. Referencia: [estándar de ejercicios](ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md).
+- [ ] Comprobar cobertura de **todos los conceptos esenciales efectivamente planificados**, sin imponer una cantidad fija de ejercicios ni adelantar contenidos.
+- [ ] Reclasificar en `ejemplos/`, talleres opcionales o `labs/` las actividades que sean demostraciones de API o integración extensa; conservar enlaces/archivo histórico.
 - [ ] Diseñar laboratorio en `labs/semana-XX/` a partir de requisitos funcionales/técnicos, pruebas y **mapa de incrementos variables** (no una cantidad predeterminada de etapas), según [estándar pedagógico](ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md).
 - [ ] Ajustar los pasos y el andamiaje a la novedad de cada concepto (rueditas donde corresponde), con checkpoint por incremento.
 - [ ] Declarar explícitamente el proyecto nuevo y la independencia de otros laboratorios; PetCare mantiene su propia progresión.
@@ -46,7 +48,7 @@ La página principal debe responder, sin necesidad de explorar el repo:
 - [ ] Actualizar PetCare desde el estado efectivamente alcanzado.
 - [ ] Confirmar qué ejercicios/desafíos quedan disponibles para estudio autónomo.
 - [ ] Reconciliar `semanas/`, `ejemplos/`, `ejercicios/`, `labs/` y `proyecto-formativo/`.
-- [ ] Comprobar que no existan dos fuentes activas del mismo artefacto.
+- [ ] Comprobar que no existan dos fuentes activas del mismo artefacto: ejercicios canónicos en `master/ejercicios/`, portal como índice; prácticas históricas señalizadas.
 - [ ] Revisar que todos los enlaces públicos funcionen y que el número/títulos de incrementos coincidan entre índice, Markdown y portal.
 - [ ] Comprobar los casos de aceptación de cada incremento; si no se ejecutaron de punta a punta, registrar la limitación.
 - [ ] Registrar deuda pedagógica o técnica que deba retomarse la semana siguiente.
