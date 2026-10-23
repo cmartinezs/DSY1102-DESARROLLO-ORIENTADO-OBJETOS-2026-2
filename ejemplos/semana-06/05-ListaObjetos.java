@@ -1,7 +1,8 @@
+// Ruta historica; la clase canonica se encuentra en ListaObjetos.java.
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaObjetos {
+class ListaObjetosLegacy {
     static class Producto {
         private final String nombre;
         private final int precio;
