@@ -1,6 +1,11 @@
 # Semana 10 · MVC, TableView, navegación y validación
 **DSY1102 · EA2 · 12 al 17 de octubre de 2026**
 
+
+## Ejercicios mínimos significativos · Semana 10
+
+**[Banco canónico de ejercicios de la semana](../../ejercicios/semana-10/README.md)** — aplicación de una habilidad focal mediante un problema con resultados verificables. No es un laboratorio reducido y no requiere usar PetCare. Si existen prácticas anteriores más extensas, son materiales complementarios, no un segundo banco vigente.
+
 ## Objetivo
 Crear desde cero una aplicación JavaFX independiente con IntelliJ IDEA, Java 21 y Maven: organizar responsabilidades según MVC; presentar colecciones con TableView y ObservableList; navegar entre dos vistas FXML; validar datos antes de registrar.
 
