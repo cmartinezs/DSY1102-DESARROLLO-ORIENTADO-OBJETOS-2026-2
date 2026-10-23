@@ -13,6 +13,6 @@ El objetivo no es introducir todavía el desarrollo formal de clases de dominio,
 3. [`Ejemplo03Switch.java`](Ejemplo03Switch.java)
 4. [`Ejemplo04CicloFor.java`](Ejemplo04CicloFor.java)
 5. [`Ejemplo05WhileDoWhile.java`](Ejemplo05WhileDoWhile.java)
-6. [`Ejemplo06Integrador.java`](Ejemplo06Integrador.java)
+6. [`Ejemplo06Integrador.java`](Ejemplo06Integrador.java) — **recapitulación opcional** de condicionales y bucles, no un sexto concepto atómico.
 
-Cada archivo puede ejecutarse de forma independiente y utiliza valores declarados directamente en el método `main`.
+Cada archivo puede ejecutarse de forma independiente y utiliza valores declarados directamente en el método `main`. En IntelliJ usa JDK 21, copia los seis archivos a `src` y ejecuta su `main`. Resultados verificables: `Ejemplo04CicloFor` termina en **15**; `Ejemplo05WhileDoWhile` imprime 1, 2, 3 en ambos ciclos; el ejemplo integrador calcula un promedio y una tabla de multiplicar.
