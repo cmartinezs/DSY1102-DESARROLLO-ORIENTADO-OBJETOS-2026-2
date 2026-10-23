@@ -21,3 +21,7 @@ Se conserva **Veterinaria II · Arrays, colecciones y excepciones** como una exp
 - [Portal histórico interactivo](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/labs/veterinary-collections/).
 
 Esta separación evita asignar trabajo duplicado y preserva el contenido de generaciones anteriores.
+
+## Taller opcional de integración extendida
+
+Si necesitas una práctica adicional **no obligatoria** de varias capacidades de semana 06, consulta [MarketApp](taller-opcional-marketapp/). Se conserva como taller de integración, no se contabiliza dentro de los ejercicios mínimos ni sustituye el laboratorio oficial de Inscripciones a talleres.
