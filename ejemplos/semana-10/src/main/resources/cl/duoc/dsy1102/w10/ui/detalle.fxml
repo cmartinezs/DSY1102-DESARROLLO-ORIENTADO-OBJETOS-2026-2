@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.dsy1102.w10.ui.DetalleController" spacing="12" alignment="CENTER">
+  <padding><Insets top="16" bottom="16" left="16" right="16"/></padding>
+  <Label text="Pantalla de detalle"/>
+  <Button fx:id="volverButton" text="Volver" onAction="#volver"/>
+</VBox>
