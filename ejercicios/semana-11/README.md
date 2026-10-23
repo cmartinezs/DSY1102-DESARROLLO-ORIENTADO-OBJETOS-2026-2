@@ -1,6 +1,8 @@
 # Ejercicios · Semana 11 · Persistencia JSON y DAO
 **Objetivo:** comprobar serialización/deserialización y límites de responsabilidad en operaciones mínimas, sin construir otra interfaz JavaFX. La semana curricular introduce Jackson o la biblioteca JSON definida por el docente y distingue datos en memoria de datos persistidos.
 
+**Punto de partida del modelo:** para E01–E03 puedes declarar directamente una clase mínima `EstadoJuego` con `String nombreJugador`, `int nivel`, constructor vacío y getters/setters; no es necesario resolver los ejercicios anteriores para comenzar otro. Los objetos y archivos de prueba se crean localmente, no se copian desde un laboratorio.
+
 **Punto de partida técnico común:** un proyecto **Java Maven nuevo de práctica** con JDK 21 y una biblioteca JSON configurada; los ejemplos siguientes presuponen Jackson (`ObjectMapper`) como elección propia del curso, **no atribuida a las PPT institucionales pendientes de revisión**. Puedes utilizar el `pom.xml` explicado en [DAO JSON del laboratorio](../../labs/semana-11/02-dao-json.md) **solo como referencia de dependencias**, sin necesitar su código ni su aplicación JavaFX. Usa la ruta de trabajo `data/`, fuera de `src/main/resources`.
 
 ## E01 · Guardar un estado mínimo
