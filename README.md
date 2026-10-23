@@ -41,6 +41,8 @@ El [estándar de diseño pedagógico incremental](docs/ESTANDAR-DISENO-PEDAGOGIC
 
 Los ejemplos son ejecuciones individuales, breves e independientes. Cada ejemplo debe demostrar un concepto concreto sin arrastrar accidentalmente la arquitectura del proyecto formativo.
 
+El [estándar de ejemplos](docs/ESTANDAR-EJEMPLOS-DSY1102.md) exige una idea focal, código ejecutable y comprobación observable, sin confundir demostraciones con soluciones integradoras.
+
 ### 4. `ejercicios/` — aplicar una habilidad mínima significativa
 
 Cada `ejercicios/semana-XX/README.md` plantea problemas focalizados con restricciones y pruebas reproducibles. La cantidad depende de la cobertura de la semana, **no** de una cuota; no son mini-laboratorios. Véase el [estándar de ejercicios](docs/ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md).
