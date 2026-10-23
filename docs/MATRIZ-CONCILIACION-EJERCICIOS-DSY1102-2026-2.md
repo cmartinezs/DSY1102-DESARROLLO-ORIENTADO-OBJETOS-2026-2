@@ -22,7 +22,7 @@
 | 03 | Objetos, constructor, comportamiento y estado válido | Cinco dominios parecidos a minilabs, varios solapan Cuenta/Batería | **3**: clasificación película; termostato; colaboración Punto | Un problema focal por actividad. Original archivado |
 | 04 | Constructores/sobrecarga, colaboración, Scanner | Seis ejercicios, desafío, evolución Cuenta y LectorConsola de muchas etapas | **4**: Marcador; Reloj; Credencial-Persona; Scanner y Participante | Separar talleres evolutivos como opcionales sin borrar carpetas/código. Original archivado |
 | 05 | Herencia, `super`, `@Override`, polimorfismo | Sin banco en `ejercicios/` | **3**: notificación heredada; entrada especializada; despacho de método | Banco nuevo, no repite caso Despachos urbanos |
-| 06 | Arrays, List/ArrayList, listas de objetos, excepciones | Veintidós actividades mezcladas; MarketApp equivale a integrador | **4**: asientos; pendientes; buscar objeto; conversión inválida | Banco original archivado. MarketApp movido como **taller opcional** a `labs/semana-06/taller-opcional-marketapp/` con alias histórico |
+| 06 | Arrays, List/ArrayList, listas de objetos, excepciones | Veintidós actividades mezcladas; MarketApp equivale a integrador | **4**: asientos; pendientes; buscar objeto; conversión inválida | Banco original archivado. MarketApp **reclasificado y copiado como taller opcional** a `labs/semana-06/taller-opcional-marketapp/` con alias histórico |
 | 07 | Clase/método abstracto, interfaz y polimorfismo | Sin banco en `ejercicios/` | **3**: área abstracta; capacidad Recargable; interfaz Saludador | Banco nuevo, distinto de MediaHub/Soporte Técnico |
 | 08 | Set/Map, criterio List/Set/Map, igualdad | Sin banco en `ejercicios/` | **4**: etiquetas únicas; precio por clave; elegir estructura; igualdad en Set de objetos | Banco nuevo; sin imponer las tres estructuras en un solo ejercicio |
 | 09 | JavaFX Maven, FXML, Controller, eventos y componentes | Seis tareas breves, varias orientadas a modificar sintaxis | **4**: confirmar evento; validar alias; depurar FXML; ComboBox | Mejores entradas/salidas y contexto de aplicación. Original archivado |
@@ -35,7 +35,7 @@
 
 1. Se creó el estándar y se conciliaron `docs/ESTRUCTURA-CANONICA.md`, `docs/ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md`, el checklist docente y el índice del repositorio.
 2. Se actualizaron los 11 `ejercicios/semana-XX/README.md`. Los bancos anteriores de 01–04, 06 y 09 quedaron en `BANCO-ORIGINAL-2026.md` en cada semana.
-3. Las rutas históricas de semana 04 (Cuenta y Scanner) permanecen como talleres de profundización opcionales. MarketApp está ahora indexado como taller adicional en `labs/semana-06/`, sin reemplazar el laboratorio oficial ni romper su URL histórica.
+3. Las rutas históricas de semana 04 (Cuenta y Scanner) permanecen como talleres de profundización opcionales. MarketApp está ahora indexado y copiado como taller adicional en `labs/semana-06/`, sin reemplazar el laboratorio oficial: el README antiguo funciona como alias y el código inicial anterior permanece preservado.
 4. `ejercicios/README.md` enlaza una **sola fuente vigente** por semana y resume la habilidad.
 5. Los índices `semanas/semana-01..11/README.md` apuntan al banco canónico.
 6. El portal `gh-pages/pages/exercises/class-practice/` funciona como **navegación** hacia Markdown de GitHub; el HTML anterior se preservó como `archivo-2026.html`.
