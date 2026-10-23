@@ -1,5 +1,8 @@
 # Evolución guiada · Cuenta bancaria
 
+> **Clasificación 2026-10-22: taller histórico de profundización, opcional.** Esta actividad evolutiva de varias etapas **no** es un ejercicio mínimo obligatorio de la semana. El [banco vigente](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/ejercicios/semana-04/README.md) ofrece problemas pequeños, independientes y verificables. Se conserva íntegro el enfoque de refactorización histórica.
+
+
 Este ejercicio conserva cada etapa del diseño para que se pueda observar **por qué cambia el código**. Las versiones anteriores no se reemplazan: cada una vive en un package distinto.
 
 > Nota sobre `package`: por ahora basta entenderlo como una forma de **organizar clases relacionadas y evitar mezclar versiones del mismo ejercicio**. En la próxima clase se profundizará qué es un package, cómo se declara, cómo se importa y cómo influye en la organización del proyecto.
