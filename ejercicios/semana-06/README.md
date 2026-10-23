@@ -1,91 +1,34 @@
-# Ejercicios · Semana 06
+# Ejercicios · Semana 06 · Arrays, List y excepciones
+**Objetivo:** resolver operaciones mínimas sobre conjuntos de datos y situaciones inválidas, sin construir un sistema de ventas. La complejidad crece solo si aporta al aprendizaje.
 
-Práctica **breve, individual y focalizada**. Cada ejercicio debe poder resolverse sin convertirlo en un mini-proyecto. La idea es practicar una operación o decisión concreta antes del laboratorio integrador.
+## E01 · Asientos numerados
+**Foco:** array, índice y longitud fija. Un minibús tiene un `boolean[] ocupados` de 5 posiciones. Implementa `ocupar(int asiento)` o una lógica equivalente que acepte asientos 1–5 y no permita ocupar dos veces el mismo.
+- **Prueba:** ocupar 2 → aceptado; ocupar 2 nuevamente → rechazado; asiento 6 → rechazado; quedan 4 libres.
+- **Pregunta:** ¿por qué el número de asiento no coincide directamente con el índice del array?
+- **No hacer:** clase Bus, pasajeros, menú ni persistencia.
 
-Tiempo objetivo por ejercicio: **5–15 minutos**.
+## E02 · Lista variable de recados
+**Foco:** `List<String>` / `ArrayList`, añadir/buscar/eliminar. Una persona lleva pendientes al supermercado. Agrega «pan», «té» y «arroz»; evita repetir «té» y permite marcar «pan» como resuelto eliminándolo.
+- **Prueba:** tres pendientes iniciales; intento duplicado no aumenta tamaño; luego quedan dos.
+- **Pregunta:** ¿qué comportamiento sería distinto con `String[]` de tamaño fijo?
+- **No hacer:** varias clases ni `Scanner` obligatorio.
 
-## A · Arrays
+## E03 · Buscar el primer producto económico
+**Foco:** recorrido de una lista de objetos. Define un `Producto` mínimo con nombre y precio y una `List<Producto>`. Devuelve el primer producto cuyo precio no supere $2.000, o `null` cuando ninguno cumpla.
+- **Pruebas:** leche 2.300, té 1.800, pan 1.500 → «té»; lista con todos los precios sobre 2.000 → `null`.
+- **Pregunta:** ¿por qué no hay que llamar métodos sobre el resultado sin comprobar antes si es `null`?
+- **No hacer:** stock, ventas, caja, menú.
 
-### 1. Crear y mostrar
-Crea un `int[]` con cinco números y muéstralos usando `for-each`.
+## E04 · Fallo de conversión controlado
+**Foco:** `try/catch` y responsabilidad. Implementa un método mínimo que convierta un texto a entero con `Integer.parseInt`. `main` debe controlar `NumberFormatException` y mostrar un mensaje sin terminar abruptamente.
+- **Pruebas:** «25» → 25; «veinticinco» → «Entrada no numérica»; después del error se imprime «Programa continúa».
+- **Pregunta:** ¿quién detecta la entrada inválida y quién comunica el problema?
+- **No hacer:** menú, clase lectora reutilizable ni sistema completo.
 
-### 2. Acceder por índice
-Crea un `String[]` con cuatro nombres. Muestra el primero y el último usando sus índices.
+## Actividades históricas y extensión
+El [banco anterior de 22 actividades](BANCO-ORIGINAL-2026.md) se mantiene como **refuerzo**, no como 22 obligaciones para una semana. [MarketApp](22-market-app/) es una **actividad integradora opcional**, no un ejercicio mínimo: exige Producto, Venta, menú, stock y resumen. La ruta oficial de integración guiada sigue siendo el [laboratorio Inscripciones a talleres](../../labs/semana-06/).
 
-### 3. Sumar elementos
-Dado un array de enteros, calcula y muestra la suma de todos sus valores.
+## Cobertura
+Array/límite (E01), List/ArrayList (E02), lista de objetos (E03), excepción y control (E04). No dependen de Veterinaria I/II.
 
-### 4. Buscar el mayor
-Recorre un array de números e identifica el valor mayor.
-
-### 5. Contar según condición
-Dado un array de notas, cuenta cuántas son mayores o iguales a `4.0`.
-
-### 6. Array de objetos
-Crea tres objetos `Producto`, guárdalos en `Producto[]` y recórrelos mostrando su información.
-
-## B · List / ArrayList
-
-### 7. Crear una lista
-Crea un `List<String>` respaldado por `ArrayList`, agrega tres ciudades y muéstralas.
-
-### 8. Tamaño dinámico
-Agrega cinco elementos uno a uno y muestra `size()` después de cada incorporación.
-
-### 9. Obtener por posición
-Crea una lista de colores y muestra el elemento de índice `2` usando `get`.
-
-### 10. Buscar
-Comprueba con `contains` si una lista contiene un valor solicitado.
-
-### 11. Eliminar
-Elimina un elemento existente y muestra la lista antes y después.
-
-### 12. Lista de objetos
-Crea una `List<Producto>`, agrega tres productos y recórrela mostrando nombre y precio.
-
-### 13. Buscar un objeto
-Busca en la lista el primer producto cuyo nombre coincida con un texto conocido.
-
-## C · Excepciones
-
-### 14. Conversión inválida
-Intenta convertir `"hola"` a `int` con `Integer.parseInt` y controla `NumberFormatException`.
-
-### 15. Conversión válida e inválida
-Prueba el mismo código con `"25"` y con `"veinticinco"`. Compara qué camino se ejecuta.
-
-### 16. Validar con `throw`
-Crea un método `validarEdad(int edad)` que lance `IllegalArgumentException` si la edad es negativa.
-
-### 17. Detectar y capturar en lugares distintos
-Haz que un método lance la excepción y que `main` la capture. Explica quién detecta el problema y quién decide cómo informarlo.
-
-### 18. Excepción propia mínima
-Crea `ProductoNoEncontradoException` y lánzala desde un método cuando no se encuentra un nombre en una lista pequeña.
-
-## D · Puente hacia el laboratorio
-
-Estos ejercicios sí conectan los conceptos, pero siguen siendo breves.
-
-### 19. Array polimórfico
-Crea un `Animal[]` con al menos dos subtipos ya conocidos y recórrelo invocando un método sobrescrito.
-
-### 20. Migración a List
-Repite el ejercicio anterior usando `List<Animal>` y `ArrayList<Animal>`.
-
-### 21. Búsqueda y error controlado
-Busca un animal por identificador. Si no existe, lanza una excepción específica o `IllegalArgumentException` como primera aproximación.
-
-## E · Ejercicio integrador guiado
-
-### 22. MarketApp
-Construye una aplicación de consola para gestionar productos y ventas utilizando `List` / `ArrayList`. Incluye ingreso y eliminación de productos, registro de ventas y resumen de caja.
-
-El enunciado detallado y el código inicial están en [`22-market-app/`](22-market-app/).
-
-## Regla de trabajo
-
-Para los ejercicios 1–18 no agregues arquitectura innecesaria. El foco es **practicar el concepto indicado**. Para 19–21 reutiliza lo aprendido en Semana 05 sólo como puente hacia Veterinaria II.
-
-Cuando una solución empieza a necesitar múltiples responsabilidades, documentación de diseño, varios pasos y evidencia Git, deja de ser un ejercicio y pasa a ser materia de [`../../labs/semana-06/`](../../labs/semana-06/).
+[Índice de ejercicios](../README.md)
