@@ -44,6 +44,13 @@ El material de aprendizaje se divide en **cinco verticales pedagógicas**:
 - Deben ser cortos, concretos, ejecutables e independientes.
 - No se utiliza el proyecto formativo como ejemplo genérico salvo que el objetivo sea explicar explícitamente una parte del proyecto.
 
+## `ejemplos/`
+
+- Ejemplos mínimos por habilidad, con código ejecutable y salida observable; cantidad variable por semana.
+- Las clases `public` deben tener nombre de archivo coincidente. Evitar auxiliares duplicados al compilar una carpeta completa.
+- Referencias integradoras y demostraciones evolutivas se clasifican explícitamente y no se presentan como mínimos independientes.
+- [Estándar de ejemplos DSY1102](ESTANDAR-EJEMPLOS-DSY1102.md).
+
 ## `ejercicios/`
 
 - `ejercicios/semana-XX/README.md` es el **enunciado canónico** del banco mínimo semanal.
