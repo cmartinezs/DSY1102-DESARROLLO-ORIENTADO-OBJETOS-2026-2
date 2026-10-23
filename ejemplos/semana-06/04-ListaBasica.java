@@ -1,7 +1,8 @@
+// Ruta historica; la clase canonica se encuentra en ListaBasica.java.
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaBasica {
+class ListaBasicaLegacy {
     public static void main(String[] args) {
         List<String> nombres = new ArrayList<>();
         nombres.add("Ana");
