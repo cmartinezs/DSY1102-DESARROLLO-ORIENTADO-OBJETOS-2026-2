@@ -4,6 +4,9 @@ Este directorio reúne contenidos reutilizables a lo largo del semestre que no p
 
 ## Estándares y operación
 
+- [Auditoría y corrección de ejemplos · 2026-10-23](AUDITORIA-EJEMPLOS-DSY1102-2026-10-23.md) — hallazgos, ajustes, alcance y validación pendiente.
+
+
 - [Estándar de ejemplos demostrativos](ESTANDAR-EJEMPLOS-DSY1102.md) — ejecución, resultados esperados y separación de materiales integradores.
 
 - [**Ejercicios mínimos significativos DSY1102**](./ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md) — unidad de aplicación, pruebas concretas, clasificación y andamiaje.
