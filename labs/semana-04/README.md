@@ -28,3 +28,7 @@ PedidosCafeteriaS04/src/
 - [ ] `agregarMonto` y `aplicarDescuento` respetan reglas de negocio.
 - [ ] Un descuento inválido no altera el total.
 - [ ] La consola muestra operaciones reproducibles.
+
+## Talleres históricos opcionales de profundización
+
+Las secuencias **[Evolución de Cuenta](../../ejercicios/semana-04/evolucion-cuenta/)** y **[Scanner → LectorConsola](../../ejercicios/semana-04/evolucion-scanner/)** son talleres de refactorización por etapas conservados para consulta. **No se consideran ejercicios mínimos obligatorios**, ni sustituyen el laboratorio oficial de Pedidos de cafetería.
