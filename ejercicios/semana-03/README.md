@@ -3,7 +3,7 @@
 
 ## E01 · Entrada con edad mínima
 **Foco:** constructor y método de consulta. Modela `Pelicula` con `titulo` y `edadMinima`. Crea constructor, getters necesarios y `boolean puedeIngresar(int edad)`.
-- **Regla:** la edad mínima de la película no puede ser negativa; define un valor inicial válido mediante constructor. Para simplificar, puedes comprobar la precondición en `main` antes de crearla.
+- **Regla:** para este ejercicio, la edad mínima llega como dato válido (14). No necesitas implementar todavía excepciones ni controles de constructor; concéntrate en el comportamiento de `puedeIngresar`.
 - **Pruebas:** clasificación 14 → edad 13 rechazada, 14 aceptada, 18 aceptada.
 - **Pregunta:** ¿qué pertenece al objeto y qué llega como parámetro del método?
 - **No hacer:** cartelera, colecciones, venta de entradas.
