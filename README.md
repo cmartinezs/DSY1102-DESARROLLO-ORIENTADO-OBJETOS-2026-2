@@ -8,7 +8,8 @@ Repositorio docente de apoyo para **DSY1102 Desarrollo Orientado a Objetos**.
 - [Semanas](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/semanas.html)
 - [Laboratorios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html)
 - [Proyecto formativo](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html)
-- [Desafíos y ejercicios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/desafio-semanal.html)
+- [Ejercicios mínimos semanales · banco vigente](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/exercises/class-practice/)
+- [Desafíos anteriores · práctica opcional](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/challenges/weekly/)
 - [Práctica integradora liberada · diseño original EP1](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/practice-ep1/)
 
 ## Estructura canónica
