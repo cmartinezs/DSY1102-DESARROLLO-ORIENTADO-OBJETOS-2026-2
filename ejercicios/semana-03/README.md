@@ -1,17 +1,27 @@
-# Ejercicios · Semana 03
+# Ejercicios · Semana 03 · Objetos y estado válido
+**Objetivo:** tomar pequeñas decisiones sobre atributos, constructores, métodos de instancia y encapsulamiento. Evitar ejercicios que se transformen en sistemas completos; no reutilizar `BateriaDronS03` del laboratorio.
 
-1. **Cuenta:** atributos `titular` y `saldo`; métodos `depositar`, `girar` y `mostrarDatos`.
-2. **Producto:** código, nombre, precio y stock; métodos para vender y reponer respetando estado válido.
-3. **Alumno:** nombre y tres notas; método para calcular promedio y determinar aprobación.
-4. **Vehículo:** patente y combustible; métodos `cargarCombustible` y `viajar` evitando valores inválidos.
-5. **Billetera:** saldo privado; métodos operacionales en vez de modificar el saldo directamente desde `main`.
+## E01 · Entrada con edad mínima
+**Foco:** constructor y método de consulta. Modela `Pelicula` con `titulo` y `edadMinima`. Crea constructor, getters necesarios y `boolean puedeIngresar(int edad)`.
+- **Regla:** la edad mínima de la película no puede ser negativa; define un valor inicial válido mediante constructor. Para simplificar, puedes comprobar la precondición en `main` antes de crearla.
+- **Pruebas:** clasificación 14 → edad 13 rechazada, 14 aceptada, 18 aceptada.
+- **Pregunta:** ¿qué pertenece al objeto y qué llega como parámetro del método?
+- **No hacer:** cartelera, colecciones, venta de entradas.
 
-## Criterio transversal
+## E02 · Termostato protegido
+**Foco:** atributos `private` y operaciones que mantienen invariantes. Crea `Termostato` con temperatura inicial de 20 °C. Ofrece `subir()`, `bajar()` y consulta, limitando entre 16 °C y 28 °C.
+- **Pruebas:** subir ocho veces desde 20 → 28; subir una novena vez → no cambia; bajar trece veces desde 28 → 16.
+- **Pregunta:** ¿por qué `setTemperatura(int)` sin reglas sería una mala interfaz pública?
+- **No hacer:** sensores, timers, JavaFX.
 
-- atributos privados cuando corresponda;
-- operaciones que protejan sus reglas;
-- getters/setters solo cuando tengan sentido;
-- `main` crea objetos, solicita operaciones y muestra resultados;
-- evitar setters que permitan romper el estado interno.
+## E03 · Una operación entre objetos
+**Foco:** instancias distintas y colaboración mínima. Crea `Punto` con coordenadas enteras, constructor y `int distanciaManhattan(Punto otro)`. Fórmula: `|x1-x2| + |y1-y2|`.
+- **Prueba:** (2,3) a (5,1) → 5; un punto consigo mismo → 0.
+- **Pista:** `Math.abs` obtiene el valor absoluto.
+- **Pregunta:** ¿por qué pasar un `Punto` como argumento es distinto de pasar cuatro enteros?
+- **No hacer:** figuras, ventanas, jerarquías, distancias euclidianas.
 
-Estos ejercicios representan el checkpoint previo a constructores; pueden refactorizarse en Semana 04 para incorporar inicialización mediante constructor.
+## Cobertura
+Constructor, instancia y retorno (E01); encapsulamiento e invariantes (E02); colaboración entre objetos (E03). Prueba válida + caso límite por actividad; el ejercicio no exige repositorio nuevo.
+
+[Banco original conservado](BANCO-ORIGINAL-2026.md) · [Índice](../README.md)
