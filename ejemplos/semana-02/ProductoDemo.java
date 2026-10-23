@@ -1,7 +1,7 @@
 public class ProductoDemo {
 
     public static void main(String[] args) {
-        Producto producto = new Producto("Teclado", 19990, 5);
+        ProductoInventario producto = new ProductoInventario("Teclado", 19990, 5);
 
         producto.mostrarResumen();
         producto.vender(2);
@@ -10,12 +10,12 @@ public class ProductoDemo {
     }
 }
 
-class Producto {
+class ProductoInventario {
     private String nombre;
     private double precio;
     private int stock;
 
-    public Producto(String nombre, double precio, int stock) {
+    public ProductoInventario(String nombre, double precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
