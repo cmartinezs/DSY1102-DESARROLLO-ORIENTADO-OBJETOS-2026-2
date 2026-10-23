@@ -1,82 +1,34 @@
-# Ejercicios · Semana 04
+# Ejercicios · Semana 04 · Constructores y colaboración
+**Objetivo:** aplicar inicialización válida, sobrecarga, relación simple entre objetos y entrada `Scanner` con responsabilidad separada. **No** convertir un ejercicio en un proyecto de varias etapas ni repetir Pedidos de cafetería del laboratorio.
 
-Foco: constructores, encapsulamiento, estado válido, colaboración entre objetos y evolución de diseño.
+## E01 · Rango válido al construir un producto
+**Foco:** constructor y estado inicial. Modela un `Marcador` con `nombreEquipo` y `puntos`. Implementa un constructor con nombre obligatorio y puntos iniciales en 0. Agrega `sumarPuntos(int cantidad)` rechazando negativos.
+- **Pruebas:** equipo local 0; sumar 3 → 3; sumar -2 → rechazado y sigue en 3.
+- **Pregunta:** ¿qué defecto habría en crear `Marcador` con nombre vacío y recordar completar ese dato después?
 
-## Ejercicio principal · Evolución de Cuenta
+## E02 · Dos formas de crear el mismo objeto
+**Foco:** sobrecarga de constructores y `this(...)`. Crea `Reloj` con hora y minuto; permite `Reloj()` (00:00) y `Reloj(int hora, int minuto)`. No es necesario controlar segundos.
+- **Pruebas:** constructor vacío → «00:00»; `Reloj(9,5)` → «09:05».
+- **Caso inválido:** hora 25 o minuto 75 → rechazar en el constructor (puedes usar `IllegalArgumentException` como precondición técnica si ya se explicó, sin exigir `try/catch`).
+- **Pregunta:** ¿qué evita que un constructor use `this(...)` para delegar valores por defecto?
 
-[Ver evolución completa de Cuenta bancaria](./evolucion-cuenta/)
+## E03 · Cliente y credencial (dos objetos que colaboran)
+**Foco:** una clase recibe otra como dato. `Persona` tiene nombre; `Credencial` recibe `Persona` y código en constructor; `Credencial.resumen()` debe mostrar ambos sin duplicar el nombre en un segundo atributo.
+- **Prueba:** persona «Lina», credencial «C-07» → «C-07 / Lina».
+- **Pregunta:** ¿por qué se pasa una `Persona` y no se copia su nombre como otro campo de `Credencial`?
+- **No hacer:** listas, menús, autenticación, persistencia.
 
-Este ejercicio conserva varias versiones del código para evidenciar el cambio de diseño:
+## E04 · Leer una decisión, no mezclar reglas
+**Foco:** `Scanner` para entrada y `main` como coordinador. Lee el nombre de un participante y un número entero de intentos; instancia un objeto mínimo `Participante` con esos datos y muestra su resumen.
+- **Pruebas:** «Ana», 3 → «Ana: 3 intentos»; 0 intentos → «Cantidad inválida» antes de construir el objeto.
+- **Pista:** `nextLine()` y `Integer.parseInt()` permiten razonar sobre formato, pero si todavía no se han enseñado excepciones, usa entradas válidas para la lectura y realiza la regla de negocio explícitamente.
+- **Pregunta:** ¿qué parte corresponde a interacción y cuál al modelo?
+- **No hacer:** crear una clase `LectorConsola`, lectores sobrecargados o un menú de aplicación.
 
-```text
-atributos + getters/setters + operaciones
-→ Main configura el objeto
-→ detectar fragilidad por inicialización manual
-→ constructor con datos obligatorios
-→ Main crea un objeto válido desde el inicio
-→ separación Cliente + Cuenta
-```
+## Separación importante
+Las antiguas guías **[Evolución de Cuenta](evolucion-cuenta/)** y **[Scanner → LectorConsola](evolucion-scanner/)** son **talleres guiados de profundización**, no ejercicios mínimos. Se conservan sin deshacer su secuencia histórica. El banco previo también se conserva en [archivo](BANCO-ORIGINAL-2026.md).
 
-Cada etapa utiliza un `package` diferente para evitar reemplazar el código anterior y permitir comparar las versiones. Por ahora `package` se presenta únicamente como una forma de organizar clases relacionadas; se profundizará en la siguiente clase.
+## Cobertura
+Inicialización válida (E01), sobrecarga (E02), colaboración simple (E03), Scanner/entrada separada (E04). Sin obligación de resolver los talleres históricos como parte del banco mínimo.
 
-## Ejercicio evolutivo · Scanner → LectorConsola
-
-[Ver evolución completa de Scanner a LectorConsola](./evolucion-scanner/)
-
-Este segundo ejercicio continúa desde `Cliente + Cuenta` y debe desarrollarse también por etapas, conservando cada versión:
-
-```text
-datos fijos
-→ Scanner directo en Main
-→ validación repetida dentro de Main
-→ detectar duplicación y mezcla de responsabilidades
-→ extraer LectorConsola
-→ Main coordinador
-→ sobrecarga de leerEntero / leerDecimal
-→ reconocer polimorfismo estático
-```
-
-Es importante **no entregar primero la versión final**. El valor del ejercicio está en que el estudiante experimente el problema antes de abstraer la solución.
-
-## 1 · Refactor de Cuenta
-
-Partir del ejercicio de Semana 03 y reemplazar la inicialización mediante setters por un constructor:
-
-```java
-Cuenta(String titular, double saldoInicial)
-```
-
-Mantener `depositar` y `girar` como operaciones de negocio.
-
-## 2 · Producto válido
-
-Crear `Producto(codigo, nombre, precio, stock)` y asegurar que precio y stock no queden negativos. Incorporar `vender(int cantidad)` y `reponer(int cantidad)`.
-
-## 3 · Rectángulo
-
-Constructor con ancho y alto. Métodos `calcularArea()` y `calcularPerimetro()`. No permitir dimensiones negativas.
-
-## 4 · Libro
-
-Constructor con ISBN, título y autor. Incorporar estado `prestado` y operaciones `prestar()` / `devolver()` en vez de un setter directo del estado.
-
-## 5 · Pedido + Cliente
-
-Crear dos clases. `Pedido` recibe un `Cliente` en su constructor y debe mostrar un resumen combinando sus propios datos con los del cliente.
-
-## 6 · Cuenta + Titular
-
-Refactorizar el titular desde `String` a una clase `Persona`. Analizar qué datos pertenecen a `Cuenta` y cuáles a `Persona`.
-
-## Desafío de cierre
-
-Diseñar un pequeño sistema de estacionamiento con:
-
-- `Vehiculo`;
-- `TicketEstacionamiento`;
-- constructores;
-- atributos privados;
-- una relación entre ambos objetos;
-- cálculo simple del monto a pagar mediante un método.
-
-No usar herencia, listas ni excepciones.
+[Índice](../README.md)
