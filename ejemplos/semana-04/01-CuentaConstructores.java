@@ -1,22 +1,23 @@
-class Cuenta {
+// Demo autocontenida: clases auxiliares con nombres propios para compilar toda la semana.
+class CuentaConstructoresModelo {
     private String nombre;
     private String rut;
     private int saldo;
 
     // Si declaramos constructores propios, Java ya no crea automáticamente
     // el constructor sin parámetros. Si queremos conservarlo, lo declaramos.
-    public Cuenta() {
+    public CuentaConstructoresModelo() {
         saldo = 0;
     }
 
     // Sobrecarga: mismo nombre, distinta lista de parámetros.
-    public Cuenta(String nombre, String rut) {
+    public CuentaConstructoresModelo(String nombre, String rut) {
         this.nombre = nombre;
         this.rut = rut;
         this.saldo = 0;
     }
 
-    public Cuenta(String nombre, String rut, int saldoInicial) {
+    public CuentaConstructoresModelo(String nombre, String rut, int saldoInicial) {
         this.nombre = nombre;
         this.rut = rut;
 
@@ -77,15 +78,15 @@ class Cuenta {
 
 class CuentaConstructores {
     public static void main(String[] args) {
-        Cuenta cuenta1 = new Cuenta();
+        CuentaConstructoresModelo cuenta1 = new CuentaConstructoresModelo();
         cuenta1.setNombre("Persona Demo A");
         cuenta1.setRut("RUT-DEMO-001");
         cuenta1.depositarMonto(100000);
 
-        Cuenta cuenta2 = new Cuenta("Persona Demo B", "RUT-DEMO-002");
+        CuentaConstructoresModelo cuenta2 = new CuentaConstructoresModelo("Persona Demo B", "RUT-DEMO-002");
         cuenta2.depositarMonto(50000);
 
-        Cuenta cuenta3 = new Cuenta("Persona Demo C", "RUT-DEMO-003", 150000);
+        CuentaConstructoresModelo cuenta3 = new CuentaConstructoresModelo("Persona Demo C", "RUT-DEMO-003", 150000);
         cuenta3.girarMonto(25000);
 
         cuenta1.mostrarDatos();
