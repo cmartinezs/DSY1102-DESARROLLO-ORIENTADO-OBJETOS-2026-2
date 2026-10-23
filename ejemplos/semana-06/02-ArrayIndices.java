@@ -1,4 +1,5 @@
-public class ArrayIndices {
+// Ruta historica preservada. Usar ArrayIndices.java como archivo canonico.
+class ArrayIndicesLegacy {
     public static void main(String[] args) {
         String[] nombres = new String[3];
         nombres[0] = "Ana";
