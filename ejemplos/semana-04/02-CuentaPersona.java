@@ -1,3 +1,4 @@
+// Demo autocontenida: clases auxiliares con nombres propios para compilar toda la semana.
 class Persona {
     private String nombre;
     private String rut;
@@ -21,16 +22,16 @@ class Persona {
     }
 }
 
-class Cuenta {
+class CuentaPersonaModelo {
     private Persona titular;
     private int saldo;
 
-    public Cuenta(Persona titular) {
+    public CuentaPersonaModelo(Persona titular) {
         this.titular = titular;
         this.saldo = 0;
     }
 
-    public Cuenta(Persona titular, int saldoInicial) {
+    public CuentaPersonaModelo(Persona titular, int saldoInicial) {
         this.titular = titular;
         this.saldo = saldoInicial >= 0 ? saldoInicial : 0;
     }
@@ -69,7 +70,7 @@ class Cuenta {
 class CuentaPersona {
     public static void main(String[] args) {
         Persona persona = new Persona("Persona Demo", "RUT-DEMO-001");
-        Cuenta cuenta = new Cuenta(persona, 100000);
+        CuentaPersonaModelo cuenta = new CuentaPersonaModelo(persona, 100000);
 
         cuenta.depositarMonto(25000);
         cuenta.girarMonto(30000);
