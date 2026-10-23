@@ -5,6 +5,11 @@
 **Actividad institucional:** 1.1 · Paradigma OO: fundamentos del lenguaje  
 **Sección:** DSY1102-012V
 
+
+## Ejercicios mínimos significativos · Semana 1
+
+**[Abrir banco canónico de ejercicios de la semana](../../ejercicios/semana-01/README.md).** Cada actividad trabaja una habilidad focal mediante una necesidad concreta y una prueba reproducible. No es un segundo laboratorio ni requiere reutilizar PetCare. Las prácticas antiguas del portal, si existen, se conservan como **históricas** y no reemplazan estos enunciados.
+
 ## Acceso rápido
 
 - [Clase 01 · Introducción al curso y al paradigma OO](CLASE-01.md) · [Drive](https://docs.google.com/document/d/1fnduUAyS1jo-iq31yM9xaQ1E7Z3AZvdSGSIQC8HrDNU/edit)
