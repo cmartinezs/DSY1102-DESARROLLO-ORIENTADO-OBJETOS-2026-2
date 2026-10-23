@@ -1,11 +1,12 @@
-public class ProductoBasico {
+// Variante historica: ver ProductoBasico.java sin prefijo.
+class ProductoBasicoLegacy {
 
     public static void main(String[] args) {
-        Producto producto1 = new Producto();
+        ProductoBasicoLegacyItem producto1 = new ProductoBasicoLegacyItem();
         producto1.nombre = "Teclado";
         producto1.precio = 19990;
 
-        Producto producto2 = new Producto();
+        ProductoBasicoLegacyItem producto2 = new ProductoBasicoLegacyItem();
         producto2.nombre = "Mouse";
         producto2.precio = 12990;
 
@@ -14,7 +15,7 @@ public class ProductoBasico {
     }
 }
 
-class Producto {
+class ProductoBasicoLegacyItem {
     String nombre;
     double precio;
 }
