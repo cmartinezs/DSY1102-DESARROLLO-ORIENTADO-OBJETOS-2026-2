@@ -4,6 +4,8 @@ Este directorio reúne contenidos reutilizables a lo largo del semestre que no p
 
 ## Estándares y operación
 
+- [**Ejercicios mínimos significativos DSY1102**](./ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md) — unidad de aplicación, pruebas concretas, clasificación y andamiaje.
+- [**Conciliación de ejercicios, semanas 01–11**](./MATRIZ-CONCILIACION-EJERCICIOS-DSY1102-2026-2.md) — brechas, reclasificación, cobertura y verificación.
 - [**Diseño pedagógico incremental de DSY1102**](./ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md) — autonomía de labs, incrementos variables, pasos adaptativos, checkpoints y transferencia del método EP1.
 - [**Matriz de incrementos por laboratorio, semanas 02–11**](./MATRIZ-INCREMENTOS-LABS-DSY1102-2026-2.md) — decisiones pedagógicas justificadas y límites de validación.
 
