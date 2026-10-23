@@ -1,4 +1,5 @@
-class Cuenta {
+// Archivo historico: ejemplo canonico CuentaBasica.java.
+class CuentaLegacy {
     private String titular;
     private String numeroCuenta;
     private int saldo;
@@ -57,9 +58,9 @@ class Cuenta {
     }
 }
 
-public class CuentaBasica {
+class CuentaBasicaLegacy {
     public static void main(String[] args) {
-        Cuenta cuenta = new Cuenta();
+        CuentaLegacy cuenta = new CuentaLegacy();
 
         // En este punto del curso todavía no se han visto constructores.
         // El estado inicial se establece mediante mutadores.
