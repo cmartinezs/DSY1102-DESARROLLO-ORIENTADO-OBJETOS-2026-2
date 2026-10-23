@@ -1,7 +1,8 @@
-class Contador {
+// Variante historica preservada; ver DosInstancias.java para el ejemplo canonico.
+class ContadorLegacy {
     private int valor;
 
-    Contador(int valorInicial) {
+    ContadorLegacy(int valorInicial) {
         valor = valorInicial;
     }
 
@@ -14,10 +15,10 @@ class Contador {
     }
 }
 
-public class DosInstancias {
+class DosInstanciasLegacy {
     public static void main(String[] args) {
-        Contador a = new Contador(0);
-        Contador b = new Contador(10);
+        ContadorLegacy a = new ContadorLegacy(0);
+        ContadorLegacy b = new ContadorLegacy(10);
         a.incrementar();
         a.incrementar();
         b.incrementar();
