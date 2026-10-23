@@ -1,4 +1,5 @@
-public class ArrayObjetos {
+// Ruta historica conservada; abrir ArrayObjetos.java para clase publica canonica.
+class ArrayObjetosLegacy {
     static class Producto {
         private final String nombre;
         private final int precio;
