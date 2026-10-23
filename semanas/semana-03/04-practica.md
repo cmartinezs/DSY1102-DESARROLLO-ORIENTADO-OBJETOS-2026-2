@@ -1,5 +1,8 @@
 # 4 · Práctica incremental · de métodos a objetos
 
+> **Clasificación 2026-10-22: taller histórico de profundización, opcional.** Esta actividad evolutiva de varias etapas **no** es un ejercicio mínimo obligatorio de la semana. El [banco vigente](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/master/ejercicios/semana-03/README.md) ofrece problemas pequeños, independientes y verificables. Se conserva íntegro el enfoque de refactorización histórica.
+
+
 ## Parte A · métodos
 
 Implementa y prueba desde `main`:
