@@ -6,6 +6,11 @@
 
 ← [Volver al índice](../README.md)
 
+
+## Ejercicios mínimos significativos · Semana 2
+
+**[Abrir banco canónico de ejercicios de la semana](../../ejercicios/semana-02/README.md).** Cada actividad trabaja una habilidad focal mediante una necesidad concreta y una prueba reproducible. No es un segundo laboratorio ni requiere reutilizar PetCare. Las prácticas antiguas del portal, si existen, se conservan como **históricas** y no reemplazan estos enunciados.
+
 ## Regla de esta carpeta
 
 `semanas/semana-02/` contiene **solamente material curricular de Semana 02**:
@@ -101,7 +106,7 @@ Los ejemplos cambian de contexto deliberadamente para demostrar que los concepto
 
 # 5. Laboratorio · Cuenta simple
 
-➡️ [laboratorio-cuenta/README.md](./laboratorio-cuenta/README.md)
+➡️ [Laboratorio autónomo Cuenta simple](../../labs/semana-02/README.md)
 
 El laboratorio integra progresivamente:
 
