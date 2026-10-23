@@ -1,8 +1,9 @@
-class Punto {
+// Demo autocontenida: clases auxiliares con nombres propios para compilar toda la semana.
+class PuntoCirculo {
     private int x;
     private int y;
 
-    public Punto(int x, int y) {
+    public PuntoCirculo(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -15,7 +16,7 @@ class Punto {
         return y;
     }
 
-    public double calcularDistancia(Punto otroPunto) {
+    public double calcularDistancia(PuntoCirculo otroPunto) {
         int diferenciaX = otroPunto.getX() - x;
         int diferenciaY = otroPunto.getY() - y;
 
@@ -30,15 +31,15 @@ class Punto {
 }
 
 class Circulo {
-    private Punto centro;
+    private PuntoCirculo centro;
     private int radio;
 
-    public Circulo(Punto centro, int radio) {
+    public Circulo(PuntoCirculo centro, int radio) {
         this.centro = centro;
         this.radio = radio;
     }
 
-    public Punto getCentro() {
+    public PuntoCirculo getCentro() {
         return centro;
     }
 
@@ -60,8 +61,8 @@ class Circulo {
 
 class PuntoYCirculo {
     public static void main(String[] args) {
-        Punto puntoA = new Punto(0, 0);
-        Punto puntoB = new Punto(3, 4);
+        PuntoCirculo puntoA = new PuntoCirculo(0, 0);
+        PuntoCirculo puntoB = new PuntoCirculo(3, 4);
 
         System.out.println(
             "Distancia entre los puntos: " + puntoA.calcularDistancia(puntoB)
