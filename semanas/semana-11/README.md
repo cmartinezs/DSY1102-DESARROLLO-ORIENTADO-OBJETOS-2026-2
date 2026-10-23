@@ -1,6 +1,11 @@
 # Semana 11 · Persistencia JSON, Repository/DAO y JavaFX MVC
 **DSY1102 · EA2 · 19 al 24 de octubre de 2026**
 
+
+## Ejercicios mínimos significativos · Semana 11
+
+**[Banco canónico de ejercicios de la semana](../../ejercicios/semana-11/README.md)** — aplicación de una habilidad focal mediante un problema con resultados verificables. No es un laboratorio reducido y no requiere usar PetCare. Si existen prácticas anteriores más extensas, son materiales complementarios, no un segundo banco vigente.
+
 ## Alcance institucional
 El correo de coordinación establece: serialización y deserialización JSON, conservación de datos entre ejecuciones, separación Repository/DAO del controlador JavaFX y verificación de lectura/escritura. Recursos anunciados: **2.4.1_PPT_Persistencia con JSON**, **2.4.2_Capa Repository y DAO**, **2.4.3_Guía_Actividad Persistencia**, **2.4.4_Ejercicios generales**. **Los cuatro archivos originales no están adjuntos en esta conversación**: se consignan como pendientes de incorporación, sin atribuirles contenido específico no verificado.
 
