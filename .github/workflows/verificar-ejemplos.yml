@@ -1,0 +1,21 @@
+name: Verificar ejemplos DSY1102
+on:
+  push:
+    branches: [master]
+    paths:
+      - "ejemplos/**"
+      - "scripts/verificar-ejemplos.sh"
+      - ".github/workflows/verificar-ejemplos.yml"
+  workflow_dispatch:
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      - name: Compilar ejemplos semanas 01-11
+        run: bash scripts/verificar-ejemplos.sh
