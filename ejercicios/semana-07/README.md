@@ -8,13 +8,13 @@
 - **No hacer:** interfaz gráfica, dibujos, listas de figuras.
 
 ## E02 · Capacidad de recarga
-**Foco:** interfaz. Modela `Recargable` con `void recargar(int unidades)`. Una `Linterna` implementa la capacidad; una `Vela` no. Mantén las reglas de la batería de la linterna en un método sencillo.
-- **Prueba:** linterna inicia con 2 unidades, recarga 3 → 5; vela no tiene método `recargar`.
+**Foco:** interfaz. Modela `Recargable` con `void recargar(int unidades)`. Una `Linterna` implementa la capacidad; una `Vela` no. En la linterna, `recargar` agrega unidades positivas y debe ignorar las solicitudes con 0 o valores negativos.
+- **Prueba:** linterna inicia con 2 unidades, recarga 3 → 5; intentar recargar -1 mantiene 5; vela no tiene método `recargar`.
 - **Pregunta:** ¿por qué `Recargable` representa una capacidad y no una clase padre común para toda fuente de luz?
 - **No hacer:** heredar Linterna de Vela ni sensores.
 
 ## E03 · Despacho polimórfico de una instrucción
-**Foco:** referencias a interfaz y comportamientos distintos. Define `Saludable` con `String saludar()`; dos implementaciones `SaludoFormal` y `SaludoCercano`, cada una devuelve un texto distinto. Crea `imprimir(Saludable saludo)`.
+**Foco:** referencias a interfaz y comportamientos distintos. Define `Saludador` con `String saludar()`; dos implementaciones `SaludoFormal` y `SaludoCercano`, cada una devuelve un texto distinto. Crea `imprimir(Saludable saludo)`.
 - **Pruebas:** usando el mismo método `imprimir`, una implementación devuelve «Buenos días» y otra «Hola».
 - **Pregunta:** ¿qué diferencia existe entre decidir con `if` en `imprimir` y dejar que cada implementación resuelva `saludar()`?
 - **No hacer:** jerarquías largas ni colecciones.
