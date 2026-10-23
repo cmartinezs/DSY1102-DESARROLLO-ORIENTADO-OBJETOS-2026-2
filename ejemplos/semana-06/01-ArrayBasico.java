@@ -1,4 +1,4 @@
-public class ArrayBasico {
+class ArrayBasico {
     public static void main(String[] args) {
         int[] notas = {55, 68, 72, 90};
 
