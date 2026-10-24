@@ -22,9 +22,13 @@ docs/             decisiones docentes y capturas/checkpoints
 
 - Confirmado por captura: JavaFX abre la ventana Hello! tras corregir Maven.
 - Captura del POM registra el **error original** `<source>8</source>` / `<target>8</target>`; la corrección es `<release>21</release>`.
-- No se ha ejecutado aún el modelo `MensajeFuturo`, la tabla, el formulario, DAO o JSON en el proyecto del docente. No presentar esas fases como validadas.
+- El modelo `MensajeFuturo` y la prueba `PruebaMensaje` están ejecutados y validados; todavía no se han implementado TableView, formulario, DAO ni JSON.
 - Ruta preparada para publicación en `gh-pages/pages/classes/capsula-tiempo-fx/` y fuente de trabajo en `master/clases/unidad-02/capsula-tiempo-fx/`.
 
 ## Capturas originales
 
 Se conservan en esta carpeta diez capturas optimizadas sin cambiar su significado; los archivos originales entregados por el docente permanecen en la conversación.
+
+## Entrega 02 · R01 validado
+
+Once capturas reales ordenadas de 12:26:30 a 12:29:40: creación del paquete y la clase, constructor/getters, prueba por `main` y salida correcta (`exit code 0`). La presentación ahora tiene 23 diapositivas. R02 permanece pendiente de implementación.
