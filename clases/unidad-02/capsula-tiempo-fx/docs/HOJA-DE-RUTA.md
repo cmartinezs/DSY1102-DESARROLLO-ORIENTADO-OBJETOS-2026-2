@@ -1,10 +1,8 @@
 # Clase consolidada · hoja de ruta editorial y de implementación
 
-**Realizado:** R00 (Java 21 + Maven + JavaFX, Launcher, HelloApplication, primera ventana, diagnóstico de módulo Java 8).
+**Realizado y respaldado por capturas:** R00 (entorno JavaFX y error Maven Java 8), R01 (clase MensajeFuturo y prueba), R02 (TableView con dos mensajes en memoria).
 
-**En preparación, SIN implementar aún:**
-- R01 Modelo `MensajeFuturo` (autor, texto, plazo 1/5/10 años). Captura: estructura de paquetes y código del modelo.
-- R02 Mostrar mensajes de ejemplo en una `TableView` enlazada a `ObservableList`. Captura: tabla en memoria.
+**Pendientes de implementar:**
 - R03 Crear formulario FXML con Controller y navegación de ida/vuelta; registrar un mensaje. Captura: formulario y lista con nuevo mensaje.
 - R04 Introducir validación de campos y plazo; separar Controller/Service. Captura: un error visible.
 - R05 Mostrar el problema de pérdida de datos al cerrar; introducir contrato `MensajeDao`, implementación JSON con Jackson. Captura: proyecto con capas y archivo JSON.
@@ -18,3 +16,8 @@
 ## R01 · 24-10-2026 · Validado
 
 Modelo `MensajeFuturo(autor,texto,plazoAnios)` creado dentro de `model`; prueba de consola con tres getters, salida esperada y exit code 0. Evidencia visual cronológica en `assets/11-...` a `assets/21-...`. R02 aún no implementado.
+
+
+## R02 · 24-10-2026 · Validado
+
+En el proyecto real, `hello-view.fxml` declara TableView y tres columnas, `HelloController` enlaza el modelo mediante `ReadOnlyStringWrapper` y `ObservableList`. `Launcher` abre la ventana con dos filas visibles: Valentina (5 años) y Carlos (10 años). Capturas 13:11:31, 13:11:46, 13:12:35 y 13:13:10, en los assets 22–25. La lista sigue en memoria. El centrado en WSL queda pendiente visual, no bloqueante. **R03 no está implementado.**
