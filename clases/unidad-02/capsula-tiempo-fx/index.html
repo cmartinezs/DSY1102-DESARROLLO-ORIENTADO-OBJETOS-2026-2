@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a101b">
+  <meta name="description" content="DSY1102 · Unidad 2: construimos una aplicación JavaFX desde cero hasta MVC, DAO y persistencia JSON.">
+  <title>DSY1102 · Unidad 2 · Cápsula del Tiempo FX</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="slides.js" defer></script>
+</head>
+<body>
+  <div class="deck" id="deck" aria-live="polite">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">⌘</span> <span>DSY1102</span><span class="brand-separator">/</span><span class="brand-light">UNIDAD 02</span></div>
+      <div class="top-status"><span class="live-dot"></span> Clase práctica · 24 OCT 2026 <span class="status-chip">BLOQUE 0 / VALIDADO</span></div>
+    </header>
+    <main id="slide" class="slide" tabindex="-1"></main>
+    <footer class="toolbar">
+      <div class="slide-meta"><span id="slide-index">01 / 13</span><span class="bullet">·</span><span id="slide-section">INTRO</span></div>
+      <div class="progress-track"><span id="progress" class="progress-fill"></span></div>
+      <div class="controls">
+        <button id="notes-toggle" class="tool-button" title="Notas docentes (N)" aria-label="Mostrar notas docentes">Notas <kbd>N</kbd></button>
+        <button id="overview-toggle" class="tool-button" title="Índice (G)" aria-label="Abrir índice">Índice <kbd>G</kbd></button>
+        <button id="previous" class="arrow-button" aria-label="Diapositiva anterior">←</button>
+        <button id="next" class="arrow-button" aria-label="Diapositiva siguiente">→</button>
+        <button id="fullscreen" class="tool-button" title="Pantalla completa (F)">⛶</button>
+      </div>
+    </footer>
+  </div>
+  <dialog id="overview" class="overview-modal"><div class="modal-title"><strong>Navegación por diapositivas</strong><button id="close-overview" aria-label="Cerrar">✕</button></div><div id="overview-grid" class="overview-grid"></div></dialog>
+  <dialog id="image-lightbox" class="image-modal"><div class="modal-title"><strong id="image-title">Captura real</strong><button id="close-image" aria-label="Cerrar imagen">✕</button></div><img id="image-enlarged" alt="Captura de IntelliJ ampliada"></dialog>
+  <noscript>Esta presentación requiere JavaScript para navegar. Actívalo en el navegador.</noscript>
+</body>
+</html>
