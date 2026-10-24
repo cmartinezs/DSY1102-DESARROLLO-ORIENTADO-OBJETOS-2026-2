@@ -12,6 +12,8 @@ Repositorio docente de apoyo para **DSY1102 Desarrollo Orientado a Objetos**.
 - [Desafíos anteriores · práctica opcional](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/challenges/weekly/)
 - [Práctica integradora liberada · diseño original EP1](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/practice-ep1/)
 
+- [**Clase consolidada Unidad 2 · Cápsula del Tiempo FX**](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/classes/capsula-tiempo-fx/) — presentación HTML/CSS/JS con capturas reales y navegación interactiva.
+
 ## Estructura canónica
 
 El material de aprendizaje distingue **cinco verticales pedagógicas**, más documentación transversal y datos operativos:
@@ -23,6 +25,7 @@ El material de aprendizaje distingue **cinco verticales pedagógicas**, más doc
 ├── ejemplos/            ejemplos mínimos, concretos e independientes
 ├── ejercicios/          práctica breve, refuerzo y desafíos
 ├── proyecto-formativo/  proyecto incremental semana a semana
+├── clases/              clases consolidadas y presentaciones web
 ├── docs/                documentación transversal
 └── data/                metadatos auxiliares
 ```
