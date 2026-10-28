@@ -38,3 +38,8 @@ Se incorporaron capturas reales del 24-10-2026 (12:26:30–12:29:40): creación 
 ## Entrega 04 · R03 validado (27-10-2026)
 
 Se incorporaron siete capturas reales (20:51:34–20:53:24), ordenadas por tiempo: FXML del formulario, imports, controles @FXML, método agregarMensaje, formulario completado, registro exitoso y validación de campos vacíos. R03 utiliza un único FXML y el estado continúa en memoria: el texto «Guardar» aún no implica persistencia. R04 es navegación entre vistas, pendiente.
+
+
+## Entrega 05 · R04 y snapshots del código (27 octubre 2026)
+
+Se incorporaron slides R04 sobre dos vistas FXML y estado compartido en memoria. El código completo ya no depende de pantallazos: [matriz de snapshots R00–R04](CODIGO-POR-INCREMENTO.md), con cada commit histórico y el ZIP de esa versión del proyecto [DSY1102-JFX-TIME-CAPSULE](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE). Los diez pantallazos de R04 forman parte de la versión ZIP offline; **todavía no están alojados en GitHub Pages**. Lo próximo es un Service didáctico (R05), no DAO/JSON ya terminado.
