@@ -25,3 +25,15 @@ En el proyecto real, `hello-view.fxml` declara TableView y tres columnas, `Hello
 ## R03 · 27-10-2026 · Validado
 
 Formulario en la misma vista FXML, propiedades @FXML, ComboBox con plazos 1/5/10, evento agregarMensaje y validación de autor/texto vacíos. Se observan entradas y filas agregadas, más aviso por datos faltantes. Siete capturas reales assets/26 a assets/32. Importante: no existe segunda vista FXML, Service, DAO ni JSON todavía.
+
+
+## R04 · Navegación y memoria compartida (comprobado 27-10-2026)
+
+- Estado compartido: una `ObservableList<MensajeFuturo>` alojada en `HelloApplication`, accesible a los controladores.
+- Navegación: `hello-view.fxml` (listado) → `formulario-view.fxml` (registro) → regreso al listado.
+- Datos introducidos de prueba: Pedro / «Un mensaje» / 1 año. Al regresar se observa como tercera fila.
+- Diagnóstico real: `FXMLLoader.LoadException` por espacio inicial antes de `<?xml ...?>` en `formulario-view.fxml`.
+- Fuente reproducible y archivos completos: [R04 en commit 09e5b99e](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/tree/09e5b99e9dce71998333f6c2718ff29040d9b00e) y [matriz de R00–R04](../CODIGO-POR-INCREMENTO.md).
+- Imágenes reales entregadas para esta etapa: diez capturas en el ZIP local Entrega 05. No se afirma que las imágenes estén todavía publicadas en GitHub Pages.
+
+**Siguiente paso R05:** extraer Service para lógica/validaciones, sin introducir DAO ni JSON hasta resolver la necesidad de persistencia.
