@@ -42,4 +42,9 @@ Se incorporaron siete capturas reales (20:51:34–20:53:24), ordenadas por tiemp
 
 ## Entrega 05 · R04 y snapshots del código (27 octubre 2026)
 
-Se incorporaron slides R04 sobre dos vistas FXML y estado compartido en memoria. El código completo ya no depende de pantallazos: [matriz de snapshots R00–R04](CODIGO-POR-INCREMENTO.md), con cada commit histórico y el ZIP de esa versión del proyecto [DSY1102-JFX-TIME-CAPSULE](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE). Los diez pantallazos de R04 forman parte de la versión ZIP offline; **todavía no están alojados en GitHub Pages**. Lo próximo es un Service didáctico (R05), no DAO/JSON ya terminado.
+Se incorporaron slides R04 sobre dos vistas FXML y estado compartido en memoria. El código completo ya no depende de pantallazos: [matriz de snapshots R00–R04](CODIGO-POR-INCREMENTO.md), con cada commit histórico y el ZIP de esa versión del proyecto [DSY1102-JFX-TIME-CAPSULE](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE). Las diez capturas **originales** de R04 están preservadas en el ZIP descargable; en GitHub Pages la presentación conserva imágenes didácticas de respaldo (SVG) mientras esas fotografías no estén alojadas allí. Los vínculos al código siguen apuntando a commits fijos. Lo próximo es un Service didáctico (R05), no DAO/JSON ya terminado.
+
+
+### Respaldo ilustrativo R04
+
+Las slides web mantienen imágenes junto al contenido y enlaces al código de cada etapa. Para R04 se agregaron ilustraciones SVG de respaldo que se muestran cuando la fotografía original no está disponible en la web; no son capturas de IntelliJ. El ZIP completo conserva los archivos WebP originales `assets/33-...` a `assets/42-...`. Los enlaces GitHub a snapshots R00–R04 están activos de forma independiente.
