@@ -13,3 +13,20 @@
 .source-files a{display:inline-block;background:#20384e;padding:9px 12px;border:1px solid #34586b;border-radius:9px;font-weight:600}
 .source-actions{border-top:1px solid #365266;padding-top:14px;font-weight:700}
 @media(max-width:800px){.source-panel-header{display:grid}.source-files a{font-size:12px}.source-footer{font-size:11px}}
+
+
+/* Restaurar las ilustraciones en R04 SIN reemplazar los enlaces al código */
+.r04-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:start;gap:clamp(16px,2.2vw,32px);min-height:0;flex:1}
+.r04-layout-content{display:flex;flex-direction:column;gap:16px;min-width:0}
+.r04-layout-content h2{font-size:clamp(25px,3.2vw,46px)}
+.r04-layout-content .lead{font-size:clamp(17px,1.6vw,24px)}
+.r04-layout-content .scalable-list{grid-template-columns:1fr;gap:9px}
+.r04-layout-content .item-card{display:flex;align-items:center;gap:12px;padding:12px}
+.r04-layout-content .number{margin:0;width:32px;height:32px;flex-shrink:0}
+.r04-layout-content .item-title{font-size:17px}
+.r04-layout-content .item-desc{font-size:14px;margin-top:2px}
+.r04-layout-content pre{font-size:clamp(12px,.92vw,15px);padding:13px}
+.r04-figure{min-height:190px;max-height:56vh;align-self:start}
+.r04-figure img{object-fit:contain;height:auto;max-height:49vh;background:#ebf0f2}
+.r04-figure figcaption{font-size:12px;line-height:1.35}
+@media(max-width:950px){.r04-layout{grid-template-columns:1fr}.r04-figure{max-height:40vh}.r04-figure img{max-height:32vh}}
