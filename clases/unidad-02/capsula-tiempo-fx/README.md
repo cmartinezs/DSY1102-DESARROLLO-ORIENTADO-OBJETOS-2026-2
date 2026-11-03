@@ -48,3 +48,12 @@ Se incorporaron slides R04 sobre dos vistas FXML y estado compartido en memoria.
 ### Respaldo ilustrativo R04
 
 Las slides web mantienen imágenes junto al contenido y enlaces al código de cada etapa. Para R04 se agregaron ilustraciones SVG de respaldo que se muestran cuando la fotografía original no está disponible en la web; no son capturas de IntelliJ. El ZIP completo conserva los archivos WebP originales `assets/33-...` a `assets/42-...`. Los enlaces GitHub a snapshots R00–R04 están activos de forma independiente.
+
+
+## Entrega 06 · R05 Service, DAO y JSON (3 noviembre 2026)
+
+La presentación `slides.js` incluye la secuencia narrativa de R05 original: necesidad de persistencia, responsabilidades, contrato DAO, implementación JSON con Jackson, actualización de Maven, registro en la UI y verificación del JSON con uno y dos mensajes. El material usa once capturas reales del docente, referenciadas como `assets/r05-01.webp` a `assets/r05-11.webp`.
+
+**Estado editorial:** fuentes HTML actualizadas. Las capturas se entregan como paquete separado y deben incorporarse a `assets/` y publicarse a `gh-pages`; hasta entonces, las diapositivas mostrarán el fallback de imágenes ausentes. Los enlaces R05 apuntan temporalmente a la rama de implementación, pendiente de congelar un commit final. La captura local muestra Jackson **2.22.4**, mientras la rama remota debe revisarse antes de afirmar sincronización. El informe de tests y la recuperación después de reiniciar no están todavía evidenciados.
+
+**Siguiente:** R06 — pruebas de recuperación, corrupción y respaldos, sin rehacer R05.
