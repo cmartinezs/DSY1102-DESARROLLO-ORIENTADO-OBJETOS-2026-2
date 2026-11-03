@@ -37,3 +37,14 @@ Formulario en la misma vista FXML, propiedades @FXML, ComboBox con plazos 1/5/10
 - Imágenes reales entregadas para esta etapa: diez capturas en el ZIP local Entrega 05. No se afirma que las imágenes estén todavía publicadas en GitHub Pages.
 
 **Siguiente paso R05:** extraer Service para lógica/validaciones, sin introducir DAO ni JSON hasta resolver la necesidad de persistencia.
+
+
+## Actualización R05 · 3 noviembre 2026 · Evidencia docente
+
+El **alcance original de R05** se conserva: Service + contrato DAO + Jackson/JSON. La nota intermedia que posponía el JSON queda reemplazada por esta decisión. No modificar retrospectivamente R00–R04.
+
+**Evidencia observada en capturas:** clases `MensajeService` y `JsonMensajeDao`; configuración Maven con Jackson **2.22.4 en el entorno local del docente** (actualización motivada por advertencia de seguridad); primera apertura con tabla vacía; formulario con Carlos / Mensaje de prueba / 5; tabla con una fila y archivo `data/mensajes.json`; segundo registro Carlos / Otro Mensaje / 5, tabla con dos filas y JSON con dos objetos.
+
+**No evidenciado todavía en estas capturas:** ejecución completa de pruebas Maven, reinicio de aplicación recuperando registros y tratamiento de corrupción/respaldos. Estos escenarios se mantienen en R06. El código fuente R05 se halla en la rama `feat/dsy1102-r05-service` del repositorio de la aplicación, **no** en un commit de snapshot congelado; confirmar que el POM local con Jackson 2.22.4 fue sincronizado antes de publicar enlaces definitivos.
+
+**Slides:** Entrega 06 agrega las secciones R05 y referencias `assets/r05-01.webp` a `assets/r05-11.webp`. Recursos optimizados provenientes de capturas docentes. Se deben copiar a la carpeta `assets/` de la fuente y a su equivalente de `gh-pages` para su publicación; no confundir una referencia de archivo en JavaScript con una imagen ya publicada.
