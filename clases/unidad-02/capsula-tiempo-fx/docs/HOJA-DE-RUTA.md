@@ -2,7 +2,7 @@
 
 **Realizado y respaldado por capturas:** R00 (entorno JavaFX y error Maven Java 8), R01 (clase MensajeFuturo y prueba), R02 (TableView con dos mensajes en memoria), R03 (formulario, evento y rechazo de campos vacíos).
 
-**Pendientes de implementar:**
+**Plan original (histórico; consultar la actualización R05 al final):**
 - R04 Navegar entre vista de lista y formulario FXML; conservar la misma ObservableList compartida. La validación básica ya existe en R03. Capturas: navegación y regreso sin pérdida.
 - R05 Separar validaciones y gestión de datos a Service/DAO, reemplazar almacenamiento temporal por JSON con Jackson.
 - R06 Cerrar, reiniciar y comprobar persistencia JSON, control de archivo malformado (con respaldo). Captura: tabla recuperada y validación de error.
@@ -34,7 +34,7 @@ Formulario en la misma vista FXML, propiedades @FXML, ComboBox con plazos 1/5/10
 - Datos introducidos de prueba: Pedro / «Un mensaje» / 1 año. Al regresar se observa como tercera fila.
 - Diagnóstico real: `FXMLLoader.LoadException` por espacio inicial antes de `<?xml ...?>` en `formulario-view.fxml`.
 - Fuente reproducible y archivos completos: [R04 en commit 09e5b99e](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/tree/09e5b99e9dce71998333f6c2718ff29040d9b00e) y [matriz de R00–R04](../CODIGO-POR-INCREMENTO.md).
-- Imágenes reales entregadas para esta etapa: diez capturas en el ZIP local Entrega 05. No se afirma que las imágenes estén todavía publicadas en GitHub Pages.
+- Imágenes reales entregadas para esta etapa: diez capturas en el ZIP local Entrega 05. Las diez capturas originales ya están publicadas en GitHub Pages tras la restauración de Entrega 05.
 
 **Siguiente paso R05:** extraer Service para lógica/validaciones, sin introducir DAO ni JSON hasta resolver la necesidad de persistencia.
 
@@ -45,6 +45,6 @@ El **alcance original de R05** se conserva: Service + contrato DAO + Jackson/JSO
 
 **Evidencia observada en capturas:** clases `MensajeService` y `JsonMensajeDao`; configuración Maven con Jackson **2.22.4 en el entorno local del docente** (actualización motivada por advertencia de seguridad); primera apertura con tabla vacía; formulario con Carlos / Mensaje de prueba / 5; tabla con una fila y archivo `data/mensajes.json`; segundo registro Carlos / Otro Mensaje / 5, tabla con dos filas y JSON con dos objetos.
 
-**No evidenciado todavía en estas capturas:** ejecución completa de pruebas Maven, reinicio de aplicación recuperando registros y tratamiento de corrupción/respaldos. Estos escenarios se mantienen en R06. El código fuente R05 se halla en la rama `feat/dsy1102-r05-service` del repositorio de la aplicación, **no** en un commit de snapshot congelado; confirmar que el POM local con Jackson 2.22.4 fue sincronizado antes de publicar enlaces definitivos.
+**No evidenciado todavía en estas capturas:** ejecución completa de pruebas Maven, reinicio de aplicación recuperando registros y tratamiento de corrupción/respaldos. Estos escenarios se mantienen en R06. El código fuente R05 se halla en la rama `feat/dsy1102-r05-service` del repositorio de la aplicación, **no** en un commit de snapshot congelado; POM remoto ya comprobado con Jackson 2.22.4; sigue pendiente fijar el snapshot R05 y ejecutar la batería de pruebas final.
 
-**Slides:** Entrega 06 agrega las secciones R05 y referencias `assets/r05-01.webp` a `assets/r05-11.webp`. Recursos optimizados provenientes de capturas docentes. Se deben copiar a la carpeta `assets/` de la fuente y a su equivalente de `gh-pages` para su publicación; no confundir una referencia de archivo en JavaScript con una imagen ya publicada.
+**Slides:** Entrega 06 agrega las secciones R05 y referencias `assets/r05-01.webp` a `assets/r05-11.webp`. Recursos optimizados provenientes de capturas docentes. Los 11 WebP de R05 y los 10 originales de R04 ya están cargados y verificados en `assets/` de `master` y `gh-pages`. Se restituyó el bloque R04 desde el JavaScript de Entrega 05; no quedan ilustraciones SVG utilizadas.
