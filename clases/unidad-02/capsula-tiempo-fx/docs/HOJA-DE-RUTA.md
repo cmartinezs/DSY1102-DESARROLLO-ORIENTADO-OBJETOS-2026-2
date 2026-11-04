@@ -48,3 +48,18 @@ El **alcance original de R05** se conserva: Service + contrato DAO + Jackson/JSO
 **No evidenciado todavía en estas capturas:** ejecución completa de pruebas Maven, reinicio de aplicación recuperando registros y tratamiento de corrupción/respaldos. Estos escenarios se mantienen en R06. El código fuente R05 se halla en la rama `feat/dsy1102-r05-service` del repositorio de la aplicación, **no** en un commit de snapshot congelado; POM remoto ya comprobado con Jackson 2.22.4; sigue pendiente fijar el snapshot R05 y ejecutar la batería de pruebas final.
 
 **Slides:** Entrega 06 agrega las secciones R05 y referencias `assets/r05-01.webp` a `assets/r05-11.webp`. Recursos optimizados provenientes de capturas docentes. Los 11 WebP de R05 y los 10 originales de R04 ya están cargados y verificados en `assets/` de `master` y `gh-pages`. Se restituyó el bloque R04 desde el JavaScript de Entrega 05; no quedan ilustraciones SVG utilizadas.
+
+
+## R06 · 4 noviembre 2026 · Implementación preparada, pendiente de evidencias
+
+**Objetivo oficial heredado:** cerrar y abrir la aplicación para comprobar la persistencia JSON; detectar archivos malformados, conservar evidencia del error y disponer de un respaldo para recuperación.
+
+**Código:** [rama R06](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/tree/feat/dsy1102-r06-json-recovery) y [PR #2](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/pull/2), cuya base es la rama de R05 (PR #1, aún abierta). No fusionar R06 antes de conciliar R05.
+
+**Cambios acotados:** `JsonMensajeDao` valida formato/estructura, conserva una copia `.corrupt-*.json` cuando el JSON está dañado, escribe mediante temporal y guarda la versión previa como `.bak`. En `HelloApplication` se informa el error de carga y se cierra la aplicación sin mostrar una tabla falsamente vacía. Se incorporaron pruebas JUnit en `R06RecuperacionTest.java`.
+
+**Guía docente:** [R06-GUIA-DOCENTE.md](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/R06-GUIA-DOCENTE.md). Capturas solicitadas: reinicio con recuperación, temporal + `.bak`, error por JSON malformado, copia preservada y restauración manual. **No hay capturas R06 aportadas aún.** Por eso, las slides HTML de R00–R05 quedan sin cambios.
+
+**Límites explícitos:** `.bak` conserva la versión anterior, no la más reciente; no hay restauración automática; la escritura es atómica solo si el sistema de archivos admite `ATOMIC_MOVE`; no se certifica `mvn test` hasta ejecutarlo.
+
+**Condición de cierre:** resultado Maven real + captura del reinicio correcto + prueba de archivo dañado y restauración + snapshot de código congelado.
