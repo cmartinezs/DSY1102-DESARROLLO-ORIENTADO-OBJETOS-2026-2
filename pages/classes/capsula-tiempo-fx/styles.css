@@ -35,3 +35,11 @@
 .grid2.no-image,.grid2.wide-image.no-image,.grid2.tall-image.no-image{grid-template-columns:minmax(0,1fr)}
 .grid2.no-image>.stack{max-width:1100px}
 .grid2.no-image .codebox{width:100%}
+
+/* R04 original: diagrama de estado compartido de Entrega 05 */
+.architecture-flow{border:1px solid #456c86;border-radius:13px;padding:18px;display:grid;gap:12px;text-align:center;background:#12263a}
+.architecture-flow>span{display:block;padding:14px;border-radius:8px;background:#1d4056;color:#dcfaff;font-weight:750}
+.architecture-flow strong{color:#83ddce}
+.architecture-flow>div{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.architecture-flow>div>span{padding:14px;border-radius:8px;background:#2a3854;color:#fff;font-weight:700}
+@media(max-width:800px){.architecture-flow>div{grid-template-columns:1fr}}
