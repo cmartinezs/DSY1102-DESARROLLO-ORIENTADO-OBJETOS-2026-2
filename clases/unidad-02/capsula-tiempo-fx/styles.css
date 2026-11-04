@@ -30,3 +30,8 @@
 .r04-figure img{object-fit:contain;height:auto;max-height:49vh;background:#ebf0f2}
 .r04-figure figcaption{font-size:12px;line-height:1.35}
 @media(max-width:950px){.r04-layout{grid-template-columns:1fr}.r04-figure{max-height:40vh}.r04-figure img{max-height:32vh}}
+
+/* Entrega 07: no reservar un panel vacío cuando falta una captura real. */
+.grid2.no-image,.grid2.wide-image.no-image,.grid2.tall-image.no-image{grid-template-columns:minmax(0,1fr)}
+.grid2.no-image>.stack{max-width:1100px}
+.grid2.no-image .codebox{width:100%}
