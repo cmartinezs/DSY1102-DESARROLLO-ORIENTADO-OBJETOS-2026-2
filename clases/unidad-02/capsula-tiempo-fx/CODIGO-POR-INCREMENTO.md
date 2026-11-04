@@ -21,7 +21,7 @@ Esta tabla conserva **un commit exacto por checkpoint**. Usar el enlace del incr
 
 **Trazabilidad:** cinco commits existentes en el repositorio del docente, comprobados uno por uno. R04 conserva estado solamente en `ObservableList`; aún **no** implementa Service, DAO ni JSON.
 
-**Capturas de R04:** diez capturas facilitadas el 27-10-2026. Están incorporadas al ZIP completo de slides Entrega 05. En la publicación web se priorizaron los enlaces a código exacto mientras se resuelve la subida de las imágenes nuevas.
+**Capturas de R04:** diez capturas facilitadas el 27-10-2026. Están incorporadas al ZIP completo de slides Entrega 05. Las diez capturas originales de R04 se recuperaron de Entrega 05 y se publicaron en `assets/` de las ramas `master` y `gh-pages`; se restauraron además las diapositivas HTML originales de R04, sin ilustraciones SVG.
 
 
 ## R05 · Implementación en revisión (3 noviembre 2026)
@@ -30,4 +30,4 @@ Esta tabla conserva **un commit exacto por checkpoint**. Usar el enlace del incr
 - Código de trabajo: [rama R05](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/tree/feat/dsy1102-r05-service) y [PR #1](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/pull/1).
 - Fuentes centrales: [Service](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r05-service/src/main/java/cl/duoc/dsy1102/timecapsule/service/MensajeService.java), [contrato DAO](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r05-service/src/main/java/cl/duoc/dsy1102/timecapsule/dao/MensajeDao.java), [DAO JSON](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r05-service/src/main/java/cl/duoc/dsy1102/timecapsule/dao/JsonMensajeDao.java).
 - Evidencia: tabla vacía inicial; primer registro y JSON de un objeto; segundo registro y JSON de dos objetos. Capturas suministradas por el docente.
-- **Pendiente:** añadir imágenes a GitHub, sincronizar POM Jackson 2.22.4 desde el entorno local, verificar tests Maven y cerrar el snapshot en un commit fijo. No tratar el enlace de rama como snapshot histórico.
+- **Comprobado:** 11 capturas reales de R05 publicadas en `assets/` (ambas ramas); `pom.xml` del repositorio de código usa Jackson **2.22.4**. **Pendiente:** aportar evidencia de `mvn clean test`, recuperación tras reinicio y congelar un commit estable para R05. No tratar el enlace de rama como snapshot histórico.
