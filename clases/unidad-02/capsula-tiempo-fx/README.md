@@ -2,7 +2,7 @@
 
 ## Evolución de entregas (24 octubre 2026)
 
-Presentación HTML/CSS/JavaScript **incremental** para dos bloques de 40 minutos de DSY1102. La versión local actual comprende **R00, R01 y R02 validados** con capturas reales. El roadmap R03–R06 orienta lo que falta por construir; esas fases aún no están implementadas.
+Presentación HTML/CSS/JavaScript **incremental** para dos bloques de 40 minutos de DSY1102. La presentación publicada incluye R00–R04 con sus capturas originales y R05 con evidencia docente de Service, DAO y JSON. Las pruebas de recuperación robusta y corrupción se reservan para R06.
 
 ## Abrir
 
@@ -42,18 +42,18 @@ Se incorporaron siete capturas reales (20:51:34–20:53:24), ordenadas por tiemp
 
 ## Entrega 05 · R04 y snapshots del código (27 octubre 2026)
 
-Se incorporaron slides R04 sobre dos vistas FXML y estado compartido en memoria. El código completo ya no depende de pantallazos: [matriz de snapshots R00–R04](CODIGO-POR-INCREMENTO.md), con cada commit histórico y el ZIP de esa versión del proyecto [DSY1102-JFX-TIME-CAPSULE](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE). Las diez capturas **originales** de R04 están preservadas en el ZIP descargable; en GitHub Pages la presentación conserva imágenes didácticas de respaldo (SVG) mientras esas fotografías no estén alojadas allí. Los vínculos al código siguen apuntando a commits fijos. Lo próximo es un Service didáctico (R05), no DAO/JSON ya terminado.
+Se incorporaron slides R04 sobre dos vistas FXML y estado compartido en memoria. El código completo ya no depende de pantallazos: [matriz de snapshots R00–R04](CODIGO-POR-INCREMENTO.md), con cada commit histórico y el ZIP de esa versión del proyecto [DSY1102-JFX-TIME-CAPSULE](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE). Las diez capturas **originales** de R04 (archivos 33–42) están restauradas y publicadas en ambas ramas, sin sustituirlas por ilustraciones SVG. Los vínculos al código de R00–R04 siguen apuntando a commits fijos. R05 integra Service, DAO y persistencia JSON.
 
 
-### Respaldo ilustrativo R04
+### Fotografías originales restauradas de R04
 
-Las slides web mantienen imágenes junto al contenido y enlaces al código de cada etapa. Para R04 se agregaron ilustraciones SVG de respaldo que se muestran cuando la fotografía original no está disponible en la web; no son capturas de IntelliJ. El ZIP completo conserva los archivos WebP originales `assets/33-...` a `assets/42-...`. Los enlaces GitHub a snapshots R00–R04 están activos de forma independiente.
+Se recuperaron los WebP originales `assets/33-r04-*` a `assets/42-r04-*` desde Entrega 05. La secuencia de diapositivas R04 también se restauró del JavaScript original de esa entrega; las SVG recreadas ya no se usan en la presentación. Las capturas pueden consultarse dentro del portal y en las carpetas `assets/` de `master` y `gh-pages`.
 
 
-## Entrega 06 · R05 Service, DAO y JSON (3 noviembre 2026)
+## Entrega 06–07 · R05 Service, DAO y JSON (3 noviembre 2026)
 
 La presentación `slides.js` incluye la secuencia narrativa de R05 original: necesidad de persistencia, responsabilidades, contrato DAO, implementación JSON con Jackson, actualización de Maven, registro en la UI y verificación del JSON con uno y dos mensajes. El material usa once capturas reales del docente, referenciadas como `assets/r05-01.webp` a `assets/r05-11.webp`.
 
-**Estado editorial:** fuentes HTML actualizadas. Las capturas se entregan como paquete separado y deben incorporarse a `assets/` y publicarse a `gh-pages`; hasta entonces, las diapositivas mostrarán el fallback de imágenes ausentes. Los enlaces R05 apuntan temporalmente a la rama de implementación, pendiente de congelar un commit final. La captura local muestra Jackson **2.22.4**, mientras la rama remota debe revisarse antes de afirmar sincronización. El informe de tests y la recuperación después de reiniciar no están todavía evidenciados.
+**Estado editorial actual:** fuentes HTML y las 11 capturas reales de R05 están publicadas tanto en `master` como en `gh-pages`, junto con los 10 originales de R04. El código de presentación fue corregido para mostrar saltos de línea auténticos en los snippets. Jackson **2.22.4** está confirmado en el POM remoto de la rama de aplicación. Los enlaces R05 siguen apuntando a la rama de implementación hasta fijar el snapshot de aceptación. La ejecución de tests y la recuperación después de reiniciar aún requieren evidencia.
 
 **Siguiente:** R06 — pruebas de recuperación, corrupción y respaldos, sin rehacer R05.
