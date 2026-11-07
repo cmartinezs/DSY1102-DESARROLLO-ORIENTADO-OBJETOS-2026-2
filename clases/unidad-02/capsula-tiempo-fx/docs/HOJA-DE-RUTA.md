@@ -83,3 +83,11 @@ Se incorporaron ocho capturas **auténticas** en `assets/r06-01.png` a `assets/r
 **Pruebas agregadas:** edición con JSON malformado mientras JavaFX permanece abierto (garantiza no reescribir ni dañar backup) y modificación externa válida (conflicto que exige reinicio). Estas pruebas son código versionado y **no está confirmada su ejecución Maven**.
 
 **Material de apoyo actualizado:** [API NIO.2 con `Files.readAllBytes` y `Arrays.equals`](GUIA-NIO2-PATH-FILES-R06.md). La guía de [Streams/lambdas](GUIA-STREAMS-LAMBDAS-R06.md) sigue igual; no se simplificó `this::esInvalido`. Slides R06 dejan la corrupción como prueba pendiente hasta nuevas capturas reales.
+
+### R06 · 7 noviembre 2026 · Claves duplicadas en JSON
+
+**Hallazgo de depuración:** el segundo elemento de `mensajes.json` tenía `autor`, `texto` y `plazoAnios` repetidos; Jackson aceptaba la entrada y reemplazaba sus propiedades por los últimos valores. **Decisión:** activar `StreamReadFeature.STRICT_DUPLICATE_DETECTION` en la construcción de `ObjectMapper` mediante `JsonMapper.builder()`. No reescribir los Streams usados para validar el modelo.
+
+**Pruebas nuevas de R06 en PR #2:** rechazo de propiedades duplicadas dentro del segundo objeto (reproduce la captura), aceptación de nombres iguales en objetos diferentes y rechazo del guardado si aparecen duplicados mientras la aplicación sigue abierta; original, `.corrupt-*.json` y respaldo protegidos. [Guía R06](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/R06-GUIA-DOCENTE.md).
+
+**Evidencia pendiente:** `mvn test` con el código actualizado y capturas reales de alerta y recuperación. No modificar slides históricas ni dar por cerrada la etapa con tests solo escritos.
