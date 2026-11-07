@@ -21,7 +21,7 @@ record Mensaje(String autor, String texto, int plazoAnios) {}
 public class DemoJson {
     public static void main(String[] args) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        List<Mensaje> lista = List.of(new Mensaje("Carlos", "Hola", 5));
+        List<Mensaje> lista = List.of(new Mensaje("Ana", "Hola", 5));
 
         String textoJson = mapper.writeValueAsString(lista);
         System.out.println(textoJson);
@@ -54,12 +54,12 @@ El proyecto R06 declara una constante `TIPO_MENSAJES` y utiliza el mismo concept
 El DAO de R06 guarda primero en un temporal, conserva `.bak` y después reemplaza el archivo. **Jackson no decide por nosotros la política de respaldo ni la recuperación**.
 
 ## ¿Y si JSON no tiene los datos esperados?
-Un parser puede leer `{"plazoAnios": -2}` sin error sintáctico, pero nuestro dominio rechaza el plazo no positivo. Por eso diferenciamos deserialización de **validación del negocio**.
+Un parser puede leer `{"plazoAnios": -2}` sin error sintáctico, pero las reglas de la aplicación rechaza el plazo no positivo. Por eso diferenciamos deserialización de **validación del negocio**.
 
 ## Comprueba
 1. ¿`writeValueAsString` guarda un archivo? **No.**
 2. ¿Quién define si plazo 0 es aceptable: Jackson o las reglas del dominio? **El dominio/Service.**
-3. ¿Qué diferencia hay entre `readValue` y `listar()` del DAO? **`readValue` convierte JSON; `listar()` implementa nuestro contrato de lectura y protección.**
+3. ¿Qué diferencia hay entre `readValue` y `listar()` del DAO? **`readValue` convierte JSON; `listar()` implementa el contrato del DAO de lectura y protección.**
 
 **Código original:** [JsonMensajeDao R06](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/src/main/java/cl/duoc/dsy1102/timecapsule/dao/JsonMensajeDao.java).  
 **Siguiente:** [04 · Memoria, archivo y recuperación](04-memoria-archivo-y-recuperacion.md).
