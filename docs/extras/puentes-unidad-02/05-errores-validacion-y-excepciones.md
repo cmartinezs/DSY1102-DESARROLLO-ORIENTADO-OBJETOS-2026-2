@@ -58,6 +58,6 @@ Ese código simula una primera ejecución vacía y puede provocar que el siguien
 - Mensaje que falta en la TableView → **revisar Controller/estado visual**, sin presuponer error de archivo.
 - Permisos insuficientes al escribir → **DAO/IOException**.
 
-**Práctica:** transforma el ejemplo para que `registrar("Vale")` no imprima error. Luego experimenta sin `catch`: ¿qué cambia en el flujo?
+**Práctica:** transforma el ejemplo para que `registrar("Luis")` no imprima error. Luego experimenta sin `catch`: ¿qué cambia en el flujo?
 
 **Siguiente:** [06 · Maven y dependencias](06-maven-pom-y-bibliotecas.md).
