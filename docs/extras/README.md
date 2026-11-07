@@ -3,7 +3,7 @@
 Este directorio reúne material de apoyo para **DSY1102**, adaptado desde recursos originalmente preparados para una asignatura Fullstack Backend.
 
 > [!IMPORTANT]
-> Aquí Java se estudia **por primera vez** y desde sus fundamentos. Los ejemplos usan **Java puro** y se mantienen dentro del contexto de programación y orientación a objetos. No se requieren Spring Boot, APIs REST, bases de datos, Docker, CI/CD ni otras tecnologías de cursos posteriores.
+> Aquí se comienza con los fundamentos de Java. Los materiales iniciales utilizan ejemplos pequeños; a medida que avanza el curso también encontrarás guías de apoyo para JavaFX, Maven, JSON y persistencia. No necesitas conocer Spring Boot, Docker ni servicios externos para estudiar estas guías.
 
 ## Puentes de la Unidad 2: de colecciones a JavaFX y JSON
 
@@ -13,7 +13,7 @@ Si el curso empieza a hablar de `JSON`, `Jackson`, `DAO`, `FXML`, `ObservableLis
 
 Parte por dato, registro y colección; explica JSON sin exigir JavaScript; continúa por conversión de objetos Java, errores, manejo de archivos, Maven, interfaz y pruebas. Incluye enlaces a las dos guías existentes de Streams y NIO.2, sin duplicarlas.
 
-**Actividad práctica:** [Detective JSON](../../actividades/puentes-unidad-02/detective-json/index.html), autocontenida, con exportación TXT; la versión candidata para Academic Labs se revisa en el ticket [ADU-129](https://adumun.atlassian.net/browse/ADU-129). No se incorpora como evaluación obligatoria ni modifica el programa oficial.
+**Actividad práctica:** [Detective JSON](https://academic-labs.adumun.cl/activities/detective-json/), actividad interactiva con seis desafíos y exportación TXT. Puedes resolverla en el navegador y entregar el archivo solo si tu docente lo solicita.
 
 ## Roadmap sugerido
 
