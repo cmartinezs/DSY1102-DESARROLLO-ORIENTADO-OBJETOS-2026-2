@@ -38,7 +38,7 @@ La interfaz es un **contrato**: dice qué se necesita, no cómo se hace. Un serv
 ## Una responsabilidad por decisión, no por cantidad de líneas
 Si cambiar `messages.json` por una base de datos exige reescribir `FormularioController`, seguramente la separación quedó mal. Si poner un `try/catch` de I/O obliga a construir cinco capas innecesarias, también.
 
-En **nuestro R06** el Controller no sabe dónde está el archivo; solo recibe `IOException` y puede mostrar una alerta. El DAO protege el archivo y el Service no añade a memoria si falla la escritura.
+En **la versión R06** el Controller no sabe dónde está el archivo; solo recibe `IOException` y puede mostrar una alerta. El DAO protege el archivo y el Service no añade a memoria si falla la escritura.
 
 ## Practica con escenarios
 - «No permitir plazos negativos» → **Service**.
