@@ -1,7 +1,7 @@
 # 02 · JSON desde cero, sin saber JavaScript
 
 **Microcápsula complementaria · DSY1102 Unidad 2 · 12–18 min**  
-**Pregunta:** ¿cómo representar nuestros registros como texto que otro programa pueda leer?
+**Pregunta:** ¿cómo representar los registros como texto que otro programa pueda leer?
 
 ## ¿Qué es JSON?
 **JSON** (*JavaScript Object Notation*) es un **formato textual para intercambiar datos**. Su origen está relacionado con la sintaxis de JavaScript, pero **no necesitas saber ni ejecutar JavaScript para leer o escribir JSON**. Java, Python y otros lenguajes pueden trabajar con él.
@@ -12,7 +12,7 @@ No es un lenguaje de programación, no tiene instrucciones que se ejecuten y no 
 
 ```json
 {
-  "autor": "Carlos",
+  "autor": "Ana",
   "plazoAnios": 5,
   "publicado": true,
   "fechaLectura": null,
@@ -21,21 +21,21 @@ No es un lenguaje de programación, no tiene instrucciones que se ejecuten y no 
 }
 ```
 
-- **Texto** (`"Carlos"`): entre comillas dobles.
+- **Texto** (`"Ana"`): entre comillas dobles.
 - **Número** (`5`, `2.5`): sin comillas.
 - **Booleano** (`true` o `false`): sin comillas.
 - **Nulo** (`null`): ausencia explícita de valor.
 - **Arreglo** (`[...]`): elementos en orden.
 - **Objeto** (`{...}`): pares de nombre–valor.
 
-La primera línea del objeto es un **par clave–valor**: `"autor"` es la clave y `"Carlos"` su valor.
+La primera línea del objeto es un **par clave–valor**: `"autor"` es la clave y `"Ana"` su valor.
 
 ## ¿Cómo representamos varios mensajes?
 
 ```json
 [
-  {"autor": "Carlos", "texto": "Hola", "plazoAnios": 5},
-  {"autor": "Vale", "texto": "Nos vemos", "plazoAnios": 10}
+  {"autor": "Ana", "texto": "Hola", "plazoAnios": 5},
+  {"autor": "Luis", "texto": "Nos vemos", "plazoAnios": 10}
 ]
 ```
 
@@ -45,11 +45,11 @@ El corchete exterior indica un **arreglo** con **dos objetos**. Cada objeto es u
 
 | Error | Incorrecto | Correcto |
 | --- | --- | --- |
-| Comillas de texto | `{'autor':'Vale'}` | `{"autor":"Vale"}` |
-| Clave sin comillas | `{autor:"Vale"}` | `{"autor":"Vale"}` |
-| Coma sobrante | `{"autor":"Vale",}` | `{"autor":"Vale"}` |
-| Comentarios | `{"autor":"Vale"} // saludo` | `{"autor":"Vale"}` |
-| Cerrar estructuras | `[{"autor":"Vale"}` | `[{"autor":"Vale"}]` |
+| Comillas de texto | `{'autor':'Luis'}` | `{"autor":"Luis"}` |
+| Clave sin comillas | `{autor:"Luis"}` | `{"autor":"Luis"}` |
+| Coma sobrante | `{"autor":"Luis",}` | `{"autor":"Luis"}` |
+| Comentarios | `{"autor":"Luis"} // saludo` | `{"autor":"Luis"}` |
+| Cerrar estructuras | `[{"autor":"Luis"}` | `[{"autor":"Luis"}]` |
 
 **Importante:** repetir una clave dentro del **mismo objeto** crea un dato ambiguo:
 ```json
@@ -70,13 +70,13 @@ Para cada ejemplo, explica qué ocurre:
 []
 ```
 ```json
-[{"autor": "Carlos", "plazoAnios": -2, "texto": "Hola"}]
+[{"autor": "Ana", "plazoAnios": -2, "texto": "Hola"}]
 ```
 ```json
-[{"autor": "Carlos", "texto": "Hola", "plazoAnios": 5,}]
+[{"autor": "Ana", "texto": "Hola", "plazoAnios": 5,}]
 ```
 
 **Respuestas:** (1) sintaxis y estructura de arreglo válidas, colección vacía; (2) JSON bien formado, pero negocio inválido; (3) JSON malformado por coma final.
 
 **Siguiente:** [03 · De objeto Java a JSON](03-java-a-json-con-jackson.md).  
-**Práctica interactiva:** [Detective JSON · actividad autocontenida](../../../actividades/puentes-unidad-02/detective-json/index.html) (cuando se publique el recurso estático).
+**Práctica interactiva:** [Detective JSON · abrir actividad interactiva](https://academic-labs.adumun.cl/activities/detective-json/).
