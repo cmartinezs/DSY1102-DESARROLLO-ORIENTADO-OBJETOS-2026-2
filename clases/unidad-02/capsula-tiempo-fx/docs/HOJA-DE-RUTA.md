@@ -58,8 +58,17 @@ El **alcance original de R05** se conserva: Service + contrato DAO + Jackson/JSO
 
 **Cambios acotados:** `JsonMensajeDao` valida formato/estructura, conserva una copia `.corrupt-*.json` cuando el JSON está dañado, escribe mediante temporal y guarda la versión previa como `.bak`. En `HelloApplication` se informa el error de carga y se cierra la aplicación sin mostrar una tabla falsamente vacía. Se incorporaron pruebas JUnit en `R06RecuperacionTest.java`.
 
-**Guía docente:** [R06-GUIA-DOCENTE.md](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/R06-GUIA-DOCENTE.md). Capturas solicitadas: reinicio con recuperación, temporal + `.bak`, error por JSON malformado, copia preservada y restauración manual. **No hay capturas R06 aportadas aún.** Por eso, las slides HTML de R00–R05 quedan sin cambios.
+**Guía docente:** [R06-GUIA-DOCENTE.md](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/R06-GUIA-DOCENTE.md). Capturas solicitadas: reinicio con recuperación, temporal + `.bak`, error por JSON malformado, copia preservada y restauración manual. **Evidencias recibidas y publicadas:** lectura del JSON con dos registros, reinicio con ambos visibles, código de lectura/validación y guardado, tercera alta y `.bak` con dos registros anteriores. **No validados:** alerta por archivo corrupto y copia `.corrupt-*.json`. Se añadieron slides R06 sin alterar R00–R05.
 
 **Límites explícitos:** `.bak` conserva la versión anterior, no la más reciente; no hay restauración automática; la escritura es atómica solo si el sistema de archivos admite `ATOMIC_MOVE`; no se certifica `mvn test` hasta ejecutarlo.
 
 **Condición de cierre:** resultado Maven real + captura del reinicio correcto + prueba de archivo dañado y restauración + snapshot de código congelado.
+
+
+## R06 · 7 noviembre 2026 · Evidencia parcial y cápsulas de apoyo
+
+Se incorporaron ocho capturas **auténticas** en `assets/r06-01.png` a `assets/r06-08.png` de `master` y `gh-pages`. Las últimas diapositivas contienen R06: recuperación tras reiniciar, validación con `Stream.anyMatch(this::esInvalido)`, escritura con archivo temporal y backup, tercera alta y comparación entre `mensajes.json` (tres) y `mensajes.json.bak` (dos).
+
+**Decisión docente:** no sustituir Streams ni referencias a métodos por sintaxis anterior. Se conservan en el código y se enseñan mediante [guía independiente de Streams y lambdas](GUIA-STREAMS-LAMBDAS-R06.md), enlazada desde las slides. El uso de `Path`, `Files`, archivos temporales y `ATOMIC_MOVE` se explica en la [guía NIO.2](GUIA-NIO2-PATH-FILES-R06.md).
+
+**Pendientes sin maquillar:** no se observó alerta ni copia diagnóstica al alterar el JSON; aún faltan restauración comprobada y salida real de Maven. Diagnóstico: la aplicación lee al iniciar, no vigila cambios del archivo mientras está abierta; verificar ruta absoluta y reiniciar el proceso completo. Se añadió una prueba JUnit específica para JSON con coma faltante. No cerrar ni fusionar PR #2 hasta validar.
