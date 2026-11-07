@@ -28,7 +28,7 @@ Este ejemplo pertenece al contexto del test real: `carpetaTemporal` se proporcio
 @TempDir Path carpetaTemporal;
 ```
 
-La carpeta temporal evita que un test de corrupción destruya el `data/mensajes.json` de trabajo del docente.
+La carpeta temporal evita que un test de corrupción destruya el `data/mensajes.json` de tu proyecto.
 
 ## Evidencias distintas
 
