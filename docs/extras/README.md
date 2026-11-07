@@ -5,6 +5,16 @@ Este directorio reúne material de apoyo para **DSY1102**, adaptado desde recurs
 > [!IMPORTANT]
 > Aquí Java se estudia **por primera vez** y desde sus fundamentos. Los ejemplos usan **Java puro** y se mantienen dentro del contexto de programación y orientación a objetos. No se requieren Spring Boot, APIs REST, bases de datos, Docker, CI/CD ni otras tecnologías de cursos posteriores.
 
+## Puentes de la Unidad 2: de colecciones a JavaFX y JSON
+
+Si el curso empieza a hablar de `JSON`, `Jackson`, `DAO`, `FXML`, `ObservableList` o `Maven` antes de que se entienda el vocabulario subyacente, tenemos una ruta de apoyo **voluntaria, breve y contextual**:
+
+**[Abrir la biblioteca de 11 microcápsulas de la Unidad 2](./puentes-unidad-02/)**.
+
+Parte por dato, registro y colección; explica JSON sin exigir JavaScript; continúa por conversión de objetos Java, errores, manejo de archivos, Maven, interfaz y pruebas. Incluye enlaces a las dos guías existentes de Streams y NIO.2, sin duplicarlas.
+
+**Actividad práctica:** [Detective JSON](../../actividades/puentes-unidad-02/detective-json/index.html), autocontenida, con exportación TXT; la versión candidata para Academic Labs se revisa en el ticket [ADU-129](https://adumun.atlassian.net/browse/ADU-129). No se incorpora como evaluación obligatoria ni modifica el programa oficial.
+
 ## Roadmap sugerido
 
 El material no debe estudiarse necesariamente en orden alfabético. Se recomienda avanzar así:
