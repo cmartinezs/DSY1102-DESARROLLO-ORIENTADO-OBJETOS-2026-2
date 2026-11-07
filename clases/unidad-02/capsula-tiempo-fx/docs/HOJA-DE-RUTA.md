@@ -91,3 +91,12 @@ Se incorporaron ocho capturas **auténticas** en `assets/r06-01.png` a `assets/r
 **Pruebas nuevas de R06 en PR #2:** rechazo de propiedades duplicadas dentro del segundo objeto (reproduce la captura), aceptación de nombres iguales en objetos diferentes y rechazo del guardado si aparecen duplicados mientras la aplicación sigue abierta; original, `.corrupt-*.json` y respaldo protegidos. [Guía R06](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/R06-GUIA-DOCENTE.md).
 
 **Evidencia pendiente:** `mvn test` con el código actualizado y capturas reales de alerta y recuperación. No modificar slides históricas ni dar por cerrada la etapa con tests solo escritos.
+
+
+## R06 · 7 noviembre 2026 · Entrega 09 con evidencia verificada
+
+**Esta sección actualiza el estado de las notas históricas anteriores que indicaban pruebas pendientes.** Las capturas reales documentan: JSON con dos mensajes, recuperación tras reinicio, validación del DAO, escritura por temporal y respaldo, tercera alta, `mensajes.json` con tres registros y `.bak` con dos; posteriormente, `JsonMapper.builder().enable(StreamReadFeature.STRICT_DUPLICATE_DETECTION)`, alerta al abrir un JSON con propiedades duplicadas, existencia del archivo `.corrupt`, JSON restaurado a formato válido, bloqueo de un nuevo guardado con el archivo alterado y **13 tests JUnit R06 exitosos** (0 errores, 0 fallos).
+
+Se organizaron 15 diapositivas R06 en esta secuencia y se publicaron las 15 imágenes originales (sin recreaciones) en ambas ramas. Véase [matriz y precisión de evidencias](EVIDENCIAS-R06.md). R00–R05 permanecen intactas; el código Java R06 se consulta desde la rama del PR #2.
+
+**Límites y pendientes reales:** no se observa en esta tanda una apertura de JavaFX posterior a la restauración manual del archivo; ninguna captura demuestra restauración automática de `.bak` (no está implementada). El PR #2 permanece sin fusionar. Evitar afirmar resistencia total a cortes eléctricos o concurrencia multiusuario.
