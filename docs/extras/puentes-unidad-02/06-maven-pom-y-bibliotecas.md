@@ -21,7 +21,7 @@
 </dependency>
 ```
 
-Los tres valores identifican el artefacto y su versión. En el código docente R05 se actualizó la versión de Jackson por una advertencia de seguridad; **cada actualización requiere comprobar compatibilidad y ejecutar pruebas**. No copies una versión de otra clase sin revisar el `pom.xml` vigente.
+Los tres valores identifican el artefacto y su versión. En el proyecto de ejemplo se utiliza una versión de Jackson indicada en su `pom.xml`. **Cuando actualices una biblioteca, verifica la compatibilidad y ejecuta las pruebas**; no copies versiones de otros proyectos sin revisarlas.
 
 ## ¿Qué son plugins de Maven?
 `maven-compiler-plugin` configura cómo compilar; `maven-surefire-plugin` ejecuta tests; `javafx-maven-plugin` ayuda a lanzar JavaFX. Los plugins ejecutan tareas; **no equivalen a dependencias de tu aplicación**.
