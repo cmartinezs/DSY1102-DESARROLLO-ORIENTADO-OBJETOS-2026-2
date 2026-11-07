@@ -72,3 +72,14 @@ Se incorporaron ocho capturas **auténticas** en `assets/r06-01.png` a `assets/r
 **Decisión docente:** no sustituir Streams ni referencias a métodos por sintaxis anterior. Se conservan en el código y se enseñan mediante [guía independiente de Streams y lambdas](GUIA-STREAMS-LAMBDAS-R06.md), enlazada desde las slides. El uso de `Path`, `Files`, archivos temporales y `ATOMIC_MOVE` se explica en la [guía NIO.2](GUIA-NIO2-PATH-FILES-R06.md).
 
 **Pendientes sin maquillar:** no se observó alerta ni copia diagnóstica al alterar el JSON; aún faltan restauración comprobada y salida real de Maven. Diagnóstico: la aplicación lee al iniciar, no vigila cambios del archivo mientras está abierta; verificar ruta absoluta y reiniciar el proceso completo. Se añadió una prueba JUnit específica para JSON con coma faltante. No cerrar ni fusionar PR #2 hasta validar.
+
+
+### R06 · 7 noviembre 2026 · Incidencia en guardado después de modificar el JSON
+
+**Comportamiento comunicado por el docente:** un JSON dañado parecía ignorarse mientras la interfaz aún mostraba los mensajes anteriores; al registrar otro, la aplicación reescribía el archivo y lo dejaba válido. El DAO R06 revisado **no lee automáticamente `.bak`**; lo explicado por el código es que el Service ya tenía la lista cargada en memoria.
+
+**Corrección aplicada en [PR #2](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/pull/2):** antes de cada guardado se relee/valida el archivo; se compara contra una instantánea de la versión conocida, para rechazar archivos externos alterados incluso cuando sigan siendo JSON válido. Si está corrupto, se conserva su copia diagnóstica y no se sobreescriben `mensajes.json` ni `.bak`. El Controller informa mediante una alerta visible y conserva el formulario.
+
+**Pruebas agregadas:** edición con JSON malformado mientras JavaFX permanece abierto (garantiza no reescribir ni dañar backup) y modificación externa válida (conflicto que exige reinicio). Estas pruebas son código versionado y **no está confirmada su ejecución Maven**.
+
+**Material de apoyo actualizado:** [API NIO.2 con `Files.readAllBytes` y `Arrays.equals`](GUIA-NIO2-PATH-FILES-R06.md). La guía de [Streams/lambdas](GUIA-STREAMS-LAMBDAS-R06.md) sigue igual; no se simplificó `this::esInvalido`. Slides R06 dejan la corrupción como prueba pendiente hasta nuevas capturas reales.
