@@ -13,7 +13,7 @@ ObservableList<String> observables =
 
 Si modificamos `datos` por otro lado, **no se actualiza mágicamente `observables`**: arriba se hizo una copia inicial. Si queremos reflejar novedades, actualizamos la lista observable o volvemos a cargar la vista según el diseño.
 
-## Lo que ocurre en nuestro proyecto
+## Lo que ocurre en el proyecto de ejemplo
 - Al iniciar, `MensajeService` recupera mensajes mediante DAO.
 - Al abrir la pantalla, el Controller convierte la lista recibida en `ObservableList` y configura la tabla.
 - Un nuevo registro válido modifica el estado del Service después de escribir el JSON.
