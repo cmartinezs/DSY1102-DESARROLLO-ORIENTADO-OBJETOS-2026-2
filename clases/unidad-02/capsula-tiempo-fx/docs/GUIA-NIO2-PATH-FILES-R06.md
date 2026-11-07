@@ -172,3 +172,33 @@ Si no hay alerta, **no afirmes que la prueba pasó**. Comprueba si realmente se 
 - [`File`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/File.html)
 
 **Código real del ejemplo:** [`JsonMensajeDao.java` de R06](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/src/main/java/cl/duoc/dsy1102/timecapsule/dao/JsonMensajeDao.java).
+
+
+## 11. Protección adicional: el archivo puede cambiar mientras JavaFX está abierto
+
+La aplicación carga los mensajes en memoria al iniciar. En la primera implementación de R06, si alguien dañaba `mensajes.json` **con la ventana abierta**, el DAO podía escribir la lista que seguía en memoria y «reparar» el JSON accidentalmente. Eso era un riesgo: podía además sobrescribir el respaldo `.bak` con el archivo corrupto.
+
+La implementación corregida del [DAO R06](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r06-json-recovery/src/main/java/cl/duoc/dsy1102/timecapsule/dao/JsonMensajeDao.java) conserva una instantánea de los bytes válidos al leer o guardar, mediante `Files.readAllBytes`. Antes del siguiente guardado relee el archivo y utiliza `Arrays.equals` para detectar una edición externa:
+
+```java
+byte[] contenidoActual = leerContenidoActual();
+if (contenidoActual != null) {
+    leerYValidar(contenidoActual);  // puede lanzar IOException y preservar .corrupt
+}
+
+if (versionRegistrada && !Arrays.equals(versionConocida, contenidoActual)) {
+    throw new IOException("El archivo JSON cambió mientras la aplicación estaba abierta.");
+}
+```
+
+`Arrays.equals(byte[], byte[])` compara el **contenido** de los arreglos, no si son el mismo objeto. Si el archivo cambió aunque todavía sea JSON válido, el guardado se cancela; el Service no actualiza la memoria y el Controller muestra una alerta. Si está corrupto, el DAO preserva una copia diagnóstica **antes** de cualquier escritura.
+
+| Situación | Acción esperada |
+| --- | --- |
+| JSON válido y sin cambios externos | Guardar normalmente |
+| JSON dañado mientras la ventana está abierta | Rechazar guardado, conservar JSON y `.bak`, crear `.corrupt` |
+| JSON modificado externamente pero aún válido | Rechazar guardado y pedir reinicio |
+| JSON dañado y se inicia un proceso nuevo | Informar error de carga sin mostrar lista falsa |
+
+**Límite:** comparar bytes no equivale a bloquear el archivo. En este laboratorio de un solo usuario reduce el riesgo demostrado, pero no elimina todas las carreras entre otros procesos.
+
