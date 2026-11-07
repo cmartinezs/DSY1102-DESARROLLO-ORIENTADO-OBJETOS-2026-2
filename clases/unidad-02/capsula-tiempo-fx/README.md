@@ -4,6 +4,14 @@
 
 Presentación HTML/CSS/JavaScript **incremental** para dos bloques de 40 minutos de DSY1102. La presentación publicada incluye R00–R04 con sus capturas originales y R05 con evidencia docente de Service, DAO y JSON. Las pruebas de recuperación robusta y corrupción se reservan para R06.
 
+## Apoyos conceptuales para R00–R06 (lectura opcional)
+
+La Unidad 2 utiliza términos que no son necesariamente conocimientos previos: JSON no requiere saber JavaScript; un archivo no equivale a una lista en memoria; `ObjectMapper`, `Path`, `Files` y `Maven` tienen responsabilidades distintas.
+
+**[Abrir ruta de 11 microcápsulas de apoyo](../../../docs/extras/puentes-unidad-02/)**: datos y colecciones, JSON desde cero, Jackson, memoria/archivo, errores, Maven, FXML, TableView, MVC/DAO, tests y puente hacia JDBC. Reutiliza las guías existentes de Streams/lambdas y NIO.2; no duplica material curricular ni cambia las diapositivas de R00–R06.
+
+**[Practicar en Detective JSON](../../../actividades/puentes-unidad-02/detective-json/index.html)**: HTML autocontenido, seis escenarios y exportación TXT. Se trabaja sin cuentas ni conocimientos previos de JavaScript. La integración final de catálogo en Academic Labs se gestiona por [ADU-129](https://adumun.atlassian.net/browse/ADU-129).
+
 ## Abrir
 
 Abre `index.html` en un navegador actual; también puedes usar un servidor estático con `python -m http.server 8000`. Navega con flechas, barra espaciadora, botones inferiores o índice con `G`. `N` alterna notas docentes, `F` pantalla completa, clic en una captura la amplía y `Copiar código` lleva los snippets al portapapeles (requiere HTTPS/localhost para portapapeles).
