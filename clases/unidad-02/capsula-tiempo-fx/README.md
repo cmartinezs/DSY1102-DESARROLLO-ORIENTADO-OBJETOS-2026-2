@@ -57,3 +57,12 @@ La presentación `slides.js` incluye la secuencia narrativa de R05 original: nec
 **Estado editorial actual:** fuentes HTML y las 11 capturas reales de R05 están publicadas tanto en `master` como en `gh-pages`, junto con los 10 originales de R04. El código de presentación fue corregido para mostrar saltos de línea auténticos en los snippets. Jackson **2.22.4** está confirmado en el POM remoto de la rama de aplicación. Los enlaces R05 siguen apuntando a la rama de implementación hasta fijar el snapshot de aceptación. La ejecución de tests y la recuperación después de reiniciar aún requieren evidencia.
 
 **Siguiente:** R06 — pruebas de recuperación, corrupción y respaldos, sin rehacer R05.
+
+
+## Entrega 08 · R06 Recuperación y resguardo (7 noviembre 2026)
+
+La presentación incorpora ocho diapositivas de R06 con **ocho capturas reales** del docente (archivos `r06-01.png` a `r06-08.png`). Se publicaron en ambos árboles `assets/` de `master` y `gh-pages`. Las etapas R00–R05 permanecen intactas.
+
+**Evidencia lograda:** JSON de dos mensajes, recuperación al reiniciar, lectura y escritura del DAO, tercer registro, archivo actual con tres objetos y respaldo con los dos anteriores. **Pendiente:** error visible por corrupción, copia `.corrupt-*.json`, restauración manual y resultado Maven.
+
+**Lectura complementaria voluntaria:** [Streams, lambdas y referencias a métodos](docs/GUIA-STREAMS-LAMBDAS-R06.md), [API NIO.2: Path y Files](docs/GUIA-NIO2-PATH-FILES-R06.md). El código R06 sigue utilizando `stream().anyMatch(this::esInvalido)`, sin reescritura. Las slides enlazan ambas guías y el [PR #2](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/pull/2) sigue en revisión.
