@@ -35,5 +35,5 @@ La aplicación no monitorea archivos en tiempo real. No hay `WatchService`, reca
 - El archivo tiene dos claves `"texto"` dentro de un objeto. ¿Qué hace R06? **El parser estricto lo rechaza.**
 - ¿Qué necesitamos para comprobar recuperación después de restaurar? **Reiniciar y observar la tabla.**
 
-**Profundiza:** [Guía NIO.2 de `Path` y `Files`](../../clases/unidad-02/capsula-tiempo-fx/docs/GUIA-NIO2-PATH-FILES-R06.md).  
+**Profundiza:** [Guía NIO.2 de `Path` y `Files`](../../../clases/unidad-02/capsula-tiempo-fx/docs/GUIA-NIO2-PATH-FILES-R06.md).  
 **Siguiente:** [05 · Errores y excepciones](05-errores-validacion-y-excepciones.md).
