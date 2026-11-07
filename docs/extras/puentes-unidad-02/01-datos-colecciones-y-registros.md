@@ -6,12 +6,12 @@
 ## El problema, sin código
 Una cápsula guarda mensajes para leerlos después. Cada mensaje tiene **autor**, **texto** y **plazo en años**. El mensaje completo es un *registro*: agrupa datos que pertenecen a una misma cosa. Varios mensajes forman una *colección*.
 
-Un **dato** es un valor: `5`, `"Carlos"`, `true`. Un **campo** tiene un nombre y un valor: `plazoAnios = 5`. Un **registro** combina los campos de una entidad. Una **colección** reúne registros o valores; puede haber cero, uno o muchos.
+Un **dato** es un valor: `5`, `"Ana"`, `true`. Un **campo** tiene un nombre y un valor: `plazoAnios = 5`. Un **registro** combina los campos de una entidad. Una **colección** reúne registros o valores; puede haber cero, uno o muchos.
 
 | Concepto | Ejemplo en nuestra cápsula | Java |
 | --- | --- | --- |
 | Valor numérico | `5` | `int` |
-| Valor textual | `Carlos` | `String` |
+| Valor textual | `Ana` | `String` |
 | Registro | Un mensaje con tres campos | `MensajeFuturo` |
 | Colección ordenada | Primer, segundo y tercer mensaje | `List<MensajeFuturo>` |
 | Lista mutable | Colección a la que podemos agregar | `ArrayList<MensajeFuturo>` |
@@ -27,16 +27,16 @@ record Mensaje(String autor, String texto, int plazoAnios) {}
 public class Demo {
     public static void main(String[] args) {
         List<Mensaje> mensajes = new ArrayList<>();
-        mensajes.add(new Mensaje("Carlos", "Hola, futuro", 5));
-        mensajes.add(new Mensaje("Vale", "Aprender haciendo", 10));
+        mensajes.add(new Mensaje("Ana", "Hola, futuro", 5));
+        mensajes.add(new Mensaje("Luis", "Aprender haciendo", 10));
 
         System.out.println(mensajes.size());           // 2
-        System.out.println(mensajes.get(0).autor());    // Carlos
+        System.out.println(mensajes.get(0).autor());    // Ana
     }
 }
 ```
 
-`record` aparece aquí solo para reducir código de ejemplo. En nuestro proyecto de clase usamos `class MensajeFuturo`, constructor y getters; **no necesitas aprender records para continuar R06**.
+`record` aparece aquí solo para reducir código de ejemplo. En el proyecto de ejemplo de clase usamos `class MensajeFuturo`, constructor y getters; **no necesitas aprender records para continuar R06**.
 
 ## Una distinción que evita muchos errores
 - `mensajes` es una **variable que referencia una lista en memoria**. Cerrar el proceso elimina ese estado.
