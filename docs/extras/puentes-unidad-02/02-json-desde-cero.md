@@ -79,4 +79,4 @@ Para cada ejemplo, explica qué ocurre:
 **Respuestas:** (1) sintaxis y estructura de arreglo válidas, colección vacía; (2) JSON bien formado, pero negocio inválido; (3) JSON malformado por coma final.
 
 **Siguiente:** [03 · De objeto Java a JSON](03-java-a-json-con-jackson.md).  
-**Práctica interactiva:** [Detective JSON · actividad autocontenida](../../../../actividades/puentes-unidad-02/detective-json/index.html) (cuando se publique el recurso estático).
+**Práctica interactiva:** [Detective JSON · actividad autocontenida](../../../actividades/puentes-unidad-02/detective-json/index.html) (cuando se publique el recurso estático).
