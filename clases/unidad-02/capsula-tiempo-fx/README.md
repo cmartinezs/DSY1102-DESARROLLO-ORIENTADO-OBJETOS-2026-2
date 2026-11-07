@@ -10,7 +10,7 @@ La Unidad 2 utiliza términos que no son necesariamente conocimientos previos: J
 
 **[Abrir ruta de 11 microcápsulas de apoyo](../../../docs/extras/puentes-unidad-02/)**: datos y colecciones, JSON desde cero, Jackson, memoria/archivo, errores, Maven, FXML, TableView, MVC/DAO, tests y puente hacia JDBC. Reutiliza las guías existentes de Streams/lambdas y NIO.2; no duplica material curricular ni cambia las diapositivas de R00–R06.
 
-**[Practicar en Detective JSON](../../../actividades/puentes-unidad-02/detective-json/index.html)**: HTML autocontenido, seis escenarios y exportación TXT. Se trabaja sin cuentas ni conocimientos previos de JavaScript. La integración final de catálogo en Academic Labs se gestiona por [ADU-129](https://adumun.atlassian.net/browse/ADU-129).
+**[Practicar con Detective JSON](https://academic-labs.adumun.cl/activities/detective-json/)**: seis escenarios interactivos y exportación TXT. Se trabaja desde el navegador, sin cuentas ni conocimientos previos de JavaScript.
 
 ## Abrir
 
