@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Aprende a distinguir JSON correcto, errores de sintaxis, estructura, duplicados y datos inválidos, sin aprender JavaScript.">
+  <title>Detective JSON · Laboratorio de conceptos · ADÜMÜN</title>
+  <style>
+    :root{color-scheme:light;--ink:#15273c;--muted:#4f6073;--line:#d8e2ee;--paper:#fff;--bg:#eef4fa;--accent:#176b79;--teal:#117067;--warm:#f8edd6;--error:#9b3033;--ok:#166453;--focus:#aa4a07;font:16px/1.58 system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg)}a{color:#135e71;text-underline-offset:3px}button,input,textarea{font:inherit}button{cursor:pointer;border-radius:10px;border:1px solid #0c5f70;padding:.72rem 1rem;background:#176b79;color:#fff;font-weight:650}button:hover{background:#10515a}button.secondary{background:#fff;color:#1b5c68}button.secondary:hover{background:#e9f6f5}button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}button:disabled{opacity:.55;cursor:not-allowed}
+    header{background:linear-gradient(125deg,#11283c,#174e58);color:white;padding:clamp(2rem,5vw,4rem) 1.25rem}header .inner{max-width:1080px;margin:auto}header h1{font-size:clamp(2rem,4vw,3.15rem);line-height:1.16;margin:.3rem 0 .65rem}header p{max-width:780px;color:#e0f1f2;margin:.4rem 0}header .stamp{letter-spacing:.12em;font-weight:750;font-size:.78rem;text-transform:uppercase;color:#aee2d6}
+    main{max-width:1080px;padding:1.5rem 1.1rem 4rem;margin:auto}.guide{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.2rem 1.35rem;margin-bottom:1.4rem}.guide strong{color:#195568}.guide p{margin:.5rem 0}.guide ul{margin:.45rem 0;padding-left:1.3rem}.case{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(1rem,2.5vw,1.5rem);margin:1.3rem 0;box-shadow:0 5px 15px #18334c10}.case header{padding:0;background:none;color:inherit}.case h2{font-size:1.27rem;margin:.15rem 0}.case .small{font-size:.86rem;color:var(--muted)}.case .task{margin:.7rem 0 1.1rem;max-width:74ch}.pill{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.04em;background:#e0f2ec;color:#17594f;border-radius:100px;padding:.17rem .55rem}.row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:1.2rem}.label{font-size:.87rem;font-weight:760;margin:.45rem 0;display:block}.editor{width:100%;min-height:190px;resize:vertical;padding:1rem;background:#101c2e;border:1px solid #344a60;border-radius:12px;color:#ecf6ff;font:clamp(.84rem,1.15vw,.99rem)/1.5 ui-monospace,"Cascadia Code",Consolas,monospace;tab-size:2}.choices{display:grid;gap:.48rem}.choices label{display:flex;gap:.6rem;align-items:flex-start;padding:.47rem .65rem;border:1px solid var(--line);border-radius:9px;cursor:pointer}.choices label:has(:checked){border-color:#167e86;background:#e5f4f5}.choices input{margin-top:.33rem;accent-color:#176b79}.actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.feedback{min-height:2.3rem;padding:.65rem .8rem;margin-top:.8rem;border-left:4px solid #d1a456;background:#fff7e9;border-radius:7px;font-size:.95rem}.feedback.good{border-color:var(--ok);background:#e6f8ef}.feedback.bad{border-color:var(--error);background:#fff1f0}.feedback code,.guide code,.case code,.footer code{background:#e6eef7;border-radius:4px;padding:0 .25rem}.note{font-size:.92rem;background:var(--warm);border-radius:10px;padding:.8rem 1rem;margin:.65rem 0}.summary{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.3rem 1.45rem;margin-top:1.5rem}.summary h2{margin:.1rem 0 .6rem}.summary .actions{margin-top:1rem}.summary textarea{width:100%;min-height:90px;border:1px solid #b9c8d9;border-radius:9px;padding:.75rem;resize:vertical}.summary #progress{font-weight:750;color:#1d6170}.footer{max-width:1080px;margin:0 auto;padding:1.2rem;color:var(--muted);font-size:.9rem;border-top:1px solid #cad8e5}.skip{position:absolute;left:-9999px;top:auto;background:#fff;color:#000;padding:.5rem}.skip:focus{left:1rem;top:1rem;z-index:3}
+    @media(max-width:700px){.row{grid-template-columns:1fr}.editor{min-height:150px}.case{margin:1rem 0}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+    @media print{header{background:#fff;color:#000;padding:1rem}main{padding:0}.case{break-inside:avoid;box-shadow:none}button{display:none!important}.editor{background:#fff;color:#000}.summary{break-inside:avoid}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#actividad">Saltar a los ejercicios</a>
+<header><div class="inner"><div class="stamp">ADÜMÜN · Actividad independiente · DSY1102 como contexto</div><h1>Detective JSON</h1><p>¿Un mensaje puede convertirse en texto? ¿Qué pasa con las comas, los arreglos y las claves repetidas? Investiga seis casos reales sin necesitar saber JavaScript.</p><p><strong>Tiempo sugerido:</strong> 15–25 minutos · <strong>Sin cuenta · Sin backend · Funciona offline</strong> si descargas este HTML.</p></div></header>
+<main id="actividad">
+  <section class="guide" aria-labelledby="comenzar"><h2 id="comenzar">Antes de empezar</h2><p><strong>JSON es un formato de datos, no un lenguaje que debas programar.</strong> Un objeto usa <code>{ }</code>, una lista/arreglo usa <code>[ ]</code> y los textos se escriben entre <code>"comillas dobles"</code>.</p><ul><li>Lee el ejemplo de cada tarjeta; puedes modificarlo sin afectar archivos de tu computadora.</li><li>Elige un diagnóstico y usa «Revisar mi diagnóstico» para recibir una explicación.</li><li>«Comprobar texto» usa <code>JSON.parse</code> en tu navegador: detecta errores de sintaxis y comprueba si la raíz es un arreglo. <strong>No detecta necesariamente claves duplicadas</strong>; ese caso lo analizas como detective.</li><li>Al finalizar exporta tu trabajo a un TXT y entrégalo mediante el AVA o medio acordado con tu docente. No se transmite ninguna respuesta a ADÜMÜN.</li></ul><p class="note"><strong>Importante:</strong> un JSON puede ser legible por un programa y aun así violar reglas de negocio o contener propiedades ambiguas. En Java R06, Jackson está configurado para rechazar claves duplicadas dentro de un mismo objeto.</p></section>
+  <div id="cases" aria-label="Casos a investigar"></div>
+  <section class="summary" aria-labelledby="final"><h2 id="final">Tu evidencia de aprendizaje</h2><p id="progress" aria-live="polite">0 de 6 casos revisados.</p><label class="label" for="reflection">Explica con tus palabras: ¿qué diferencia hay entre un error de sintaxis JSON y un dato inválido para una aplicación?</label><textarea id="reflection" placeholder="Una respuesta breve con tus palabras..."></textarea><div class="actions"><button id="export" type="button">Descargar evidencia TXT</button><button id="reset" class="secondary" type="button">Reiniciar actividad</button></div><p class="small">El TXT incluye identificador y versión de esta actividad, diagnósticos seleccionados, fragmentos editados, reflexión y fecha de exportación. No incluye datos personales ni es una firma digital.</p></section>
+</main>
+<footer class="footer"><p>Actividad <strong>detective-json</strong> · versión <strong>1.0.0</strong> · contenido público educativo. Fuente docente y conceptos: <a href="https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/tree/master/docs/extras/puentes-unidad-02">Puentes conceptuales DSY1102</a>. No es una evaluación certificada ni almacena respuestas. La revisión editorial y la licencia de reutilización se definen por la fuente canónica del repositorio.</p></footer>
+<script>
+(() => {
+  "use strict";
+  const ID = "detective-json", VERSION = "1.0.0";
+  const answers = [
+    { id:"C01",name:"Dos mensajes",topic:"Arreglo y objetos",task:"¿Qué representa este texto? Cuenta los mensajes y clasifica el caso.",value:'[\n  {"autor":"Carlos","texto":"Hola","plazoAnios":5},\n  {"autor":"Vale","texto":"Nos vemos","plazoAnios":10}\n]',expected:"correcto",explain:"La raíz es un arreglo con dos objetos. Repetir el nombre de una clave en objetos diferentes es normal; son registros distintos.",hint:"El corchete exterior [ ] contiene dos objetos { } separados por coma." },
+    { id:"C02",name:"Comillas problemáticas",topic:"Sintaxis",task:"¿Por qué un procesador JSON rechazaría este texto? Prueba corregir las comillas y vuelve a comprobarlo.",value:"[{'autor':'Carlos','texto':'Hola','plazoAnios':5}]",expected:"sintaxis",explain:"JSON exige comillas dobles para claves y cadenas. Las comillas simples no sirven aquí. Corrige el texto a comillas dobles para que JSON.parse lo acepte.",hint:"JSON usa siempre comillas dobles, incluso en las claves." },
+    { id:"C03",name:"Un plazo imposible",topic:"Reglas del negocio",task:"El texto se puede interpretar como JSON, pero ¿puede la cápsula aceptar ese mensaje?",value:'[{"autor":"Carlos","texto":"Hola","plazoAnios":-2}]',expected:"datos",explain:"El texto está bien formado y tiene estructura de lista; sin embargo el plazo es negativo y el Service debería rechazarlo. Sintaxis y reglas del negocio son cosas distintas.",hint:"La aplicación necesita un plazo positivo para guardar un mensaje al futuro." },
+    { id:"C04",name:"El valor que desaparece",topic:"Claves duplicadas",task:"¿Qué problema existe aunque JSON.parse acepte el texto? Observa que 'texto' aparece dos veces en el mismo objeto.",value:'[{"autor":"Carlos","texto":"Primero","plazoAnios":5,"texto":"Segundo"}]',expected:"ambiguo",explain:"Una clave repetida dentro del mismo objeto puede provocar interpretaciones diferentes. JSON.parse suele conservar el último valor; Jackson en R06 usa STRICT_DUPLICATE_DETECTION y rechaza el documento. No dependas del último valor.",hint:"Revisa si un mismo objeto { } contiene dos veces la misma clave." },
+    { id:"C05",name:"La coma final",topic:"Sintaxis",task:"¿La coma antes de cerrar el objeto es válida en JSON? Intenta eliminarla.",value:'[{"autor":"Vale","texto":"Hola","plazoAnios":5,}]',expected:"sintaxis",explain:"En JSON no se permite una coma sobrante al final de un objeto o arreglo. Corrige la coma final para volver al formato válido.",hint:"Cada coma separa dos elementos; ¿qué elemento viene después de la última coma?" },
+    { id:"C06",name:"¿Objeto o arreglo?",topic:"Estructura esperada",task:"Este texto es JSON bien formado, pero nuestro DAO espera una lista de mensajes. ¿Cuál es el problema principal?",value:'{"autor":"Carlos","texto":"Hola","plazoAnios":5}',expected:"estructura",explain:"Es un objeto JSON válido, pero aquí necesitamos un arreglo como raíz: [ { ... } ]. Una estructura válida no necesariamente es la estructura que nuestro programa espera.",hint:"Compara el primer carácter: { significa objeto y [ significa arreglo." }
+  ];
+  const categories=[
+    ["correcto","Formato y datos adecuados"],
+    ["sintaxis","Error de sintaxis JSON"],
+    ["estructura","Estructura distinta de la esperada"],
+    ["datos","Dato inválido para el negocio"],
+    ["ambiguo","Propiedades duplicadas / ambigüedad"]
+  ];
+  const reviewed = new Set();
+  const byId = id => document.getElementById(id);
+  const safe = text => String(text).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+  const holder=byId("cases");
+  for (const q of answers){
+    const section=document.createElement("section");section.className="case";section.setAttribute("aria-labelledby","title-"+q.id);
+    section.innerHTML=`<header><span class="pill">${q.id} · ${safe(q.topic)}</span><h2 id="title-${q.id}">${safe(q.name)}</h2></header>
+      <p class="task">${safe(q.task)}</p><div class="row"><div><label class="label" for="txt-${q.id}">Texto a investigar (editable)</label><textarea id="txt-${q.id}" class="editor" spellcheck="false" aria-label="JSON editable del caso ${q.id}"></textarea></div>
+      <fieldset style="min-width:0;border:0;padding:0;margin:0"><legend class="label">Tu diagnóstico</legend><div class="choices">${categories.map(([id,title])=>`<label><input type="radio" name="opt-${q.id}" value="${id}"><span>${safe(title)}</span></label>`).join("")}</div></fieldset></div>
+      <div class="actions"><button type="button" data-action="check" data-id="${q.id}">Revisar mi diagnóstico</button><button type="button" class="secondary" data-action="parse" data-id="${q.id}">Comprobar texto</button><button type="button" class="secondary" data-action="hint" data-id="${q.id}">Pista</button></div><div id="fb-${q.id}" class="feedback" role="status" aria-live="polite">Elige una opción o comprueba la sintaxis para comenzar.</div>`;
+    holder.append(section);byId("txt-"+q.id).value=q.value;
+  }
+  const feedback=(id,msg,kind="")=>{const el=byId("fb-"+id);el.textContent=msg;el.className="feedback"+(kind?" "+kind:"");};
+  const updateProgress=()=>{byId("progress").textContent=reviewed.size+" de "+answers.length+" casos revisados.";};
+  holder.addEventListener("click",event=>{
+    const button=event.target.closest("button[data-action]");if(!button)return;
+    const q=answers.find(x=>x.id===button.dataset.id);if(!q)return;
+    const input=byId("txt-"+q.id).value;
+    if(button.dataset.action==="hint"){feedback(q.id,"Pista: "+q.hint);return;}
+    if(button.dataset.action==="parse"){
+      try{const parsed=JSON.parse(input);const kind=Array.isArray(parsed)?"arreglo de "+parsed.length+" elemento(s)":parsed===null?"null":typeof parsed;
+        feedback(q.id,"JSON.parse pudo leer el texto. Raíz: "+kind+". Esto NO certifica reglas de negocio ni ausencia de claves duplicadas.","good");}
+      catch(error){feedback(q.id,"Error de sintaxis detectado por JSON.parse: "+error.message,"bad");}return;
+    }
+    const selected=document.querySelector('input[name="opt-'+q.id+'"]:checked');
+    if(!selected){feedback(q.id,"Selecciona un diagnóstico para continuar.","bad");return;}
+    reviewed.add(q.id);updateProgress();
+    const ok=selected.value===q.expected;
+    feedback(q.id,(ok?"Bien razonado. ":"Revisa tu elección. ")+q.explain,ok?"good":"bad");
+  });
+  byId("export").addEventListener("click",()=>{
+    const lines=["ADÜMÜN ACADEMIC LABS · EVIDENCIA DE ACTIVIDAD","id="+ID,"version="+VERSION,"exportado="+new Date().toISOString(),"medio=archivo_local_txt","nota=Esta evidencia no es una firma ni valida identidad; no fue enviada a servidor.","", "CASOS"];
+    for(const q of answers){const choice=document.querySelector('input[name="opt-'+q.id+'"]:checked')?.value??"sin responder";
+      lines.push("",q.id+" — "+q.name,"diagnostico="+choice,"revisado="+(reviewed.has(q.id)?"si":"no"),"texto_editado:",byId("txt-"+q.id).value,"--- fin de caso ---");}
+    lines.push("", "REFLEXION",byId("reflection").value.trim()||"sin completar", "", "FIN");
+    const blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"});const url=URL.createObjectURL(blob);const link=document.createElement("a");link.href=url;link.download="detective-json-evidencia-v1.txt";document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  byId("reset").addEventListener("click",()=>{
+    if(!window.confirm("¿Reiniciar los seis casos? Se perderán los cambios de esta sesión que no hayas exportado."))return;
+    reviewed.clear();updateProgress();for(const q of answers){byId("txt-"+q.id).value=q.value;document.querySelectorAll('input[name="opt-'+q.id+'"]').forEach(x=>x.checked=false);feedback(q.id,"Elige una opción o comprueba la sintaxis para comenzar.");}byId("reflection").value="";
+  });
+})();
+</script>
+</body>
+</html>
