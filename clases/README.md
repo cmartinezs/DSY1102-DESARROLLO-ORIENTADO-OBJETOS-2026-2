@@ -7,3 +7,7 @@ Esta vertical contiene **clases transversales** que recuperan contenidos de vari
 - [Abrir slides interactivas en el portal](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/classes/capsula-tiempo-fx/)
 
 **Estado:** Entrega 01, R00 validado por capturas reales de ejecución. Lo demás es un mapa de incrementos próximos, todavía no una implementación comprobada.
+
+## Unidad 3 · Extensión JDBC de Cápsula del Tiempo FX
+
+- [Guías complementarias R07–R08 · conexión MariaDB, INSERT, SELECT, ResultSet y TableView](unidad-02/capsula-tiempo-fx/jdbc/README.md). No modifica las slides R00–R06; conserva enlace al código R04 de partida y fuentes Java/SQL directas.

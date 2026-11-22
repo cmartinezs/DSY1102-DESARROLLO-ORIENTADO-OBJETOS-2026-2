@@ -83,3 +83,7 @@ Se conservaron las ocho capturas previas y se incorporaron siete nuevas fotograf
 **Matriz canónica:** [Evidencias reales R06 y orden de las 15 capturas](docs/EVIDENCIAS-R06.md). Cada diapositiva presenta evidencia real, sin ilustraciones sustitutas, y conserva enlaces al código y las guías independientes de Streams y NIO.2.
 
 **Límites:** `.bak` no se carga automáticamente; no existe captura de una ejecución posterior a la restauración manual específica. PR #2 continúa en revisión; no equivale a merge.
+
+## Extensión didáctica R07–R08 · JDBC y MariaDB (22 noviembre 2026)
+
+Fuera del deck de slides R00–R06 se publican **dos guías prácticas independientes del contenido visual**: [R07 conexión/INSERT/validación](jdbc/01-r07-conexion-insert-validacion.md) y [R08 SELECT/ResultSet/mapeo/TableView](jdbc/02-r08-resultset-modelo-tableview.md), con [índice y códigos de referencia](jdbc/README.md). Reutilizan el snapshot R04 en copia aislada, sin borrar la rama histórica JSON R05–R06. No tienen capturas y detallan todos los pasos operativos.

@@ -31,3 +31,12 @@ Esta tabla conserva **un commit exacto por checkpoint**. Usar el enlace del incr
 - Fuentes centrales: [Service](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r05-service/src/main/java/cl/duoc/dsy1102/timecapsule/service/MensajeService.java), [contrato DAO](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r05-service/src/main/java/cl/duoc/dsy1102/timecapsule/dao/MensajeDao.java), [DAO JSON](https://github.com/cmartinezs/DSY1102-JFX-TIME-CAPSULE/blob/feat/dsy1102-r05-service/src/main/java/cl/duoc/dsy1102/timecapsule/dao/JsonMensajeDao.java).
 - Evidencia: tabla vacía inicial; primer registro y JSON de un objeto; segundo registro y JSON de dos objetos. Capturas suministradas por el docente.
 - **Comprobado:** 11 capturas reales de R05 publicadas en `assets/` (ambas ramas); `pom.xml` del repositorio de código usa Jackson **2.22.4**. **Pendiente:** aportar evidencia de `mvn clean test`, recuperación tras reinicio y congelar un commit estable para R05. No tratar el enlace de rama como snapshot histórico.
+
+## Extensión separada R07–R08 · JDBC (material de referencia, no snapshots del repositorio de aplicación)
+
+Las guías JDBC retoman **una copia independiente de R04**, y no sustituyen las ramas JSON R05–R06. Los archivos nuevos viven en el repositorio académico:
+
+- [R07 · configuración, JDBC, INSERT y validación](jdbc/01-r07-conexion-insert-validacion.md) · [archivos directos Java y SQL](jdbc/README.md).
+- [R08 · SELECT, ResultSet, mapeo a Modelo y TableView](jdbc/02-r08-resultset-modelo-tableview.md) · [DAO con SELECT](jdbc/codigo/r08/JdbcMensajeDao.java).
+
+**Estado:** guías y archivos fuente publicados; ejecución integral con MariaDB local no certificada. No confundir con los cinco commits fijos R00–R04 de la tabla superior.

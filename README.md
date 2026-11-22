@@ -94,3 +94,7 @@ git pull
 ```
 
 > AVA continúa siendo la plataforma oficial para comunicaciones y recursos institucionales que correspondan.
+
+## Extensión práctica de la clase Cápsula del Tiempo: JDBC
+
+- [Guías R07–R08 · JavaFX + MariaDB + JDBC](clases/unidad-02/capsula-tiempo-fx/jdbc/README.md) — configuración paso a paso, INSERT y validación, SELECT/ResultSet y TableView; enlaces directos a fuentes Java/SQL. Complementan, sin modificar, las slides R00–R06.
