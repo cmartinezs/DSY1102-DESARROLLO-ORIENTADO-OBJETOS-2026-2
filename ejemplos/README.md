@@ -28,3 +28,7 @@
 ## Distinción pedagógica
 
 **Ejemplos muestran → [ejercicios](../ejercicios/) hacen aplicar → [laboratorios](../labs/) integran → [PetCare](../proyecto-formativo/) evoluciona.** Las soluciones de referencia extensas se conservan etiquetadas como integradoras, sin presentarlas como ejemplos atómicos.
+
+## Unidad 3 · Material complementario
+- [Semana 13 · JDBC y CRUD](semana-13/README.md)
+- [Semana 14 · DAO y JavaFX](semana-14/README.md)

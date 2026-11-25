@@ -42,3 +42,7 @@ El banco se rige por el [estándar DSY1102 de ejercicios mínimos](../docs/ESTAN
 Los bancos antiguos de semanas 01–04, 06 y 09 se preservan en `BANCO-ORIGINAL-2026.md` dentro de sus carpetas; los enunciados vigentes están en los `README.md`. La [matriz de conciliación](../docs/MATRIZ-CONCILIACION-EJERCICIOS-DSY1102-2026-2.md) indica cobertura, tratamiento y límites de verificación. El portal web enlaza a estos documentos para evitar copias divergentes.
 
 **Advertencia:** los ejercicios propios del curso complementan los recursos oficiales de AVA; no se presenta como revisado material institucional que aún no haya sido recibido.
+
+## Unidad 3 · Material complementario
+- [Semana 13 · JDBC y CRUD](semana-13/README.md)
+- [Semana 14 · DAO y JavaFX](semana-14/README.md)

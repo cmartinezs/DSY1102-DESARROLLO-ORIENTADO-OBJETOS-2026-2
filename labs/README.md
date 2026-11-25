@@ -58,3 +58,7 @@ Las experiencias interactivas de Veterinaria I–IV (semanas 05–08) se conserv
 Las etapas del laboratorio autónomo se encuentran en el índice correspondiente y su cantidad responde al diseño del caso, **no** al número cuatro. No se debe exigir al alumno crear otra solución por arrastre de una actividad anterior.
 
 Los labs no reemplazan ejercicios ni PetCare. Los ejercicios viven en [`../ejercicios/`](../ejercicios/) y el proyecto longitudinal en [`../proyecto-formativo/`](../proyecto-formativo/).
+
+## Unidad 3 · Material complementario
+- [Semana 13 · JDBC y CRUD](semana-13/README.md)
+- [Semana 14 · DAO y JavaFX](semana-14/README.md)

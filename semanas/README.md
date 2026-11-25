@@ -20,8 +20,8 @@ Para diseñar la **práctica de cada semana** se utiliza el [estándar increment
 | **10** | 12–17 octubre 2026 | MVC, TableView/ObservableList, navegación y validación · EA2 | ✅ Documentada | [Abrir Semana 10](semana-10/) |
 | **11** | 19–24 octubre 2026 | Persistencia JSON, Repository/DAO y JavaFX MVC · EA2 | ✅ Contenido disponible | [Abrir Semana 11](semana-11/) |
 | 12 | 26–31 octubre 2026 | EP2 · JavaFX + MVC + DAO | 🔒 Próximamente | Próximamente |
-| 13 | 2–7 noviembre 2026 | JDBC, CRUD y sentencias parametrizadas | 🔒 Próximamente | Próximamente |
-| 14 | 9–14 noviembre 2026 | Refactorización DAO e integración BD | 🔒 Próximamente | Próximamente |
+| 13 | 2–7 noviembre 2026 | JDBC, CRUD y sentencias parametrizadas | Material complementario | [Abrir Semana 13](semana-13/) |
+| 14 | 9–14 noviembre 2026 | Refactorización DAO e integración BD | Material complementario | [Abrir Semana 14](semana-14/) |
 | 15 | 16–21 noviembre 2026 | BD y persistencia · EF3 | 🔒 Próximamente | Próximamente |
 | 16 | 23–28 noviembre 2026 | EP3 · Componente con BD relacional | 🔒 Próximamente | Próximamente |
 | 17–18 | 30 noviembre–12 diciembre 2026 | EFT · Defensa técnica | 🔒 Próximamente | Próximamente |

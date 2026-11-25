@@ -1,0 +1,3 @@
+# Ejemplos mínimos · Semana 13
+JDK 21. Desde esta carpeta ejecuta java RecursosDemo.java (usado, cerrado) y java MapeoDemo.java (Java). [Recursos](RecursosDemo.java) ilustra AutoCloseable; [mapeo](MapeoDemo.java) ilustra construcción de objetos, sin BD.
+Para JDBC real, ejecuta [TestConnection](../../labs/semana-13/codigo/src/main/java/app/TestConnection.java) y observa [SELECT/PreparedStatement](../../labs/semana-13/codigo/src/main/java/dao/CapsulaDao.java) como referencia integradora, no ejemplo autónomo. ¿Por qué next empieza antes de la fila? ¿Por qué setString(1,...) no usa 0? [Referencias](../../semanas/semana-13/referencias.md).

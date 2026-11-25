@@ -98,3 +98,6 @@ git pull
 ## Extensión práctica de la clase Cápsula del Tiempo: JDBC
 
 - [Guías R07–R08 · JavaFX + MariaDB + JDBC](clases/unidad-02/capsula-tiempo-fx/jdbc/README.md) — configuración paso a paso, INSERT y validación, SELECT/ResultSet y TableView; enlaces directos a fuentes Java/SQL. Complementan, sin modificar, las slides R00–R06.
+
+## Unidad 3 · Guías complementarias JDBC y DAO
+- [Semana 13](semanas/semana-13/README.md) · [Semana 14](semanas/semana-14/README.md) · [Mini referencias](semanas/semana-13/referencias.md).

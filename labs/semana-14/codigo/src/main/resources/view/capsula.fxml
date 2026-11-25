@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CapsulaController" spacing="10" prefWidth="640" prefHeight="480">
+ <Label text="Cápsula del Tiempo"/>
+ <TextField fx:id="txtTitulo" promptText="Título"/>
+ <TextArea fx:id="txtMensaje" promptText="Mensaje" prefRowCount="3"/>
+ <DatePicker fx:id="dpFecha"/>
+ <HBox spacing="10"><Button text="Guardar" onAction="#guardar"/><Button text="Actualizar" onAction="#actualizar"/><Button text="Eliminar" onAction="#eliminar"/><Button text="Limpiar" onAction="#limpiar"/></HBox>
+ <TableView fx:id="tablaCapsulas" VBox.vgrow="ALWAYS"><columns><TableColumn fx:id="colId" text="ID"/><TableColumn fx:id="colTitulo" text="Título" prefWidth="220"/><TableColumn fx:id="colFecha" text="Apertura" prefWidth="150"/></columns></TableView>
+</VBox>
