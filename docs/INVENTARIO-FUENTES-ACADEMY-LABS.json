@@ -1,0 +1,2770 @@
+{
+  "source": {
+    "repo": "cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2",
+    "commit": "a28dbca877a9ef6e0105777cae48ba4fa252f10c",
+    "tree": "87426fdedcf37795d335a7078a1d43a3859a336d"
+  },
+  "scope": "file inventory only; not rights or content certification",
+  "files": [
+    {
+      "path": ".github/workflows/verificar-ejemplos.yml",
+      "sha": "91db5221e31e20d2507818f89a4b1bf36d2fd75c",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "README.md",
+      "sha": "486381ee4562390e7f67861f85deff166deda920",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "clases/README.md",
+      "sha": "092928e5822641d2c36a4a8ff396943df110489d",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/CODIGO-POR-INCREMENTO.md",
+      "sha": "b2480bea9a80f1b90d9c57b3a5f3d4b98aa55766",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/README.md",
+      "sha": "b002b99a7efad7ebc9a13761e59ef4a588656069",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/01-crear-proyecto.webp",
+      "sha": "58f12f2b1905ead0d58ffec3628909c1afdfdd1a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/02-bibliotecas-opcionales.webp",
+      "sha": "05d1fff7d61c502c052a5d9274e07889983a1a53",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/03-launcher.webp",
+      "sha": "c254eb08c873333c30907c2cf6c6354822621b4f",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/04-error-modulos.webp",
+      "sha": "52fda0444ec422c045965ae86b623c81b39d3d09",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/05-error-compilacion.webp",
+      "sha": "56106b05e694aa9753fe8a86be8b55ed55718b45",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/06-jdk-proyecto.webp",
+      "sha": "3fc22222bfc6293cbad556d50beae9fd9575b458",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/07-nivel-modulo.webp",
+      "sha": "42ed458fdbe5fdff44c96ac5aaae35f6f433c196",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/08-error-maven.webp",
+      "sha": "2de3444f770edaed8f55bd93e41bc0a558885c69",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/09-pom-java8.webp",
+      "sha": "2b0b5781762e6282947f176d43cfb4732e1215c4",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/10-primera-ventana.webp",
+      "sha": "f530232911faed2d033ea259c812c6e19310d058",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/11-crear-paquete.webp",
+      "sha": "f760ed8a1fd58e210c75c6832b2d7920198e818d",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/12-nombre-paquete.webp",
+      "sha": "58c946e1df1a68ce8d6775516c6b943dcd182b46",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/13-crear-clase.webp",
+      "sha": "493260c632485555824c949233512c9414f355c2",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/14-nombre-clase.webp",
+      "sha": "b96ea7be6184acafaa6ba99a9bc98cb3a9cd3f81",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/15-clase-inicial.webp",
+      "sha": "cf23ff0a45b6e489d2982e9d6888180499524af0",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/16-modelo-implementado.webp",
+      "sha": "f8973749a5ba6a20bce64bfb282e03eaa7785340",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/17-crear-prueba.webp",
+      "sha": "bcc382da5780257989a6cf83bd1789309820c05f",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/18-codigo-prueba.webp",
+      "sha": "3f3d07cb4f414fc0da42ae4ae686d09606fdc0e9",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/19-ejecutar-prueba.webp",
+      "sha": "2cf4b16cf187da7ea7ae3f08f9c935cbcf3539b9",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/20-prueba-validada.webp",
+      "sha": "3c59efe8e6970152373eaa7f63d765b4ffe0b1a3",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/21-arbol-final.webp",
+      "sha": "6a44b74e80887c26cb7b019979356d8be7a6f424",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/22-vista-fxml-y-estructura.webp",
+      "sha": "6bd10dbbb00813d730b546c50605fc78953ed098",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/23-fxml-tabla-columnas.webp",
+      "sha": "2f557327cc3f3c2381c36de9fce0205ba422364a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/24-controller-observable.webp",
+      "sha": "938127a0a7e3b73c0a2682e76fa41226ec9e3dc1",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/25-tabla-mensajes-validada.webp",
+      "sha": "97ca83bc4df9df26b86f5a14af415cc33470d451",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/26-formulario-fxml.webp",
+      "sha": "0cf39e6703a1893a098c3e84830412994358b30e",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/27-importaciones-controller.webp",
+      "sha": "aac9dad1827513fea95491199a2422d948b0c670",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/28-campos-fxml-controller.webp",
+      "sha": "1a78c0f004fd0f4f60f14d34655b8ade2d6c07ed",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/29-evento-agregar-mensaje.webp",
+      "sha": "c25cc8d9096dc61694f70689ab14386d3bf88222",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/30-formulario-completado.webp",
+      "sha": "57c2be910a373250a5d563ad1521ec79d1bf0a1e",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/31-registro-validado.webp",
+      "sha": "55eb589ec55d20cbc26e99b154507fffb7f47691",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/32-validacion-campos-vacios.webp",
+      "sha": "0af6ea7967f7a60f08eb2a099c4dce5b4f303763",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/33-r04-arbol-inicial.webp",
+      "sha": "b49611211121b28d4eefd27d9762d118422dbc45",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/34-r04-codigo-formulario.webp",
+      "sha": "ccee6cd7cddead6e4ccdfff99eb9843c2d3b87d7",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/35-r04-app-lista-compartida.webp",
+      "sha": "9b1b7ca500bc2f64176ee65578b0f4f722b08279",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/36-r04-controller-listado.webp",
+      "sha": "e01e5945074e51ad154f343900908d720a490eb8",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/37-r04-formulario-xml.webp",
+      "sha": "9f9fa4d67b734cbb5636e859fe6912014f15135a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/38-r04-fxml-listado.webp",
+      "sha": "415a6c378979c16ff48d423ba9f01375a181a136",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/39-r04-listado-inicial.webp",
+      "sha": "d5efa7c10d75e230420493ab8f55c4215660108b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/40-r04-formulario-vacio.webp",
+      "sha": "b9463b4b2e7339bc940ea7d3c1341ede310742c5",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/41-r04-formulario-completado.webp",
+      "sha": "071c5c67a53f15e76334ae31dba9e8019bd0a76b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/42-r04-listado-final.webp",
+      "sha": "4b1a6e169c5450f490aca0af322c1d70d5b1ccf3",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r04-arquitectura-ilustrativa.svg",
+      "sha": "8a18b480684ba0b1b0519e67c07360cd82474abb",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r04-editor-ilustrativo.svg",
+      "sha": "a2d021499e1bd6a31c05a39ed0429c53dce02f5a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r04-error-ilustrativo.svg",
+      "sha": "d34042efefbeeb755eead7fadbf04a20c01fab3b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r04-formulario-completado-ilustrativo.svg",
+      "sha": "5c914041cd7ee95cecc5b7b78b4d1db70d3c53e6",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r04-formulario-ilustrativo.svg",
+      "sha": "cfeeb0172875704d686eb30279006f058e8a9cf6",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r04-listado-final-ilustrativo.svg",
+      "sha": "2d3c925d5f7406ce0c93e713d09ce82f29c0664e",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r04-listado-ilustrativo.svg",
+      "sha": "8e0cc21f354d65ff17af5470c2f680940edd8989",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-01.webp",
+      "sha": "a76a3bb83301d8cf5973feb89c812fd9891f2f07",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-02.webp",
+      "sha": "5bb90ab9cbccb275a45eab91e003e3bdd9856bab",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-03.webp",
+      "sha": "6186d86f89a6d50cc1c513f06576abe1ce4e9fa0",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-04.webp",
+      "sha": "42a4404822172ffb1695494e02a72768f1756425",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-05.webp",
+      "sha": "486ca87a3ef27343604e877915c7489c1094fd92",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-06.webp",
+      "sha": "8af0b3578085909aa0364f6f1783e4c19f4ef97d",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-07.webp",
+      "sha": "66e72a9971f86408f7234ae16d93cc24771cb05b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-08.webp",
+      "sha": "47b8741db2c357a64e65b7061966cb4919b5322b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-09.webp",
+      "sha": "87222eddc25642668e4930cd11b1df7d7ea0163a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-10.webp",
+      "sha": "4ae107f2dc15c46dc5125ba9e815563e80e86cf0",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r05-11.webp",
+      "sha": "5653778c359506fa4f65999b9abd8b7aa2d9efe9",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-01.png",
+      "sha": "ee58621b6b48554bf4257b07fe3b09ab0fe90acd",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-02.png",
+      "sha": "a65e2b1b4c44c2e69ed8d0f06b7b9cc523eb984d",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-03.png",
+      "sha": "73a62e8570dc5057dfc792bca50581966bbeb2af",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-04.png",
+      "sha": "598f3d877b29878c9772d9be80c56a64c81c3e21",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-05.png",
+      "sha": "d48757040e40b5ab000f74eaff4b156eb83e4ea3",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-06.png",
+      "sha": "0877226e4099179f7be2d1c8c59c44e843b2ab4f",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-07.png",
+      "sha": "304e9efff32402023d59a87be4ae307b430c40d2",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-08.png",
+      "sha": "e2f922e7d1e1dec41ba737aec685a563d0ddb7a2",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-09-mapper-estricto.png",
+      "sha": "5a918bea2e3c306348a2de6cb7d44864c90bb19d",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-10-alerta-duplicados.png",
+      "sha": "b3b5335ceee394835cbbf8e486bddfab11102d9b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-11-copias-corruptas.png",
+      "sha": "87c795306ea21eb4155f99e12f952d90848d4b7b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-12-json-restaurado.png",
+      "sha": "d4b838dbfe439b63ea844fbe5949b64b62518c09",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-13-intento-registrar.png",
+      "sha": "29350bcc96fc1977da7043cf7a1c08b9b913ee27",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-14-error-guardado.png",
+      "sha": "d439a4cf7cb1c2fd6d6920feec63edd125797e6c",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/assets/r06-15-tests-maven.png",
+      "sha": "4b81d1e92018558911559be87aef962885016293",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/docs/EVIDENCIAS-R06.md",
+      "sha": "06405153beb2e4bc1d93dd5035e1240a9451a088",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/docs/GUIA-NIO2-PATH-FILES-R06.md",
+      "sha": "c3e3d37017b42445303b0da118d8bd72f80fe640",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/docs/GUIA-STREAMS-LAMBDAS-R06.md",
+      "sha": "9cc81210299503edeab636d82d1952d85a618b3f",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/docs/HOJA-DE-RUTA.md",
+      "sha": "643942e9a32d1498a59cd9fbf9458eab13ab15ad",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/index.html",
+      "sha": "2f4b6cff980bf13201f8f1c7c7afb5ff59053742",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/01-r07-conexion-insert-validacion.md",
+      "sha": "cf9046d541f73a2b16c39aa8af3e1d91010b7d89",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/02-r08-resultset-modelo-tableview.md",
+      "sha": "2e782cb4b3cf1a935201458e9523b9464edb4aad",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/README.md",
+      "sha": "46e42c1ee113fe9f58a8898e43ac5d8c0a03291e",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/01-esquema.sql",
+      "sha": "8c311bad27568e677eaf52ca6f9a66a21002df38",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/02-usuario-local.sql",
+      "sha": "888f68fd9f3812a20b445e9027c6d1f4f74cde9a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/ConexionBD.java",
+      "sha": "f638951168ab191dfeaad562ecd06e70a947cd28",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/FormularioController.java",
+      "sha": "5e2b0c45766bc42f25d76baecce4e58a771a961b",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/HelloApplication.java",
+      "sha": "8f66b44f1ee5c1cca6bb81c8c312e54901a1e6a6",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/HelloController.java",
+      "sha": "49a72546865bfb0571ca811fa326d86ec4b42a23",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/JdbcMensajeDao.java",
+      "sha": "e2605f0efc1ceab5f03a8d065fa588b0d39a62c2",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/MensajeDao.java",
+      "sha": "bd97f2ccbf8547b9fc59fa48d35ce7b628c70af2",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/MensajeService.java",
+      "sha": "09add0f5b61bcd94074340d8996218202db87c0d",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/PruebaConexion.java",
+      "sha": "e41fe72dc8726e52a2728bb112178562e1167b5a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/module-info.java",
+      "sha": "69616ee442ad6269d1d84300abcea5137b501a3a",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r07/pom.xml",
+      "sha": "f3195a247ae8f24062340c260ec019ccb8e8e1d1",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/jdbc/codigo/r08/JdbcMensajeDao.java",
+      "sha": "af3844748701d982c91ff408fea3cd4202375e66",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/slides.js",
+      "sha": "9fab78b8a0c4c2c2ada781b9a8a1df861d5225c4",
+      "classification": "project-review"
+    },
+    {
+      "path": "clases/unidad-02/capsula-tiempo-fx/styles.css",
+      "sha": "9db06f89b9e1721215530c5f7baab07e040bbd06",
+      "classification": "project-review"
+    },
+    {
+      "path": "data/weekly/README.md",
+      "sha": "342eae7832e931a7eb25d2e40f4f90868e7de3e2",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "data/weekly/semana-01.yml",
+      "sha": "2202ea409f81c46619cf44497392c3ac29d282a7",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "data/weekly/semana-02.yml",
+      "sha": "ae08011d58dea862f68a29074cfc260da84098ec",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "data/weekly/semana-03.yml",
+      "sha": "92ae296a28e6c37d310769563c1f6ec57d02abe3",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "data/weekly/semana-04.yml",
+      "sha": "150d42d5e086da8059b3ababb16dfd6fd5c69b55",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ACTIVIDAD-FORMATIVA-TRANSVERSAL.md",
+      "sha": "5b2828dfef5bf61afdc0c680f053f7125a4673a8",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/AUDITORIA-EJEMPLOS-DSY1102-2026-10-23.md",
+      "sha": "6a9b14c81586a89b6d32189a6aac70e71b37739c",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/AUDITORIA-HOMOLOGACION-LABS-2026-10-22.md",
+      "sha": "a614f9805d7f47f5aabefabafe08f680b06dc099",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/BANCO-DINAMICAS-VIVAS.md",
+      "sha": "02d415fd316b40e63df3f152e3689d2757783c72",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/CANON-REPOSITORIO-DOCENTE.md",
+      "sha": "35b2e12188478665107d58506902e02cfade9f7c",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/CHECKLIST-OPERACION-SEMANAL.md",
+      "sha": "bac88bb4fc39ea612c34d8b5ee3df7d60ace2cd0",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/CONCILIACION-LABS-07-08-20261010.md",
+      "sha": "cb3fb34a2c6f1e7308a1148b9d21c1dcfb99b514",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/CONVENCION-CONTENIDO.md",
+      "sha": "12503a2d641b2d221b479cb34e8229e5b3c1b3aa",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/DEVLOG-ESTUDIANTE.md",
+      "sha": "6e710c59cc9dee20ca466aa90722632ae67361f2",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ESTANDAR-DISENO-PEDAGOGICO-INCREMENTAL.md",
+      "sha": "fa6dfbbfbbdb79ad49e5db93584c37b196fa7717",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ESTANDAR-EJEMPLOS-DSY1102.md",
+      "sha": "fc46928e3562e49fdf92d9cd36f89d3c81213499",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ESTANDAR-EJERCICIOS-MINIMOS-DSY1102.md",
+      "sha": "d19abb45d6c5af1fd73cb883c6c83a47a3ab3220",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ESTANDAR-ESTADISTICAS-SEMANALES.md",
+      "sha": "e84b661adb8220c8e299b2ff89862cddeee5f0fd",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md",
+      "sha": "a36f55956b8e00538c65f0d9d0258a7a224baeb6",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ESTANDARES-TRANSVERSALES.md",
+      "sha": "79c68c0665e72907e81dadacadab9a4742987a8c",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/ESTRUCTURA-CANONICA.md",
+      "sha": "43e80902a0ac44bdf98dc246666a6641851e8d53",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/MATRIZ-CONCILIACION-EJERCICIOS-DSY1102-2026-2.md",
+      "sha": "52c6bab5b49c06a9f902edd3d6267b2949584316",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/MATRIZ-INCREMENTOS-LABS-DSY1102-2026-2.md",
+      "sha": "75e033af45ce101f49936ca2275d24ad5a46beef",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/README.md",
+      "sha": "75425308b4d7323ccf362d5518972eec19f99d74",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "docs/extras/README.md",
+      "sha": "60fb0cbca0130efdfe39f0a9181b817abca4035b",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/SUGERENCIAS-COMPLEMENTARIAS.md",
+      "sha": "6394cf1550f64825fb3a71d30a6356e6582a19f1",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/conceptos-de-programacion/README.md",
+      "sha": "0c9df8ac8d8e0ff946efbfa593456de78b9985bf",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/git-github/README.md",
+      "sha": "2c42dffd881e2bfaf77e92b42d7aa437c0aae3fb",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/gitflow/README.md",
+      "sha": "f1379ca333af478e1e9b9c768b730eef1e9c89da",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/herramientas-para-desarrolladores/README.md",
+      "sha": "95dce42207d3feddf9b7facd7e6fba0886a00e97",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/java-poo/README.md",
+      "sha": "56b6529f16ff7c28b6101bebc980f1f6835ba68b",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/logica-proposicional/README.md",
+      "sha": "2bbe832c5af9bd35e56b3b07997213b44fd9dbea",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/markdown/README.md",
+      "sha": "6661d0e2b41e0846d5f85e8391bfcb01cab21c81",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/matematicas-para-programar/README.md",
+      "sha": "45e926c9d60dd640b0f395d793849184c864c56d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/01-datos-colecciones-y-registros.md",
+      "sha": "4b0de396da6033c48f606a284bea2989ba70ec4a",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/02-json-desde-cero.md",
+      "sha": "852b34ee354f33771f57068fd453aa2a1f9de701",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/03-java-a-json-con-jackson.md",
+      "sha": "f59145d8736301f684cd74d96ccf5a8d6ea56f61",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/04-memoria-archivo-y-recuperacion.md",
+      "sha": "f20c7a341a98f7dbbbfc2151ac03fdd69f2d30d9",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/05-errores-validacion-y-excepciones.md",
+      "sha": "4dc561337ce2484b8003d36496c11a905f10bec7",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/06-maven-pom-y-bibliotecas.md",
+      "sha": "c981d59d3eb1b3cac5085d79a1d0edbd413ba905",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/07-interfaz-fxml-controller-eventos.md",
+      "sha": "5c54721a0b3b2b7de5d9b379c4dec38cb51f02b1",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/08-tablas-observables-y-estado.md",
+      "sha": "626bba8fdc28e8f03d7e78b28d0e04ef19cb5c12",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/09-mvc-service-dao-sin-magia.md",
+      "sha": "ef6669328b5942723278e1738de0e293c7696aaa",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/10-pruebas-evidencia-y-junit.md",
+      "sha": "23f7870571cecd3e40a31ee6a74f4f10f96ccba6",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/11-de-archivo-a-tablas-jdbc-introduccion.md",
+      "sha": "e6c38f51046617bf488a77a764a73ccd248ae6bd",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/puentes-unidad-02/README.md",
+      "sha": "531a27118e34fd14e24eae49eae0dd6391b54518",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/terminal/README.md",
+      "sha": "aaad584d3ea7c09ffe9313cb013d14c1df1774ee",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/tips-de-programacion/README.md",
+      "sha": "74c1ef10fe087f1b3e38f0a9cbce501204228339",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "docs/extras/uso-de-pc/README.md",
+      "sha": "a7e0592727eac8216a5b0df62bc7a7c2b8a1f8d8",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/README.md",
+      "sha": "05fb459eb3fb5d127c697cb118340f9142835c70",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-01/Ejemplo01TiposOperadores.java",
+      "sha": "81267c9b9cd3dd514937fada238b05171d2be4bc",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-01/Ejemplo02Condicionales.java",
+      "sha": "7dc4d5ad644f56fc6df9f82c1d6cc4db1a0ca903",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-01/Ejemplo03Switch.java",
+      "sha": "98a06d89b7158ed38c05ad7bff19547711eed165",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-01/Ejemplo04CicloFor.java",
+      "sha": "ed4d61aecd04d1362842451664cf65e897bf6bab",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-01/Ejemplo05WhileDoWhile.java",
+      "sha": "3e0b46c39ed7866ce3aaff906d8dd67a1510669c",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-01/Ejemplo06Integrador.java",
+      "sha": "3029d94bcdc00121a23dffc592344d4adcab9a05",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-01/README.md",
+      "sha": "d72da02e7f02eb14bb2eea4004bd492f4426ac34",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/01-MetodoSimple.java",
+      "sha": "51e58a9af318824983fac663b4cf8f463647beee",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/02-MetodosParametrosRetorno.java",
+      "sha": "77036289d7ca7896c5314b14a6da34ae31211733",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/03-ProductoBasico.java",
+      "sha": "1a365fd9b7a4bc1dfaf086e2f631577704de40bb",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/MetodoSimple.java",
+      "sha": "4f3c39c7a452289769a21b35d72f214efad706b4",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/MetodosParametrosRetorno.java",
+      "sha": "73d47ae46d7af42d0a788b3bbea393c2c275a92e",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/ProductoBasico.java",
+      "sha": "f5beda7f230dc1ef171b5d58de303dc41d891e01",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/ProductoDemo.java",
+      "sha": "0aa72de6c94f2434e05529a7d4a615efacaaf833",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-02/README.md",
+      "sha": "20c261477721039c9beb8941dfe3900ba7644416",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/01-MetodoRetorno.java",
+      "sha": "e309bf6ae8644e1a57bd19024b165aee885fe1e1",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/02-ObjetoSimple.java",
+      "sha": "37c350519f443eded0f809d0116a6d7c60bb8f4e",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/03-EstadoEncapsulado.java",
+      "sha": "f0e5dd15698db28a902a0f400da3934749b94bb1",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/04-DosInstancias.java",
+      "sha": "3c48a50e16dcf7cd7e8e7a63411d09d187b09b9c",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/05-CuentaBasica.java",
+      "sha": "f70751001e18f1db4711936d93f0561b44f87aaa",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/CuentaBasica.java",
+      "sha": "f5cd7842086d72ea441c3eebc459f58ce74e5671",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/DosInstancias.java",
+      "sha": "1f98720390a8825c282261810f1945a96e8158a4",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/EstadoEncapsulado.java",
+      "sha": "941f19a2710458af490b455d84be1406e47d7569",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/MetodoRetorno.java",
+      "sha": "cc7e78affb1b5760eb1d05dfd7241e7962a151a1",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/ObjetoSimple.java",
+      "sha": "77415009486836c7ddbe305b6415ded8334b216f",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-03/README.md",
+      "sha": "cbb5f58c653981ec277d02ffd3602997ae98b479",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/01-CuentaConstructores.java",
+      "sha": "f6f6e227d3725517c481df02bd54a15fedd7ca28",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/02-CuentaPersona.java",
+      "sha": "6f533dccb565181d4a94e32aa0bf0dfad15d6d8d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/03-PuntoYCirculo.java",
+      "sha": "42e811f3b51883166882abfea8fc16e5038c3617",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/04-Cuadrilatero.java",
+      "sha": "92d7917236aab3072f8e02e32ce326db11f83325",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/05-CuentaScanner.java",
+      "sha": "5f3d0d063a505c5edf5bbde4f89b0d5e5cbd1d89",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/06-LectorConsola.java",
+      "sha": "ec7f4378e6c689259f8df23eb54b95654feda5e0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/07-CuentaConLectorConsola.java",
+      "sha": "cd7c18726eaf7465fe4b2528b67e252f820c549a",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-04/README.md",
+      "sha": "271d710c7c352a85fe647e18581de8433ee07792",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-05/DespachoDinamico.java",
+      "sha": "4c85915aa26be445e17c0258824ad9adb5472812",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-05/HerenciaBasica.java",
+      "sha": "ea386e3ff9621b29bb8eaa08c9920c6f969954fb",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-05/README.md",
+      "sha": "571e361a0671cebe03fbc6b7b2fb66beeb348c8f",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-05/Sobrescritura.java",
+      "sha": "34eb3dd0ae9ca9cab1209cf8d738efa821be7261",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/01-ArrayBasico.java",
+      "sha": "6b66e38a8eee45aeda02b859836fe75ce8d4d8d3",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/02-ArrayIndices.java",
+      "sha": "cb36815ea7e8ea4a5573bd8280d1a1b2e666fe19",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/03-ArrayObjetos.java",
+      "sha": "4abe86cc469114c1f045020988058c90ba481a7e",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/04-ListaBasica.java",
+      "sha": "03f0f562b185f1f59ba35694eb9e82d0ce9a1eb2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/05-ListaObjetos.java",
+      "sha": "b8799449303f013363355c50e8af913416e51b32",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/06-TryCatchBasico.java",
+      "sha": "d17b16ee288efe2d64522fb152442ca11175b3d8",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/07-ThrowBasico.java",
+      "sha": "49a62f9a99345bfdb0acc2eda6644e5ddf9038d9",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/ArrayBasico.java",
+      "sha": "b8d2c1c90b04d7cc72418760ac3a98c63b2fc74d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/ArrayIndices.java",
+      "sha": "b2305b73dd3cc69bd94c020bfbe06d3466590562",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/ArrayObjetos.java",
+      "sha": "2143c62593534db51e3edd8e282c42f3f22fb513",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/ListaBasica.java",
+      "sha": "8769374000b72a2f429e8a72a17328764b4c59a7",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/ListaObjetos.java",
+      "sha": "b93de4bed2d82b79874cb32ea057d3d86bb18a55",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/README.md",
+      "sha": "3ded0c315efc21cbffdad5a0689478316769becf",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/ThrowBasico.java",
+      "sha": "46130728739d365be2723d7b902d43a995db95c4",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-06/TryCatchBasico.java",
+      "sha": "8be2fb9cfd42ef2f011bd510770638bff138c098",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-07/ClaseAbstracta.java",
+      "sha": "f0c12afc35f69936ec0adecc3843c6b2bb7ddfab",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-07/InterfazCapacidad.java",
+      "sha": "7e9960457f32b3cabb6337f9f6cd597d72a9d3e2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-07/PolimorfismoInterfaz.java",
+      "sha": "4ec65ab3e48e8cdc4f7deeffbf8d4d14259ea4f2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-07/README.md",
+      "sha": "60534b774bb495fddf558f38ad20ab20cb3d0dab",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/README.md",
+      "sha": "d1357c9178373761468e584256316a2c3b1a9b95",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/LecturaEntrada.java",
+      "sha": "0e085b0bcd357651fffe13dd3ec1010008af2f70",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/Main.java",
+      "sha": "de67ef0b46f53814d4280676e6f3d218ed5aa21b",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/MediaHub.java",
+      "sha": "d719f381fbc203fbbe52a890081f45340da9ad52",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/dominio/Audiolibro.java",
+      "sha": "e42174a545e4729dcca5f53c29c0eece56ccb2c7",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/dominio/Descargable.java",
+      "sha": "de5d1e8ab9b02cc98c5b408f84e6ac556b530b88",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/dominio/Ebook.java",
+      "sha": "a1c57b3e9333085a635016494da1619e8ed42f3c",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/dominio/LibroFisico.java",
+      "sha": "427836bc3b1900449344c22ea4825e366095595b",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/dominio/Pelicula.java",
+      "sha": "00cad3fcf695e44529936202c305535d78f77409",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-07/proyecto-integracion-ea1/src/cl/duoc/dsy1102/mediahub/dominio/Recurso.java",
+      "sha": "17f7ec4f32e3f4c3b42984c58804fcc72112baf0",
+      "classification": "project-review"
+    },
+    {
+      "path": "ejemplos/semana-08/01-SetBasico.java",
+      "sha": "e24f3916ba59a302de8104aaa5422f54023bfd4b",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-08/02-MapBasico.java",
+      "sha": "3e09135279a7daa10fbaeeaa27afd0b5c89eedb2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-08/03-ListSetMapIntegrado.java",
+      "sha": "0ec28fd5a92c0ec7ff9b22436326bb75132ff008",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-08/04-SetLibrosEqualsHashCode.java",
+      "sha": "34ba7195ee5d2091b51dab24e47a730c4afa5358",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-08/05-SetAlumnosEqualsHashCode.java",
+      "sha": "ed8469c73fd9844e81071b867f58c5565d6c0c12",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-08/README.md",
+      "sha": "7b57c063d9d40cdf225aa318d9fa3264ec0c1280",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-09/README.md",
+      "sha": "7bb09562d8e0172707823bb7f8f86e61c96dd4e4",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-09/proyecto-demo/pom.xml",
+      "sha": "1b6d6236902d490e3ba27ab8f297b17a1a75d8a6",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-09/proyecto-demo/src/main/java/cl/duoc/dsy1102/w09/demo/MainApp.java",
+      "sha": "1aff692d467b88db27bd575050326dcd192ce611",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-09/proyecto-demo/src/main/java/cl/duoc/dsy1102/w09/demo/model/Vehiculo.java",
+      "sha": "1f75b4503fd18e870d83b4cce8c4ad1e77efb119",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-09/proyecto-demo/src/main/java/cl/duoc/dsy1102/w09/demo/ui/MainController.java",
+      "sha": "00c1d3d85048b0b2630d1646f808d592afbe3a88",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-09/proyecto-demo/src/main/resources/cl/duoc/dsy1102/w09/demo/ui/MainView.fxml",
+      "sha": "335c1456a51f4bd5b867743392a0f9bfae15b49e",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/README.md",
+      "sha": "0a19cf118655f67d36f8564d7ca1f9764646129f",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/pom.xml",
+      "sha": "27ba9daaaa939372983dce5ff7ea57b20fe93ec0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/src/main/java/cl/duoc/dsy1102/w10/NavegacionFXMLDemo.java",
+      "sha": "9c3a6e5eaabadde0f59e833651825ed40132de9f",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/src/main/java/cl/duoc/dsy1102/w10/TableViewDemo.java",
+      "sha": "c9bfb3a7b1088bb35e5c9af3bbdf8a2610f8281d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/src/main/java/cl/duoc/dsy1102/w10/ui/DetalleController.java",
+      "sha": "b341183ff6f0ee2fb5299f3e2c50ba21a02552f0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/src/main/java/cl/duoc/dsy1102/w10/ui/InicioController.java",
+      "sha": "4a7607aae17882170c66f067e92a3d5b1f9442cb",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/src/main/resources/cl/duoc/dsy1102/w10/ui/detalle.fxml",
+      "sha": "dca0affc82e8035a3a089ded5c16565493a36e6d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-10/src/main/resources/cl/duoc/dsy1102/w10/ui/inicio.fxml",
+      "sha": "cacbfacec7c34e367fab2e3bd0c53cc49000f045",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/README.md",
+      "sha": "e95909f531db55a5e0cc46c1792188fbe1400208",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/pom.xml",
+      "sha": "47259f75cb073df282ad1ccc0f03abb333b8b11e",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/src/main/java/cl/duoc/dsy1102/w11/DaoDemo.java",
+      "sha": "3b39dcd05351298fba75bc25adfee3af41301968",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/src/main/java/cl/duoc/dsy1102/w11/EstadoJuego.java",
+      "sha": "904a3ab9b4a0313f6321b5ea6d6f911c90a9b195",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/src/main/java/cl/duoc/dsy1102/w11/EstadoJuegoDao.java",
+      "sha": "b2a4c615b2c030a25baeab10329fbfb3ce0b77e7",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/src/main/java/cl/duoc/dsy1102/w11/GuardarJsonDemo.java",
+      "sha": "cb3d44156a4ef53bc48e528e910fdf0dbd35db8a",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/src/main/java/cl/duoc/dsy1102/w11/JsonEstadoJuegoDao.java",
+      "sha": "24d815708b9274a1a8c6924bf80f118036688678",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-11/src/main/java/cl/duoc/dsy1102/w11/LeerJsonDemo.java",
+      "sha": "b3dbd36ef352d139d1f53187a174a2bacd51aba0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-13/MapeoDemo.java",
+      "sha": "1997cadf77bffcfeef49005c7552cf57fb5eb38e",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-13/README.md",
+      "sha": "f007de5288aa84fe787618ae194524f6817d1ec0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-13/RecursosDemo.java",
+      "sha": "3a683943df29e4f22143f0f64cf315a85a04df11",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-14/PolimorfismoDaoDemo.java",
+      "sha": "25359ce611bebe46f553c709232250e0d35504f5",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejemplos/semana-14/README.md",
+      "sha": "4dacfab5410d535e9354974a7049a6b5ffb9d3c4",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "ejercicios/README.md",
+      "sha": "88cb8c2cac3ede2c0f134b3e878297d2e2e9a55e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-01/BANCO-ORIGINAL-2026.md",
+      "sha": "5c0617c4ca1d49e6aff5f862fe569c33c070c3cd",
+      "classification": "historical-review"
+    },
+    {
+      "path": "ejercicios/semana-01/README.md",
+      "sha": "dffb2b08d2379bc1eb1bf52973a508145252c9f2",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-02/BANCO-ORIGINAL-2026.md",
+      "sha": "3b9092dc27a1e849631abe6be087a39670f2a4fb",
+      "classification": "historical-review"
+    },
+    {
+      "path": "ejercicios/semana-02/README.md",
+      "sha": "58f7d849cbbe930037e2b1ef1836f6e99bfa4c4a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-03/BANCO-ORIGINAL-2026.md",
+      "sha": "db0be565843eb355922332edc344cc3a72a6b1ed",
+      "classification": "historical-review"
+    },
+    {
+      "path": "ejercicios/semana-03/README.md",
+      "sha": "7a1487ffa3b47029648cc58db6795491dc0a7580",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/BANCO-ORIGINAL-2026.md",
+      "sha": "fbc7ce7a753d96bc7d70c7506018fb6bf1b82574",
+      "classification": "historical-review"
+    },
+    {
+      "path": "ejercicios/semana-04/README.md",
+      "sha": "6294158cace1b30eca2a449be6fd6629e435edfd",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/README.md",
+      "sha": "c3a6cf316b68337ccd2fcf5778b59f48bcd3b708",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/src/clase04/cuenta/etapa1/Cuenta.java",
+      "sha": "0518d6cfc111fc1cc56044f2a0aa040713622749",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/src/clase04/cuenta/etapa1/Main.java",
+      "sha": "7365387feae765860ea72b3ef54f33293752f6f5",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/src/clase04/cuenta/etapa2/Cuenta.java",
+      "sha": "ac1944fabd4cd06beebd799e19cce45a14cd337f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/src/clase04/cuenta/etapa2/Main.java",
+      "sha": "e20606d6913649a146c1ac0576206c7d1be2972b",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/src/clase04/cuenta/etapa3/Cliente.java",
+      "sha": "99c2966429285240ac2b3816f96c6ee74a28eb08",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/src/clase04/cuenta/etapa3/Cuenta.java",
+      "sha": "face2473b2582b45604864bddb709feb1b3092e3",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-cuenta/src/clase04/cuenta/etapa3/Main.java",
+      "sha": "638a15e5e40e50473cf139dfdac841e5b0bb458f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-04/evolucion-scanner/README.md",
+      "sha": "60e8a0fb37ab181410957f94946d7e1424e9a765",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-05/README.md",
+      "sha": "c834e77223cfaf66ada7a3078808b325ce1d3881",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-06/22-market-app/Main.java",
+      "sha": "badf9473575b93e56b497206191c523322163458",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-06/22-market-app/README.md",
+      "sha": "18feedf6b7e075c6159a6349f82dd9739c9611d2",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-06/BANCO-ORIGINAL-2026.md",
+      "sha": "51440cc6f8741e3d2eac28c63b6e8df4433f8ef7",
+      "classification": "historical-review"
+    },
+    {
+      "path": "ejercicios/semana-06/README.md",
+      "sha": "62ed8a7f876e25f81ab6c7c344f143ef0e106378",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-07/README.md",
+      "sha": "1eef6f2fc6c1bfa227a579cecfa0825e25c4a190",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-08/README.md",
+      "sha": "0c21798b0fb3914e0f46a29df39d168ffc34d71f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-09/BANCO-ORIGINAL-2026.md",
+      "sha": "f4a776ccc4ac67ade7838dd836ebe7985772b412",
+      "classification": "historical-review"
+    },
+    {
+      "path": "ejercicios/semana-09/README.md",
+      "sha": "1e7849cf8c0af907f9aecade418cec1ec26edb5e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-10/README.md",
+      "sha": "0bb87118b7a617e27e432097025a7e3ec6722e39",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-11/README.md",
+      "sha": "bd85506f3a596bd9377d9f5f6341a956f5632c54",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-13/README.md",
+      "sha": "ff2b4a32a50eb2b2c826f027388b7a0d9978e88d",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/README.md",
+      "sha": "5d84a2cda6af9f348e8929f8784f069a472e7d57",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/README.md",
+      "sha": "71569f8f239f9ea30119add12b6b028d1324b194",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/entorno.md",
+      "sha": "b9a65fdb8679942a4408ed6e564a09ba1bff771f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/01.java.txt",
+      "sha": "41b1d896a83dd5b298431900065d5eabd6de7b55",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/02.java.txt",
+      "sha": "1bb2cf2986b463cb98954d657058036f34fb1f6a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/03.java.txt",
+      "sha": "cc122a55fb68fdb5ab2c40e23f7fb27a202c4014",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/04.java.txt",
+      "sha": "c593027e6d2aa084dde9fd682710398637782870",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/05.java.txt",
+      "sha": "3e46ea17a1ead1136529332220db889b2d3bc5c9",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/06.java.txt",
+      "sha": "e4e7b38df76cb55647fd0425dce13268f3cc771a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/07.java.txt",
+      "sha": "051d4a5040f45f1ad7e838721bc597a02b0ba4b0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "ejercicios/semana-14/microdesafios/starter/08.sql.txt",
+      "sha": "f160a3d070f45176fdda00fe75c349006461e712",
+      "classification": "practice-review"
+    },
+    {
+      "path": "evaluaciones/README.md",
+      "sha": "3451f1a239a8a38b5b27b50324b013ff7ec98b24",
+      "classification": "release-review"
+    },
+    {
+      "path": "evaluaciones/ep1-liberada/README.md",
+      "sha": "4ab1ef6b98369f577cd40046df5bcdc5f0b4a4d0",
+      "classification": "release-review"
+    },
+    {
+      "path": "evaluaciones/ep1-liberada/version-a-eventpass.md",
+      "sha": "8f7d43c6fd0bc1818b51e096ccd19fd8a47a1b1b",
+      "classification": "release-review"
+    },
+    {
+      "path": "evaluaciones/ep1-liberada/version-b-repairdesk.md",
+      "sha": "dfed5d725655f5b75bbd292585b3147a19c6e064",
+      "classification": "release-review"
+    },
+    {
+      "path": "evaluaciones/ep1-liberada/version-c-cargotrack.md",
+      "sha": "bbfee712a718bda0883c544911122fe58f9429c5",
+      "classification": "release-review"
+    },
+    {
+      "path": "governance/evidence/W7-4-HUMAN-REVIEW-PASS.md",
+      "sha": "0ef4790986de98a103720486b4340c2afb0b6972",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "governance/evidence/W7-4-MACHINE-ACCEPTANCE.md",
+      "sha": "ceee367fbd26b8707b6bce036413151cedc86b43",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "governance/reconciliations/2026-09-14-W7-4-CANONICAL-BUILDER-ADOPTION.md",
+      "sha": "48211dd9e1d86523ff133d866720dc574dfe3f5d",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "governance/repository-site.adel",
+      "sha": "f5084d5a1d7a73534a9e97497e6e41004bb68e6b",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "governance/repository.yaml",
+      "sha": "22158d4b3946b550eced5ed8c7735df3b7a479fa",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "labs/README.md",
+      "sha": "3b18cd71e567eb43b26f9739a77ff62bd6ac1f32",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-01/README.md",
+      "sha": "986c9ac1b349b959567ca091b1abefeebec99143",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-02/01-entorno-y-main.md",
+      "sha": "532f034252377e6254f99364ff23abfde9ef1b15",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-02/02-metodos.md",
+      "sha": "98908508bf36877165a9d9e86f4f6a16721d0e8e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-02/03-clases-objetos.md",
+      "sha": "6a33ad4194c3223edee389639d6b5be6d32c8d68",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-02/04-verificacion.md",
+      "sha": "a3696dbf41a9f5c929d5b9ca70b70c5606e2e238",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-02/README.md",
+      "sha": "962d428986fea05100219d9edec5b60613c52ead",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-03/01-preparacion.md",
+      "sha": "c4a628a5de0ab0f01c085939d4bdfd11baffcbd0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-03/02-modelar-bateria.md",
+      "sha": "8468ff906951115471f5cd17242e2669f9ded87f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-03/02-modelar-cuenta.md",
+      "sha": "5d4a6251684e8e167e9d9e69efa49f1644e4b89b",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-03/03-proteger-estado.md",
+      "sha": "2f284da8bec50c5585f9d1fbe6399adf617c2652",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-03/04-pruebas-checkpoints.md",
+      "sha": "bd5752a0ac13fd60de2eaddc5aa8663bc905e056",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-03/README.md",
+      "sha": "4bdfb9c51f206e52a55fb26372f43384ab8faf5f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-04/01-cliente.md",
+      "sha": "82ce7e2eddc900f661a1862cfafe439e3fe3b6e9",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-04/02-pedido.md",
+      "sha": "b0db586fcf6c12182a0b78df14aa372cccdf7063",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-04/03-integracion.md",
+      "sha": "9636e53b7dd9a4850fb6fd785fcaa41dd6125a77",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-04/04-pruebas.md",
+      "sha": "f30f61b42c21bc05093c9300e6a9328faf00937b",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-04/README.md",
+      "sha": "c985af7acc459385884c5eafd908d15be2f44726",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-05/01-preparacion.md",
+      "sha": "bfdc78d6ba111ec9cd0f6007e327965d1f3c2b69",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-05/02-herencia.md",
+      "sha": "0486dd9bffa0a218efe06522b41527398954556a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-05/03-polimorfismo.md",
+      "sha": "59f8865b7577516eae7d16fd3c73634b38ecdb59",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-05/04-pruebas.md",
+      "sha": "5541ce5b8d90b51adcd3fab42ea4649361aae255",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-05/README.md",
+      "sha": "44c7c97cf42c18de0eafd473c8ac0a1ce170352a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/01-continuidad.md",
+      "sha": "e97c794f1d40ef70859e7eafb7cdaf8fc9d04b08",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/02-array.md",
+      "sha": "dd314ec9340cec683e76d98afe2e0526d3868220",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/03-limitaciones-array.md",
+      "sha": "fcae2d3287a591021b3bfa3ffc6134c183e8880e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/04-colecciones.md",
+      "sha": "6589a582227f31fbc47df3e38b44c0d6aaa3d5b0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/05-busqueda-eliminacion.md",
+      "sha": "ba9ed7fb0798859cc9c3b917d3ff3d4c04ca79ca",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/06-errores.md",
+      "sha": "72a3a4d578c9726f3fb2586a6e6b725371a7e121",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/07-excepciones.md",
+      "sha": "0cc4c04b31474c472ad0501301e686014de4a53f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/08-integracion.md",
+      "sha": "9a1d32d231bf29538652c02f63fffbee294d2561",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/HISTORICO-VETERINARIA.md",
+      "sha": "09ca122385e5bf89b4fbae80281faeb82938eb07",
+      "classification": "historical-review"
+    },
+    {
+      "path": "labs/semana-06/README.md",
+      "sha": "832bf8a8813c31f9103522cb0908f229a96081d5",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/independiente/01-entorno.md",
+      "sha": "8d27624fac1ab5c45abf050e2cf22daaa7b06e69",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/independiente/02-arrays.md",
+      "sha": "5171a69ac3c05bd4558fcd7b743b07b102a29fe8",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/independiente/03-listas.md",
+      "sha": "4f7bd916c9c13d1a32ab4427a343f4904016b108",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/independiente/04-excepciones-pruebas.md",
+      "sha": "43eab59150ed050e114b39b1c34a2d87eefe68fb",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/independiente/README.md",
+      "sha": "e4bc17473a5b87c436335fb93564f9d58f2c7e03",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/taller-opcional-marketapp/Main.java",
+      "sha": "badf9473575b93e56b497206191c523322163458",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-06/taller-opcional-marketapp/README.md",
+      "sha": "013ee7902483635509de7676d020cab38ddbf325",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/01-linea-base.md",
+      "sha": "d33d2272b7facd2908d34e7790e940bf8824aae4",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/02-abstraccion.md",
+      "sha": "7717386a688574701134a342c36075f459d89c38",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/03-interfaz-capacidad.md",
+      "sha": "47311bbbd321445938e310b6bda0fe652b585fd6",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/04-integracion-polimorfica.md",
+      "sha": "0424e96afa71dd5b8225a5a1503cb7efe00ddd57",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/05-validaciones-errores.md",
+      "sha": "50cc8f899a9ff0f0855c65ede8828f2da74454ce",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/06-pruebas-integracion.md",
+      "sha": "1755c13bdf03ab5103eeeeba4b7e447b750d8aa4",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/07-cierre-evidencias.md",
+      "sha": "5a7144521c573fd5101dbf2393df4b9e5db572da",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/HISTORICO-VETERINARIA.md",
+      "sha": "0c2593ce916dabf34ff28014bfd4c0e151dbd0a0",
+      "classification": "historical-review"
+    },
+    {
+      "path": "labs/semana-07/README.md",
+      "sha": "38e929e99a727aecd417fbe3cc48bf66192af6a2",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/independiente/01-preparacion.md",
+      "sha": "cb98995990281fbeeb41dd4736c5a13a5e2ff7d3",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/independiente/02-abstraccion.md",
+      "sha": "e94a3abe45f3a07565edce74d21e0feebca9a645",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/independiente/03-interfaz.md",
+      "sha": "c902485e687457d5dcf3dc10d9054d88c380d629",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/independiente/04-integracion-pruebas.md",
+      "sha": "1524f8d180dc1041683ad37c3d86b081b5a45808",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-07/independiente/README.md",
+      "sha": "79ccea94974ef0994d366e3630a143204f2457c9",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/01-necesidad.md",
+      "sha": "d70561ea050a9d9a6a3506ddddc3ee67cc07676b",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/02-eleccion.md",
+      "sha": "ee24212f9cfffc61becb09aace9652b824ea1d12",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/03-set-unicidad.md",
+      "sha": "c56614439e148d13d5083f3c7e748371975a9321",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/04-map-busqueda.md",
+      "sha": "b8a798b8bda8d59d03b7d338fc2e726d2a6fa8b0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/05-identidad.md",
+      "sha": "7ec4ced13966d40563305b3c07256c18aa528da7",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/06-integracion-pruebas.md",
+      "sha": "4bfe0d0dd36ca32fe5ccac2f20d6b4d0c8e6fb10",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/07-cierre-evidencias.md",
+      "sha": "02242bcd4cfb8593aeb57b451d3b413b9fc874a7",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/HISTORICO-VETERINARIA.md",
+      "sha": "b70638c58f0ef1570b241970e13a4dd8af8e98cd",
+      "classification": "historical-review"
+    },
+    {
+      "path": "labs/semana-08/README.md",
+      "sha": "4e4da645e83f17e486dc6aaab2d564ee532693a3",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/independiente/01-preparacion.md",
+      "sha": "d560d7e61fcbada2e036ca7a152da8ab1aed4dc6",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/independiente/02-comparacion.md",
+      "sha": "3429cf6cf0f9e05a46248d65d686649a08d30eff",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/independiente/03-registro.md",
+      "sha": "aeb1d7f4ac68c60661a59a4b77ab0c9ed81a6bd9",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/independiente/04-pruebas.md",
+      "sha": "60eae227cf72f69bd07314e522a2a893c9ff4232",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-08/independiente/README.md",
+      "sha": "9727678343f7419e0200934a7c1d79a91d266286",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-09/01-entorno-y-arranque.md",
+      "sha": "eaf19dd41d0e951be6d61c389cddbc5dae6dd4fa",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-09/02-vista-fxml.md",
+      "sha": "54c22cfae5399175bbea9f9a1fb66df3b32de77e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-09/03-controller-eventos.md",
+      "sha": "f597e5c66f2af239a2b69f7409006408a5eed2c8",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-09/04-verificacion-y-tarea.md",
+      "sha": "02aeacdae1ed655f11cc8308e65d643c5f8d5e51",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-09/README.md",
+      "sha": "34da1b36e92ed0364530bb764d8982902c79d4c4",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-10/01-mvc-y-modelo.md",
+      "sha": "872a8627b38674141d40470066474bc5b14683ca",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-10/02-actividades-y-pruebas.md",
+      "sha": "8abcdb8d841421957c7bb3f8f05810799aebdc7f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-10/02-tableview-observablelist.md",
+      "sha": "c093b0dd2fb64bc245514f36d1cccb3ab5cdbaa0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-10/03-navegacion.md",
+      "sha": "eb7346c02c037f32fe78994223b7a01d351a77dd",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-10/04-verificacion-y-entrega.md",
+      "sha": "aca41064956f7fd1d9c1cd57932689da72159c4d",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-10/README.md",
+      "sha": "36dedaa2b69b931b71c2699b2fc0135b51dce38a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/01-proyecto-y-arquitectura.md",
+      "sha": "13ccd69a0c12adc5d32fc5f34d87bd3d07b6b9ef",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/02-dao-json.md",
+      "sha": "b748486a6b650a097ad93b4fb8e62fdb69cecde0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/03-javafx-mvc.md",
+      "sha": "45d6a18cbbfd8da389c67cd347df9d0f5d5dd608",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/03-servicio-y-reglas.md",
+      "sha": "d6249157a9b9646bc7ee4f6acc1302f75e68afe5",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/04-interfaz-y-navegacion.md",
+      "sha": "5fc4753a66c75938f78e6880eebc02199c99ff96",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/04-pruebas.md",
+      "sha": "23948b7752405b4e7a25f3c562454c46fd6a236b",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/05-pruebas-persistencia.md",
+      "sha": "86f92219e36e5046f93f4ff50d00528255b856dc",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-11/README.md",
+      "sha": "6234e686fdb7aaa7148211ad73ded5947dc26acb",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/01-conexion.md",
+      "sha": "915771aae1f6291335b38ee5118953f4336f230a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/02-lectura.md",
+      "sha": "ae1d935df7bcac4c38c27e550708d61bde5ec7e2",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/03-crud.md",
+      "sha": "30e9f7caff5007b2ab0ebc90c7a6ba4e3fb7a791",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/README.md",
+      "sha": "7e777fb1811fc1434661bdf6a20f52caeea06841",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/codigo/esquema.sql",
+      "sha": "9201bbd319310fcb07d3f06bf68868bb913d87c0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/codigo/pom.xml",
+      "sha": "09d824745a7bc879cb615c21e9d991b34b58d0a4",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/codigo/src/main/java/app/TestConnection.java",
+      "sha": "71d82ed382f6f9e69f700b0d8bcf2d7b2f95573c",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/codigo/src/main/java/app/TestDao.java",
+      "sha": "6f942ea0d45ba17ae33c422010bbfc8049590418",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/codigo/src/main/java/dao/CapsulaDao.java",
+      "sha": "7748a72fcc6810d8be30e53fec42de08c35bc97e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/codigo/src/main/java/database/DatabaseConnection.java",
+      "sha": "63666623449908379a9ba00eab0bc63d1e05049e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-13/codigo/src/main/java/model/Capsula.java",
+      "sha": "3f54362d900ebc28c7404a9365113e9e09b0a4d9",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/01-dao.md",
+      "sha": "f7c752413cbeeb3bb09cf98b7a94255f373feb52",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/02-vista.md",
+      "sha": "8b5048a6e9fb66c5426146b3c77ac6bec01c324f",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/03-crud-visual.md",
+      "sha": "0f4d6fbb546f4642aa02a748390bcf38220da1a5",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/README.md",
+      "sha": "1d30fb28be5c7c4559f873ac32533904905dc558",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/esquema.sql",
+      "sha": "1ca3ec981678c096f532e2491b1f7367f8b281dc",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/pom.xml",
+      "sha": "113417a0671503aca0d7d945ed43e8c95bcf5e8a",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/src/main/java/app/Main.java",
+      "sha": "75c5560a7910b50f0a06bba9cd0c29649d079172",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/src/main/java/controller/CapsulaController.java",
+      "sha": "1fce702e805f305ccfa6e318eb039b740bc6a75c",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/src/main/java/dao/CapsulaDao.java",
+      "sha": "5e12b7bd55df0a793da7f624390b460426367fdf",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/src/main/java/dao/CapsulaDaoMySql.java",
+      "sha": "5e86ead01ec67ee15f64b7c45f339a75a702df9b",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/src/main/java/database/DatabaseConnection.java",
+      "sha": "232e6cb1f8ae0484f3b1715c42caab8983e2b76c",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/src/main/java/model/Capsula.java",
+      "sha": "3f54362d900ebc28c7404a9365113e9e09b0a4d9",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/codigo/src/main/resources/view/capsula.fxml",
+      "sha": "210b8f6d419d577303b55ddd59ee3271a75c0d9e",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/README.md",
+      "sha": "4995c1d92551e44f90cf1b25d8091cf76ec8723d",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/01.java.txt",
+      "sha": "b021d4399e1894ed8fe9f03e16f0e4bb45e631d5",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/02.java.txt",
+      "sha": "a8bd062c03a96fed3540c92a5d97c71d631472ef",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/03.java.txt",
+      "sha": "314fc21412b6dd37e906f907b4c9901bba4d3727",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/04.java.txt",
+      "sha": "02ff7c9cb3df01b7d5d0b4d34e327be2445588a0",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/05.sql.txt",
+      "sha": "8a1059e00b17c12d0c0a21a15cc0a17832f5bf1d",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/06.java.txt",
+      "sha": "772ec21af35f3c57bbb65187d9bc34022ce935ce",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/07.java.txt",
+      "sha": "b2883cec8125298451c13c8c50f01480f83e0036",
+      "classification": "practice-review"
+    },
+    {
+      "path": "labs/semana-14/detective-jdbc/casos/08.java.txt",
+      "sha": "38bf8296d43877032d21a23a07f832f63cc7dc57",
+      "classification": "practice-review"
+    },
+    {
+      "path": "proyecto-formativo/ARQUITECTURA-Y-CONTINUIDAD.md",
+      "sha": "39fd7cba9c656e96cb38552754e07478e29c7335",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/ESTANDAR-DOCUMENTACION-SEMANAL.md",
+      "sha": "a2587496e690b3cd6c0b5d66fff916cd637e5e1f",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/README.md",
+      "sha": "a9c1efbaa3d7a2b63b910f4b61a072b115843cf4",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/ROADMAP-SEMANAL.md",
+      "sha": "562a893cc10dfd170e69f791ea2a54827bc036c2",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-02/00-inicio-petcare.md",
+      "sha": "9cd3ebfa329fe89567065a193d6206a02b768a73",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-02/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "f3227bc84a2f7f935abcfdafe361d8a03b4570f4",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-02/MODELO-Y-CHECKPOINT.md",
+      "sha": "2b92ac2e58619e04de6ee49fe3c1b6b85b112131",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-02/README.md",
+      "sha": "9c8f96bcf38fc882aaff4b9a4b39487e37e91cfe",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-03/01-revisar-checkpoint.md",
+      "sha": "0acd0617e1fdeb4b6e768baa253d1714b515e207",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-03/02-comportamiento-mascota.md",
+      "sha": "a886b2f5d0d8e4d038c5d1675e1c27457b93579e",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-03/03-encapsulamiento.md",
+      "sha": "2201c419cfd7a438feb311899aa29e439f0a4ae1",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-03/04-checklist-final.md",
+      "sha": "d109b90b364fe6857b99d2e3be3a8cc38fdd523b",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-03/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "0c5630c47649d10d54ce118bbfa5860cc70f1e25",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-03/MODELO-Y-CHECKPOINT.md",
+      "sha": "8a800a7da565cec110ebc5f6203e750294062dbe",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-03/README.md",
+      "sha": "9bdfbc3ca8579c1e887189f5b6e9ae912f414db2",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-04/01-revisar-checkpoint.md",
+      "sha": "3516c0fd9f9b734533aeb711319165768fb5b3d3",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-04/02-construccion-valida.md",
+      "sha": "f735048d708aeb815207a3f96b914e9af5e815b9",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-04/03-colaboracion-objetos.md",
+      "sha": "9f4a14a57b7f153c8a750b565e1307a437a02402",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-04/04-verificacion-cierre.md",
+      "sha": "5d5ed148e97e417f2f99b8e0c54a25ed9ad30b6c",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-04/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "d40354a46f1871486cb763307d3dcd9fc9d36539",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-04/MODELO-Y-CHECKPOINT.md",
+      "sha": "c704e3fba5fabf520652083fa4e0369dc53960bc",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-04/README.md",
+      "sha": "7c4ab1c22db3a54aad8187eab821ac1a5a52f216",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-05/01-identificar-generalizacion.md",
+      "sha": "fc8a8060d6029ae58706cb1179850987c0631b0d",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-05/02-construir-subtipos.md",
+      "sha": "44ab9b691ecda3553f869df1d94a41198dd94514",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-05/03-sobrescritura-polimorfismo.md",
+      "sha": "d8e8dad0a54ac421444fdb47c80ce516ae0fdea3",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-05/04-verificacion-cierre.md",
+      "sha": "0f0c3d04d43a3ae4d9927830f18f8dcedfca6b1a",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-05/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "19528b6dab5d7164dbfac7d04860da36acaf2cf4",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-05/MODELO-Y-CHECKPOINT.md",
+      "sha": "27e8c8e8907ad9e6d45e0ce2e160b0e9553c3578",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-05/README.md",
+      "sha": "831c22957537ba22f738ff019bf686c1e0810885",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/01-revisar-jerarquia.md",
+      "sha": "018012406e4aec162974d893b26b3a1ed21cb368",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/02-array-y-limitaciones.md",
+      "sha": "2f2fe77b65276841590621006efb1e14135ea383",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/03-list-arraylist.md",
+      "sha": "05893c9e821700bbc2cf8947a10aa68779a96ffb",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/04-busqueda-eliminacion.md",
+      "sha": "0f6ad84f37115d2c1a9f7fed9ed197a7e10b63a4",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/05-excepciones.md",
+      "sha": "6e3e5f7f39235eed904dc9f5821634d2bf5a547a",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/06-verificacion-cierre.md",
+      "sha": "67966211fd5dbd4f4336adf93c03eb9dc97eadad",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "4d8fc2306939e8391d6ae955ca2eabe38d4b503e",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/MODELO-Y-CHECKPOINT.md",
+      "sha": "9935702244ccb6013746e1c41f4f55ea1536dd90",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-06/README.md",
+      "sha": "8048a568aeee4090018abbe6c0eefb23b7c253fd",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/01-revisar-diseno-ea1.md",
+      "sha": "9e7eee5710edd6de21b016e8791e08e8e52d3af5",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/02-clase-abstracta.md",
+      "sha": "02d45f64b0b6bcafaa7b0fbc8570494c42c926ea",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/03-interfaz-capacidad.md",
+      "sha": "7b24884d12f63db7e3becdfdcdf2610da053ec16",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/04-integracion-consola.md",
+      "sha": "faaa5252a60f5eba73a481bdb1fa17c5c8efd668",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/05-verificacion-cierre.md",
+      "sha": "cc7ca8d2e99ee77bed3630329f52217581dd6955",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "c44ddd5ac6c2916b71bdfe10d518ffb3b2567e79",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/MODELO-Y-CHECKPOINT.md",
+      "sha": "07b73830999ec01db4f4a4d79811bb48d0cce8a2",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-07/README.md",
+      "sha": "c71fbe042d3121c7243d64151f940d704ce11ed3",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/01-identificar-necesidad-coleccion.md",
+      "sha": "e8e10f9e3f04ddc79ba67e95a5ed9cf914656e0d",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/02-set-unicidad.md",
+      "sha": "2363c41cdec6a9e95d187bcd8e016960e26aef7a",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/03-map-clave-valor.md",
+      "sha": "e4e1e76fc916b693a0383138cd1f42e402205653",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/04-equals-hashcode.md",
+      "sha": "69a090fdffa218cf61ebc20e8636a5508ac66cad",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/05-integracion-colecciones.md",
+      "sha": "47019728c1d0d1de80b537e45fda3176659388e0",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/06-verificacion-cierre.md",
+      "sha": "c3fb73deb3e0cf6a1f3814ae04301a5b1523ec44",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "d9750e505369a905d79b03493cd833e9d5fad084",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/MODELO-Y-CHECKPOINT.md",
+      "sha": "6a21e8adf1e36292bd26e4e54a3180a197b9a95a",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-08/README.md",
+      "sha": "b8095835c19ae6a3b25511acadf18c24e3c1b848",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-09/01-preparar-proyecto.md",
+      "sha": "03d9a76b2091a012840c9c2cd68bceebf55be864",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-09/02-disenar-vista.md",
+      "sha": "0d439f6474790031e0f29a5dd7cc176958742192",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-09/03-conectar-servicio.md",
+      "sha": "f698a66a55dc35f344d0f55b87076dbee8624a5d",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-09/04-verificacion-cierre.md",
+      "sha": "9d532364499985b8fb746f216a5b21867536ef20",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-09/IMPLEMENTACION-DE-REFERENCIA.md",
+      "sha": "642c42ea320a59920c6d2c730beae6c6f1c2799b",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-09/MODELO-Y-CHECKPOINT.md",
+      "sha": "83972794b335ccdf464b3f81707b708cfa148c1d",
+      "classification": "project-review"
+    },
+    {
+      "path": "proyecto-formativo/semana-09/README.md",
+      "sha": "da29ef288650e6cf0d74b5a8973a3c949ecbca70",
+      "classification": "project-review"
+    },
+    {
+      "path": "scripts/verificar-ejemplos.sh",
+      "sha": "4db406f5194de74cec9a4ec98500ef1475257615",
+      "classification": "course-or-governance"
+    },
+    {
+      "path": "semanas/README.md",
+      "sha": "9cee3434fd002cfe157edc19dad826f11fee2deb",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/ACTIVIDAD-PARADIGMAS.md",
+      "sha": "497fad6aec136b85855f9fcca4a39b011d8984d4",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/CLASE-01.md",
+      "sha": "a0659e3bb709701385cb49829b9989084a6a34c0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/CLASE-01/01-paradigma-y-forma-de-pensar.md",
+      "sha": "46da13b65afa5300e8542568c4dc60632a01a1da",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/CLASE-01/02-estructurada-vs-poo.md",
+      "sha": "048b177e229d37944c58746771650c63c375033b",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/CLASE-01/03-objetos-responsabilidades-colaboracion.md",
+      "sha": "e21a966a6978539e3a08a0a93cc8273d8dc3cbb2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/CLASE-01/04-java-vs-python.md",
+      "sha": "8da60d7f5cb9c76cd610dbf39bee26323be79ded",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/CLASE-01/05-errores-frecuentes.md",
+      "sha": "650e5e851d9b09bc2171fd13a85800a8dc45b246",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/CLASE-01/README.md",
+      "sha": "1a6820087c7d21e93e24324f121758d509d31cfa",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-01/README.md",
+      "sha": "a616a39a4f2d74e440a99bcf4b6b8a226bf34d08",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo.md",
+      "sha": "96c082dcc49378ba1ff38e19c85902a8cd67260a",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo/01-de-variables-a-concepto.md",
+      "sha": "d8efa8b47b907f84bcd8faa3cab9bf0bfce3c563",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo/02-metodos-parametros-retorno.md",
+      "sha": "6f9e110779f26a0a6750f2bed513de6b2ff17cb8",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo/03-clase-objeto-instancia.md",
+      "sha": "057bea918df9213f209820281bf257d4d63666f5",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo/04-encapsulamiento-con-proposito.md",
+      "sha": "65b0cca0ba097792b757eef0d764d2716893fc6f",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo/05-de-main-a-objetos.md",
+      "sha": "38b40757b93cb92fbfbc53f433a589586f8b8cfa",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo/06-errores-frecuentes.md",
+      "sha": "a10f798e38015fb2ace0ab0580c73fbe8916c555",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/01-guia-recuperacion-y-puente-poo/README.md",
+      "sha": "54b9bfe9417fc84f52816a19313b33e461613c71",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/02-ejercicios-fundamentos-java.md",
+      "sha": "e060a6c06582a4aa964dad973019adefd07e5417",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/03-guia-docente-sabado-22.md",
+      "sha": "5d97bf99d3b0ab989cdcb0714648f9e81890f288",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/README.md",
+      "sha": "8aba8d87ac228a6b11c50172bb9486d963329a89",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-02/dinamica-viva-predice.md",
+      "sha": "240dbdeee825e793101df23b30b2bf629a9be99d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-03/01-metodos.md",
+      "sha": "11f3194ee3f1b84c53cf1d65c6f5b686be7c2047",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-03/02-clases-objetos.md",
+      "sha": "56bf02d9087ca7a1806fc2eb9c47768efbde3b3a",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-03/03-encapsulamiento.md",
+      "sha": "39c84027e2e41f977dd53cc92029e7fce6105b93",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-03/04-practica.md",
+      "sha": "fa633db61ac27bc3e99180fb128b6fbeb2aeb59b",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-03/README.md",
+      "sha": "8222b7f31515185d5f3ca09e8e7d95206804c1e2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-03/dinamica-viva-dato-o-responsabilidad.md",
+      "sha": "f8ad9d45421e0ea7a7e648929874f81523393d08",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-04/01-constructores.md",
+      "sha": "7dcb1491ed55e6dc79f28e94179797b0a5db6005",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-04/02-composicion-introductoria.md",
+      "sha": "a98bba83974837b267ae0eef13268a01fde442f4",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-04/03-scanner-entrada-datos.md",
+      "sha": "6b01498e23707a9abdb68a9ef09668b2222c1f62",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-04/README.md",
+      "sha": "fa99baf4292c57a23b20520053ac0181079f6a71",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-05/README.md",
+      "sha": "6a60177003bb6fcb3a48b25dcfb3d2cc63307f4d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-06/01-arrays.md",
+      "sha": "ba7b2945b6d6f6bc8e87994a22f4e529e88535d3",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-06/02-list-arraylist.md",
+      "sha": "f9b3abae2faf582539dc99e9d99c05d00bb29bb9",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-06/03-excepciones.md",
+      "sha": "f00b8f3d20a57266a28b437e4d2f76856d77c71d",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-06/README.md",
+      "sha": "8f097a08acbe44a08e1bed277532c97bdd04f8f0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-07/01-requerimiento-y-modelado.md",
+      "sha": "f65760771dd95b3767fe1e2823aaf950dde783dc",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-07/02-clases-abstractas.md",
+      "sha": "c661393b6337306975a2235bf07b8cede454c553",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-07/03-interfaces.md",
+      "sha": "369ba5f1473fdae60ca8747a8ffa0a225744d6b1",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-07/04-listas-y-polimorfismo.md",
+      "sha": "7bee6a03b6e7be658948a1d282d3c2903dfaeaf3",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-07/05-main-menu-y-excepciones.md",
+      "sha": "c372f8b320a9e0c1ed46e5d29372f19857c37550",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-07/06-integracion-y-prueba-final.md",
+      "sha": "079a38db11bd881c0e41897263ac2c6a82e5e212",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-07/README.md",
+      "sha": "6e6bd4e2b5a8b934ba8f172e09abc555cccf08f7",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-08/01-set.md",
+      "sha": "f60ce39999e3d8adfa9c301cfecb57d4d72d29cd",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-08/02-map.md",
+      "sha": "c0ef1d1dcf098c49dd22701ea26335fc15ca3723",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-08/03-elegir-list-set-map.md",
+      "sha": "d2eac0572d9afea18366408a0875f123327403b2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-08/04-anexo-intellij-generacion-codigo.md",
+      "sha": "8d4531bb7fb366bbbdd8f8c18429dadb8fa4b291",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-08/README.md",
+      "sha": "a179e97394dad8dbf9367202257ba7bcaf8b9fe9",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-09/01-maven-y-javafx.md",
+      "sha": "a3f6ad518e2af35abf9378bda979c8f1d64ad526",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-09/02-escenas-y-ciclo-de-vida.md",
+      "sha": "375ab41cafcb388b5ff72bcb03a57a848f24c299",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-09/03-scene-builder-y-fxml.md",
+      "sha": "408db42a4df4e9f123247aa074182d57983265db",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-09/04-controller-componentes-eventos.md",
+      "sha": "050ba074ca9fe1954a6c942dade9d98c7904fff2",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-09/05-trabajo-autonomo-y-checkpoint.md",
+      "sha": "ff526d50d5224e2cc133440c87fbc231009c548a",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-09/README.md",
+      "sha": "5bdbdb6b49f14bf6d4c6cc3ea39a3e174abb5e39",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-10/CONCILIACION.md",
+      "sha": "bda5844510d99a67f763759be98c32de538f4663",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-10/README.md",
+      "sha": "b355c07e593bb849dbfc3dfa82b17af48924fa4e",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-11/CONCILIACION.md",
+      "sha": "7bac6071e6dbed0f13ae57cab162f9cdb68e9bc7",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-11/README.md",
+      "sha": "b98da3e8cd76b415915e93a6ac5dddec37c1715b",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-13/README.md",
+      "sha": "cf6c3a5579a3b14758e454e1d53d8b8ff6e1aef1",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-13/referencias.md",
+      "sha": "99710d62a2420274d6eaf9d5c9261a698a61d3da",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-14/README.md",
+      "sha": "0b97ae72e58c9180f2d99032bb0f8e26a43476f0",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-14/preparacion-evaluacion/README.md",
+      "sha": "4d823f9235f135afa59e85e535ac18e54415d9eb",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-14/preparacion-evaluacion/checklist.md",
+      "sha": "b668305367fffa0adea9c3b0cd164e2c02794375",
+      "classification": "knowledge-review"
+    },
+    {
+      "path": "semanas/semana-14/preparacion-evaluacion/referencia.md",
+      "sha": "ead1f58da07bd73d28871d70e52c055990d5a8b2",
+      "classification": "knowledge-review"
+    }
+  ]
+}
