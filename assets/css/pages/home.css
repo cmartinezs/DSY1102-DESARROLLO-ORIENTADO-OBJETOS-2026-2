@@ -8,3 +8,9 @@
 .home-feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
 @media (max-width: 900px) { .home-feature-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 600px) { .home-feature-grid { grid-template-columns: 1fr; } }
+
+.home-unit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.home-unit-grid .home-step { display: flex; flex-direction: column; gap: .5rem; }
+.home-unit-grid .home-step h3, .home-unit-grid .home-step p { margin: 0; }
+.home-unit-grid .home-actions { margin-top: auto; }
+@media (max-width: 760px) { .home-unit-grid { grid-template-columns: 1fr; } }
