@@ -81,3 +81,7 @@ Ocho problemas focalizados, independientes. [Versión web](https://academic-labs
 **Prueba:** El mismo ID y título aparecen después de reiniciar.
 
 **Comprensión:** ¿Qué evidencia descarta que solo guardaste en memoria?
+
+## Evidencia de cada microdesafío
+
+Entrega por separado: (1) código Java, SQL o procedimiento realizado, incluyendo los archivos o métodos solicitados; (2) respuesta conceptual con tus palabras; (3) caso ejecutado y resultado real. En la actividad web, los tres campos deben estar completos antes de habilitar la confirmación. Modificar un campo invalida la confirmación anterior. El TXT permite exportar avances parciales, identificados como pendientes. No incluyas credenciales. La comprobación de campos no acredita la corrección ni ejecución del código.
