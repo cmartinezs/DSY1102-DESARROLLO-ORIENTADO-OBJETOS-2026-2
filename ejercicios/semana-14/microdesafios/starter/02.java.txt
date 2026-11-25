@@ -1,0 +1,3 @@
+String titulo = "O'Connor";
+String sql = "SELECT id, titulo FROM libro WHERE titulo = '" + titulo + "'";
+// TODO: parametrizar consulta y ejecutar de forma segura.

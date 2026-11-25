@@ -101,3 +101,6 @@ git pull
 
 ## Unidad 3 · Guías complementarias JDBC y DAO
 - [Semana 13](semanas/semana-13/README.md) · [Semana 14](semanas/semana-14/README.md) · [Mini referencias](semanas/semana-13/referencias.md).
+
+
+- [Refuerzo para la evaluación Unidad 3](semanas/semana-14/preparacion-evaluacion/README.md)

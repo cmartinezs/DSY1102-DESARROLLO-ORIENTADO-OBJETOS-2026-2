@@ -1,0 +1,5 @@
+public List<Libro> mapear(ResultSet rs) throws SQLException {
+    List<Libro> libros = new ArrayList<>();
+    // TODO: recorrer, construir objetos y agregar a la lista.
+    return libros;
+}

@@ -1,0 +1,2 @@
+String url = "jdbc:mariadb://localhost:3307/preparacion_db";
+Connection con = DriverManager.getConnection(url, user, password);

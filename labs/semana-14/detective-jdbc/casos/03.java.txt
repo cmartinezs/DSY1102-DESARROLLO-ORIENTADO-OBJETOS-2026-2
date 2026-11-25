@@ -1,0 +1,3 @@
+try (ResultSet rs = ps.executeQuery()) {
+    System.out.println(rs.getString("titulo"));
+}

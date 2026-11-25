@@ -1,0 +1,3 @@
+SELECT id, titulo FROM libro ORDER BY id;
+-- TODO: registrar el estado antes de guardar.
+-- TODO: repetir consulta después de reiniciar.

@@ -1,0 +1,7 @@
+public class LibroController {
+    public void cargar() throws SQLException {
+        String sql = "SELECT id, titulo FROM libro";
+        // TODO: mover acceso JDBC a una implementación DAO.
+        // TODO: consumir el contrato desde este controlador.
+    }
+}

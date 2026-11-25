@@ -1,0 +1,7 @@
+while (rs.next()) {
+    Libro libro = new Libro(
+            rs.getInt("titulo"),
+            rs.getString("id")
+    );
+    libros.add(libro);
+}

@@ -1,0 +1,10 @@
+@FXML
+private TableView<Libro> tablaLibros;
+
+@FXML
+private TableColumn<Libro, String> colTitulo;
+
+@FXML
+private void initialize() {
+    // TODO: configurar columna y cargar desde DAO.
+}

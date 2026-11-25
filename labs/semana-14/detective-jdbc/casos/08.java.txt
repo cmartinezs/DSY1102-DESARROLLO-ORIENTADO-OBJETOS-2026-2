@@ -1,0 +1,4 @@
+String titulo = txtTitulo.getText();
+if (titulo.length() <= 120) {
+    dao.insertar(new Libro(0, titulo));
+}

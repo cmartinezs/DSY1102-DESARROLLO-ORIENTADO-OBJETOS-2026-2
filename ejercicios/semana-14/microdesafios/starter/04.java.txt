@@ -1,0 +1,5 @@
+String sql = "UPDATE libro SET titulo = ? WHERE id = ?";
+try (PreparedStatement ps = con.prepareStatement(sql)) {
+    // TODO: asignar parámetros y verificar filas afectadas.
+}
+// TODO: implementar DELETE por ID.

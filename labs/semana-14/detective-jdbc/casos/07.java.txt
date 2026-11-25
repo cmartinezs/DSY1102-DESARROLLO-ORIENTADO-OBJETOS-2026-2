@@ -1,0 +1,5 @@
+@FXML
+private void guardar() throws SQLException {
+    dao.insertar(new Libro(0, txtTitulo.getText()));
+    txtTitulo.clear();
+}

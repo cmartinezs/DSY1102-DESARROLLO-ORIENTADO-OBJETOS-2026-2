@@ -1,0 +1,7 @@
+String url = "jdbc:mariadb://localhost:3307/preparacion_db";
+try (Connection con = DriverManager.getConnection(
+        url, System.getenv("DB_USER"), System.getenv("DB_PASSWORD"))) {
+    System.out.println("TODO: comprobar conexión");
+} catch (SQLException e) {
+    // TODO: diagnosticar sin mostrar credenciales.
+}

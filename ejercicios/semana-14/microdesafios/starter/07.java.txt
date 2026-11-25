@@ -1,0 +1,6 @@
+@FXML
+private void guardar() {
+    String titulo = txtTitulo.getText();
+    // TODO: validar antes de guardar.
+    // TODO: manejar SQLException sin anunciar éxito falso.
+}

@@ -1,0 +1,7 @@
+@FXML
+private TableView<Libro> tabla;
+
+@FXML
+private void initialize() {
+    tabla.getItems().clear();
+}

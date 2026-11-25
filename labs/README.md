@@ -62,3 +62,6 @@ Los labs no reemplazan ejercicios ni PetCare. Los ejercicios viven en [`../ejerc
 ## Unidad 3 · Material complementario
 - [Semana 13 · JDBC y CRUD](semana-13/README.md)
 - [Semana 14 · DAO y JavaFX](semana-14/README.md)
+
+
+- [Refuerzo para la evaluación Unidad 3](semana-14/detective-jdbc/README.md)
