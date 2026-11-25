@@ -1,0 +1,314 @@
+{
+  "status": "prepared; publish only after downstream acceptance",
+  "sources": {
+    "academyHandbook": "a557694f3773f72b796dde69efb0912d0e63b1f0",
+    "academyProjects": "1e7d081f7077fd908be9149e6873ca2675f17da3",
+    "academicLabs": "042bc4e60b83776d711ba871a90ed319f57d3374"
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "knowledge": [
+        {
+          "label": "Paradigmas",
+          "url": "https://academy.adumun.cl/handbook/foundations/paradigms/"
+        },
+        {
+          "label": "Tipos",
+          "url": "https://academy.adumun.cl/handbook/java/types/"
+        },
+        {
+          "label": "Expresiones",
+          "url": "https://academy.adumun.cl/handbook/java/expressions/"
+        },
+        {
+          "label": "Control de flujo",
+          "url": "https://academy.adumun.cl/handbook/java/control-flow/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-fundamentals-practice/",
+      "lab": null,
+      "projects": []
+    },
+    {
+      "week": 2,
+      "knowledge": [
+        {
+          "label": "Métodos",
+          "url": "https://academy.adumun.cl/handbook/java/methods/"
+        },
+        {
+          "label": "Clases y objetos",
+          "url": "https://academy.adumun.cl/handbook/java/classes-and-objects/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-methods-objects-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/cuenta-simple-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/"
+      ]
+    },
+    {
+      "week": 3,
+      "knowledge": [
+        {
+          "label": "Objetos y estado",
+          "url": "https://academy.adumun.cl/handbook/foundations/objects/"
+        },
+        {
+          "label": "Clases y objetos",
+          "url": "https://academy.adumun.cl/handbook/java/classes-and-objects/"
+        },
+        {
+          "label": "Constructores",
+          "url": "https://academy.adumun.cl/handbook/java/constructors/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-encapsulation-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/drone-battery-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/"
+      ]
+    },
+    {
+      "week": 4,
+      "knowledge": [
+        {
+          "label": "Constructores",
+          "url": "https://academy.adumun.cl/handbook/java/constructors/"
+        },
+        {
+          "label": "Composición",
+          "url": "https://academy.adumun.cl/handbook/java/composition/"
+        },
+        {
+          "label": "Scanner",
+          "url": "https://academy.adumun.cl/handbook/java/scanner/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-constructors-composition-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/coffee-orders-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/"
+      ]
+    },
+    {
+      "week": 5,
+      "knowledge": [
+        {
+          "label": "Herencia",
+          "url": "https://academy.adumun.cl/handbook/java/inheritance/"
+        },
+        {
+          "label": "Interfaces",
+          "url": "https://academy.adumun.cl/handbook/java/interfaces/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-inheritance-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/urban-delivery-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/"
+      ]
+    },
+    {
+      "week": 6,
+      "knowledge": [
+        {
+          "label": "Arrays",
+          "url": "https://academy.adumun.cl/handbook/java/arrays/"
+        },
+        {
+          "label": "Colecciones",
+          "url": "https://academy.adumun.cl/handbook/java/collections/"
+        },
+        {
+          "label": "Excepciones",
+          "url": "https://academy.adumun.cl/handbook/java/exceptions/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-arrays-collections-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/workshop-enrollment-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/"
+      ]
+    },
+    {
+      "week": 7,
+      "knowledge": [
+        {
+          "label": "Abstracción",
+          "url": "https://academy.adumun.cl/handbook/java/abstract-classes/"
+        },
+        {
+          "label": "Interfaces",
+          "url": "https://academy.adumun.cl/handbook/java/interfaces/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-abstraction-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/technical-support-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/",
+        "https://academy.adumun.cl/projects/mediahub/"
+      ]
+    },
+    {
+      "week": 8,
+      "knowledge": [
+        {
+          "label": "Set",
+          "url": "https://academy.adumun.cl/handbook/java/sets/"
+        },
+        {
+          "label": "Map",
+          "url": "https://academy.adumun.cl/handbook/java/maps/"
+        },
+        {
+          "label": "Igualdad",
+          "url": "https://academy.adumun.cl/handbook/java/equality/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-set-map-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/fair-access-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/"
+      ]
+    },
+    {
+      "week": 9,
+      "knowledge": [
+        {
+          "label": "Maven",
+          "url": "https://academy.adumun.cl/handbook/tools/maven/"
+        },
+        {
+          "label": "Scene Builder",
+          "url": "https://academy.adumun.cl/handbook/java/javafx/scene-builder/"
+        },
+        {
+          "label": "FXML y controller",
+          "url": "https://academy.adumun.cl/handbook/java/javafx/fxml-controller/"
+        },
+        {
+          "label": "Eventos",
+          "url": "https://academy.adumun.cl/handbook/java/javafx/events/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/javafx-events-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/rent-a-car-javafx-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/petcare/"
+      ]
+    },
+    {
+      "week": 10,
+      "knowledge": [
+        {
+          "label": "Arquitectura",
+          "url": "https://academy.adumun.cl/handbook/architecture/"
+        },
+        {
+          "label": "TableView",
+          "url": "https://academy.adumun.cl/handbook/java/javafx/table-view/"
+        },
+        {
+          "label": "Navegación",
+          "url": "https://academy.adumun.cl/handbook/java/javafx/navigation/"
+        },
+        {
+          "label": "Validación",
+          "url": "https://academy.adumun.cl/handbook/java/javafx/validation/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/javafx-mvc-navigation-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/sports-reservation-javafx-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/time-capsule-fx/"
+      ]
+    },
+    {
+      "week": 11,
+      "knowledge": [
+        {
+          "label": "JSON",
+          "url": "https://academy.adumun.cl/handbook/foundations/json/"
+        },
+        {
+          "label": "Serialización JSON",
+          "url": "https://academy.adumun.cl/handbook/java/json-serialization/"
+        },
+        {
+          "label": "Archivos",
+          "url": "https://academy.adumun.cl/handbook/java/files/"
+        },
+        {
+          "label": "Contratos",
+          "url": "https://academy.adumun.cl/handbook/architecture/contracts/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/java-json-dao-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/instrument-inventory-json-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/time-capsule-fx/"
+      ]
+    },
+    {
+      "week": 13,
+      "knowledge": [
+        {
+          "label": "Conexión",
+          "url": "https://academy.adumun.cl/handbook/java/jdbc/connection/"
+        },
+        {
+          "label": "PreparedStatement",
+          "url": "https://academy.adumun.cl/handbook/java/jdbc/prepared-statement/"
+        },
+        {
+          "label": "ResultSet",
+          "url": "https://academy.adumun.cl/handbook/java/jdbc/result-set/"
+        },
+        {
+          "label": "CRUD",
+          "url": "https://academy.adumun.cl/handbook/java/jdbc/crud/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/jdbc-query-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/persistent-capsules-jdbc-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/time-capsule-fx/"
+      ]
+    },
+    {
+      "week": 14,
+      "knowledge": [
+        {
+          "label": "CRUD",
+          "url": "https://academy.adumun.cl/handbook/java/jdbc/crud/"
+        },
+        {
+          "label": "Transacciones",
+          "url": "https://academy.adumun.cl/handbook/java/jdbc/transactions/"
+        },
+        {
+          "label": "TableView",
+          "url": "https://academy.adumun.cl/handbook/java/javafx/table-view/"
+        },
+        {
+          "label": "Contratos",
+          "url": "https://academy.adumun.cl/handbook/architecture/contracts/"
+        }
+      ],
+      "practice": "https://academic-labs.adumun.cl/activities/jdbc-dao-focused-practice/",
+      "lab": "https://academic-labs.adumun.cl/activities/capsules-javafx-dao-lab/",
+      "projects": [
+        "https://academy.adumun.cl/projects/time-capsule-fx/"
+      ]
+    }
+  ],
+  "unavailableWeeks": [
+    12,
+    15,
+    16,
+    17,
+    18
+  ]
+}
