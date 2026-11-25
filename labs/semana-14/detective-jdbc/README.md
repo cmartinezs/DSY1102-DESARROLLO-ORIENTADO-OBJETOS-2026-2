@@ -65,3 +65,7 @@ El formulario permite guardar un título vacío o compuesto solo por espacios.
 [Fragmento defectuoso](casos/08.java.txt)
 
 **Criterio de aceptación:** Las entradas inválidas no cambian la base.
+
+## Modalidad web · Contra reloj
+
+La actividad web ofrece 8 preguntas, una por temática, extraídas de un banco de 24 casos. Incluye selección simple (35 s), múltiple (50 s) y verdadero/falso (20 s), con 2–3 preguntas de cada tipo. Se mezclan preguntas y alternativas. El intento y los plazos se conservan localmente; recargar no permite reiniciar y registra una incidencia. No se permite retroceder. La selección múltiple exige todas y solo las opciones correctas. El puntaje y TXT son formativos; no certifican identidad, integridad ni ausencia de asistencia externa. La aleatorización reduce coincidencias, pero no garantiza exclusividad global sin backend. Los fragmentos de este repositorio quedan como material de práctica y diagnóstico, no como el cuestionario activo.
