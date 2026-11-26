@@ -24,18 +24,18 @@ Semanas 12, 15–18: el índice curricular señala planificación/evaluación; n
 
 ## Ejercicios focalizados: 47 enunciados identificados
 
-39 de semanas 01–11, 8 de semanas 13–14. Cada fila conserva el identificador dentro del banco; la actividad puede compartir página con otros ejercicios sin fusionar su propósito. Tipo C (ejecución externa IDE/SQL) por defecto; B para análisis que puede resolverse en web manteniendo la habilidad. Evidencia: código/SQL y resultado de prueba, o explicación para análisis. No copiar soluciones reservadas. La compatibilidad se revalida al adaptar.
+39 de semanas 01–11, 8 de semanas 13–14. Cada fila conserva el identificador dentro del banco; la actividad puede compartir página con otros ejercicios sin fusionar su propósito. Tipo C (ejecución externa IDE/SQL) cuando se exige código ejecutable, incluso si también hay análisis; B solo cuando el enunciado se satisface mediante análisis sin exigir ejecución. Evidencia: código/SQL y resultado de prueba, o explicación para análisis. No copiar soluciones reservadas. La compatibilidad se revalida al adaptar.
 
 | ID | Enunciado | Fuente | Destino / modalidad |
 |---|---|---|---|
 | W01-E01 | Precio final de una compra | [E01](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-01/README.md) | Labs, C: práctica local |
 | W01-E02 | Control de una compra según stock | [E02](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-01/README.md) | Labs, C: práctica local |
 | W01-E03 | Detectar el primer día de agotamiento | [E03](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-01/README.md) | Labs, C: práctica local |
-| W01-E04 | Traducir una regla antes de programarla | [E04](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-01/README.md) | Labs, B: análisis |
+| W01-E04 | Traducir una regla antes de programarla | [E04](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-01/README.md) | Labs, C: práctica local con análisis |
 | W02-E01 | Tarifa de estacionamiento reutilizable | [E01](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-02/README.md) | Labs, C: práctica local |
 | W02-E02 | Encapsular un contador | [E02](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-02/README.md) | Labs, C: práctica local |
 | W02-E03 | Dos instancias, dos estados | [E03](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-02/README.md) | Labs, C: práctica local |
-| W02-E04 | Elegir la responsabilidad correcta | [E04](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-02/README.md) | Labs, B: análisis |
+| W02-E04 | Elegir la responsabilidad correcta | [E04](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-02/README.md) | Labs, C: práctica local con análisis |
 | W03-E01 | Entrada con edad mínima | [E01](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-03/README.md) | Labs, C: práctica local |
 | W03-E02 | Termostato protegido | [E02](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-03/README.md) | Labs, C: práctica local |
 | W03-E03 | Una operación entre objetos | [E03](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-03/README.md) | Labs, C: práctica local |
@@ -55,7 +55,7 @@ Semanas 12, 15–18: el índice curricular señala planificación/evaluación; n
 | W07-E03 | Despacho polimórfico de una instrucción | [E03](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-07/README.md) | Labs, C: práctica local |
 | W08-E01 | Unicidad de etiquetas | [E01](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-08/README.md) | Labs, C: práctica local |
 | W08-E02 | Buscar un precio por código | [E02](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-08/README.md) | Labs, C: práctica local |
-| W08-E03 | ¿Qué estructura elegirías? | [E03](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-08/README.md) | Labs, B: análisis |
+| W08-E03 | ¿Qué estructura elegirías? | [E03](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-08/README.md) | Labs, C: práctica local con análisis |
 | W08-E04 | Igualdad en un Set de objetos | [E04](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-08/README.md) | Labs, C: práctica local |
 | W09-E01 | Confirmar una acción en pantalla | [E01](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-09/README.md) | Labs, C: práctica local |
 | W09-E02 | Validar un único campo | [E02](https://github.com/cmartinezs/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/blob/a28dbca877a9ef6e0105777cae48ba4fa252f10c/ejercicios/semana-09/README.md) | Labs, C: práctica local |
@@ -133,3 +133,10 @@ Semanas 12, 15–18: el índice curricular señala planificación/evaluación; n
 - Los bancos BANCO-ORIGINAL-2026, código Legacy y aliases son históricos; no cuentan doble. El catálogo no es evidencia de funcionamiento HTTP. 
 - ADU-228: fundamentos OO/Java primero, luego datos/JSON/archivos/pruebas/UI y herramientas. ADU-229: tres proyectos con alcance real. ADU-230: adaptar prácticas autónomas y bancos sin duplicar las ocho actividades vigentes. ADU-231: integración final y prueba de enlaces.
 - Cada lote debe revisar fuentes completas antes de adaptar, registrar limitaciones, construir, comprobar y obtener aceptación. ADU-120/121/122 mantienen su alcance multi-asignatura; ADU-226 no los cierra.
+
+## Verificación del inventario (25-11-2026)
+
+- 552/552 rutas y SHA de blobs coinciden con el árbol Git de la fuente docente fijada.
+- 117/117 enlaces de la matriz al repositorio docente existen en dicho árbol (incluye referencias repetidas); no equivale a comprobación HTTP.
+- W01-E04, W02-E04 y W08-E03 requieren código ejecutable además de análisis; se clasifican como C. W13-E02 y W14-E01 mantienen B según su consigna.
+- Academy Handbook y Projects integrados en producción en 3ad8604b54835ac29d4e269e00f80f914f78faf9; Cloudflare SUCCESS y aceptación visual registrada en ADU-228/229. La columna Handbook de cobertura semanal representa el diagnóstico inicial, no el estado final; ADU-231 deberá conciliarlo con los destinos efectivos y la disponibilidad de Labs.
