@@ -2,17 +2,11 @@
 
 Repositorio docente de apoyo para **DSY1102 Desarrollo Orientado a Objetos**.
 
-## Portal del curso
+## Recursos del curso
 
-- [Portal web](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/)
-- [Semanas](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/semanas.html)
-- [Laboratorios](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/laboratorios.html)
-- [Proyecto formativo](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/proyecto-formativo.html)
-- [Ejercicios mínimos semanales · banco vigente](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/exercises/class-practice/)
-- [Desafíos anteriores · práctica opcional](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/challenges/weekly/)
-- [Práctica integradora liberada · diseño original EP1](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/practice-ep1/)
-
-- [**Clase consolidada Unidad 2 · Cápsula del Tiempo FX**](https://cmartinezs.github.io/DSY1102-DESARROLLO-ORIENTADO-OBJETOS-2026-2/pages/classes/capsula-tiempo-fx/) — presentación HTML/CSS/JS con capturas reales y navegación interactiva.
+- [Ruta de recursos por semana](docs/RUTA-RECURSOS-DSY1102.md): conocimiento, práctica y proyectos en los productos ADÜMÜN.
+- [Academy](https://academy.adumun.cl/) · [Academic Labs](https://academic-labs.adumun.cl/).
+- [Clase consolidada Unidad 2 · fuentes originales](clases/unidad-02/capsula-tiempo-fx/README.md).
 
 ## Estructura canónica
 
@@ -60,17 +54,15 @@ Es un proyecto longitudinal. Cada semana depende de la anterior y contiene check
 
 - práctica mínima o demostrativa → `ejemplos/` o material de la semana;
 - práctica breve de aplicación → `ejercicios/`;
-- desafío de mayor autonomía → portal de desafíos, sin duplicar el banco canónico;
+- desafío de mayor autonomía → material docente o Academic Labs, según alcance, sin duplicar el banco canónico;
 - práctica guiada sustancial → `labs/`;
-- desafíos destacados → pueden exponerse además en el portal web y deben enlazar a su fuente mantenida cuando corresponda.
+- desafíos destacados → evaluar su adaptación a Academic Labs sin duplicar las fuentes.
 
-## GitHub Pages · publicación sin Actions
+## Publicación y mantenimiento
 
-GitHub Actions **no se utiliza para desplegar el portal**. `master` conserva las fuentes canónicas del curso; la web publicada es una superficie derivada y se materializa en la rama estática `gh-pages` mediante **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**.
+El portal docente independiente se retira del flujo de mantenimiento. `master` conserva el material curricular; la orientación semanal vive en el [índice Markdown](docs/RUTA-RECURSOS-DSY1102.md). Academy y Academic Labs publican mediante sus propios flujos Cloudflare. GitHub Actions se utiliza para validación y pruebas, no para publicar este portal. La rama histórica se conserva sin nuevas entregas; no se requiere reintroducir `page/`.
 
-No existe una raíz canónica `page/` en `master`; el portal no debe convertirse en una segunda fuente normativa ni requerir la reintroducción de esa carpeta.
-
-Consulta [`docs/ESTRUCTURA-CANONICA.md`](docs/ESTRUCTURA-CANONICA.md) para las reglas completas cuando aplique y la documentación transversal vigente en `docs/` para la operación docente.
+Consulta [`docs/ESTRUCTURA-CANONICA.md`](docs/ESTRUCTURA-CANONICA.md) para la estructura del material; sus instrucciones históricas de publicación quedan superadas por esta decisión (ADU-231).
 
 ## Repositorio personal del estudiante
 
