@@ -1,0 +1,21 @@
+name: ADU-231 HTTP routes
+on:
+  push:
+    branches: [qa/ADU-231-http-routes]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify exact PR manifest
+        run: test "$(git hash-object docs/adu-231-ecosystem-routes.json)" = "164a6b454145d8439b84bf63ad769900bc12bb19"
+      - name: Validate production HTTP routes
+        run: node scripts/validate-adu-231-routes.mjs
