@@ -1,9 +1,11 @@
 {
-  "status": "prepared; publish only after downstream acceptance",
+  "status": "downstream accepted and production deployment checks successful; independent HTTP route validation pending",
   "sources": {
     "academyHandbook": "a557694f3773f72b796dde69efb0912d0e63b1f0",
     "academyProjects": "1e7d081f7077fd908be9149e6873ca2675f17da3",
-    "academicLabs": "042bc4e60b83776d711ba871a90ed319f57d3374"
+    "academicLabs": "042bc4e60b83776d711ba871a90ed319f57d3374",
+    "academyPublished": "84791e8efb9df0df679ded18d164946491da0ce2",
+    "academicLabsPublished": "994eb92098ae2e211abdf575defccd30a01f37a4"
   },
   "weeks": [
     {
@@ -310,5 +312,18 @@
     16,
     17,
     18
-  ]
+  ],
+  "validation": {
+    "uniqueDestinations": 64,
+    "verifiedInPublishedTrees": 64,
+    "cloudflareProduction": "success (both)",
+    "http": "not verified; execution environment DNS unavailable",
+    "unavailableWeeks": [
+      12,
+      15,
+      16,
+      17,
+      18
+    ]
+  }
 }
